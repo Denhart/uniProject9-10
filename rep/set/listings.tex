@@ -1,0 +1,42 @@
+% vim: nospell
+\lstset{
+    breaklines=true, 
+    language=c,
+    basicstyle=\scriptsize\ttfamily, 
+    numberstyle=\scriptsize\ttfamily, 
+    keywordstyle=\color{blue},
+    framerule=0.1mm,
+    rulecolor=\color{black},
+    frame=leftline,
+    xleftmargin=3em,
+    linewidth=\linewidth,
+    numbers=left, 
+    literate={ø}{{\o}}1 {æ}{{\ae}}1{å}{{\aa}}1,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    captionpos=b,
+    commentstyle=\color{green!50!black},
+}
+\lstdefinelanguage{picoblaze}{
+    sensitive=false,
+    morekeywords=[1]{
+        add, addcy, adddc, addcy, and, call, compare, comp,
+        dint, eint, fetch, input, jump, load, or, output,
+        return, returni, rl, rr, sl0, sl1, sla, slx, sr0, sr1,
+    sra, srx, store, sub, subcy, test, xor},
+    morecomment=[l]{;},
+    morestring=[b]",
+    morestring=[b]',
+}
+\lstdefinelanguage{constraintfile}{
+    morekeywords={NET, LOC},
+    sensitive=false,
+    morecomment=[l]\#,
+    morestring=[b]",
+}
+\lstdefinelanguage{diff}{
+    morecomment=[f][\color{blue!70!black}]{<},
+    morecomment=[f][\color{red!70!black}]{>},
+}
+

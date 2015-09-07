@@ -1,0 +1,26 @@
+% vim: nospell
+\input set/preamble.tex
+\input set/macros.tex
+\input set/listings.tex
+
+\begin{document}
+
+% Front matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+\pagestyle{empty}
+\input set/frontpage
+\input set/titlepage
+\pagestyle{fancy}
+\setcounter{page}{1}
+\tableofcontents
+\cleardoublepage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% Main matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{ieeetr}
+\bibliography{bib/sources}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\end{document}

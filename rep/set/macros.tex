@@ -1,0 +1,36 @@
+\newenvironment{aautop}{\bfseries\noindent\ignorespaces}{\vskip 0.75cm}
+\newenvironment{aautail}{\vskip 0.75cm\bfseries\noindent\ignorespaces}{}
+\newcommand{\cdref}[1] {
+    \begin{flushleft}
+        \begin{tabular}{ll}
+            \hspace{1em}\includegraphics[height=9pt]{img/misc/folder} & \texttt{#1}
+        \end{tabular}
+    \end{flushleft}
+}
+\newcommand{\arbejdsbladDato}[1] {
+      \begin{flushright}\itshape #1\end{flushright}
+}
+\newcommand{\hex}[1] {
+      \texttt{#1}
+}
+\def\itoc{I$^2$C\xspace}
+\newcommand{\real}[1]{\text{Re}\{#1\}}
+\newcommand{\imag}[1]{\text{Im}\{#1\}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\sort}{sort}
+
+\newcounter{reqcount}
+\newcommand{\req}[1]{%
+      \refstepcounter{reqcount}\label{#1}
+    \item [\rm\arabic{reqcount}.]
+}
+
+\newcommand\wherelabel[1]{\hspace{\labelsep}#1 $=$}
+\newenvironment{where}{%
+    \let\descriptionlabel\wherelabel
+    \description
+}{%
+    \enddescription
+}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}

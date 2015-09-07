@@ -1,0 +1,82 @@
+\def\navnA{Lasse Thomsen}
+\def\navnB{Henrik Aarup Vesterager}
+\def\navnC{Søren Bøgeskov Nørgaard}
+
+\ifx\titlepageleftcolumnwidth\undefined
+\newlength{\titlepageleftcolumnwidth}
+\newlength{\titlepagerightcolumnwidth}
+\fi
+\setlength{\titlepageleftcolumnwidth}{0.5\textwidth-\tabcolsep}
+\setlength{\titlepagerightcolumnwidth}{\textwidth-5\tabcolsep-\titlepageleftcolumnwidth}
+% create title page
+\thispagestyle{empty}
+\noindent%
+\begin{tabular}{@{}ll@{}}
+    \parbox{\titlepageleftcolumnwidth}{
+        \vspace{-1.0cm}
+        \centering
+        \includegraphics{img/misc/aau_logo_en}
+    } &
+    \parbox{\titlepagerightcolumnwidth}{\vspace{-1.0cm}\raggedleft\sffamily\small
+    % department and address
+    \textbf{Department of Electronic Systems}\\
+    Fredrik Bajers Vej 7\\
+    DK-9220 Aalborg Ø\\
+    \href{http://es.aau.dk}{http://es.aau.dk}
+}\bigskip\\
+\parbox[t]{\titlepageleftcolumnwidth}{
+    {\large\bfseries Title:}\\ Tunable Antennas for Handsets Supporting MIMO
+\bigskip\par
+    {\large\bfseries Theme:}\\ Master Thesis\bigskip\par
+    {\large\bfseries Project Period:}\\ September 2015--June 2016\bigskip\par
+    {\large\bfseries Project Group:}\\ 951 \bigskip\par
+    {\large\bfseries Authors:}\\ 
+    \begin{tabular}{ll}
+        \parbox[t][1cm]{5.0cm}{
+            \vfill
+            \centering
+            \hrulefill\\
+            \navnA\\ 
+        }\\
+        \parbox[t][1cm]{5.0cm}{
+            \vfill
+            \centering
+            \hrulefill\\
+            \navnB\\ 
+        } \\
+        \parbox[t][1cm]{5.0cm}{
+            \vfill
+            \centering
+            \hrulefill\\
+            \navnC\\ 
+        }
+    \end{tabular}\bigskip\par
+    {\large\bfseries Supervisors:}\\Samantha Caporal del Barrio\\Shuai Zhang\bigskip\par
+    {\large\bfseries Number of Prints:}\\ 5\bigskip\par
+    {\large\bfseries Number of Pages:}\\ \lastpageref{LastPages}\bigskip\par
+    {\large\bfseries Date for Submission:}\\ \fixme{Submission date}
+} &
+\parbox[t]{\titlepagerightcolumnwidth}{%
+    {\large\bfseries Abstract:}\bigskip\par
+    \colorbox{gray!10}{
+        \parbox{\titlepagerightcolumnwidth-2\fboxsep-2\fboxrule}{%
+            \setlength{\parindent}{20pt}
+            \noindent
+            \onehalfspacing
+            \input{set/abstract}
+        }
+    }
+
+}\\
+\end{tabular}\\
+
+\vfill
+\begin{center}
+    \noindent{\emph{The content of this report is freely available, but publication may only be pursued due to agreement with the author.}}
+\end{center}
+\clearpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../master"
+%%% End:

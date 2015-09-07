@@ -1,0 +1,186 @@
+
+% vim: nospell
+\documentclass[twoside,10pt]{report}
+
+%   Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[final]{pdfpages}
+\usepackage[section]{placeins}
+\usepackage[per-mode = symbol,detect-all=true]{siunitx}
+\usepackage[draft,silent,nomargin,inline]{fixme}
+\usepackage[compact,noindentafter]{titlesec}
+\usepackage{subcaption}
+% \usepackage[font{sf,md,up}]{subfig}
+% \usepackage[font={small,sf}]{caption}
+% \usepackage[scaled=0.83]{helvet}
+\usepackage{mathptmx}
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{aurical}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{commath}
+\usepackage{pgfplots}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{lastpage}
+\usepackage{xspace}
+\usepackage{wasysym}
+\usepackage{pageslts}
+\usepackage{setspace}
+%matlab code font, and such
+%   Package setup
+\usetikzlibrary{shapes,arrows,positioning,patterns,decorations.markings,decorations.pathmorphing}
+\captionsetup[subfigure]{font=normal}
+% \usetikzlibrary{external} 
+% \tikzexternalize[prefix=img/tikz/]
+\tikzset{
+    >=latex,
+}
+\pgfplotsset{
+    compat=newest,
+    every axis plot/.append style = {
+        very thick,
+    },
+    every axis legend/.append style={
+        font={\scriptsize},
+    },
+    every axis/.append style={
+        legend style={draw=none},
+        legend cell align=left,
+        axis x line=bottom,
+        axis y line=left,
+        scaled ticks=false,
+        xticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+        yticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+        width=16cm,
+        height=5cm,
+        axis line style=-latex,
+        tick scale binop=\times,
+        /pgf/number format/.cd,
+        set thousands separator={ },
+        set decimal separator={,},
+    },
+    every axis x label/.style={
+        at={(ticklabel* cs:1.00)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(ticklabel* cs:1.00)},
+        anchor=south,
+    },
+}
+\hypersetup{
+    pdfpagelabels=true,
+    plainpages=false,
+    % pdfauthor={Søren Nørgaard, Miklas Strøm, Jacob Dueholm, Jacob Møller},
+    % pdftitle={GFSK Demodulator},
+    pdfsubject={},
+    bookmarksdepth=3,
+    bookmarksnumbered=true,
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    pdfstartview=FitH
+}
+\usepackage{memhfixc}
+\urlstyle{sf}
+\sisetup{
+    output-decimal-marker = {.},
+    output-exponent-marker=\textsc{e}, 
+    % round-mode=places,
+    output-complex-root=j, 
+    % unit-color=blue,
+    % scientific-notation = engineering
+}
+\DeclareSIUnit[number-unit-product = \,]{\permil}{\textperthousand}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{b}{n}
+
+%   Page Setup
+\usepackage[top=19mm, bottom=43mm, left=12.925mm, right=12.925mm, a4paper]{geometry}
+\setlength{\headheight}{2.5em}  % For fancyhdr
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{1.5em}
+\renewcommand{\topfraction}{0.85}  % Figures
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+
+\titlespacing{\chapter}{0em}{0em}{*0}
+\titlespacing{\section}{0em}{1em}{*0}
+\titlespacing{\subsection}{0pt}{1em}{*0}
+\titlespacing{\subsubsection}{0pt}{1em}{*0}
+% \titleformat{name=\part}[display] {}{}{0em}{\fontfamily{phv}\fontsize{40}{48}\selectfont\centering\bfseries\thepart\\}
+% \titleformat{name=\chapter}[display] {}{}{0em}{\fontfamily{phv}\selectfont\huge\thechapter\ }
+% \titleformat{name=\chapter,numberless}[display] {}{}{0em}{\fontfamily{phv}\selectfont\huge}
+% \titleformat{name=\section}[display] {}{}{0em}{\fontfamily{phv}\selectfont\bfseries\Large\thesection\ }
+% \titleformat{name=\section}[display] {}{}{0em}{\bfseries\Large\thesection\ }
+% \titleformat{name=\subsection}[display] {}{}{0em}{\fontfamily{phv}\selectfont\Large\thesubsection\ }
+% \titleformat{name=\subsubsection}[display] {}{}{0em}{\normalsize\bfseries}
+% \titleformat{name=\paragraph}[runin] {}{}{0em}{\normalsize\itshape}
+
+%   Header and Items
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\fancyfoot{}{}{}
+\fancyhead[LO]{\normalsize\rightmark}
+\fancyhead[RE]{\normalsize\leftmark}
+\fancyhead[LE,RO]{\normalsize\thepage}
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{%
+    \tempone%
+    \setlength{\parskip}{0em}%
+    \setlength{\itemsep}{0.25em}%
+    }{\temptwo}
+\let\tempthree\enumerate
+\let\tempfour\endenumerate
+\renewenvironment{enumerate}{%
+    \tempthree%
+    \setlength{\parskip}{0em}%
+    \setlength{\itemsep}{0.25em}%
+    }{\tempfour}
+\let\tempfive\description
+\let\tempsix\enddescription
+\renewenvironment{description}{%
+    \tempfive%
+    \setlength{\parskip}{0em}%
+    \setlength{\itemsep}{0.25em}%
+    }{\tempsix}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.~\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.~\arabic{enumii}.~\arabic{enumiii}}
+\graphicspath{{./img/}}
+
+%   Packages (must be loaded last)
+\usepackage{csvsimple}
+\usepackage[american]{circuitikz}
+
+% \usepackage{set/showlabels,rotating}
+% \renewcommand{\showlabelsetlabel}[1]%
+% {\begin{turn}{80}\showlabelfont\tiny #1\end{turn}}
+
+% COOL LOOKING FONT!!!
+% \usepackage{pdfrender}
+% \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
+
