@@ -20,11 +20,12 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\sort}{sort}
 
-\newcounter{reqcount}
-\newcommand{\req}[1]{%
-      \refstepcounter{reqcount}\label{#1}
-    \item [\rm\arabic{reqcount}.]
-}
+\newcounter{funcreqcnt}
+\newcounter{specreqcnt}
+\newcommand{\freq}[1]{ \refstepcounter{funcreqcnt}\label{#1} F\arabic{funcreqcnt} }
+\newcommand{\sreq}[1]{ \refstepcounter{specreqcnt}\label{#1} S\arabic{specreqcnt} }
+\newcommand{\freqref}[1]{ F\ref{#1} }
+\newcommand{\sreqref}[1]{ S\ref{#1} }
 
 \newcommand\wherelabel[1]{\hspace{\labelsep}#1 $=$}
 \newenvironment{where}{%
