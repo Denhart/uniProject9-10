@@ -222,18 +222,15 @@ With Brick
      .Create
 End With
 
-
 '@ rename block: component1:solid1 to: component1:FR4
 
 '[VERSION]2014.5|23.0.0|20141010[/VERSION]
 Solid.Rename "component1:solid1", "FR4"
 
-
 '@ rename component: component1 to: PCB
 
 '[VERSION]2014.5|23.0.0|20141010[/VERSION]
 Component.Rename "component1", "PCB"
-
 
 '@ define brick: PCB:Cobber_btn
 
@@ -249,24 +246,20 @@ With Brick
      .Create
 End With
 
-
 '@ delete shape: PCB:Cobber_btn
 
 '[VERSION]2014.5|23.0.0|20141010[/VERSION]
-Solid.Delete "PCB:Cobber_btn" 
-
+Solid.Delete "PCB:Cobber_btn"
 
 '@ activate global coordinates
 
 '[VERSION]2014.5|23.0.0|20141010[/VERSION]
 WCS.ActivateWCS "global"
 
-
 '@ activate local coordinates
 
 '[VERSION]2014.5|23.0.0|20141010[/VERSION]
 WCS.ActivateWCS "local"
-
 
 '@ define brick: PCB:solid1
 
@@ -281,5 +274,16 @@ With Brick
      .Zrange "0", "Cobber_t" 
      .Create
 End With
+
+'@ rename block: PCB:solid1 to: PCB:Cobber_btn
+
+'[VERSION]2014.5|23.0.0|20141010[/VERSION]
+Solid.Rename "PCB:solid1", "Cobber_btn"
+
+
+'@ new component: monopole
+
+'[VERSION]2014.5|23.0.0|20141010[/VERSION]
+Component.New "monopole" 
 
 

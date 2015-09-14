@@ -1,9 +1,9 @@
-PCB:Cobber_top
-0
-1
 PCB:FR4
 0
 1
-PCB:solid1
+PCB:Cobber_top
+0
+1
+PCB:Cobber_btn
 0
 1
