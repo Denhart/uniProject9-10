@@ -10,7 +10,7 @@
     \freq{triband} & Two single-feed tri-band antennas covering. \\
     \freq{usereffect} & Must be able to re-tune any detuning due to user effects. \\
     \freq{matching} & Must have a simple matching network, containing a variable, shunt capacitor for tuning inside the specified bands.\\
-    \freq{wispry} & Must use a wiSpry WS1041 MEMS variable capacitor chip in the matching network.\\
+    \freq{wispry} & Must use a wiSpry WS1040/WS1041 MEMS variable capacitor chip in the matching network.\\
     \hline
 \end{tabularx}
 
@@ -21,12 +21,11 @@
     \hline
     ID & Specification & Requirement \\
     \hline
-    \sreq{fbands} & Frequency bands\slash tunable range & \\
-    \sreq{physdim} & Physical dimensions & Inner: Outer: \\
-    \sreq{coupling} & Coupling/correlation between antenna elements & $S_{21}<\SI{0}{dB}$ \\
+    \sreq{fbands} & Frequency bands\slash tunable range & \num{700}--\SI{960}{MHz}, \num{1710}--\SI{2170}{MHz}, \num{2300}--\SI{2400}{MHz}, \num{2550}--\SI{2650}{MHz} \\
+    \sreq{physdim} & Physical dimensions & External: $70\times140\times7$\,\si{mm\cubed}, PCB: $55\times120$\,\si{mm\squared}\\
+    \sreq{correlation} & Correlation between antenna elements & $\rho_e < 0.5$\\
     \sreq{efficiency} & Total efficiency of antenna (in-band) & $>\SI{50}{\%}$ \\
     \sreq{sar} & Maximum SAR & \\
-    \sreq{hpbw} & Half Power Beam Width (HPBW) & $< $ \\
     \sreq{insloss} & Maximum insertion loss & \\
     \hline
 \end{tabularx}
