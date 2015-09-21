@@ -35,3 +35,8 @@
     \enddescription
 }
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\makeatletter
+\renewcommand*\FXLayoutInline[3]{%
+  {\@fxuseface{inline}\ignorespaces[FIXME: #2]}}
+\makeatother
