@@ -14,13 +14,27 @@
 \setcounter{page}{1}
 \tableofcontents
 \cleardoublepage
+
+% Main matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-% Main matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intro
+\input{sec/intro/introduction.tex}
+\input{sec/intro/initiating_problem.tex}
+
+% Analysis
+\input{sec/analysis/intro.tex}
+\input{sec/analysis/mimo.tex}
+\input{sec/analysis/tuners.tex}
+\input{sec/analysis/problem_statement.tex}
+
+% Requirements
 \input{sec/analysis/requirements_spec.tex}
 
+% Technical solution
 
+% Back matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \listoffixmes
 \bibliographystyle{ieeetr}
 \bibliography{bib/sources}
