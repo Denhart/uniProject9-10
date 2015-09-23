@@ -90,6 +90,16 @@ or $Z_{G,\text{max}} = Z^*_L$; the maximum power is transfered to the load when 
 % Mismatch loss, S11. |S11| = -6 dB  -->  SWR = 3
 
 % Smith chart visualization
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{smithchart}
+            \addplot coordinates {(1,0) (1,1)};
+        \end{smithchart}
+    \end{tikzpicture}
+    \caption{Smithchart.}
+    \label{fig:smithchart}
+\end{figure}
 
 % Matching circuitry, L-network, smith chart ``ups and downs'', analytical formulas.
 
