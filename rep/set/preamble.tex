@@ -44,44 +44,46 @@
 %   Package setup
 \usetikzlibrary{shapes,arrows,positioning,patterns,decorations.markings,decorations.pathmorphing}
 \captionsetup[subfigure]{font=footnotesize}
-% \usetikzlibrary{external} 
-% \tikzexternalize[prefix=img/tikz/]
+\usetikzlibrary{external} 
+\tikzexternalize[prefix=img/tikztmp/]
 \tikzset{
     >=latex,
 }
 \pgfplotsset{
     compat=newest,
-    every axis plot/.append style = {
-        very thick,
-    },
-    every axis legend/.append style={
-        font={\scriptsize},
-    },
-    every axis/.append style={
-        legend style={draw=none},
-        legend cell align=left,
-        axis x line=bottom,
-        axis y line=left,
-        scaled ticks=false,
-        xticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
-        yticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
-        width=16cm,
-        height=5cm,
-        axis line style=-latex,
-        tick scale binop=\times,
-        /pgf/number format/.cd,
-        set thousands separator={ },
-        set decimal separator={,},
-    },
-    every axis x label/.style={
-        at={(ticklabel* cs:1.00)},
-        anchor=west,
-    },
-    every axis y label/.style={
-        at={(ticklabel* cs:1.00)},
-        anchor=south,
-    },
+    every axis/.append style = {font=\footnotesize},
+%     every axis plot/.append style = {
+%         very thick,
+%     },
+%     every axis legend/.append style={
+%         font={\scriptsize},
+%     },
+%     every axis/.append style={
+%         legend style={draw=none},
+%         legend cell align=left,
+%         axis x line=bottom,
+%         axis y line=left,
+%         scaled ticks=false,
+%         xticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+%         yticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+%         width=16cm,
+%         height=5cm,
+%         axis line style=-latex,
+%         tick scale binop=\times,
+%         /pgf/number format/.cd,
+%         set thousands separator={ },
+%         set decimal separator={,},
+%     },
+%     every axis x label/.style={
+%         at={(ticklabel* cs:1.00)},
+%         anchor=west,
+%     },
+%     every axis y label/.style={
+%         at={(ticklabel* cs:1.00)},
+%         anchor=south,
+%     },
 }
+\usepgfplotslibrary{smithchart}
 \hypersetup{
     pdfpagelabels=true,
     plainpages=false,
