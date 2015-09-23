@@ -46,18 +46,48 @@ Note that $\Gamma$ without parameters indicates $\Gamma(0)$.
     \label{fig:generator_load}
 \end{figure}
 
-The power in the load is found as \cite{pozar2011microwave}
+To maximize the power transfered from a generator to a load, it is desired to have a reflection coefficient that is zero so that only forward waves are present on the transmission line. Figure~\ref{fig:generator_load} shows an equivalent circuit for this situation. The power in the load is found as \cite{pozar2011microwave}
 \begin{equation}
-    P = \frac{1}{2} \real{VI^*} = 
+    \label{eq:power1}
+    P = \frac{1}{2} \real{V_LI^*} = \frac{1}{2} \real{\frac{|V_L|^2}{Z_L}}
+    = \frac{1}{2} |V_L|^2 \real{\frac{1}{Z_L}}
 \end{equation}
 where
 \begin{where}
-\item[$P$] Power delivered to the load
-\item[$V$] Voltage drop across the load
+\item[$P_L$] Power delivered to the load
+\item[$V_L$] Voltage drop across the load
+\item[$Z_L$] $R_L+jX_L$ is the load impedance
 \item[$I$] Current through the load
 \end{where}
+Using basic circuit theory, (\ref{eq:power1}) can be expressed in terms of $V_G$ and $Z_G$, making it possible to derive the optimal $Z_G = R_G+jX_G$ for a fixed, complex load. Continuing from (\ref{eq:power1}),
+\begin{equation}
+    \begin{aligned}
+        P &= \frac{1}{2} \left| V_G \frac{Z_L}{Z_L+Z_G} \right|^2 \real{\frac{1}{Z_L}} 
+        = \frac{1}{2} |V_G|^2 \frac{|Z_L|^2}{|Z_L+Z_G|^2} \real{\frac{1}{Z_L}}\\
+        &= \frac{|V_G|^2}{2} \frac{R_L^2+X_L^2}{(R_L+R_G)^2+(X_L+X_G)^2} \frac{R_L}{R_L^2 + X_L^2}\\
+        &= \frac{|V_G|^2}{2} \frac{R_L}{(R_L+R_G)^2 + (X_L+X_G)^2}
+    \end{aligned}
+\end{equation}
+The values of $R_G$ and $X_G$ that maximize the power delivered to the load, is found by 
+\begin{enumerate}
+\item Taking the partial derivative of $P$ with respect to $R_L$
+\item Taking the partial derivative of $P$ with respect to $X_L$
+\item Setting both of the above solutions equal to zero and solving for $R_G$ and $X_G$ (two equations with two unknowns)
+    \begin{align}
+        \dpd{P}{R_L} &= 0 \\
+        \dpd{P}{X_L} &= 0
+    \end{align}
+\end{enumerate}
+Doing so, yields the following solution,
+\begin{equation}
+    \begin{aligned}
+        R_{G,\text{max}} &= R_L \\
+        X_{G,\text{max}} &= -X_L
+    \end{aligned}
+\end{equation}
+or $Z_{G,\text{max}} = Z^*_L$; the maximum power is transfered to the load when the generator impedance is the complex conjugate of the load impedance. In this situation the generator is said to be \emph{matched} to the load. Generally, the generator and the load would be connected through a transmission line with the characteristic impedance $Z_0$, so the maximum power transfer from generator to load will occur when both generator and load is matched to $Z_0$.
 
-% Mismatch loss, S11. S11 = -6 dB  -->  SWR = 3
+% Mismatch loss, S11. |S11| = -6 dB  -->  SWR = 3
 
 % Smith chart visualization
 
