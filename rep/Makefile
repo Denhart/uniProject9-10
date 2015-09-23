@@ -62,6 +62,7 @@ clean :
 	rm -f *.lof
 	rm -f *.fdb_latexmk
 	rm -f img/*.bak
+	rm -f img/tikztmp/*
 
 once : 
 	$(LATEX) $(MAIN).tex
