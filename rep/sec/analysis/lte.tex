@@ -2,16 +2,49 @@
 In this part an overview of the allocated LTE frequency bands will be provided together with a general description of the lte spectrum.
 Furthermore in addition to the allocated LTE bands a more detailed description on the bands covered in this project will be provided.
 
-LTE (Long Term Evolution) is an evolution of the UMTS (Universal Mobile Telecommunications System), HSPA (High Speed Packet Access) and HSPA+ (Evolved High Speed Packet Access) 3G communication standards. HSPA and HSPA+ are upgrades to UMTS for the primary goal to provide higher data rates. The LTE is advertised as a 4G network first commercial services was introduced in 2009 
- 
-\subsection{LTE Frequency Band Allocation}
+LTE (Long Term Evolution) is an evolution of the UMTS (Universal Mobile Telecommunications System), HSPA (High Speed Packet Access) and HSPA+ (Evolved High Speed Packet Access) 3G communication standards. HSPA and HSPA+ are upgrades to UMTS with the primary goal to improve the data rates on the 3G communication network. The LTE standard is marketed as a 4G network, even though the LTE standard do not meet the requirements set by the 4G standard.
+The LTE provides much higher data rates than the 3G HSPA+ standard, using OFDMA (Orthogonal Frequency Division Multiplex) in downlink and SC-FDMA (Single Carrier - Frequency Division Multiple Access) in uplink. These access scheme technologies also enables the LTE network to use MIMO (Multiple Input Multiple Output) technologies, which improves the throughput even further, by having the option to add up multipath signals. An comparison of the UMTS, HSPA and LTE speeds can be seen in table \ref{tab:3g4g_speeds}. \cite{radio2015electronics} 
+
 \begin{table}[]
 \centering
-\caption{LTE frequency band allocation \cite{radio2015electronics}}
-\label{table:ltefreqband}
+\caption{LTE speed specifications \cite{radio2015electronics}}
+\label{tab:3g4g_speeds}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+                                                                                 & {\bf \begin{tabular}[c]{@{}c@{}}WCDMA\\ (UMTS)\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}HSPA\\ HSDPA/HSUPA\end{tabular}} & {\bf HSPA+} & {\bf LTE}     \\ \hline
+{\bf \begin{tabular}[c]{@{}c@{}}Max downlink speed\\ (bps)\end{tabular}}         & 384 k                                                        & 14 M                                                             & 28 M        & 100 M         \\ \hline
+{\bf \begin{tabular}[c]{@{}c@{}}Max uplink speed\\ (bps)\end{tabular}}           & 128 k                                                        & 5.7 M                                                            & 11 M        & 50 M          \\ \hline
+{\bf \begin{tabular}[c]{@{}c@{}}Latency\\ round trip time\\ approx\end{tabular}} & 150 ms                                                       & 100 ms                                                           & 50 ms (max) & ~10 ms        \\ \hline
+{\bf Access methodology}                                                         & CDMA                                                         & CDMA                                                             & CDMA        & OFDMA/SC-FDMA \\ \hline
+\end{tabular}
+\end{table}
+ 
+\subsection{LTE Frequency Band Allocation}
+As seen in table \ref{tab:ltefreqband} the available LTE bands for uplink and downlink are allocated in the frequencies from \SIrange{452.5}{3600}{MHz}. The whole spectrum between \SIrange{452.5}{3600}{MHz} is not occupied by the mobile communication systems, as other network systems as WIFI, GPS and TV etc. also have the rights (licenses) to some of the frequency bands within this spectrum.
+However the transition from analog to digital broadcast television signals, have freed some frequency bands for mobile communication. In U.S 2009 the \SI{700}{MHz} band covering \SIrange{698}{806}{MHz} was auctioned and latest the spectrum around \SI{600}{MHz} has also been freed and are put on auction this year \cite{Samantha2015tunableAntennas}. Furthermore in 2013 the \SI{800}{MHz} band, which also were freed due to the digital TV transition and the \SI{2600}{MHz} band was auctioned off by Ofcom \cite{james2014lte}.   
+
+As the mobile communication is evolving now towards the 4'th generation, the need for higher data rates also increases, which leads to a need for more bandwidth. The freed bands increases the mobile communication spectrum both in the low and high frequencies, which can be used for different environments.  
+
+\subsubsection{High and Low Frequency Bands}
+The high and low frequency bands both have advantages and disadvantages. As seen in bands table \ref{tab:ltefreqband}, the band spacing varies form \SIrange{5}{90}{MHz}, the high frequencies providing high band spacing and the low frequencies low band spacing. This means that the high band frequencies provide greater capacity. One of the primary advantages of low band frequencies is the large wavelength. The large wavelength makes the waves able to travel long distances and is suitable for rural areas.
+The greater capacity at the high band frequencies makes these bands ideal for communication in urban areas as cities or other dense areas.
+ 
+
+  
+\begin{itemize}
+\item Low and high frequencies why ?
+\item Different frequencies in different countries why ?
+\item Europe band 20, 3, 7
+\item FDD,TDD
+\end{itemize}
+
+\begin{table}[]
+\centering
+\caption{LTE frequency band allocation (only frequency division duplex) \cite{radio2015electronics}}
+\label{tab:ltefreqband}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-\begin{tabular}[c]{@{}c@{}}LTE\\ band\\ number\end{tabular} & \begin{tabular}[c]{@{}c@{}}Uplink\\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Downlink\\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Width\\ of\\ band \\ spacing\end{tabular} & \begin{tabular}[c]{@{}c@{}}Duplex\\ spacing\\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Band \\ Gap\\ (MHz)\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}c@{}}LTE\\ band\\ number\end{tabular} & \begin{tabular}[c]{@{}c@{}}Uplink\\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Downlink\\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Width\\ of\\ band \\ spacing \\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Duplex\\ spacing\\ (MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Band \\ Gap\\ (MHz)\end{tabular} \\ \hline
 1                                                           & 1920 - 1980                                            & 2110 - 2170                                              & 60                                                                   & 190                                                              & 130                                                         \\ \hline
 2                                                           & 1850 - 1910                                            & 1930 - 1990                                              & 60                                                                   & 80                                                               & 20                                                          \\ \hline
 3                                                           & 1710 - 1785                                            & 1805,-1880                                               & 75                                                                   & 95                                                               & 20                                                          \\ \hline
@@ -46,16 +79,6 @@ LTE (Long Term Evolution) is an evolution of the UMTS (Universal Mobile Telecomm
 \end{tabular}
 \end{table}
 
-From the table it is seen that the allocated LTE bands reaches from \SIrange{452.5}{3600}{MHz}, although the whole spectrum is not covered by the lte, as other communication systems as GSM (2G) and UMTS (3G) etc. also uses band in this frequency range.  
-
-FDD, TDD -- 
-
-broadcast television spectrum around \SI{600}{MHz} has been freed
-\cite{Samantha2015tunableAntennas}
-
- -- Europe band 20, 3, 7 
-
-
 \subsection{Covered Bands}
-In this project the frequencies of interest are \SIrange{700}{960}{MHz}, \SIrange{1710}{2170}{MHz}, \SIrange{2300}{2400}{MHz} and \SIrange{2550}{2650}{MHz}, also as specified in the requirement specification.
+In this project the frequencies of interest are \SIrange{700}{960}{MHz}, \SIrange{1710}{2170}{MHz}, \SIrange{2300}{2400}{MHz} and \SIrange{2550}{2650}{MHz}. These frequencies covers most of the LTE bands as seen in table \ref{tab:ltefreqband}. The bandwidth within this frequency range reaches from \SIrange{10}{70}{MHz}. 
 
