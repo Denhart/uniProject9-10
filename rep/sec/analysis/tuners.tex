@@ -88,13 +88,30 @@ Doing so, yields the following solution,
 or $Z_{G,\text{max}} = Z^*_L$; the maximum power is transfered to the load when the generator impedance is the complex conjugate of the load impedance. In this situation the generator is said to be \emph{matched} to the load. Generally, the generator and the load would be connected through a transmission line with the characteristic impedance $Z_0$, so the maximum power transfer from generator to load will occur when both generator and load are matched to $Z_0$. 
 
 % Mismatch loss, S11. |S11| = -6 dB  -->  SWR = 3
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/analysis/s_parameter_twoport}
+    \caption{S-parameters of a two-port system.}
+    \label{fig:twoport}
+\end{figure}
+
+The reflection coefficient, $\Gamma$, can more generally be described as an \emph{S-parameter}. The S-parameters describe the ratio between the reflected and incident wave at a given port in a system. Consider a two-port as shown in Figure~\ref{fig:twoport}. Its four S-parameters are defined as follows:
+\begin{align*}
+    &S_{11} = \frac{V_1^-}{V_1^+} \Bigg|_{V_2^+=0} = \Gamma_1
+    &&S_{12} = \frac{V_1^-}{V_2^+} \Bigg|_{V_1^+=0} \\
+    &S_{21} = \frac{V_2^-}{V_1^+} \Bigg|_{V_2^+=0}
+    &&S_{22} = \frac{V_2^-}{V_2^+} \Bigg|_{V_1^+=0} = \Gamma_2
+\end{align*}
+It is seen that $S_{11}$ and $S_{22}$ indicate the reflection due to the incident wave on the same port, when no contribution is made from the opposite port, i.e., these are the reflection coefficients of port 1 and 2, respectively. The parameter $S_{21}$ indicates how much of the incident wave on port 1 is coming out of port 2 when no wave is incident on port 2, i.e., this indicates the \emph{transmission coefficient} from port 1 to port 2. Likewise, $S_{12}$ is the transmission coefficient from port 2 to port 1.
+
+The S parameters are easily measured using a Vector Network Analyzer (VNA). The advantage of measuring S-parameters over, e.g., Y-parameters is that all ports are matched during the measurement instead of being shorted, making odd behavior (like oscillations) less likely to occur \cite{}<++>.
 
 % Smith chart visualization
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
         \begin{smithchart}
-            \addplot coordinates {(1,0) (1,1)};
+            \addplot coordinates {(1,0) (1,1) (1,2)};
         \end{smithchart}
     \end{tikzpicture}
     \caption{Smithchart.}
