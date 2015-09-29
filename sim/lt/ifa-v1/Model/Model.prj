@@ -1,7 +1,7 @@
 [Author]
 galskab-s430
 [Mesh Cells]
-
+102,700
 [Mesh Type]
 Hexahedral
 [Last Problem Type]
@@ -11,5 +11,7 @@ HF Time Domain
 [Last Solver Type Abb]
 t
 [Results]
-Unavailable
+Time Domain: S-Parameter
+[Modeler Unique ID]
+5:ifa-v1.cst?e877be3fe23c236a3aab656787dbabc5?15389:numberofparameters=9:port=1>mode=1>zre=0>zim=0:::gph2?gph1?monow_2?monol_2?monol_1?cobber_t?pcbh?pcbl?pcbw
 [Comment]
