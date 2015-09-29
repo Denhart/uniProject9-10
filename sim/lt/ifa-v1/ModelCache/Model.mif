@@ -370,3 +370,19 @@ Solver.FrequencyRange "0", "3"
      .Transparency "0" 
      .Create
 [ENDMATERIAL]
+[DISCRETEEDGE: 1]
+     .Type "SParameter" 
+     .Label "" 
+     .Impedance "50.0" 
+     .VoltagePortImpedance "0.0" 
+     .Voltage "1.0" 
+     .Current "1.0" 
+     .SetP1 "True", "13.630635828887", "0.0018751199224931", "1.534" 
+     .SetP2 "True", "13.625", "-0.3", "1.534" 
+     .InvertDirection "False" 
+     .LocalCoordinates "True" 
+     .Monitor "True" 
+     .Radius "0" 
+     .Wire "" 
+     .Position "end1" 
+[ENDDISCRETEEDGE]
