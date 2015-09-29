@@ -154,29 +154,26 @@ The impedance bandwidth of an antenna is often given as the bandwidth for which 
 \end{figure}
 In case the antenna is not designed to resonate exactly at the desired frequency or to the exact impedance bandwidth required, a tuning network can be placed immediately before the antenna. 
 
-The simplest matching network is the L-network which is made from two components -- one in series an one in shunt -- as shown in Figure~\ref{fig:l_network}. The values of $X$ and $B$ correspond to the reactance of the chosen component at the frequency of interest. The equations of the network are shown below and the values of $X$ and $B$ are derived for both networks.
+The simplest matching network is the L-network which is made from two components -- one in series an one in shunt -- as shown in Figure~\ref{fig:l_network}. The values of $X$ and $B$ correspond to the reactance of the chosen component at the frequency of interest. The values of $X$ and $B$ (and their corresponding component values) can be derived through circuit theory, as done by \cite{pozar2011microwave}. The results are shown in Table~\ref{tab:match_XB}.
 
-
-\fixme{Derive the equations below -- or just copy them from Pozar.}
-\paragraph{For Figure~\ref{fig:l_network_a}}
-The equations are as follows
-\begin{align*}
-    Z_0 = 
-\end{align*}
-
-\paragraph{For Figure~\ref{fig:l_network_b}}
-\begin{align*}
-    Z_0 = 
-\end{align*}
-
-\begin{itemize}
-\item $X < 0$: Capacitor
-\item $X > 0$: Inductor
-\item $B < 0$: Inductor
-\item $B > 0$: Capacitor
-\end{itemize}
-
-
+\def\TabSpace{\rule{0pt}{4ex} \rule[-2.5ex]{0pt}{0pt}}
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Variable} & \textbf{Description} & \textbf{Figure~\ref{fig:l_network_a}} & \textbf{Figure~\ref{fig:l_network_b}} \\
+        \hline
+        \TabSpace $Z_n$ & Normalized load $=R_n+jX_n$ & \multicolumn{2}{c|}{$Z_L/Z_0$}\\ \hline
+        \TabSpace $b$ & Normalized shunt susceptance $=BZ_0$ & $\dfrac{X_n \pm \sqrt{R_n}\sqrt{R_n^2 + X_n^2 - R_n}}{R_n^2+X_n^2}$ & $\pm\sqrt{(1-R_n)/R_n}$\\ \hline
+        \TabSpace $x$ & Normalized series reactance = $X/Z_0$ & $\dfrac{1}{b} + \dfrac{X_n}{R_n} - \dfrac{1}{bR_n}$ & $- X_n \pm \sqrt{R_n(1-R_n)}$\\ \hline
+        \TabSpace $C_p$ & Shunt capacitance in farad (for $b>0$) & \multicolumn{2}{c|}{ $\dfrac{b}{2\pi f Z_0}$ } \\ \hline
+        \TabSpace $L_p$ & Shunt inductance in henry (for $b<0$) & \multicolumn{2}{c|}{ $\dfrac{-Z_0}{2\pi f b}$ } \\ \hline
+        \TabSpace $C_s$ & Series capacitance in farad (for $x<0$) & \multicolumn{2}{c|}{ $\dfrac{-1}{2\pi f x Z_0}$} \\ \hline
+        \TabSpace $L_s$ & Series inductance in henry (for $x>0$) & \multicolumn{2}{c|}{ $\dfrac{xZ_0}{2\pi f}$} \\ \hline
+    \end{tabular}
+    \caption{Formulas for computing the values of matching components for the two matching networks shown in Figure~\ref{fig:l_network}. These L-networks match a load (or antenna) impedance, $Z_L$ ohm to a transmission line, $Z_0$ ohm at the frequency $f$ hertz. There are two solutions: One for choosing $\pm=+$ and one for choosing $\pm=-$ \cite{pozar2011microwave}.}
+    \label{tab:match_XB}
+\end{table}
 
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
 
