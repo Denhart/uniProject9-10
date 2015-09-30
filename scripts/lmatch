@@ -1,0 +1,95 @@
+#!/usr/bin/python3
+from numpy import *
+import argparse
+
+p = argparse.ArgumentParser()
+p.add_argument('re', help="Real part of load (resistance)", type=float)
+p.add_argument('im', help="Imaginary part of load (reactance)", type=float)
+p.add_argument('freq', help="Frequency to match at [MHz]", type=float)
+p.add_argument('-n','--notnormalized', help="Use this flag if the given load impedance is not already normalized by Z0", action="store_true")
+p.add_argument('-z','--z0', help="Characteristic impedance to match to (default: 50 ohm)", default=50.0, type=float)
+args = p.parse_args()
+
+Z0 = args.z0
+ZL = args.re + 1j*args.im
+f = args.freq*1e6
+
+# Z0 = 100
+# ZL = 200 + 100j
+# f = 500e6
+
+if (args.notnormalized):
+    Zn = ZL/Z0
+else:
+    Zn = ZL
+    ZL = Z0*Zn
+
+if real(Zn) == 1:
+    Zn = 1.000000001 + 1j*imag(Zn)
+    ZL = Zn*Z0
+    print("\nAdjusting real part from 1 to", 1.000000001, "\n")
+
+Rn = real(Zn)
+Xn = imag(Zn)
+
+print("================================================")
+print("DESIGNING A L-MATCHING CIRCUIT FOR THE FOLLOWING")
+print("================================================")
+print("Load impedance              ZL =",ZL,"[ohm]")
+print("Normalized load impedance   Zn =",Zn,"[ohm]")
+print("Characteristic impedance    Z0 =",Z0,"[ohm]")
+print("Frequency                    f =",f/1e6,"[MHz]")
+print("")
+
+def printnetwork(nw):
+    if (nw == 1):
+        print("       -------                   ")
+        print("   --*|   jX  |*----*---------*- ")
+        print("       -------    |   |     |   |")
+        print("                  | jB|     | ZL|")
+        print("                  |   |     |   |")
+        print("   -----------------*---------*- ")
+        print("Network: Series X --> Shunt B --> Load")
+    if (nw == 2):
+        print("                 -------         ")
+        print("   -----*------*|   jX  |*----*- ")
+        print("      |   |      -------    |   |")
+        print("      | jB|                 | ZL|")
+        print("      |   |                 |   |")
+        print("   -----*---------------------*- ")
+        print("Network: Shunt B --> Series X --> Load")
+
+if Rn > 1:
+    printnetwork(1)
+    b1 = (Xn + sqrt(Rn)*sqrt(Rn**2+Xn**2-Rn)) / (Rn**2 + Xn**2)
+    b2 = (Xn - sqrt(Rn)*sqrt(Rn**2+Xn**2-Rn)) / (Rn**2 + Xn**2)
+    x1 = 1/b1 + Xn/Rn - 1/(b1*Rn)
+    x2 = 1/b2 + Xn/Rn - 1/(b2*Rn)
+else:
+    printnetwork(2)
+    b1 = sqrt((1-Rn)/Rn)
+    b2 = -b1
+    x1 = -Xn + sqrt(Rn*(1-Rn))
+    x2 = -Xn - sqrt(Rn*(1-Rn))
+
+print("")
+
+cnt = 1
+for (b,x) in [(b1,x1), (b2,x2)]:
+    print("Solution %d" % cnt)
+    cnt += 1
+    if b > 0:
+        Cp = b/(2*pi*f*Z0)
+        print("Shunt capacitor: %.4f pF" % (Cp*1e12))
+    else:
+        Lp = -Z0/(2*pi*f*b)
+        print("Shunt inductor: %.4f nH" % (Lp*1e9))
+    
+    if x < 0:
+        Cs = -1/(2*pi*f*x*Z0)
+        print("Series capacitor: %.4f pF" % (Cs*1e12))
+    else:
+        Ls = x*Z0/(2*pi*f)
+        print("Series inductor: %.4f nH" % (Ls*1e9))
+    print("")
+
