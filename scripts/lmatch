@@ -6,7 +6,7 @@ p = argparse.ArgumentParser()
 p.add_argument('re', help="Real part of load (resistance)", type=float)
 p.add_argument('im', help="Imaginary part of load (reactance)", type=float)
 p.add_argument('freq', help="Frequency to match at [MHz]", type=float)
-p.add_argument('-n','--notnormalized', help="Use this flag if the given load impedance is not already normalized by Z0", action="store_true")
+p.add_argument('-n','--normalized', help="Use this flag if the given load impedance is already normalized by Z0", action="store_true")
 p.add_argument('-z','--z0', help="Characteristic impedance to match to (default: 50 ohm)", default=50.0, type=float)
 args = p.parse_args()
 
@@ -18,11 +18,11 @@ f = args.freq*1e6
 # ZL = 200 + 100j
 # f = 500e6
 
-if (args.notnormalized):
-    Zn = ZL/Z0
-else:
+if (args.normalized):
     Zn = ZL
     ZL = Z0*Zn
+else:
+    Zn = ZL/Z0
 
 if real(Zn) == 1:
     Zn = 1.000000001 + 1j*imag(Zn)
