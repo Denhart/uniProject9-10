@@ -4,7 +4,7 @@ Multiple-input and multiple-output (MIMO) is a convenient way to deal with the c
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{img/datarateMimo}
+  \includegraphics[scale=1.2]{img/analysis/datarateMimo}
   \caption{Throughput versus SNR given a specific M-ary MIMO-setup\cite{Ezio2007MIMO}}
   \label{fig:mimo-throughput}
 \end{figure}
@@ -33,31 +33,34 @@ The total efficiency is simply given by Equation~\ref{eq:mimo_total_eff}\cite{Ta
 The envelope correlation coefficient can be calculated by Equation~\ref{eq:envlop_corr} \cite{Tatomirescu2011PortIsolation}. The far-field radiation pattern needs to be measured in order to reliably calculated the envelope correlation coefficient.
 
 \begin{align} 
+\label{eq:envlop_corr}
 \rho = \frac{\oint(\text{XPD} \cdot E_{\theta X}(\Omega) \cdot) E^*_{\theta X} \cdot p_\theta(\Omega)+E_{\phi Y}(\Omega) \cdot) E^*_{\phi Y} \cdot p_\phi(\Omega) )d\Omega}{\sqrt{\oint(\text{XPD}\cdot G_{\theta X}(\Omega) \cdot p_\theta(\Omega)+G_{\phi X}(\Omega) \cdot p_\phi(\Omega))d\Omega \cdot \oint(\text{XPD}\cdot G_{\theta Y}(\Omega) \cdot p_\theta(\Omega)+G_{\phi Y}(\Omega) \cdot p_\phi(\Omega))d\Omega }}
 \end{align}
 
 Equation~\ref{eq:envlop_corr} assumes uniform 3D angular power spectrum of the received signal and is not valid if this is not the case. The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams}\cite{Alain2010MIMO}. However the use of this is often discouraged since it assumes very high radiation efficiency. 
 
 \begin{align}
+\label{eq:envlop_corr_Sparams}
   \rho_e \approx |\rho_c|^2 = \frac{|S^*_{11}S_{12}+S^*_{21}S_{22}|^2}{(1-|S_{11}|^2-|S_{21}|^2)(1-|S_{22}|^2-|S_{12}|^2)}
 \end{align}
 
 Thus, when designing antenna for the purpose of MIMO, they need to be designed in a way such that the elements receives de-correlated signals, this can be in different ways, such as changing the angular patterns or polarization of the elements or spatially seperating the antennas, these are the most used however there are also other tecniques such as decoupling networks, parasitic elements, active antenna cancelation, eigen modes and balanced currents. 
 
 \subsubsection{Spatial Correlation}
-The spatial correlation between two antennas  is given by the radiated E-field patterns as given in Equation~\ref{eq:envlop_corr}. There it is seen that the correlation is a comparison between the radiated E-field patterns and the incident E-fields arriving at the antenna, which is given by the probability $p_\thega$ and $p_\phi$. 
+The spatial correlation between two antennas  is given by the radiated E-field patterns as given in Equation~\ref{eq:envlop_corr}. There it is seen that the correlation is a comparison between the radiated E-field patterns and the incident E-fields arriving at the antenna, which is given by the probability $p_\theta$ and $p_\phi$. 
 
 From the Equation~\ref{eq:envlop_corr} it can also be deduced that the spacing, polarisation and radiation patterns all effect the correlation between two antennas. In order to investigate the only effects of spacial seperation we consider the case with two omnidirectional antennas both purely vertically polarized. This can be described by Equation~\ref{eqn:spactial_corr}\cite{Tim2012Practical}, where $d$ is the horizontal spacing and $l$ is the vertical spacing. 
 
 \begin{align}
+\label{eqn:spactial_corr}
   \rho = \oint e^{j\beta \sqrt{d^2+l^2}\cos\zeta}p_\theta(\theta,\phi)\sin\theta \, \mathrm{d} \theta \mathrm{d} \phi
 \end{align}
 
 where: 
 
-\begin{align}
+\begin{align*}
 \cos \zeta = \sin(\phi + \tan^-1(\frac{l}{d}) \text{sgn}\phi)\sin\phi  
-\end{align}
+\end{align*}
 
 In Figure~\ref{fig:spatial_correlation} two cases of Equation~\ref{eqn:spactial_corr} are shown, one where only the horizontal spacing is considered and another whre only the vertical spacing is considered. The angle of arrival is given by Taga, where the mean angle $\overline{\theta}$ is at \SI{70}{\degree} and the standard deviation $\sigma_\theta$ is \SI{20}{\degree}. From the plot it can be seen that the vertical spacing required for a certain correlation is larger than that of the horizontal spacing, this comes from the taga-model used for the angle of arrival, since its distribution is nonuniform. This can however not be used to argue that the antennas should be spaced horizontally, since smartphones often is operated both horizontally and vertically! 
 
@@ -65,7 +68,7 @@ It is also possible to make the array in other toplogies such as planar, circula
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{img/mimoSpacing}
+  \includegraphics[scale=1.2]{img/analysis/mimoSpacing}
   \caption{Spacing versus wavelength for the horizontal and vertical case\cite{Tim2012Practical}}
   \label{fig:mimo-spacing}
 \end{figure}
