@@ -132,7 +132,11 @@ The smith chart shown in Figure~\ref{fig:smithchart} is a normalized smith chart
 \end{equation}
 This means that $Z_0$ will always appear at $1+j0$ -- in the center of the smith chart -- and the goal of the matching is to get the impedance of the antenna (or other circuitry) as close to the center as possible for the desired frequency range.
 
-The impedance bandwidth of an antenna is often given as the bandwidth for which the reflection coefficient, $\Gamma$, is below 0.5 (or \SI{-6}{dB}). It may therefore be advantageous to plot this requirement. In the smith chart, this is plotted as a circle around the center and any point within the circle, is within the bandwidth of the circuit. The \SI{-6}{dB} circle is also shown in Figure~\ref{fig:smithchart}.
+The impedance bandwidth of an antenna is often given as the bandwidth for which the reflection coefficient, $\Gamma$, is below 0.5 (or \SI{-6}{dB} -- when denoting the reflection coefficient in decibels, it is commonly called \emph{return loss}). It may therefore be advantageous to plot this requirement. In the smith chart, this is plotted as a circle around the center and any point within the circle, is within the bandwidth of the circuit. The \SI{-6}{dB} circle is also shown in Figure~\ref{fig:smithchart}. This type of circle is also known as a SWR (Standing Wave Ratio) circle. The connection between the SWR and the reflection coefficient is \cite{pozar2011microwave}
+\begin{equation}
+    \text{SWR} = \frac{1 + |\Gamma|}{1 - |\Gamma|}
+\end{equation}
+At $\Gamma = \SI{-6}{dB}$, the SWR is 3.
 
 % Matching circuitry, L-network, smith chart ``ups and downs'', analytical formulas.
 \begin{figure}[htbp]
