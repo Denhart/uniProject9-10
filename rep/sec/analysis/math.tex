@@ -1,0 +1,35 @@
+\section{Multi Agent Radio Communication}
+
+\subsection{Exercise 2}
+
+\begin{align*}
+   S = &
+    \begin{bmatrix}
+      S_1 & -S_2^{\star} \\[0.3em]
+      S_2 & S_1^{\star} 
+    \end{bmatrix} \\
+    SS^H = & 
+    \begin{bmatrix}
+      S_1 & -S_2^{\star} \\[0.3em]
+      S_2 & S_1^{\star}
+    \end{bmatrix}
+            \begin{bmatrix}
+              S_1^{\star} & S_2^{\star} \\[0.3em]
+              -S_2 & S_1
+            \end{bmatrix} \\
+           = & 
+            \begin{bmatrix}
+              S_1S_1^{\star}+S_2S_2^{\star} & S_1S_2^{\star}-S_2^{\star}S_1 \\[0.3em]
+              S_2S_1^{\star}-S_2S_1^{\star} & S_2^{\star}S_2+S_1S_1^{\star}
+            \end{bmatrix} \\
+            = &
+            \begin{bmatrix}
+              |S_1|^2+|S_2|^2 & 0 \\[0.3em] 
+              0              & |S_1|^2+|S_2|^2
+            \end{bmatrix}
+\end{align*}
+
+\begin{itemize}
+\item 0 on anti-diagonal = no cross interference.
+\item Rank = 2 $\Rightarrow$ Diversity order 2.
+\end{itemize}
