@@ -180,5 +180,42 @@ The simplest matching network is the L-network which is made from two components
 \end{table}
 
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
+\subsection{Tuners}
+From the description above it is seen that the resonance frequency of an antenna can be altered by changing the matching network. By replacing a fixed capacitor with a variable capacitor it is possible to cover a broader total bandwidth by tuning the resonance frequency. As the achievable bandwidth is generally proportional to the size of the antenna \fixme{Reference to Henrik's section?}, it will be possible to cover a large bandwidth using a physically smaller antenna by having a variable matching network. This is desirable for mobile phones where the physical size of the antenna is limited and multiple bands must be covered \cite{gu2014rf}.
+
+% Tuning ratio: eta
+% 
+% BST varactors
+% - Epsilon = 250--350
+% - Q factor = 30--65 for eta = 2--4
+% - Tuning speed = 30 ns
+% - IIP3 > 32 dBm
+% - Maximum input RF power = 36 dBm
+% - Control: External DC control chip + AC coupling caps
+% - Cons: Nonlinear + Requires DC supply
+% 
+% Digitally tunable capacitors comprising SOI/SOS switches
+% - CMOS Silicon-on-Isolator (SOI), Silicon-on-sapphire (SOS)
+% - Q factor = depending on switches R_on and capacitance value = 40--50 at C_min = generally worse than BST
+% - Switch performance = C_off * R_on = 250 fs
+% - Power handling: 32--34 dBm at 50 ohm
+% - Linearity better than BST
+% - Pros: Control voltage < 5V + low cost (especially SOI)
+% - Cons: Switches are limiting (R_on, non-linearity)
+% 
+% MEMS Tunable caps
+% - Control voltage separate from RF = 40--65 V
+% - Capacitance value of cell = 0.02--0.5 pF (typically an array of cells is used)
+% - Tuning steps: Determined by cell capacitance
+% - Minimum capacitance = Total parasitic capacitance from all cells (e.g. 32 cells)
+% - Maximum capacitance = C_min + number of cells*cell capacitance
+% - Low power consumption: (18pF, 2.7V supply, 20 cells: 50--95 uA)
+% - Switch time: Few us to tens of us
+% - Better linearity and Q factors than SOI/SOS and BST
+% - Q factor > 200 at C_min, > 100 at C_max at 2 GHz
+% - IIP3 > 68 dBm at 2.5GHz
+% - Max input power: 28--35 dBm at 50 ohm
+% 
+% Bookmark: SectionSection  1.4 at gu2015rf
 
 % Insertion loss, S21 for networks, equivalent series resistance, component Q.
