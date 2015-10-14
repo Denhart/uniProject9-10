@@ -39,12 +39,16 @@ force :
 	$(LATEX) $(MAIN).tex
 	$(LATEX) $(MAIN).tex
 
-$(MAIN).pdf :  $(TEXFILES) $(IMAGES)\
-	$(EPSPDFFILES) $(BILAG) $(BIB)
+$(MAIN).pdf :  $(TEXFILES) $(IMAGES) $(EPSPDFFILES) $(BILAG) $(BIB)
 	@ echo "*** RUNNING LATEX FIRST TIME ***"
 	@ $(LATEX) $(MAIN).tex
-	@ if egrep -s 'No file.*\.bbl|Citation.*undefined' $(MAIN).log;then\
+	@ if egrep -s 'No file.*\.bbl|Citation.*?undefined' $(MAIN).log;then\
 		echo "*** RUNNING BIBTEX AND LATEX ***" ;\
+		$(BIBTEX) $(MAIN).aux ;\
+		$(LATEX) $(MAIN).tex ;\
+		fi
+	@ if egrep -s 'No file.*\.bbl|Citation.*?undefined' $(MAIN).log;then\
+		echo "*** RUNNING BIBTEX AND LATEX AGAIN ***" ;\
 		$(BIBTEX) $(MAIN).aux ;\
 		$(LATEX) $(MAIN).tex ;\
 		fi
