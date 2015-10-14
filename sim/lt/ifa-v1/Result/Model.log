@@ -1,0 +1,156 @@
+Defined reference frequency for open boundary condition (1.5 GHz) is larger
+than the lowest relevant system frequency (monitor at 0.5 GHz).
+Please check open boundary settings to ensure accurate monitor results for the
+lowest frequency of interest.
+
+--------------------------------------------------------------------------------
+*** Warning ***
+
+This version is licensed for educational purposes only.
+
+--------------------------------------------------------------------------------
+
+Solver started at: 02:49 PM Monday, 14. September 2015
+
+  Module:  Time Domain: S-Parameter (Win 64)
+  Version: 2014.5 Release from 2014-10-10 (change 328585)
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+======================================================================
+ Solver cycle: 1
+======================================================================
+
+Stimulation at discrete port 1 
+
+
+--------------------------------------------------------------------------------
+Units settings: 
+
+  Dimensions: mm
+  Frequency:  GHz
+  Time:       ns
+
+--------------------------------------------------------------------------------
+Mesh statistics:
+
+   Hexahedral mesh type: FPBA [accuracy enhancement is enabled]
+
+   Parallelization type: domain decomposition
+      Number of parallel working threads: 2
+      Number of calculation domains used: 2
+
+   2015 Sep 14: 14:49:15: current system memory usage reached 55%
+
+
+
+--------------------------------------------------------------------------------
+Boundary conditions: 
+
+  YZsymmetry: none
+  XZsymmetry: none
+  XYsymmetry: none
+
+  Xmin: expanded open, 4 Layer, depth 19.1185 mm
+  Xmax: expanded open, 4 Layer, depth 19.1185 mm
+
+  Ymin: expanded open, 4 Layer, depth 19.124 mm
+  Ymax: expanded open, 4 Layer, depth 19.124 mm
+
+  Zmin: expanded open, 4 Layer, depth 19.14 mm
+  Zmax: expanded open, 4 Layer, depth 19.14 mm
+
+  PML-Type: Convolution PML
+
+--------------------------------------------------------------------------------
+Frequency settings: 
+
+  Fmin:    0
+  Fmax:    3
+  Nfsteps: 1001
+
+--------------------------------------------------------------------------------
+Port: 1
+
+  Discrete element, reference impedance = 50 ohms
+
+--------------------------------------------------------------------------------
+Field update statistics:
+
+  Number of components in total: 	638267
+  Number of lossy metal components:	10772
+  Number of disp. elements:		1404
+
+Subcycling state:      Automatically deactivated
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+*** Warning ***
+
+Maximum simulation time reached, solver stopped.
+
+Please note that the steady state energy criterion has not been satisfied.
+More...
+
+--------------------------------------------------------------------------------
+Frequency domain results normalized to default signal.
+
+--------------------------------------------------------------------------------
+
+  ----------------------------------------------------------------------------
+                      Peak memory used (kB)         Free physical memory (kB) 
+                                                    At begin     Minimum      
+  ----------------------------------------------------------------------------
+  CAD preparation     17428                         3991536      3991536      
+  Matrices calc.      93308                         3942720      3888352      
+  Solver run total    66676                         4007880      3888380      
+  ----------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Solver Statistics:
+
+  Hardware:
+     Computer name:                 	GALSKAB-S430 
+
+     Number of CPU threads:             2
+     GPU info:                  	GPU computing not activated
+
+  Number of mesh cells:             	102700
+  Excitation duration:              	1.18484958e+000 ns 
+  Calculation time for excitation:  	4      	s
+  Number of calculated pulse widths:	19.9991 
+  Steady state accuracy limit:      	-30	dB 
+  Simulated number of time steps:   	14008  
+  Maximum number of time steps:     	14008  
+  Time step width:
+     without subcycles:             	1.69159886e-003 ns
+     used:                          	1.69159886e-003 ns
+
+  CAD preparation time:          	0      	s
+  Matrix calculation time:          	7      	s
+  Solver setup time:                	2      	s
+  Solver loop time:                 	77     	s
+  Solver post processing time:      	0      	s
+                                    	------------
+  Total solver time:                	86     	s  ( = 0 h, 1 m, 26 s )
+
+--------------------------------------------------------------------------------
+
+  Adaptive port meshing time:       	0      	s
+  Total solver time (all cycles):   	86     	s  ( = 0 h, 1 m, 26 s )
+                                    	------------
+  Total simulation time:            	86     	s  ( = 0 h, 1 m, 26 s )
+
+--------------------------------------------------------------------------------
+Solver finished at: 02:50 PM Monday, 14. September 2015
+
+
+--------------------------------------------------------------------------------
+Creating parametric 1D results.
+
+--------------------------------------------------------------------------------
