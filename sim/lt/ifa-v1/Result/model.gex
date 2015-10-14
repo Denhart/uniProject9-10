@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaGeometryFile creator="MatrixCalc" version="20140129">
+  <Components>
+    <Component name="PCB:Cobber_btn">
+      <Shape name="Components\PCB:Cobber_btn" id="1" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="1 2 3 4 5 6"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="PCB:Cobber_top">
+      <Shape name="Components\PCB:Cobber_top" id="2" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="7 8 9 10 11 12"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="PCB:FR4">
+      <Shape name="Components\PCB:FR4" id="3" visible="1" material="FR-4 (lossy)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="13 14 15 16 17 18"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="monopole:length1">
+      <Shape name="Components\monopole:length1" id="4" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="19 20 21 22 23 24"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="monopole:length2">
+      <Shape name="Components\monopole:length2" id="5" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="25 26 27 28 29 30"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="monopole:length3">
+      <Shape name="Components\monopole:length3" id="6" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="31 32 33 34 35 36"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="monopole:solid1">
+      <Shape name="Components\monopole:solid1" id="7" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="37 38 39 40 41 42"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="monopole:width1">
+      <Shape name="Components\monopole:width1" id="8" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="43 44 45 46 47 48"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+    <Component name="monopole:width2">
+      <Shape name="Components\monopole:width2" id="9" visible="1" material="Copper (annealed)">
+        <MeshGroup3D list=""/>
+        <Face>
+          <MeshGroup0D list=""/>
+          <MeshGroup1D list=""/>
+          <MeshGroup2D>
+            <Pos list="49 50 51 52 53 54"/>
+            <Neg list=""/>
+            <DS list=""/>
+          </MeshGroup2D>
+        </Face>
+      </Shape>
+    </Component>
+  </Components>
+  <SimulationDomain min="-49.9654083252 -54.9654083252 -51.43140792847" max="104.9654083252 169.9654083252 51.49940872192"/>
+  <Materials>
+    <Material name="air_0" priority="1">
+      <Color value="0 0 0"/>
+      <Transparency value="0"/>
+      <Wireframe value="0"/>
+      <Reflective value="1"/>
+      <Outline value="1"/>
+      <OutlineIfTransparent value="0"/>
+    </Material>
+    <Material name="Copper (annealed)" priority="1">
+      <Color value="0.08333333581686 0.08333333581686 0.08333333581686"/>
+      <Transparency value="0"/>
+      <Wireframe value="0"/>
+      <Reflective value="1"/>
+      <Outline value="1"/>
+      <OutlineIfTransparent value="0"/>
+    </Material>
+    <Material name="FR-4 (lossy)" priority="1">
+      <Color value="0.25 0.25 0.25"/>
+      <Transparency value="0"/>
+      <Wireframe value="0"/>
+      <Reflective value="1"/>
+      <Outline value="1"/>
+      <OutlineIfTransparent value="0"/>
+    </Material>
+  </Materials>
+  <GeometryFile filename="3d.slm" type="slim"/>
+  <MeshType type="HEX"/>
+  <HexMesh>
+    <Dimensions nx="51" ny="80" nz="27"/>
+    <MeshPlanesX values="-49.96540966667 -45.18578063723 -40.40615160779 -35.62652257834 -30.8468935489 -26.06726451946 -21.28763549002 -16.50800646058 -11.72837743114 -7.337076842744 -4.891384561829 -2.445692280915 0 2.229166666667 4.458333333333 6.6875 8.916666666667 11.14583333333 13.375 13.63063582889 15.79112073679 17.95160564469 20.11209055259 22.27257546049 24.43306036839 26.5935452763 28.7540301842 30.9145150921 33.075 35.2125 37.35 39.4875 41.625 43.85416666667 46.08333333333 48.3125 50.54166666667 52.77083333333 55 57.44569228091 59.89138456183 62.33707684274 66.72837743114 71.50800646058 76.28763549002 81.06726451946 85.84689354891 90.62652257835 95.40615160779 100.1857806372 104.9654096667"/>
+    <MeshPlanesY values="-54.96540966667 -50.18440154271 -45.40339341875 -40.62238529479 -35.84137717083 -31.06036904687 -26.27936092292 -21.49835279896 -16.717344675 -12.33810299139 -9.892068660925 -7.446034330463 -5 -4.5 -2.4 -0.3 0.001875119922493 2.354779529336 4.707683938749 7.060588348162 9.413492757575 11.76639716699 14.1193015764 16.47220598581 18.82511039523 21.17801480464 23.53091921405 25.88382362347 28.23672803288 30.58963244229 32.94253685171 35.29544126112 37.64834567053 40.00125007995 42.35415448936 44.70705889877 47.05996330819 49.4128677176 51.76577212701 54.11867653643 56.47158094584 58.82448535525 61.17738976467 63.53029417408 65.88319858349 68.23610299291 70.58900740232 72.94191181173 75.29481622115 77.64772063056 80.00062503997 82.35352944938 84.7064338588 87.05933826821 89.41224267762 91.76514708704 94.11805149645 96.47095590586 98.82386031528 101.1767647247 103.5296691341 105.8825735435 108.2354779529 110.5883823623 112.9412867718 115.2941911812 117.6470955906 120 122.4460343305 124.8920686609 127.3381029914 131.717344675 136.498352799 141.2793609229 146.0603690469 150.8413771708 155.6223852948 160.4033934187 165.1844015427 169.9654096667"/>
+    <MeshPlanesZ values="-51.43140966667 -46.64639863106 -41.86138759546 -37.07637655986 -32.29136552425 -27.50635448865 -22.72134345304 -17.93633241744 -13.15132138184 -8.807079727711 -6.360053151807 -3.913026575904 -1.466 0.034 1.534 3.981026575904 6.428053151807 8.875079727711 13.21932138184 18.00433241744 22.78934345304 27.57435448865 32.35936552425 37.14437655986 41.92938759546 46.71439863106 51.49940966667"/>
+  </HexMesh>
+</MetaGeometryFile>
