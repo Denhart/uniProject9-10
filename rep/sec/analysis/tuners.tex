@@ -59,7 +59,7 @@ where
 \item[$Z_L$] $R_L+jX_L$ is the load impedance
 \item[$I$] Current through the load
 \end{where}
-Using basic circuit theory, (\ref{eq:power1}) can be expressed in terms of $V_G$ and $Z_G$, making it possible to derive the optimal $Z_G = R_G+jX_G$ for a fixed, complex load. Continuing from (\ref{eq:power1}),
+Using basic circuit theory, Equation~\ref{eq:power1} can be expressed in terms of $V_G$ and $Z_G$, making it possible to derive the optimal $Z_G = R_G+jX_G$ for a fixed, complex load. Continuing from Equation~\ref{eq:power1},
 \begin{equation}
     \begin{aligned}
         P &= \frac{1}{2} \left| V_G \frac{Z_L}{Z_L+Z_G} \right|^2 \real{\frac{1}{Z_L}} \\
@@ -139,6 +139,7 @@ The impedance bandwidth of an antenna is often given as the bandwidth for which 
 At $\Gamma = \SI{-6}{dB}$, the SWR is 3.
 
 % Matching circuitry, L-network, smith chart ``ups and downs'', analytical formulas.
+\subsection{The L Network}
 \begin{figure}[htbp]
     \begin{subfigure}{0.49\linewidth}
         \centering
@@ -191,6 +192,7 @@ where $X$ is the reactance of the component and $R$ is the resistive part of the
 \subsection{Tuners}
 From the description above it is seen that the resonance frequency of an antenna can be altered by changing the matching network. By replacing a fixed capacitor with a variable capacitor it is possible to cover a broader total bandwidth by tuning the resonance frequency. As the achievable bandwidth is generally proportional to the size of the antenna \fixme{Reference to Henrik's section?}, it will be possible to cover a large bandwidth using a physically smaller antenna by having a variable matching network. This is desirable for mobile phones where the physical size of the antenna is limited and multiple bands must be covered \cite{gu2014rf}.
 
+\subsubsection{Variable Capacitors}
 Three basic types of variable capacitors will now be described briefly. 
 
 Barium strontium titanate (BST) varactors are voltage controlled components where the bias voltage determines the amount of capacitance provided by the component. The Q factor is dependent on the tuning range, $\eta$. For a tuning range of $\eta = 2--4$ at around \SI{3}{GHz}, the Q factor is around 30--65 \cite{gu2014rf}. 
@@ -214,6 +216,7 @@ The last type of capacitor described is a MEMS tunable capacitor, which is the t
 
 A MEMS tunable capacitor consists of several of the cells shown in Figure~\ref{fig:memscap}. By applying a voltage on one or more of the cells, the top plate is pulled toward the bottom electrode, increasing the overall capacitance. 
 
+The Q factor of a MEMS tunable capacitor is much higher than that of the BTS varactor and the SOI/SOS DTS -- typically higher than 200 at minimum capacitance and above 100 at maximum capacitance, at \SI{2}{GHz} \cite{gu2014rf}. The linearity is also better, having an achievable $\text{IIP}_3$ of greater than \SI{68}{dBm} at \SI{2.5}{GHz}. 
 
 \begin{figure}[htbp]
     \centering
@@ -222,41 +225,36 @@ A MEMS tunable capacitor consists of several of the cells shown in Figure~\ref{f
     \label{fig:memscap}
 \end{figure}
 
+\subsubsection{Tuner Modeling}
+% [Gu Sec 2.1 and 2.2], [Bowick RF]: S-parameters --> component values
 
-
-% Tuning ratio: eta
-% 
-% BST varactors
-% - Epsilon = 250--350
-% - Q factor = 30--65 for eta = 2--4
-% - Tuning speed = 30 ns
-% - IIP3 > 32 dBm
-% - Maximum input RF power = 36 dBm
-% - Control: External DC control chip + AC coupling caps
-% - Cons: Nonlinear + Requires DC supply
-% 
-% Digitally tunable capacitors comprising SOI/SOS switches
-% - CMOS Silicon-on-Isolator (SOI), Silicon-on-sapphire (SOS)
-% - Q factor = depending on switches R_on and capacitance value = 40--50 at C_min = generally worse than BST
-% - Switch performance = C_off * R_on = 250 fs
-% - Power handling: 32--34 dBm at 50 ohm
-% - Linearity better than BST
-% - Pros: Control voltage < 5V + low cost (especially SOI)
-% - Cons: Switches are limiting (R_on, non-linearity)
-% 
-% MEMS Tunable caps
-% - Control voltage separate from RF = 40--65 V
-% - Capacitance value of cell = 0.02--0.5 pF (typically an array of cells is used)
-% - Tuning steps: Determined by cell capacitance
-% - Minimum capacitance = Total parasitic capacitance from all cells (e.g. 32 cells)
-% - Maximum capacitance = C_min + number of cells*cell capacitance
-% - Low power consumption: (18pF, 2.7V supply, 20 cells: 50--95 uA)
-% - Switch time: Few us to tens of us
-% - Better linearity and Q factors than SOI/SOS and BST
-% - Q factor > 200 at C_min, > 100 at C_max at 2 GHz
-% - IIP3 > 68 dBm at 2.5GHz
-% - Max input power: 28--35 dBm at 50 ohm
-% 
-% Bookmark: SectionSection  1.4 at gu2015rf
+\begin{table}
+    \centering
+    \begin{tabular}{|l|c|c|}
+        \hline
+        & Series capacitor ($\pi$) & Shunt capacitor (T) \\
+        \hline
+        $\omega_L$  & \multicolumn{2}{c|}{$2\pi f_{\text{low}}$} \\
+        $\omega_H$  & \multicolumn{2}{c|}{$2\pi f_{\text{high}}$} \\
+        \hline
+        $X_1(\omega)$ & $Z_0 \imag{\dfrac{2S_{21}}{1 + S_{11} + S_{22} + S_{11}S_{22} - S_{21}^2}}$ & \\
+        $X_2(\omega)$ & $Z_0 \imag{\dfrac{1 + S_{11} + S_{22} + (S_{11}S_{22}-S_{21}^2)}{1 + S_{11} - S_{22} - 2S_{21} - (S_{11}S_{22} - S_{21}^2)}}$ & \\
+        \hline
+        $R_1$ &  & \\
+        $L_1$ & & \\
+        $C_1$ & & \\
+        \hline
+        $R_s$ & & \\
+        $L_s$ & & \\
+        $C_s$ & & \\
+        \hline
+        $R_2$ & & \\
+        $L_2$ & & \\
+        $C_2$ & & \\
+        \hline
+    \end{tabular}
+    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies \cite{gu2014rf}. \fixme{Finish this}}
+    \label{tab:sparam_to_circuit}
+\end{table}
 
 % Insertion loss, S21 for networks, equivalent series resistance, component Q.
