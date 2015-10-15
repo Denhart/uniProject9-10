@@ -197,13 +197,31 @@ Barium strontium titanate (BST) varactors are voltage controlled components wher
 
 A downside of the BST varactor is that it is quite nonlinear, having a typical third order intercept point ($\text{IIP}_3$) of around 32--\SI{40}{dBm} \cite{gu2014rf}. Also, an external power supply is necessary to bias the varactor.
 
-Another type of variable capacitor is a SOI/SOS digitally tunable capacitor (SOI $=$ silicon on isolator switches, SOS $=$ silicon on sapphire switches). These consist of metal-isolator-metal (MIM) capacitors which are digitally switched using CMOS SOI or SOS switches as shown in Figure~\ref{fig:sossoiswitch}.
+Another type of variable capacitor is a SOI/SOS digitally tunable capacitor (SOI $=$ silicon on isolator switches, SOS $=$ silicon on sapphire switches). These consist of metal-isolator-metal (MIM) capacitors which are digitally switched using CMOS SOI or SOS switches as shown in Figure~\ref{fig:sossoiswitch}. 
+
+The Q factor around \SI{2}{GHz} of SOS/SOI digitally tunable capacitors (DTC) is typically 40--50 at minimum capacitance and $\geq$ 15 at maximum capacitance \cite{gu2014rf}. This is generally worse than the BTS varactors. The linearity, however, is generally better than for the BTS varactors with an $\text{IIP}_3$ of around \SI{44}{dBm} \cite{gu2014rf}.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/analysis/sossoi_dtc}
     \caption{Circuit showing the operation of a SOS/SOI digitally tunable capacitor. To the left, the minimum capacitance situation is shown, where only parasitic capacitance from the switches is present. To the right, the maximum capacitance situation is shown where the on-resistance of the switches degrades the Q factor.}
     \label{fig:sossoiswitch}
 \end{figure}
+
+A big advantage of the SOI/SOS DTCs is that their control voltage is less than \SI{5}{V} and that they are quite low cost \cite{gu2014rf}.
+
+The last type of capacitor described is a MEMS tunable capacitor, which is the type used for this project. The MEMS tunable capacitor cell is shown in Figure~\ref{fig:memscap}.
+
+A MEMS tunable capacitor consists of several of the cells shown in Figure~\ref{fig:memscap}. By applying a voltage on one or more of the cells, the top plate is pulled toward the bottom electrode, increasing the overall capacitance. 
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/analysis/memscap}
+    \caption{MEMS tunable capacitor cell in the on and off state \cite{gu2014rf}.}
+    \label{fig:memscap}
+\end{figure}
+
 
 
 % Tuning ratio: eta
