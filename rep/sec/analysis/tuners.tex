@@ -179,9 +179,32 @@ The simplest matching network is the L-network which is made from two components
     \label{tab:match_XB}
 \end{table}
 
+\subsection{Q Factor}
+The Q factor describes the ratio between the reactive and the resistive part of a component,
+\begin{equation}
+    \label{fig:compq}
+    Q = \frac{X}{R}
+\end{equation}
+where $X$ is the reactance of the component and $R$ is the resistive part of the component. Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also has a small resistive part called the equivalent series resistance (ESR) which causes power to be transfered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
+
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
 \subsection{Tuners}
 From the description above it is seen that the resonance frequency of an antenna can be altered by changing the matching network. By replacing a fixed capacitor with a variable capacitor it is possible to cover a broader total bandwidth by tuning the resonance frequency. As the achievable bandwidth is generally proportional to the size of the antenna \fixme{Reference to Henrik's section?}, it will be possible to cover a large bandwidth using a physically smaller antenna by having a variable matching network. This is desirable for mobile phones where the physical size of the antenna is limited and multiple bands must be covered \cite{gu2014rf}.
+
+Three basic types of variable capacitors will now be described briefly. 
+
+Barium strontium titanate (BST) varactors are voltage controlled components where the bias voltage determines the amount of capacitance provided by the component. The Q factor is dependent on the tuning range, $\eta$. For a tuning range of $\eta = 2--4$ at around \SI{3}{GHz}, the Q factor is around 30--65 \cite{gu2014rf}. 
+
+A downside of the BST varactor is that it is quite nonlinear, having a typical third order intercept point ($\text{IIP}_3$) of around 32--\SI{40}{dBm} \cite{gu2014rf}. Also, an external power supply is necessary to bias the varactor.
+
+Another type of variable capacitor is a SOI/SOS digitally tunable capacitor (SOI $=$ silicon on isolator switches, SOS $=$ silicon on sapphire switches). These consist of metal-isolator-metal (MIM) capacitors which are digitally switched using CMOS SOI or SOS switches as shown in Figure~\ref{fig:sossoiswitch}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/analysis/sossoi_dtc}
+    \caption{Circuit showing the operation of a SOS/SOI digitally tunable capacitor. To the left, the minimum capacitance situation is shown, where only parasitic capacitance from the switches is present. To the right, the maximum capacitance situation is shown where the on-resistance of the switches degrades the Q factor.}
+    \label{fig:sossoiswitch}
+\end{figure}
+
 
 % Tuning ratio: eta
 % 
