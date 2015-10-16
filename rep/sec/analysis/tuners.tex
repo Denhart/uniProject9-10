@@ -228,32 +228,65 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
 \subsubsection{Tuner Modeling}
 % [Gu Sec 2.1 and 2.2], [Bowick RF]: S-parameters --> component values
 
+\def\TabSpace{\rule{0pt}{4.5ex} \rule[-3ex]{0pt}{0pt}}
 \begin{table}
     \centering
     \begin{tabular}{|l|c|c|}
         \hline
         & Series capacitor ($\pi$) & Shunt capacitor (T) \\
         \hline
-        $\omega_L$  & \multicolumn{2}{c|}{$2\pi f_{\text{low}}$} \\
-        $\omega_H$  & \multicolumn{2}{c|}{$2\pi f_{\text{high}}$} \\
+        \TabSpace$\omega_L$  & \multicolumn{2}{c|}{$2\pi f_{\text{low}}$} \\
+        \TabSpace$\omega_H$  & \multicolumn{2}{c|}{$2\pi f_{\text{high}}$} \\
         \hline
-        $X_1(\omega)$ & $Z_0 \imag{\dfrac{2S_{21}}{1 + S_{11} + S_{22} + S_{11}S_{22} - S_{21}^2}}$ & \\
-        $X_2(\omega)$ & $Z_0 \imag{\dfrac{1 + S_{11} + S_{22} + (S_{11}S_{22}-S_{21}^2)}{1 + S_{11} - S_{22} - 2S_{21} - (S_{11}S_{22} - S_{21}^2)}}$ & \\
+        \TabSpace$X_1(\omega)$ 
+        & $Z_0\imag{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{22}-S_{11}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ 
+        & $Z_0 \imag{\dfrac{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
+        \TabSpace$X_S(\omega)$ 
+        & $Z_0 \imag{\dfrac{2S_{21}}{1+S_{11}+S_{22}+S_{11}S_{22}-S_{21}^2}}$ 
+        & $Z_0 \imag{\dfrac{2S_{21}}{1-S_{11}-S_{22}+S_{11}S_{22}-S_{21}^2}}$\\
+        \TabSpace$X_2(\omega)$ 
+        & $Z_0 \imag{\dfrac{1 + S_{11} + S_{22} + (S_{11}S_{22}-S_{21}^2)}{1 + S_{11} - S_{22} - 2S_{21} - (S_{11}S_{22} - S_{21}^2)}}$ 
+        & $Z_0 \imag{\dfrac{1-S_{11}+S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
         \hline
-        $R_1$ &  & \\
-        $L_1$ & & \\
-        $C_1$ & & \\
+        \TabSpace$L_k$ 
+        & $\dfrac{\omega_LX_k(\omega_L) - \omega_HX_k(\omega_H)}{\omega_L^2+\omega_H^2}$
+        &  \\
+        \TabSpace$C_k$ 
+        & $\dfrac{\omega_L^2-\omega_H^2}{\omega_L\omega_H} \dfrac{1}{\omega_HX_k(\omega_L) - \omega_LX_k(\omega_H)}$
+        &  \\
         \hline
-        $R_s$ & & \\
-        $L_s$ & & \\
-        $C_s$ & & \\
+        \TabSpace$R_1$ 
+        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{22}-S_{11}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ 
+        & $Z_0 \real{\dfrac{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
+        \TabSpace$L_1$ 
+        & $L_k\Big|_{k=1}$ 
+        & $\dfrac{Z_0}{\omega} \imag{\dfrac{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
+        \TabSpace$C_1$ 
+        & $C_k\Big|_{k=1}$ 
+        & \\
         \hline
-        $R_2$ & & \\
-        $L_2$ & & \\
-        $C_2$ & & \\
+        \TabSpace$R_s$ 
+        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+S_{11}S_{22}-S_{21}^2}{2S_{21}}}$ 
+        & $Z_0 \real{\dfrac{2S_{21}}{1-S_{11}-S_{22}+S_{11}S_{22}-S_{21}^2}}$\\
+        \TabSpace$L_s$ 
+        & $L_k\Big|_{k=s}$ 
+        & $\dfrac{\omega_LX_s(\omega_L) - \omega_HX_s(\omega_H)}{\omega_L^2 - \omega_H^2}$\\
+        \TabSpace$C_s$ 
+        & $C_k\Big|_{k=s}$ 
+        & $\dfrac{\omega_L^2 - \omega_H^2}{\omega_L\omega_H} \dfrac{1}{\omega_HX_s(\omega_L) - \omega_LX_s(\omega_H)}$\\
+        \hline
+        \TabSpace$R_2$ 
+        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ 
+        & $Z_0 \real{\dfrac{1-S_{11}+S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
+        \TabSpace$L_2$ 
+        & $L_k\Big|_{k=2}$ 
+        & $\dfrac{Z_0}{\omega} \imag{\dfrac{1-S_{11}+S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
+        \TabSpace$C_2$ 
+        & $C_k\Big|_{k=2}$ 
+        & \\
         \hline
     \end{tabular}
-    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies \cite{gu2014rf}. \fixme{Finish this}}
+    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf}. Here $\omega$ with no index indicated the angular frequency of calculation.}
     \label{tab:sparam_to_circuit}
 \end{table}
 
