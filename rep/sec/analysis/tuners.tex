@@ -242,14 +242,14 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & $Z_0\imag{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{22}-S_{11}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ 
         & $Z_0 \imag{\dfrac{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
         \TabSpace$X_S(\omega)$ 
-        & $Z_0 \imag{\dfrac{2S_{21}}{1+S_{11}+S_{22}+S_{11}S_{22}-S_{21}^2}}$ 
+        & $Z_0 \imag{\dfrac{1+S_{11}+S_{22}+S_{11}S_{22}-S_{21}^2}{2S_{21}}}$ \fixme{Mistake in book: x=1/x}
         & $Z_0 \imag{\dfrac{2S_{21}}{1-S_{11}-S_{22}+S_{11}S_{22}-S_{21}^2}}$\\
         \TabSpace$X_2(\omega)$ 
         & $Z_0 \imag{\dfrac{1 + S_{11} + S_{22} + (S_{11}S_{22}-S_{21}^2)}{1 + S_{11} - S_{22} - 2S_{21} - (S_{11}S_{22} - S_{21}^2)}}$ 
         & $Z_0 \imag{\dfrac{1-S_{11}+S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
         \hline
         \TabSpace$L_k$ 
-        & $\dfrac{\omega_LX_k(\omega_L) - \omega_HX_k(\omega_H)}{\omega_L^2+\omega_H^2}$
+        & $\dfrac{\omega_LX_k(\omega_L) - \omega_HX_k(\omega_H)}{\omega_L^2-\omega_H^2}$ \fixme{Mistake in book: +=--}
         &  \\
         \TabSpace$C_k$ 
         & $\dfrac{\omega_L^2-\omega_H^2}{\omega_L\omega_H} \dfrac{1}{\omega_HX_k(\omega_L) - \omega_LX_k(\omega_H)}$
@@ -276,7 +276,7 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & $\dfrac{\omega_L^2 - \omega_H^2}{\omega_L\omega_H} \dfrac{1}{\omega_HX_s(\omega_L) - \omega_LX_s(\omega_H)}$\\
         \hline
         \TabSpace$R_2$ 
-        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ 
+        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ \fixme{Mistake in book?}
         & $Z_0 \real{\dfrac{1-S_{11}+S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
         \TabSpace$L_2$ 
         & $L_k\Big|_{k=2}$ 
@@ -286,7 +286,7 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & \\
         \hline
     \end{tabular}
-    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf}. Here $\omega$ with no index indicated the angular frequency of calculation.}
+    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the S-parameter measurement.}
     \label{tab:sparam_to_circuit}
 \end{table}
 
