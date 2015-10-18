@@ -50,7 +50,8 @@ def R1(S):
 
 def R2(S):
     S11,S21,S22 = S
-    return Z0*real((1+S11+S22+(S11*S22-S21**2)) / (1+S11-S22-2*S21-(S11*S22-S21**2)))
+    # return Z0*real((1+S11+S22+(S11*S22-S21**2)) / (1+S11-S22-2*S21-(S11*S22-S21**2)))
+    return   Z0*real((1+S11+S22+(S11*S22-S21**2)) / (1+S11-S22-2*S21-(S11*S22-S21**2)))
 
 Cs = (wL**2-wH**2)/(wL*wH) * 1 / (wH*Xs(SL) - wL*Xs(SH))
 C1 = (wL**2-wH**2)/(wL*wH) * 1 / (wH*X1(SL) - wL*X1(SH))
