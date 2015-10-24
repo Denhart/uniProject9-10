@@ -9,11 +9,50 @@ To counteract and minimize the user effect problem to the internal antennas, som
 
 \subsection{Design Guidelines}
 An antenna that is placed in the top of the phone, will be more effected by the user in talk mode, as the antenna will be closer to the head. To avoide this a ground plane can be placed between the user and the head in order to create more isolation. However placing the antenna on top of the ground plane decreases the bandwidth significantly, which leads to a, increase in the antenna size to keep the required bandwidth. This is not a reliable solution in mobile phones, as the size requirement of the antennas are very strict as a result of recent phone designs, with bigger screens and smaller cases. A way to solve this problem is to place the antenna in the bottom of the antenna, thus lowering the user effect and makes is possible to place the antenna without the ground plane as isolation. This solution provides a certain ground clearence, which makes it possible to decrease the volume and thickness of the antenna, thus saving place in the mobile phone. 
-This design was proven to work by Motorola with there Motorola Razor V3 phone, which was the first phone to use the bottom placed antenna. There were some skeptics to this design, as the bottom of the phone would be placed in the middle of the hand in talk mode. However Motorola proved that theory wrong and therefore many phone manufactors are using there own bottom placed antennas. This solution of course only applies in talk mode, as the head effect is close to zero, when the phone is used in data mode. In data mode the phone is usually held either in horizontal mode with one hand or in vertical mode with two hands. In horizontal mode, given the size of today's smartphones, the hand will be placed around the middle of the phone, thus clearing the top and bottom. This indicates that it does not matter whether the antenna is placed in the top or bottom of the phone. In the case of horizontal mode with two hands, the hands covers both the top and the bottom of the phone, thus it still makes no difference if the antenna is placed in the bottom or in the top of the phone.
+This design was proven to work by Motorola with there Motorola Razor V3 phone, which was the first phone to use the bottom placed antenna. There were some skeptics to this design, as the bottom of the phone would be placed in the middle of the hand in talk mode. However Motorola proved that theory wrong and therefore many phone manufactors are using there own bottom placed antennas. This solution of course only applies in talk mode, as the head effect is close to zero, when the phone is used in data mode. In data mode the phone is usually held either in horizontal mode with one hand or in vertical mode with two hands. In horizontal mode, given the size of today's smartphones, the hand will be placed around the middle of the phone (depending on the individual user), thus clearing the top and bottom. This indicates that it does not matter whether the antenna is placed in the top or bottom of the phone. In the case of horizontal mode with two hands, the hands covers both the top and the bottom of the phone, 
+so in this case it still makes no difference if the antenna is placed in the bottom or in the top of the phone. 
 
-\begin{itemize}
-\item Use tuning to compensate for the user effect (because of the changing impedans).
-\end{itemize}
+
+In talk or data (horizontal or vertical) mode, there will still be some negative user effect on the performance. As long as the head or hand is within the near field of the phone, the impact of the user will be significant and needs some attention. Besides following the simple design guidelines, antenna tuning can be used to optimize the performance, when the phone is detuned, as a result of the user impact.
 
 \subsection{Recent Measurements}
+A recent studie has been carried out in 2014 on user effects of MIMO LTE performance, which is also the antenna design goal of this project. The study is based on time-domain simulations of the user effects of head and hand phantoms in a free space scenario. The phantom hand used is modified, such that the finger can move across the phones backplane, to give more realistic results. 
+
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+            & \multicolumn{3}{c|}{\textbf{Antennas: Top/Side}} & \multicolumn{3}{c|}{\textbf{Antennas: Bottom/Side}} \\ \hline
+            & S11            & S22            & S21            & S11             & S22             & S21             \\ \hline
+\textbf{FS} & -7.9           & -8.2           & -8.4           & -7.9            & -8.2            & -8.4            \\ \hline
+\textbf{P1} & -2.4           & -1.2           & -22.7          & -5.5            & -1.1            & -21.0           \\ \hline
+\textbf{P2} & -4.8           & -1.2           & -22.5          & -5.5            & -0.6            & -22.9           \\ \hline
+\textbf{P3} & -2.0           & -1.2           & -22.8          & -5.1            & -1.8            & -19.7           \\ \hline
+\textbf{P4} & -4.8           & -1.2           & -22.2          & -5.2            & -1.9            & -19.2           \\ \hline
+\textbf{P5} & -1.5           & -1.1           & -22.6          & -4.8            & -2.6            & -19.4           \\ \hline
+\textbf{P6} & -4.3           & -1.1           & -22.5          & -5.0            & -2.0            & -18.5           \\ \hline
+\end{tabular}
+\caption{S-parameter of the two MIMO antennas in free space compared to the user effect of the hand in six different finger positions \cite{Samantha2014UserEff}}
+\label{tab:usereff_s11}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+            & \multicolumn{4}{c|}{\textbf{Antennas: Top/Side}} & \multicolumn{4}{c|}{\textbf{Antennas: Bottom/Side}} \\ \hline
+            & R1         & R2        & T1         & T2         & R1         & R2          & T1         & T2          \\ \hline
+\textbf{FS} & -0.2       & -1.1      & -1,0       & -1,9       & -0.2       & -1.1        & -1.0       & -1.9        \\ \hline
+\textbf{P1} & -13.4      & -9.2      & -15.8      & -14.8      & -8.9       & -10.9       & -9.6       & -17.0       \\ \hline
+\textbf{P2} & -14.1      & -8.6      & -14.7      & -14.6      & -8.6       & -9.7        & -9.0       & -18.5       \\ \hline
+\textbf{P3} & -13.3      & -9.3      & -16.2      & -14.9      & -8.7       & -14.4       & -9.7       & -18.5       \\ \hline
+\textbf{P4} & -14.3      & -8.9      & -14.9      & -14.9      & -8.6       & -14.4       & -9.6       & -18.2       \\ \hline
+\textbf{P5} & -14.0      & -9.6      & -17.6      & -15.5      & -8.9       & -15.2       & -9.9       & -18.8       \\ \hline
+\textbf{P6} & -14.0      & -8.8      & -14.6      & -15.0      & -8.7       & -15.4       & -9.7       & -18.1       \\ \hline
+\end{tabular}
+\caption{Radiation and total efficiency of the two MIMO antennas in free space compared the user effect of the hand in six different finger positions \cite{Samantha2014UserEff}}
+\label{tab:usereff_radeff}
+\end{table}
+
+
 User effects of MIMO LTE performance 2014 measurements. \cite{Samantha2014UserEff}
