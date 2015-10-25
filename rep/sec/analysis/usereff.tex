@@ -13,27 +13,29 @@ This design was proven to work by Motorola with there Motorola Razor V3 phone, w
 so in this case it still makes no difference if the antenna is placed in the bottom or in the top of the phone. 
 
 
-In talk or data (horizontal or vertical) mode, there will still be some negative user effect on the performance. As long as the head or hand is within the near field of the phone, the impact of the user will be significant and needs some attention. Besides following the simple design guidelines, antenna tuning can be used to optimize the performance, when the phone is detuned, as a result of the user impact.
+In talk or data (horizontal or vertical) mode, there will still be some negative user effect on the performance. As long as the head or hand is within the near field of the phone, the impact of the user will be significant and needs some attention. Besides following the simple design guidelines, antenna tuning can be used to optimize the performance, when the antennas center frequency is detuned, as a result of the user impact.
 
 \subsection{Recent Measurements}
-A recent studie has been carried out in 2014 on user effects of MIMO LTE performance, which is also the antenna design goal of this project. The study is based on time-domain simulations of the user effects of head and hand phantoms in a free space scenario. The phantom hand used is modified, such that the finger can move across the phones backplane, to give more realistic results. 
+A recent studie has been carried out in 2014 on user effects of MIMO LTE performance, which is also the antenna design goal of this project. The study is based on time-domain simulations of the user effects of head and hand phantoms in a free space scenario. The phantom hand used is modified, such that the finger can move across the phones backplane, to give more realistic results. The simulations is done in CST (Computer Simulation Technology) using the time-domain solver using FEM (Finite Element Method). Furthermore the antenna is placed in different positions, to evaluate on the user effect for different antenna positions. The different positions and the results of the simulation study, can be seen in Table \ref{tab:usereff_s11} and Table \ref{tab:usereff_radeff}. In Table \ref{tab:usereff_s11} the S-Parameter $S_{11}$ and $S_{22}$ are the reflection coefficient for the antenna at port 1 and 2 respectively and the $S_{21}$ results indicated the correlation between the two antennas. From the results it is clearly seen that the antennas is significally de-tuned in the presens of a user. In the worst case, the reflection coefficient drops from \SI{-8.2}{dB} to \SI{-0.6}{dB}, which is the case for the side mounted antenna. The bottom mounted antenna is the best case, where the reflection coefficient only drops approx. \SI{-2.5}{dB}, which is still a noticable drop. The correlation between the antennas
+
+Finger position !    
 
 \begin{table}[]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-            & \multicolumn{3}{c|}{\textbf{Antennas: Top/Side}} & \multicolumn{3}{c|}{\textbf{Antennas: Bottom/Side}} \\ \hline
-            & S11            & S22            & S21            & S11             & S22             & S21             \\ \hline
-\textbf{FS} & -7.9           & -8.2           & -8.4           & -7.9            & -8.2            & -8.4            \\ \hline
-\textbf{P1} & -2.4           & -1.2           & -22.7          & -5.5            & -1.1            & -21.0           \\ \hline
-\textbf{P2} & -4.8           & -1.2           & -22.5          & -5.5            & -0.6            & -22.9           \\ \hline
-\textbf{P3} & -2.0           & -1.2           & -22.8          & -5.1            & -1.8            & -19.7           \\ \hline
-\textbf{P4} & -4.8           & -1.2           & -22.2          & -5.2            & -1.9            & -19.2           \\ \hline
-\textbf{P5} & -1.5           & -1.1           & -22.6          & -4.8            & -2.6            & -19.4           \\ \hline
-\textbf{P6} & -4.3           & -1.1           & -22.5          & -5.0            & -2.0            & -18.5           \\ \hline
-\end{tabular}
-\caption{S-parameter of the two MIMO antennas in free space compared to the user effect of the hand in six different finger positions \cite{Samantha2014UserEff}}
-\label{tab:usereff_s11}
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    & \multicolumn{3}{c|}{\textbf{Antennas: Top/Side}} & \multicolumn{3}{c|}{\textbf{Antennas: Bottom/Side}} \\ \hline
+                & $S_{11}$        & $S_{22}$        & $S_{21}$       & $S_{11}$         & $S_{22}$         & $S_{21}$             \\ \hline
+    \textbf{FS} & -7.9           & -8.2           & -8.4           & -7.9            & -8.2            & -8.4            \\ \hline
+    \textbf{P1} & -2.4           & -1.2           & -22.7          & -5.5            & -1.1            & -21.0           \\ \hline
+    \textbf{P2} & -4.8           & -1.2           & -22.5          & -5.5            & -0.6            & -22.9           \\ \hline
+    \textbf{P3} & -2.0           & -1.2           & -22.8          & -5.1            & -1.8            & -19.7           \\ \hline
+    \textbf{P4} & -4.8           & -1.2           & -22.2          & -5.2            & -1.9            & -19.2           \\ \hline
+    \textbf{P5} & -1.5           & -1.1           & -22.6          & -4.8            & -2.6            & -19.4           \\ \hline
+    \textbf{P6} & -4.3           & -1.1           & -22.5          & -5.0            & -2.0            & -18.5           \\ \hline
+  \end{tabular}
+  \caption{S-parameter of the two MIMO antennas in free space compared to the user effect of the hand in six different finger positions \cite{Samantha2014UserEff}}
+  \label{tab:usereff_s11}
 \end{table}
 
 \begin{table}[]
