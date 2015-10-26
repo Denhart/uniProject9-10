@@ -273,7 +273,7 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & $Z_0 \real{\dfrac{2S_{21}}{1-S_{11}-S_{22}+S_{11}S_{22}-S_{21}^2}}$\\
         \TabSpace$L_s$ 
         & $L_k\Big|_{k=s}$ 
-        & $\dfrac{\omega_LX_s(\omega_L) - \omega_HX_s(\omega_H)}{\omega_L^2 - \omega_H^2}$\\
+        & $\dfrac{\omega_HX_s(\omega_H) - \omega_LX_s(\omega_L)}{\omega_H^2 - \omega_L^2}$ \refmistake\\
         \TabSpace$C_s$ 
         & $C_k\Big|_{k=s}$ 
         & $\dfrac{\omega_L^2 - \omega_H^2}{\omega_L\omega_H} \dfrac{1}{\omega_HX_s(\omega_L) - \omega_LX_s(\omega_H)}$\\
@@ -289,7 +289,7 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & \\
         \hline
     \end{tabular}
-    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the S-parameter measurement. \refmistake Mistakes in reference \fixme{Delete this?}.}
+    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf, pozar2011microwave}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the S-parameter measurement. \refmistake Mistakes in reference \cite{gu2014rf} \fixme{Delete this?}.}
     \label{tab:sparam_to_circuit}
 \end{table}
 
