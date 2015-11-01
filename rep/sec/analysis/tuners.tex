@@ -46,7 +46,7 @@ Note that $\Gamma$ without parameters indicates $\Gamma(0)$.
     \label{fig:generator_load}
 \end{figure}
 
-To maximize the power transfered from a generator to a load, it is desired to have a reflection coefficient that is zero so that only forward waves are present on the transmission line. Figure~\ref{fig:generator_load} shows an equivalent circuit for this situation. The power in the load is found as \cite{pozar2011microwave}
+To maximize the power transfered from a generator to a load, it is desired to have a reflection coefficient that is zero so that only forward waves are present on the transmission line. Figure~\ref{fig:generator_load} shows an equivalent circuit for this situation. The average power delivered to the load is found as \cite{pozar2011microwave}
 \begin{equation}
     \label{eq:power1}
     P = \frac{1}{2} \real{V_LI^*} = \frac{1}{2} \real{\frac{|V_L|^2}{Z_L}}
@@ -54,7 +54,7 @@ To maximize the power transfered from a generator to a load, it is desired to ha
 \end{equation}
 where
 \begin{where}
-\item[$P_L$] Power delivered to the load
+\item[$P$] Average power delivered to the load
 \item[$V_L$] Voltage drop across the load
 \item[$Z_L$] $R_L+jX_L$ is the load impedance
 \item[$I$] Current through the load
@@ -132,7 +132,7 @@ The smith chart shown in Figure~\ref{fig:smithchart} is a normalized smith chart
 \end{equation}
 This means that $Z_0$ will always appear at $1+j0$ -- in the center of the smith chart -- and the goal of the matching is to get the impedance of the antenna (or other circuitry) as close to the center as possible for the desired frequency range.
 
-The impedance bandwidth of an antenna is often given as the bandwidth for which the reflection coefficient, $\Gamma$, is below 0.5 (or \SI{-6}{dB} -- when denoting the reflection coefficient in decibels, it is commonly called \emph{return loss}). It may therefore be advantageous to plot this requirement. In the smith chart, this is plotted as a circle around the center and any point within the circle, is within the bandwidth of the circuit. The \SI{-6}{dB} circle is also shown in Figure~\ref{fig:smithchart}. This type of circle is also known as a SWR (Standing Wave Ratio) circle. The connection between the SWR and the reflection coefficient is \cite{pozar2011microwave}
+The impedance bandwidth of an antenna is often given as the bandwidth for which the reflection coefficient, $\Gamma$, is below 0.5 (or \SI{-6}{dB} -- when denoting the reflection coefficient in decibels, it is commonly called \emph{return loss}). It may therefore be advantageous to plot this requirement. In the smith chart, this is plotted as a circle around the center and any point within the circle, is within the bandwidth of the circuit. The \SI{-6}{dB} circle is also shown in Figure~\ref{fig:smithchart}. This type of circle is also known as an SWR (Standing Wave Ratio) circle. The connection between the SWR and the reflection coefficient is \cite{pozar2011microwave}
 \begin{equation}
     \text{SWR} = \frac{1 + |\Gamma|}{1 - |\Gamma|}
 \end{equation}
@@ -186,7 +186,7 @@ The Q factor describes the ratio between the reactive and the resistive part of 
     \label{fig:compq}
     Q = \frac{X}{R}
 \end{equation}
-where $X$ is the reactance of the component and $R$ is the resistive part of the component. Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also has a small resistive part called the equivalent series resistance (ESR) which causes power to be transfered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
+where $X$ is the reactance of the component and $R$ is the resistive part of the component. Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also have a small resistive part called the equivalent series resistance (ESR) which causes power to be delivered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
 
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
 \subsection{Tuners}
@@ -195,7 +195,7 @@ From the description above it is seen that the resonance frequency of an antenna
 \subsubsection{Variable Capacitors}
 Three basic types of variable capacitors will now be described briefly. 
 
-Barium strontium titanate (BST) varactors are voltage controlled components where the bias voltage determines the amount of capacitance provided by the component. The Q factor is dependent on the tuning range, $\eta$. For a tuning range of $\eta = 2--4$ at around \SI{3}{GHz}, the Q factor is around 30--65 \cite{gu2014rf}. 
+Barium strontium titanate (BST) varactors are voltage controlled components where the bias voltage determines the amount of capacitance provided by the component. The Q factor is dependent on the tuning range, $\eta$. For a tuning range of $\eta = 2$--$4$ at around \SI{3}{GHz}, the Q factor is around 30--65 \cite{gu2014rf}. 
 
 A downside of the BST varactor is that it is quite nonlinear, having a typical third order intercept point ($\text{IIP}_3$) of around 32--\SI{40}{dBm} \cite{gu2014rf}. Also, an external power supply is necessary to bias the varactor.
 
@@ -235,7 +235,7 @@ Two types of equivalent networks are common to represent a two-port network:
 \item The $\pi$-network, with two shunt impedances and one series impedance in between. This is used for modeling a \emph{series tunable capacitor}.
 \item The T-network, with two series impedances and one shunt impedance in between. This is used for modeling a \emph{shunt tunable capacitor}.
 \end{enumerate}
-The two networks are shown in Table~\ref{tab:sparam_to_circuit}. The values of the components in the networks can be determined by measuring the S-parameters of a tunable capacitor at two frequencies. The two frequencies are necessary to obtain both capacitive and inductive parasitics. For the result to be accurate, the S-parameter measurements must be made as accurate as possible \cite{gu2014rf}. The conversion formulas from S-parameters to component values are likewise shown in Table~\ref{tab:sparam_to_circuit}.
+The two networks are shown in Table~\ref{tab:sparam_to_circuit}. The values of the components in the networks can be determined by measuring the S-parameters of a tunable capacitor at two frequencies. The two frequencies are necessary to obtain both capacitive and inductive parasitics. For the result to be accurate, the S-parameter measurements must be made very accurate \cite{gu2014rf}. The conversion formulas from S-parameters to component values are likewise shown in Table~\ref{tab:sparam_to_circuit}.
 
 \def\TabSpace{\rule{0pt}{4.5ex} \rule[-3ex]{0pt}{0pt}}
 \def\refmistake{$^{\dagger}$}
