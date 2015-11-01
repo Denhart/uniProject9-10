@@ -13,7 +13,7 @@ from matplotlib.pyplot import *
 
 # Input
 Z0 = 50.0
-nwtype = "pi" # "pi" or "T"
+nwtype = "T" # "pi" or "T"
 
 if nwtype == "pi":
     fL = 0.6e9
@@ -78,7 +78,7 @@ def R1(S):
 def R2(S):
     S11,S21,S22 = S
     if nwtype == "pi":
-        # FIXME: Error here: Negative resistances
+        # FIXME: Error here: Negative resistances: May be due to bad accuracy of S params
         return Z0*real((1+S11+S22+(S11*S22-S21**2)) / (1+S11-S22-2*S21-(S11*S22-S21**2)))
     elif nwtype == "T":
         return Z0*real((1-S11+S22-2*S21-(S11*S22-S21**2)) / (1-S11-S22+(S11*S22-S21**2)))
@@ -100,8 +100,8 @@ if nwtype == "pi":
     L2 = (wL*X2(SL) - wH*X2(SH)) / (wL**2 - wH**2)
 elif nwtype == "T":
     Cs = (wL**2-wH**2)/(wL*wH) * 1/(wH*Xs(SL) - wL*Xs(SH))
-    # Ls = (wL*Xs(SL)-wH*Xs(SH))/(wL**2 - wH**2) # FIXME: Error here
-    Ls = (Xs(SH)*wH - Xs(SL)*wL) / (wL**2 - wH**2)
+    # Ls = (wL*Xs(SL) - wH*Xs(SH))/(wL**2 - wH**2) # FIXME: Error here
+    Ls =   (wH*Xs(SH) - wL*Xs(SL))/(wH**2 - wL**2)
     L1 = L1shunt(wL, SL)
     L2 = L2shunt(wL, SL)
 

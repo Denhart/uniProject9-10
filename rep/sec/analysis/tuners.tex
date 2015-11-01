@@ -227,6 +227,15 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
 
 \subsubsection{Tuner Modeling}
 % [Gu Sec 2.1 and 2.2], [Bowick RF]: S-parameters --> component values
+% Insertion loss, S21 for networks, equivalent series resistance, component Q.
+A tunable capacitor as described above would ideally have a purely imaginary impedance (infinite Q) and a reactance only made up of capacitance. As it happens, the ideal capacitor is impossible to come by in real life. Real capacitors have an equivalent series resistance (ESR) and parasitic capacitance and inductance determined by the physical layout of the component. To use a tunable capacitor in simulation, an equivalent circuit for the capacitor is therefore more accurate than using an ideal capacitor.
+
+Two types of equivalent networks are common to represent a two-port network:
+\begin{enumerate}
+\item The $\pi$-network, with two shunt impedances and one series impedance in between. This is used for modeling a \emph{series tunable capacitor}.
+\item The T-network, with two series impedances and one shunt impedance in between. This is used for modeling a \emph{shunt tunable capacitor}.
+\end{enumerate}
+The two networks are shown in Table~\ref{tab:sparam_to_circuit}. The values of the components in the networks can be determined by measuring the S-parameters of a tunable capacitor at two frequencies. The two frequencies are necessary to obtain both capacitive and inductive parasitics. For the result to be accurate, the S-parameter measurements must be made as accurate as possible \cite{gu2014rf}. The conversion formulas from S-parameters to component values are likewise shown in Table~\ref{tab:sparam_to_circuit}.
 
 \def\TabSpace{\rule{0pt}{4.5ex} \rule[-3ex]{0pt}{0pt}}
 \def\refmistake{$^{\dagger}$}
@@ -273,13 +282,13 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & $Z_0 \real{\dfrac{2S_{21}}{1-S_{11}-S_{22}+S_{11}S_{22}-S_{21}^2}}$\\
         \TabSpace$L_s$ 
         & $L_k\Big|_{k=s}$ 
-        & $\dfrac{\omega_HX_s(\omega_H) - \omega_LX_s(\omega_L)}{\omega_H^2 - \omega_L^2}$ \refmistake\\
+        & $\dfrac{\omega_HX_s(\omega_H) - \omega_LX_s(\omega_L)}{\omega_H^2 - \omega_L^2}$ \\
         \TabSpace$C_s$ 
         & $C_k\Big|_{k=s}$ 
         & $\dfrac{\omega_L^2 - \omega_H^2}{\omega_L\omega_H} \dfrac{1}{\omega_HX_s(\omega_L) - \omega_LX_s(\omega_H)}$\\
         \hline
         \TabSpace$R_2$ 
-        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$ \refmistake
+        & $Z_0 \real{\dfrac{1+S_{11}+S_{22}+(S_{11}S_{22}-S_{21}^2)}{1+S_{11}-S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}}$
         & $Z_0 \real{\dfrac{1-S_{11}+S_{22}-2S_{21}-(S_{11}S_{22}-S_{21}^2)}{1-S_{11}-S_{22}+(S_{11}S_{22}-S_{21}^2)}}$\\
         \TabSpace$L_2$ 
         & $L_k\Big|_{k=2}$ 
@@ -289,8 +298,7 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
         & \\
         \hline
     \end{tabular}
-    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf, pozar2011microwave}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the S-parameter measurement. \refmistake Mistakes in reference \cite{gu2014rf} \fixme{Delete this?}.}
+    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf, pozar2011microwave}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the S-parameter measurement. \refmistake Mistakes in \cite{gu2014rf} have been corrected here \fixme{Delete this?}.}
     \label{tab:sparam_to_circuit}
 \end{table}
 
-% Insertion loss, S21 for networks, equivalent series resistance, component Q.

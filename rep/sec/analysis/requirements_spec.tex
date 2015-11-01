@@ -7,9 +7,10 @@
     \hline
     ID & Requirement \\
     \hline
-    \freq{triband} & Two single-feed tri-band antennas covering. \\
+    \freq{triband} & Two single-feed tri-band antennas covering the bands described in Requirement~\sreqref{fbands}. \\
+    \freq{updownlink} & Must cover both uplink and downlink at the same time for each required LTE band.\\
     \freq{usereffect} & Must be able to re-tune any detuning due to user effects. \\
-    \freq{matching} & Must have a simple matching network, containing a variable, shunt capacitor for tuning inside the specified bands.\\
+    \freq{matching} & Must have a simple matching network, containing a variable capacitor for tuning inside the specified bands.\\
     \freq{wispry} & Must use a wiSpry WS1040 MEMS variable capacitor chip in the matching network.\\
     \hline
 \end{tabularx}
@@ -21,8 +22,8 @@
   ID & Specification & Requirement \\
   \hline
   \sreq{fbands} & Frequency bands\slash tunable range & \num{700}--\SI{960}{MHz}, \num{1710}--\SI{2170}{MHz}, \num{2300}--\SI{2400}{MHz}, \num{2550}--\SI{2650}{MHz} \\
-  \sreq{bandwidthlow} & Minimum tunable bandwidth (\num{700} -- \SI{960}{MHz}) & \SI{45}{MHz} \\
-  \sreq{bandwidthhigh} & Minimum tunable bandwidth (\num{1710} -- \SI{2650}{MHz}) & \SI{70}{MHz} \\
+  \sreq{bandwidthlow} & Minimum tunable bandwidth (\num{700} -- \SI{960}{MHz}) & \SI{80}{MHz} (band 8) \\
+  \sreq{bandwidthhigh} & Minimum tunable bandwidth (\num{1710} -- \SI{2650}{MHz}) & \SI{170}{MHz} (band 3) \\
   \sreq{physdim} & Physical dimensions & External: $70\times140\times7$\,\si{mm\cubed}, PCB: $55\times120$\,\si{mm\squared}\\
   \sreq{correlation} & Correlation between antenna elements & $\rho_e < 0.5$\\
   \sreq{efficiency} & Total efficiency of antenna (in-band) & $>\SI{50}{\%}$ \\
