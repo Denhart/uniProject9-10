@@ -1,6 +1,6 @@
 \section{MIMO in handsets} % (fold)
 \label{sec:mimo_in_handsets}
-Multiple-input and multiple-output (MIMO) is a convenient way to deal with the challenges in delivering more throughput and coupe with the multipath effects from buildings etc. The purpose of this section is to explain what is understood by such a system, how it relates to the antenna design and how it makes a difference. The principal mechanisms and performance metrics are explained. This section will not describe the statistical channel models, but rather focus on the antenna related perspectives. 
+Multiple-input and multiple-output (MIMO) is a effective way of dealing with the challenges in delivering more throughput and coupe with the multipath effects from buildings etc. The purpose of this section is to explain what is understood by such a system, how it relates to the antenna design and how it makes a difference. The principal mechanisms and performance metrics are explained. This section will not describe the statistical channel models, but rather focus on the antenna related perspectives. 
 
 \begin{figure}[htbp]
   \centering
@@ -10,23 +10,22 @@ Multiple-input and multiple-output (MIMO) is a convenient way to deal with the c
 \end{figure}
 
 \subsection{Perks of MIMO} 
-As shown in the introduction to this section, the use of MIMO comes with enhancement in performance. Figure~\ref{fig:mimo-throughput} showed the general performance increase, however this is gained by the addition of multiply different performance gains. These are spatial diversity gain, multiplexing gain, arrary gain and interference reduction\cite{Ezio2007MIMO}, which will be described briefly in the following.
-
+As shown in the introduction to this section, the use of MIMO comes with enhancement in performance. Figure~\ref{fig:mimo-throughput} showed the general performance increase, however this is gained by the addition of multiple different performance gains. The performance gains are spatial diversity gain, multiplexing gain, arrary gain and interference reduction\cite{Ezio2007MIMO}, which will be described briefly in the following.
 
 \subsubsection{Spatial Diversity Gain}
-The spatial diversity gain, improves the resistance to fading in the receiver. This is done by providing the receiver with multiply different copies of the same transmitted signal, ideally the copies are independent from another. A diversity technique is required to combine the signals at the receiver\cite{Ezio2007MIMO}, some examples could be equal gain combining, maximal-ratio combining or selection combining. This diversity is also quite intuitive since the probability that one of the signals are not in a fade increases per added element, given that they are somewhat independent. 
+The spatial diversity gain, improves the resistance to fading in the receiver. This is done by providing the receiver with multiple different copies of the same transmitted signal, ideally the copies are independent from another. A diversity technique is required to combine the signals at the receiver\cite{Ezio2007MIMO}, some examples could be equal gain combining, maximal-ratio combining or selection combining. The spatial diversity is also quite intuitive since the probability that one of the signals are not in a fade increases per added element, given that they are somewhat independent. 
  
 \subsubsection{Spatial Multiplexing Gain}
-Spatial multiplexing can be used in scatter rich channels, where each received signal are independent. Instead of transmitting the same signal, as with the diversity gain, the spatial multiplexing transmits multiple independent data stream, thus this allows for a linear increase in the data rate thus the capacity of the wireless network is increased. Generally the number of independent streams that can be supported are limited by the number of receive antennas. 
+Spatial multiplexing can be used in scatter rich channels, where each received signal are independent. Instead of transmitting the same signal, as with the diversity gain, the spatial multiplexing transmits multiple independent data stream. This allows for a linear increase in the data rate thus the capacity of the wireless network is increased. Generally the number of independent streams that can be supported are limited by the number of receive antennas. \cite{}
 
 \subsubsection{Array Gain}
-The array gain is the result of coherent combining of the wireless signals at the receiver, which results in an increase in the receive SNR. The arrary gain is improved by the number of antenna elements until a certain saturation point. This gain improves the resistance to noise and thus also the coverage. 
+The array gain is the result of coherent combining of the wireless signals at the receiver, which results in an increase in the receive SNR. The arrary gain is improved by the number of antenna elements until a certain saturation point. This gain improves the resistance to noise and thus also the coverage. \cite{} 
   
 \subsubsection{Interference Gain}
-By using MIMO the interference from different users and base-stations can be avoided by exploiting extra spatial degrees of freedom, such as arrary gain. Furthermore one could imagine that beam-steering could be implemented such that the signal could be directed towards the designated receiver. Obviously all of the above can not be used at the same time, however using a combination of this allows for improved coverage, capacity or reliability.
+By using MIMO the interference from different users and base-stations can be avoided by exploiting extra spatial degrees of freedom, such as array gain. Furthermore beam-steering could be implemented such that the signal could be directed towards the designated receiver. Obviously all of the above can not be used at the same time, however using a combination  allows for improved coverage, capacity and reliability. \cite{}
  
 \subsection{Antenna Design in MIMO Applications}
-The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{total}$. The near-field coupling which is a measure of the coupled power towards the second antenna when the first antenna is excited, which is evaluated by the $S_{21}$ parameter, this is also often referred to as the isolation. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. 
+The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{total}$. The near-field coupling is a measure of the coupled power towards the second antenna when the first antenna is excited. The coupling is evaluated by the $S_{21}$ parameter and is often referred to as the isolation. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. 
 
 The total efficiency is simply given by Equation~\ref{eq:mimo_total_eff}\cite{Tatomirescu2011PortIsolation}, where $\eta_{rad}$ is the radiation efficiency, which takes dielectric and conductive losses into account. 
 
@@ -50,25 +49,24 @@ Equation~\ref{eq:envlop_corr} assumes uniform 3D angular power spectrum of the r
   \rho_e \approx |\rho_c|^2 = \frac{|S^*_{11}S_{12}+S^*_{21}S_{22}|^2}{(1-|S_{11}|^2-|S_{21}|^2)(1-|S_{22}|^2-|S_{12}|^2)}
 \end{align}
 
-Thus, when designing antenna for the purpose of MIMO, they need to be designed in a way such that the elements receives de-correlated signals, this can be in different ways, such as changing the angular patterns or polarization of the elements or spatially separating the antennas, these are the most used however there are also other techniques such as decoupling networks, parasitic elements, active antenna cancellation, eigen modes and balanced currents. 
+Thus, when designing antenna for the purpose of MIMO, the antennas need to be designed in a way such that the elements receives de-correlated signals. This can be done in different ways, such as changing the angular patterns, changing the polarization of the elements or spatially separating the antennas, which are the most used methods. However there are also other techniques such as decoupling networks, parasitic elements, active antenna cancellation, eigen modes and balanced currents. 
 
 \subsubsection{Spatial Correlation}
-The spatial correlation between two antennas  is given by the radiated E-field patterns as given in Equation~\ref{eq:envlop_corr}. There it is seen that the correlation is a comparison between the radiated E-field patterns and the incident E-fields arriving at the antenna, which is given by the probability $p_\theta$ and $p_\phi$. 
+The spatial correlation between two antennas is given by the radiated E-field patterns as given in Equation~\ref{eq:envlop_corr}. There it is seen that the correlation is a comparison between the radiated E-field patterns and the incident E-fields arriving at the antenna, which is given by the probability $p_\theta$ and $p_\phi$. 
 
-From the Equation~\ref{eq:envlop_corr} it can also be deduced that the spacing, polarization and radiation patterns all effect the correlation between two antennas. In order to investigate the only effects of spacial separation we consider the case with two omnidirectional antennas both purely vertically polarized. This can be described by Equation~\ref{eqn:spactial_corr}\cite{Tim2012Practical}, where $d$ is the horizontal spacing and $l$ is the vertical spacing.  
+From the Equation~\ref{eq:envlop_corr} it can also be deduced that the spacing, polarization and radiation patterns effects the correlation between two antennas. In order to investigate the only effects of spacial separation we consider the case with two omnidirectional antennas both vertically polarized. This can be described by Equation~\ref{eqn:spactial_corr}\cite{Tim2012Practical}.
 
 \begin{align}
 \label{eqn:spactial_corr}
   \rho = \oint e^{j\beta \sqrt{d^2+l^2}\cos\zeta}p_\theta(\theta,\phi)\sin\theta \, \mathrm{d} \theta \mathrm{d} \phi
 \end{align}
+\begin{where}
+\item[$d$] is the horizontal spacing
+\item[$l$] is the vertical spacing
+\item[$\cos \zeta$] $= \sin(\phi + \tan^-1(\frac{l}{d}) \text{sgn}\phi)\sin\phi$   
+\end{where}
 
-where: 
-
-\begin{align*}
-\cos \zeta = \sin(\phi + \tan^-1(\frac{l}{d}) \text{sgn}\phi)\sin\phi  
-\end{align*}
-
-In Figure~\ref{fig:mimo-spacing} two cases of Equation~\ref{eqn:spactial_corr} are shown, one where only the horizontal spacing is considered and another where only the vertical spacing is considered. The angle of arrival is given by Taga, where the mean angle $\overline{\theta}$ is at \SI{70}{\degree} and the standard deviation $\sigma_\theta$ is \SI{20}{\degree}. From the plot it can be seen that the vertical spacing required for a certain correlation is larger than that of the horizontal spacing, this comes from the taga-model used for the angle of arrival, since its distribution is nonuniform. This can however not be used to argue that the antennas should be spaced horizontally, since smartphones often is operated both horizontally and vertically! 
+In Figure~\ref{fig:mimo-spacing} two cases of Equation~\ref{eqn:spactial_corr} are shown, one where only the horizontal spacing is considered and another where only the vertical spacing is considered. The angle of arrival is given by Taga\fixme{elaborate on the angle of arrival}, where the mean angle $\overline{\theta}$ is at \SI{70}{\degree} and the standard deviation $\sigma_\theta$ is \SI{20}{\degree}. From the plot it can be seen that the vertical spacing required for a certain correlation is larger than that of the horizontal spacing. This comes from the taga-model used for the angle of arrival, since its distribution is nonuniform. This can however not be used to argue that the antennas should be spaced horizontally, since smartphones often is operated both horizontally and vertically. 
 
 It is also possible to make the array in other toplogies such as planar, circular or random, this is however not very practical for mobile devices given the current usage of low frequencies in telecommunication \SIrange{500}{2700}{MHz} as described in Section~\ref{sec:lte}.
 
@@ -79,7 +77,7 @@ It is also possible to make the array in other toplogies such as planar, circula
   \label{fig:mimo-spacing}
 \end{figure}
 
-\subsubsection{Other methods} %Nyt navn tak :D
+\subsubsection{Polarization and Radiation Patterns}
 In addition to the spatial separation to decorrelate antennas, polarization and different radiation patterns can also be used to decorrelate elements. This is very often used in small mobile devices, where the physical size limits the spacing between elements.  
 
 In theory using a perfectly polarized dipole and loop antenna, it would be possible to create total decorrelated elements, because they have opposite polarization. This is obviously hard to implement in practice, but it is possible to lower the correlation of to elements by having a difference in polarization. However using different polarization to get a lower correlation requires a suitable XPR in the channel. The XPR should be around \SI{6}{dB} or lower\cite{Tim2012Practical}. 
