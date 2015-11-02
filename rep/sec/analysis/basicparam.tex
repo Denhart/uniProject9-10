@@ -1,21 +1,320 @@
 \section{Basic Antenna Parameters}
+This section will give a summery of the fundamental theories and parameters that are used to describe antennas. This should give a basic understanding of antennas and the parameters described in this section are used throughout the report. 
 
+\subsection{Antenna Definition}
+\label{subsec:antenna-def}
+The IEEE defines an antenna as: ``a means for radiating or receiving radio waves''. In other words, the purpose of an antenna is to make the transistion from a signal in a transmission line to electromagnetic fields in the air. An antenna will radiates an electric field (E-field) in a given direction, which then induces a magnetic field (H-field) orthogonal to the E-field, this relation is described by Maxwell's Equations which is covered in section\fixme{Ref til FDTD section}. 
+
+\subsection{Isotropic Radiator}
+\label{subsec:isotropic-ant}
+An isotropic antenna, can be represented as a point source. The isotropic antenna radiates its power uniformly in a sphere. The power density $S_{iso}$ can be expressed as the source power $P_s$ over the surface area of a sphere which is given by $4\pi r^2$. 
+
+\begin{align}
+  S_{iso} = \frac{P_s}{4\pi r^2}
+\end{align}
+
+Clearly it is not possible to construct such an antenna, however it is used as a reference for quantifying other properties of the antenna. This could be the gain or directivity (See section\ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
+
+\subsection{Radiation Pattern}
+\label{subsec:radiation-p}
+The radiation pattern describes how the antenna emits or receives radiated power. This is commonly visualized by a 3D plot or 2D cuts of the 3D plot in specific coordinates. The unit of power used is often gain or directivity (See section\~ref{}\fixme{Insæt korrekt ref}) and this is often compared to the isotropic antenna. 
+
+\subsection{Field Regions}
+The waves transmitted from the antenna are usually grouped into three regions of radiation, based on how the waves propagate and the field structure\cite{balanis2012antenna}. Obviously there is no abrupt change, but rather a continuous change. 
 
 \begin{itemize}
-\item Radiation pattern
-\item Field regions
-  \begin{itemize}
-  \item Reactive near field
-  \item Radiating near field
-  \item Far-field
-  \end{itemize}
-\item Bandwidth
-\item Polarization of the antenna
-\item Input impedance
-\item Radiation efficiency
-\item Friss equation
+\item The Reactive near-field 
+\item The Radiating near-field (Fresnel)
+\item The Far-field
 \end{itemize}
-Basic Antenna param:
-\cite{balanis2012antenna}
-Basic Antenna param:
-\cite{lamont2009fundamentalsAnt}
+
+The reactive near-field is defined as the portion of the near-field region immediately surrounding the antenna wherein the reactive field predominates\cite{balanis2012antenna}. The outer boundary for this region is given by $R < 0.62 \sqrt{\frac{D^3}{\lambda}}$\cite{balanis2012antenna}.
+
+The radiating near-field is defined as the region between the reactive near-field and the far-field, this field might not exist in the case that the overall antenna dimension is very small compared to the wavelength. The outer boundary for this is defined as $R \geq \frac{2D^2}{\lambda}$\cite{balanis2012antenna}.
+
+The far-field region is defined as the region of the field where the angular field distribution is independent of the distance, that is the radiation pattern does not change shape with distance. The far-field is also dominated by fields where the E- and H-fields are orthogonal and propagates as plane waves. The inner boundary is given as $R = \frac{2D^2}{\lambda}$\cite{balanis2012antenna}.
+
+These different regions are illustrated on Figure~\ref{fig:field-regions}. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=1]{img/analysis/radiationfields}
+  \caption{Visualization of different fields\cite{balanis2012antenna}}
+  \label{fig:field-regions}
+\end{figure}
+
+\subsection{Directivity and Gain}
+\label{subsec:dir_gain}
+Directivity is defined as the ratio of the power radiated at a  point with a certain angle and distance from the antenna compared to what would be radiated from a reference isotropic antenna. Mathematically it can be written as: 
+\begin{align}
+  D = \frac{U}{U_0} = \frac{4 \pi U}{P_{rad}} 
+\end{align}
+Where: $D$ is the directivity, $U$ is the radiation intensity, $U_0$ is the radiation intensity of an isotropic source and $P_{rad}$ is the total radiated power. It should be noted, that for this equation to be valid, the waves must propagate as plane waves, thus being in the far-field region. 
+
+Gain is a measure closely related to directivity, it takes the antenna efficiency of the antenna into account as well as the direction. The gain is defined as the ration of the intensity in a given direction to the radian intensity that would be obtained if it was radiated isotropically. In mathematical form it can be expressed as: 
+
+\begin{align}
+  G = 4 \pi \frac{\text{radiation intensity}}{\text{total accepted input power}} = 4 \pi \frac{U(\theta,\phi)}{P_{in}} 
+\end{align}
+
+In many cases the relative gain is used, which is defined as the ratio of the power gain in a given direction to the power gain of a reference antenna in its referenced direction. The reference antenna could be a dipole, horn etc. 
+
+The gain can also be calculated using the directivity, since they are only related by the efficiency. This is given as: 
+
+\begin{align}
+  G(\theta,\phi) = e_{cd}D(\theta, \phi)
+\end{align}
+
+\subsection{Impedance, Return Loss and VSWR}
+The impedance and matching is an important part of the antenna design to ensure maximum power transfer. The input impedance of an antenna is defined as $Z_{\text{in}}$. From the classical circuit theory it is known that the maximum power transfer occurs when the in- and output impedance is matched. If there is a mismatch some of the power will be reflected back into the source, and thus not transmitted from the antenna. The reflection coefficient $\Gamma$ is defined as:
+
+\begin{align}
+  \Gamma = \frac{Z_{in}-Z_0}{Z_{in}+Z_0}
+\end{align}
+Where $Z_0$ denotes the characteristic impedance, which is classically \SI{50}{\ohm}. The reflection coefficient is furthermore often expressed in \si{dB}. 
+
+Another closely related figure is the Voltage Standing Wave Ratio (VSWR), and is defined as: 
+
+\begin{align}
+  \text{VSWR} = \frac{1+|\Gamma|}{1-|\Gamma|}
+\end{align}
+
+\subsection{Bandwidth}
+The bandwidth of an antenna defines the usable spectrum of the antenna. The needed bandwidth is dependent on the modulation schemes used, which makes the bandwidth an important part of the antenna design. The bandwidth is defined with respect to a given reflection coefficient or VSWR.
+
+\subsection{Polarization}
+The polarization in a certain direction is simply defined as the polarization of the transmitted wave by the antenna. It describes the time-varying direction at relative magnitude of the E-field vector analogously to the polarization of light. Similar to light the polarization can be classified into groups, such as linear, circular or elliptical polarization. If two antennas are of different polarization, this will introduce a polarization mismatch loss to the system. 
+
+\subsection{Antenna efficiency}
+There are a lot of different measures for antenna efficiency depending on which losses are taken into account. The total efficiency takes the losses from the input terminal and within the antenna structure. This can in general be expressed as in Equation~\ref{}
+
+\begin{align}
+  e_0 = e_r e_c e_d
+\end{align}
+
+Where, $e_0$ is the total efficiency, $e_r$ is the mismatch loss, $e_c$ is the conduction efficiency and $e_d$ is the dielectric loss. 
+
+The conduction and dielectric losses are hard to compute, and by measurements they cannot be separated. 
+
+\subsubsection{Radiation efficiency}
+The radiation efficiency is defined as the conduction-dielectric efficiency $e_r = e_{ed}$ which is defined as the ratio of the power delivered to the radiation resistance $R_r$ to the power delivered to $R_r$ and $R_L$. This can be written as:
+
+
+\begin{align}
+  e_r = \frac{P_{\text{radiated}}}{P_{\text{input}}} = \frac{R_r}{R_L+Rr}
+\end{align}
+
+\subsection{Antenna Q Factor}
+The antenna Q factor (Quality factor) is often used to get an estimation of the bandwith of a given antenna. The definition of the Q factor of an antenna is defined in Equation~\ref{eq:antenna-q-factor} below\cite{fundamentalMcLean}: 
+\begin{align}
+  \label{eq:antenna-q-factor}
+      Q =
+    \begin{dcases}
+       \frac{2 \omega W_e}{P_{\text{rad}}} & W_e > W_m  \\
+       \frac{2 \omega W_e}{P_{\text{rad}}} & W_m > W_e 
+    \end{dcases}
+\end{align}
+
+Where, $W_e$ is the time-average nonpropagating stored electric energy, $W_m$ is the same a the above just with magnetic energy. $\omega$ is the radian frequency and $P_{\text{rad}}$ denotes the radiated power.
+
+\subsection{Electrically small antennas}
+The concept and definition of electrically small antennas was introduced by Wheeler in 1947 and, he gave the definition of an electrically small antenna as:
+
+\begin{align}
+\label{eq:esa-def}
+  ka \ll 1 
+\end{align}
+Where $k = \frac{2\pi}{\lambda}$ and $a$ is the radius of a sphere enclosing the maximum dimension of the antenna. This $a$ is illustrated in Figure~\ref{fig:ant-esa-def}. Inserting the definition of $k$ yields that
+
+\begin{align}
+  \frac{2\pi a}{\lambda} \ll 1
+\end{align}
+
+In order for an antenna to be defined as electrically small. For an electrically small antenna the minimum Q was expressed by Chu and later corrected by McLean to be:  
+
+\begin{align}
+  Q_L = \frac{1}{k^3a^3}+ \frac{1}{ka}
+\end{align}
+
+For a linear antenna in free space and for a circulary polarized to be: 
+
+\begin{align}
+  Q_{cp} = \frac{1}{2} \Big[ \frac{1}{k^3a^3} + \frac{2}{ka} \Big]
+\end{align}
+
+\fixme{cite McLean paper og eventuelt fig + en ikke matematisk beskrivelse af ESA}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=1]{img/analysis/ESA}
+  \caption{Illustration of ESA definition}
+  \label{fig:ant-esa-def}
+\end{figure}
+
+\subsection{Friis Transmission Equation}
+The Friis transmission equation relates the power received with the power transmitted. In the most simple form the Friis transmission equation is based on the Free-space path loss (FSPL), the gains of the antennas and the transmit power. The free-space path loss is defined as
+
+\begin{align}
+  \label{eq:fspl}
+  \text{FSPL} = \big( \frac{4 \pi d}{\lambda} \big)^2
+\end{align}
+
+Where, $\lambda$ is the wavelength, $f$ is the frequency and $d$ is the distance from the transmitter. This assumes that the energy spreads out in a sphere and that the only loss is from distance. It is seen that the power decreases as the square of the range, which is plotted on Figure~\ref{fig:fspl-plot} for a \SI{2.6}{GHz} link.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=1]{img/analysis/distancePathloss}
+  \caption{Free space pathlos in dB for a \SI{2.6}{GHz} Link}
+  \label{fig:fspl-plot}
+\end{figure}
+
+The Friis Transmission equation in its most basic form can be written as: 
+
+\begin{align}
+  \frac{P_r}{P_t} = \big( \frac{4 \pi d}{\lambda} \big)^2 G_{t} G_{r}
+\end{align}
+Where $P_r$ is the power received, $P_t$ is the power transmitted and $G$ is the transmitter and receiver gains. In this case it is assumed that there is no impedance or polarization mismatch. It is also assumed that the two antennas are aligned perfectly! Another large assumption is that the path loss is described by FSPL, which in reality is a very rare case. The next section will describe a few different propagation models.
+
+
+\section{Basic Propargation Models}
+This section will describe some simple propagation models and terms, that can be used to establish a rough estimate of the losses from propagation, which then can be used in link budgets. Obviously the simplest propagation model is the Free space path loss, which is given in Equation~\ref{eq:fspl}.
+
+The free-space path loss is however not very realistic, since it does not take trees, buildings into account\cite{balanis2012antenna}. There are however a myriad of empirical based models, which are based on actual measurements. The drawback is however that these tend not to be general and a given model might not be suited for two different cities. Due to this, the empirical models are often grouped into three main branches, foliage, terrain and city models\cite{goldsmith2005wireless}. For foliage areas models such as the Weissbergers model and the ITU Vegetation model can be used\cite{goldsmith2005wireless}. For terrain areas models such as the Egli and Longley-Rice model are used\cite{goldsmith2005wireless}. To model the path loss in cities, the Young, Okumura, Hata or the COST 231 models can be used\cite{goldsmith2005wireless}. It should be noted that some of these models are not usable in upper LTE frequency range, and thus care should be taken when applying these models. 
+
+
+\subsection{Multipath}
+The multipath effect exists only when reflections occur, such that there are multiple paths from the transmitter and receiver. Such that in areas where there were no ground or other obstacles (free space), there would be no multi-path effect. The simplest multipath case is the two-ray case, where the surface of the earth is present under the transmitting and receiving antenna, in this case there will be a single reflection from the earth and thus multiply paths from the transmitter to receiver. This scenario is illustrated in Figure~\ref{fig:mul_tworay}.
+ 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth} 
+     \includegraphics[width=\linewidth]{img/analysis/tworay}
+    \caption{Two ray path model.}
+    \label{fig:mul_tworay}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth} 
+      \includegraphics[width=\linewidth]{img/analysis/parsons_multipath}
+      \caption{Reflection and diffraction causing the multi-path effect \cite{parsons2000mobile}. The signal received by the car consists of diffracted, reflected, and refracted waves but no direct line-of-sight component.}
+      \label{fig:mul_reflec_diffrac}
+    \end{subfigure}
+    \caption{Two ray model and different multipath effects}
+\end{figure}
+
+One can imagine that in urban environments, with several buildings will cause many different reflections. If the surface is rough, scattering will also take place. This is the phenomenon where a single incoming wave scatters into multiple reflections. In addition to this there is also diffraction where a wavefront is ``bend'' at the edges of buildings which is illustrated in Figure~\ref{fig:mul_reflec_diffrac}. Multipath used to be a negative, however with MIMO the multipath effects are now exploited positively to increase throughput and channel stabilization. 
+
+\subsection{Fading}
+The signal strength in a wireless channel is constantly fluctuating. These variations are represented by fading, the cause of the variations can be scattering, reflections and blockage. Based on the type of variation the fading is grouped in \emph{small scale fading} and \emph{large scale fading}. Large scale fading is typically caused by large objects, such as hills and buildings, where small scale fading occurs over small travel distances due to constructive or destructive adding of the multipath waves. 
+
+By superimposing the path loss with small scale fading and large scale fading, the combined model is obtained which represents the total propagation and path-loss model. This is illustrated in Figure \ref{fig:mul_combined}. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/analysis/goldsmith_combined}
+    \caption{Combined path loss model with large- and small-scale fading \cite{goldsmith2005wireless}.}
+    \label{fig:mul_combined}
+\end{figure}
+
+\subsection{Empirical Models}
+This section will describe some of the city-models, that are often used in estimating the pathloss. 
+
+\subsubsection{Hata Model}
+The Hata model is a model derived from the Okumura model, which is based on measurements from Tokyo in 1960 in the frequency range is \SIrange{200}{1920}{MHz}. The Okumura model is a graphically model, and with the Hata model transformed this into a mathematical model. The model is divided into three groups: Urban, suburban, and open areas which are defined in dB in Equation~\ref{eqn:hataModelUrban}, Equation~\ref{eqn:hataModelSubUrban}, and Equation~\ref{eqn:hataModelOpen} respectively\cite{Seybold2005introduction}.
+
+\begin{align} 
+\label{eqn:hataModelUrban}
+L_{50} = L_{50}(\text{urban}) = 69.55+26.12 \log(f_c) - 13.28 \log(h_t) -a(h_r) + [44.9-6.55 \log(h_t)] \log(d)
+\end{align} 
+where, 
+\begin{where}
+\item [$f_{c}$] Center frequency in \si{MHz} and in the range: $150 < f_c < 1500$
+\item [$h_t$] Height in meters, which must satisfy $30 < h_t < 200$
+\item [$d$] Distance in km which must satisfy $1 < d < 20$
+\item [$a(h_r)$] The mobile antenna height correction factor. Defined in Equation~\ref{eqn:hataModelahrSmall}\cite{Seybold2005introduction} for small and medium sized cities. Defined in Equation~\ref{eqn:hataModelahrLarge}\cite{Seybold2005introduction} for a large city. 
+\end{where}
+
+\begin{align} 
+\label{eqn:hataModelahrSmall}
+a(h_r) = [1.1 \log(f_c)-0.7]h_r - [1.56 \log(f_c)-0.8]\quad\text{if } \SI{1}{m} \leq h_r \leq \SI{10}{m} 
+\end{align} 
+
+\begin{align} 
+\label{eqn:hataModelahrLarge}
+a(h_r) = 
+  \begin{cases}
+    8.29[\log(1.54 h_r))^2 -1.1 & \text{if } f_c \leq \SI{200}{MHz}, \\
+    3.2[\log(11.75 h_r))^2 -4.97 & \text{if } f_c \leq \SI{400}{MHz} ,
+  \end{cases}
+\end{align} 
+
+
+\begin{align} 
+\label{eqn:hataModelSubUrban}
+L_{50} = L_{50}(\text{urban})-4.78[\log(f_c)]^2 + 18.33 \log(f_c) - 40.94
+\end{align} 
+
+\begin{align} 
+\label{eqn:hataModelOpen}
+L_{50} = L_{50}(\text{urban})-2 \left[\log\left( \frac{f_c}{28} \right) \right]^2 -5.4
+\end{align} 
+
+This extension to the Okumura model is often used in practical applications since it is easier to apply than the Okumura model. However, it only handles frequencies up to \SI{1500}{MHz}, which lead to the COST 231 model being developed. 
+
+\subsubsection{COST 231 Model}
+%COST 231 Model
+The COST 231 model is an extension of the Hata model. It includes the PCS bands \SIrange{1800}{1900}{MHz} which makes it an ideal model for many wireless personal communication systems (GSM etc.). The path loss is given by Equation~\ref{eqn:COSTModel} in dB\cite{Seybold2005introduction} and the model is valid in the frequency range of  \SIrange{1500}{2000}{MHz}, link distance of up to \SI{20}{km}, a transmitter antenna height of \SIrange{30}{200}{m}, and a receiver height of \SIrange{1}{10}{m}\cite{Seybold2005introduction}. It should also be stated that the model is restricted to applications where the base station antenna is above adjacent roof tops. 
+
+\begin{align} 
+\label{eqn:COSTModel}
+L_{50} = 46.3+33.9 \log(f_c)-13.82 \log(h_t)-a(ht)+[44.9-6.55 \log(h_t)] \log(d) + C 
+\end{align} 
+where, 
+\begin{where}
+\item [$f_c$] The frequency in \si{MHz}.
+\item [$h_t$] Transmitter height in \si{m}. 
+\item [$h_r$] Receiver height in \si{m}.
+\item [$a(h_r)$] The mobile antenna height correction factor from Equation~\ref{eqn:hataModelahrSmall} and Equation~\ref{eqn:hataModelahrLarge}.
+\item [$d$] Distance of propagation.
+\item [$C$] 0 dB for suburban and medium cities with medium tree density, 3 dB for metropolitan centers. 
+\end{where}
+
+\subsubsection{Extended COST}
+%Extended COST 
+An extension to the COST 231 model is described in a ITU (International Telecommunication Union) report \cite{itu2002report} and this model extends the COST 231 such that it is accurate up to 3 GHz. The path loss model for an urban environment in the range of \SIrange{2000}{3000}{MHz} is given by Equation~\ref{eqn:COSTModelExtended}\cite{itu2002report}.   
+
+\begin{equation} 
+\label{eqn:COSTModelExtended}
+\begin{aligned}
+    L &= 46.3 + 33.9 \log(2000) + 10 \log\left(\frac{f_c}{2000}\right) \\
+        &- 13.82 \log(\text{max}\{30,h_t\}) + [44.9 -6.55 \log(\text{max}\{30,h_t\})] (\log(d))^{\alpha} - a(h_r) - b(h_t)
+%L = 46.3 + 33.9\log(2000) + 10\log(\frac{f_c}{2000}) − 13.82\log(max{30,H_t}) +[44.9 − 6.55\log(max{30,H_t})](\log(d))\alpha −a(H_r)−b(H_t)
+\end{aligned}
+\end{equation} 
+where, 
+\begin{where}
+\item [$f_c$] The frequency in \si{MHz}.
+\item [$h_t$] Transmitter height in \si{m}. 
+\item [$h_r$] Receiver height in \si{m}.
+\item [$a(h_r)$] The mobile antenna height correction factor given in Equation~\ref{eqn:COSTModelExtendedhr}
+\item [$b(h_t)$] Transmitter height correction factor given in Equation~\ref{eqn:COSTModelExtendedht}
+\item [$\alpha$] Given in Equation~\ref{eqn:aplhacostextended}.
+\end{where}
+
+\begin{align} 
+\label{eqn:COSTModelExtendedhr}
+a(h_r)=(1.1\log(f)-0.7) \min\{10,h_r\}-(1.56\log(f)-0.8)+\max\left\{0,20\log\left(\frac{h_r}{10}\right)\right\}
+\end{align} 
+
+\begin{align} 
+\label{eqn:COSTModelExtendedht}
+b(h_t)= \min\left\{0,20\log\left(\frac{h_t}{30}\right)\right\}
+\end{align} 
+
+\begin{align} 
+\label{eqn:aplhacostextended}
+\alpha = 
+  \begin{cases}
+      1 & \text{if } (d \leq \SI{20}{km}) \\
+    1+(0.14+1.87e^{-4} f + 1.07e^{-3} h_t & \text{if } (\SI{20}{km} < d \leq \SI{100}{km})
+  \end{cases}
+\end{align} 
