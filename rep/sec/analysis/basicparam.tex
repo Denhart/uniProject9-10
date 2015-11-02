@@ -3,7 +3,7 @@ This section will give a summery of the fundamental theories and parameters that
 
 \subsection{Antenna Definition}
 \label{subsec:antenna-def}
-The IEEE defines an antenna as: ``a means for radiating or receiving radio waves''. In other words, the purpose of an antenna is to make the transistion from a signal in a transmission line to electromagnetic fields in the air. An antenna will radiates an electric field (E-field) in a given direction, which then induces a magnetic field (H-field) orthogonal to the E-field, this relation is described by Maxwell's Equations which is covered in section\fixme{Ref til FDTD section}. 
+The IEEE defines an antenna as: ``a means for radiating or receiving radio waves''. In other words, the purpose of an antenna is to make the transistion from a signal in a transmission line to electromagnetic fields in the air. An antenna will radiates an electric field (E-field) in a given direction, which then induces a magnetic field (H-field) orthogonal to the E-field, this relation is described by Maxwell's Equations which is covered in Section~\ref{sec:fdtd}. 
 
 \subsection{Isotropic Radiator}
 \label{subsec:isotropic-ant}
@@ -13,11 +13,11 @@ An isotropic antenna, can be represented as a point source. The isotropic antenn
   S_{iso} = \frac{P_s}{4\pi r^2}
 \end{align}
 
-Clearly it is not possible to construct such an antenna, however it is used as a reference for quantifying other properties of the antenna. This could be the gain or directivity (See section\ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
+Clearly it is not possible to construct such an antenna, however it is used as a reference for quantifying other properties of the antenna. This could be the gain or directivity (See Section\ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
 
 \subsection{Radiation Pattern}
 \label{subsec:radiation-p}
-The radiation pattern describes how the antenna emits or receives radiated power. This is commonly visualized by a 3D plot or 2D cuts of the 3D plot in specific coordinates. The unit of power used is often gain or directivity (See section\~ref{}\fixme{Insæt korrekt ref}) and this is often compared to the isotropic antenna. 
+The radiation pattern describes how the antenna emits or receives radiated power. This is commonly visualized by a 3D plot or 2D cuts of the 3D plot in specific coordinates. The unit of power used is often gain or directivity (See Section\~ref{subsec:dir_gain}) and this is often compared to the isotropic antenna. 
 
 \subsection{Field Regions}
 The waves transmitted from the antenna are usually grouped into three regions of radiation, based on how the waves propagate and the field structure\cite{balanis2012antenna}. Obviously there is no abrupt change, but rather a continuous change. 
@@ -86,9 +86,10 @@ The bandwidth of an antenna defines the usable spectrum of the antenna. The need
 The polarization in a certain direction is simply defined as the polarization of the transmitted wave by the antenna. It describes the time-varying direction at relative magnitude of the E-field vector analogously to the polarization of light. Similar to light the polarization can be classified into groups, such as linear, circular or elliptical polarization. If two antennas are of different polarization, this will introduce a polarization mismatch loss to the system. 
 
 \subsection{Antenna efficiency}
-There are a lot of different measures for antenna efficiency depending on which losses are taken into account. The total efficiency takes the losses from the input terminal and within the antenna structure. This can in general be expressed as in Equation~\ref{}
+There are a lot of different measures for antenna efficiency depending on which losses are taken into account. The total efficiency takes the losses from the input terminal and within the antenna structure. This can in general be expressed as in Equation~\ref{eq:ant-eff}
 
 \begin{align}
+\label{eq:ant-eff}
   e_0 = e_r e_c e_d
 \end{align}
 
