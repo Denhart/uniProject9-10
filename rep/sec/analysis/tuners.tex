@@ -181,12 +181,17 @@ The simplest matching network is the L-network which is made from two components
 \end{table}
 
 \subsection{Q Factor}
-The Q factor describes the ratio between the reactive and the resistive part of a component,
+The Q factor describes the ratio between the reactive and the resistive part of a component is \cite{pozar2011microwave}
 \begin{equation}
     \label{fig:compq}
     Q = \frac{X}{R}
 \end{equation}
-where $X$ is the reactance of the component and $R$ is the resistive part of the component. Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also have a small resistive part called the equivalent series resistance (ESR) which causes power to be delivered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
+where
+\begin{where}
+\item[$X$] is the reactance of the component
+\item[$R$] is the resistive part of the component
+\end{where}
+Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also have a small resistive part called the equivalent series resistance (ESR) which causes power to be delivered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
 
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
 \subsection{Tuners}
