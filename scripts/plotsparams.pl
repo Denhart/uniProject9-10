@@ -4,7 +4,7 @@ use File::Basename;
 
 if (not $ARGV[0]) {
     print "Usage:\n";
-    print "    perl plotsweep.pl SWEEPFILE.txt OUTFILE.pdf\n"
+    print "    perl plotsparams.pl SPARAMETERFILE.txt OUTFILE.pdf\n"
 }
 my $infile = $ARGV[0];
 open(my $infile_h, "<", $infile) or die "Could not open $infile. $!";
@@ -34,7 +34,7 @@ while ($lines =~ /$p/g) {
     print "$param\n";
 }
 
-my $o = "sweep_$paramname.pdf";
+my $o = "sparams_$paramname.pdf";
 if ($ARGV[1]) {
     $o = $ARGV[1];
 }
