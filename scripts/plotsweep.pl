@@ -1,3 +1,7 @@
+#!/usr/bin/perl
+alias plotpolar='python3 /home/lthomsen/svn/project7/users/soren/scripts/plotpolar.py'
+alias livestreamer='/home/lthomsen/.local/bin/livestreamer'
+alias plots11='python3 /home/lthomsen/svn/project7/users/soren/scripts/plots11.py'
 use warnings;
 use strict;
 use File::Basename;
