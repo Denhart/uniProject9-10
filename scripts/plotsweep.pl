@@ -5,7 +5,7 @@ use File::Basename;
 
 if (not $ARGV[0]) {
     print "Usage:\n";
-    print "    perl plotsweep.pl SWEEPFILE.txt OUTFILE.pdf\n"
+    print "    perl plotsweep.pl SWEEPFILE.txt OUTFILE.pdf\n";
     exit();
 }
 my $infile = $ARGV[0];
