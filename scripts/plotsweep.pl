@@ -14,11 +14,13 @@ open(my $infile_h, "<", $infile) or die "Could not open $infile. $!";
 my $lines = join("", <$infile_h>);
 
 my $p = qr{
-   ^\s* Frequency
-   .*? (\S+)/.*?
-   ^-+$
+   ^\s* Frequency # Header start
+   \s+
+   (.*?)/         # Parameter that is swept
+   .*?
+   ^\s* -+ \s*$   # Line with only dashes
    (.*?)
-   ^$
+   ^\s*$          # Empty line terminates
 }xms;
 
 my @outfiles = ();
@@ -26,14 +28,17 @@ my $paramname = "param";
 while ($lines =~ /$p/g) {
     my $param = $1;
     my $rows = $2;
+    
+    $param =~ s/\s/_/g;
+    $paramname = $param;
     $paramname = $1 if ($param =~ /^(.*?)=/);
+    print "$param\n";
 
     my $outfile = "$param";
     open(my $outfile_h, ">", $outfile) or die "Could not open $outfile for writing";
     print $outfile_h "Frequency    $param\n$rows";
     close $outfile_h;
     push @outfiles, $outfile;
-    print "$param\n";
 }
 
 my $o = "sweep_$paramname.pdf";
