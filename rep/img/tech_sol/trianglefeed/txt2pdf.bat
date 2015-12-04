@@ -1,0 +1,7 @@
+cmd.exe /C "plotsparams sparams.txt sparams.pdf"
+cmd.exe /C "plotsweep Csh1s11.txt Csh1s11.pdf"
+cmd.exe /C "plotsweep Csh1s21.txt Csh1s21.pdf"
+cmd.exe /C "plotsweep Csh1s22.txt Csh1s22.pdf"
+cmd.exe /C "plotsweep Csh2s11.txt Csh2s11.pdf"
+cmd.exe /C "plotsweep Csh2s21.txt Csh2s21.pdf"
+cmd.exe /C "plotsweep Csh2s22.txt Csh2s22.pdf"
