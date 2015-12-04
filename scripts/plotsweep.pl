@@ -6,6 +6,7 @@ use File::Basename;
 if (not $ARGV[0]) {
     print "Usage:\n";
     print "    perl plotsweep.pl SWEEPFILE.txt OUTFILE.pdf\n"
+    exit();
 }
 my $infile = $ARGV[0];
 open(my $infile_h, "<", $infile) or die "Could not open $infile. $!";
