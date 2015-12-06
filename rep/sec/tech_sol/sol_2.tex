@@ -50,7 +50,7 @@ The triangular feed creates two new resonances in the mid-band (around \SI{1800}
 
 The S-parameters for both antennas are shown in Figure~\ref{fig:ant2sparams} with the tuning capacitors at their minimum values, \SI{0.3}{pF}. At this position, the highest end of the low band, around \SI{9600}{MHz}, is covered. It is seen that the top-antenna (port 1) covers the whole lower band whereas the side-antenna only covers around half of the band and must be tuned to cover the whole band. The high band is almost covered at this capacitor setting for both antennas.
 
-The tuned S-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the whole lower band can be covered by the side antenna ($S_{22}$) and that the whole high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top- and side-antenna respectively.
+The tuned S-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the whole lower band can be covered by the side antenna ($S_{22}$) and that the whole high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top- and side-antenna respectively. It is noted that all three resonances are moved when $C_2$ is altered.
 
 \begin{figure}[htbp]
     \begin{subfigure}{0.49\linewidth}
@@ -80,5 +80,6 @@ The tuned S-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen th
     \label{fig:ant2sweeps}
 \end{figure}
 
-It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna works. The CCE antenna couples to the chassis an uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.
+It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna resonates. The CCE antenna couples to the chassis an uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.
 
+This design provides high bandwidth, covering all desired bands for both antennas. However, the isolation between the two antennas is not the best. Additionally, building the antenna on lossy FR-4 may prove to decrease the efficiency bandwidth.
