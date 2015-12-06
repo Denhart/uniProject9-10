@@ -4,7 +4,7 @@
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/trianglefeed/technical}
-        \caption{Technical drawing.}
+        \caption{Technical drawing. Unit: mm.}
         \label{fig:ant2technical}
     \end{subfigure}
     \hfill
@@ -26,6 +26,31 @@
     \caption{Technical drawing and tuning circuit for the antenna.  The antennas are built on FR-4 board using \SI{35}{\micro\meter} copper. There is a matching circuit as shown for each of the two feeds.}
     \label{fig:ant2techschem}
 \end{figure}
+
+The antenna shown in Figure~\ref{fig:ant2techschem} consists of a whole ground plane of the size $120\times55$\,\si{mm\squared}. The two antennas consist of a triangle-feed printed on FR-4 and the main element following the edge of this FR-4 block.
+
+% What makes it radiate at 900, 1800, and 2400?
+The low-band element consists of a CCE (Capacitively Coupled Element) antenna which is inherently non-resonant \cite{valkonen2013inherently,ilvonen2014design}. The resonance of this type of antenna is dependent on the matching circuit. For this design, the matching is performed by $C_1$ and $L_1$ to resonate at \SI{960}{MHz} and $C_2$ is used to tune the resonance frequency down to \SI{700}{MHz}.
+
+The triangular feed creates two new resonances in the mid-band (around \SI{1800}{MHz}) and the high-band (around \SI{2400}{MHz}). Looking at the top-antenna, the right-hand side from the feed line resonates at around \SI{1800}{MHz} and the left-hand side resonates at around \SI{2400}{MHz}. By determining the $x$-position of the triangle-feed, these two resonances can either be separated or joined, making it possible to cover all the required high LTE bands. The surface currents, illustrating how the structure resonates after matching, is shown in Figure~\ref{fig:ant2surfaces}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/tech_sol/trianglefeed/surface_currents}
+    \caption{Surface currents around each resonance with $C_2=\SI{0.3}{pF}$.}
+    \label{fig:ant2surfaces}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/tech_sol/trianglefeed/sparams}
+    \caption{S-parameters with $C_2=\SI{0.3}{pF}$ for both antennas.}
+    \label{fig:ant2sparams}
+\end{figure}
+
+The S-parameters for both antennas are shown in Figure~\ref{fig:ant2sparams} with the tuning capacitors at their minimum values, \SI{0.3}{pF}. At this position, the highest end of the low band, around \SI{9600}{MHz}, is covered. It is seen that the top-antenna (port 1) covers the whole lower band whereas the side-antenna only covers around half of the band and must be tuned to cover the whole band. The high band is almost covered at this capacitor setting for both antennas.
+
+The tuned S-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the whole lower band can be covered by the side antenna ($S_{22}$) and that the whole high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top- and side-antenna respectively.
 
 \begin{figure}[htbp]
     \begin{subfigure}{0.49\linewidth}
@@ -54,3 +79,6 @@
     \caption{Parameter sweeps for tuning the shunt capacitor of each antenna, $C_{1}$ and $C_{2}$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna. The capacitor values are changed in \SI{0.2}{pF} steps.}
     \label{fig:ant2sweeps}
 \end{figure}
+
+It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna works. The CCE antenna couples to the chassis an uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.
+
