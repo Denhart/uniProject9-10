@@ -14,13 +14,11 @@ open(my $infile_h, "<", $infile) or die "Could not open $infile. $!";
 my $lines = join("", <$infile_h>);
 
 my $p = qr{
-   ^\s* Frequency # Header start
-   \s+
-   (.*?)/         # Parameter that is swept
-   .*?
-   ^\s* -+ \s*$   # Line with only dashes
+   ^\s* Frequency
+   .*? (\S+\s*?[\w\d\(\)]*)/.*?
+   ^-+$
    (.*?)
-   ^\s*$          # Empty line terminates
+   ^$
 }xms;
 
 my @outfiles = ();
@@ -28,7 +26,7 @@ my $paramname = "param";
 while ($lines =~ /$p/g) {
     my $param = $1;
     my $rows = $2;
-    
+
     $param =~ s/\s/_/g;
     $paramname = $param;
     $paramname = $1 if ($param =~ /^(.*?)=/);
