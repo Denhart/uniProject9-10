@@ -1,4 +1,8 @@
 #!/usr/bin/perl
+
+# Plots S-parameters from a single exported CST file containing,
+# e.g. S11, S21, and S22. A legend is shown on the output.
+
 use warnings;
 use strict;
 use File::Basename;
@@ -14,11 +18,12 @@ open(my $infile_h, "<", $infile) or die "Could not open $infile. $!";
 my $lines = join("", <$infile_h>);
 
 my $p = qr{
-   ^\s* Frequency
-   .*? (\S+\s*?[\w\d\(\)]*)/.*?
-   ^-+$
-   (.*?)
-   ^$
+    ^\s* Frequency 
+    .*? (?:\s\s)+   # Column sep
+    (.*?) /         # Run name
+    .*? ^\s*-+\s*$  # Header sep line
+    (.*?)           # Content
+    ^\s*$           # Empty line => end
 }xms;
 
 my @outfiles = ();
@@ -28,6 +33,8 @@ while ($lines =~ /$p/g) {
     my $rows = $2;
 
     $param =~ s/\s/_/g;
+    $param =~ s/\(/[/g;
+    $param =~ s/\)/]/g;
     $paramname = $param;
     $paramname = $1 if ($param =~ /^(.*?)=/);
     print "$param\n";
