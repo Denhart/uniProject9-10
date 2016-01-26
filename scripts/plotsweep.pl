@@ -7,13 +7,31 @@
 use warnings;
 use strict;
 use File::Basename;
+use Getopt::Long;
 
-if (not $ARGV[0]) {
+sub printhelp {
     print "Usage:\n";
     print "    perl plotsweep.pl SWEEPFILE.txt OUTFILE.pdf\n";
+    print "                        [-s|--show]        (show output file)\n";
+    print "                        [-h|--help]        (show help message)\n";
     exit();
 }
-my $infile = $ARGV[0];
+
+# Options and arguments
+my $infile = "";
+my $figurefile = "";
+my $opt_showfigure = 0;
+GetOptions(
+    's|show' => \$opt_showfigure,
+    'h|help' => sub { printhelp() }
+);
+
+# Input and output filenames are left in @ARGV.
+if (not $ARGV[0]) {
+    printhelp();
+}
+$infile = $ARGV[0];
+
 open(my $infile_h, "<", $infile) or die "Could not open $infile. $!";
 
 my $lines = join("", <$infile_h>);
@@ -53,6 +71,7 @@ if ($ARGV[1]) {
 }
 my $here = dirname(__FILE__);
 my $cmd = "python $here/plots11.py " . join(" ", @outfiles) . " -n -o $o";
+$cmd .= " -s" if ($opt_showfigure);
 system($cmd);
 
 unlink $_ for @outfiles;
