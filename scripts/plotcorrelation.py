@@ -57,10 +57,18 @@ def freqscale(f):
     else:
         return 1000.0
 
+# ONLY PLOT INSIDE BANDS #######################################################
+# y_low = y[logical_and(f >= 690, f<=960)].reshape(len(f),-1)
+# f_low = f[logical_and(f >= 690, f<=960)].reshape(len(f),-1)
+# y_high = y[logical_and(f >=1700, f<=2700)].reshape(len(f),-1)
+# f_high = f[logical_and(f >=1700, f<=2700)].reshape(len(f),-1)
+
 if 1:
     figure(figsize=(3.5, 3))
     f *= freqscale(f)
-    plot(f.T, y.T)
+    # plot(f_low.T, y_low.T)
+    # plot(f_high.T, y_high.T)
+    plot(f.T,y.T)
     xlabel("Frequency [MHz]")
     ylabel("Correlation [.]")
     xlim(f.min(), f.max())
