@@ -1,2 +1,20 @@
 \chapter{Technical Solution}
 In this chapter, the technical solution will be documented. The technical solution includes three antenna designs simulated and measured in free-space and with user effects. All the antenna designs are done accordingly to the requirement specification, Chapter~\ref{cha:reqspec}. 
+
+The documentation will contain the following:
+\begin{description}
+\item[Technical drawing] A technical drawing with all dimensions of the antennas. 
+\item[Circuit and component values] A schematic showing the matching circuit and component values.
+\item[Description and surface currents] A description of how the antenna works and the surface currents are distributed at different frequencies.
+\item[S-parameters] A figure of all S-parameters at the minimum capacitance values.
+\item[S-parameter sweep] A sweep of S-parameters. For one antenna, the tunable capacitor is swept from \SI{0.3}{pF} to \SI{2.9}{pF} in \SI{0.2}{pF} steps. The other antenna has a fixed capacitance of \SI{0.3}{pF}. Four plots are shown
+    \begin{enumerate}
+    \item $S_{11}$, sweeping the capacitor of antenna 1 and keeping the capacitor for antenna 2 fixed.
+    \item $S_{21}$, sweeping the capacitor of antenna 1 and keeping the capacitor for antenna 2 fixed.
+    \item $S_{21}$, sweeping the capacitor of antenna 2 and keeping the capacitor for antenna 1 fixed.
+    \item $S_{22}$, sweeping the capacitor of antenna 2 and keeping the capacitor for antenna 1 fixed.
+    \end{enumerate}
+\item[Tunable bandwidth] A table of the maximum obtained bandwidth for each antenna and for the low and the high band. The maximum bandwidth is found from the S-parameter sweep at the capacitor value yielding the best bandwidth.
+\item[Correlation sweep] A sweep of the envelope correlation between the two antennas. One sweep for each antenna, keeping the capacitance value of the opposite antenna fixed at \SI{0.3}{pF}.
+\item[Efficiency sweep] A sweep of the total efficiency of each antenna keeping the capacitance value of the opposite antenna fixed at \SI{0.3}{pF}.
+\end{description}
