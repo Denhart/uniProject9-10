@@ -66,7 +66,7 @@ if 1:
     xlim(f.min(), f.max())
     for x in [700, 960, 1710, 2650]:
         axvline(x, color='k', linestyle='--')
-        text(x, 1.01, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
+        text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
     ylim(0, 1)
     yticks([0,0.25,0.5,0.75,1.0])
     if (args.xlabel):
