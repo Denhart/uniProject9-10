@@ -169,6 +169,10 @@
     \setlength{\parskip}{0em}%
     \setlength{\itemsep}{0.25em}%
     }{\tempsix}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\footnotesize}
+
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 \renewcommand{\labelenumii}{\arabic{enumi}.~\arabic{enumii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.~\arabic{enumii}.~\arabic{enumiii}}
