@@ -31,9 +31,10 @@
 The antenna design for both antennas is shown in Figure \ref{fig:an1technical}. Both antennas is designed from a basic folded monopole structure with 2 arms one for the low band and one for the high band. The antennas are almost identical with a few changes as a result of the restrictions on the ground clearance.
 The antennas are designed to take full advantage of the ground clearance requirements in all directions. This is done in order to obtain the highest possible bandwidth in the low band and high band. 
 
-
 %MIMO
-Going from the top antenna to the side antenna the ground clearance decreases from \SI{10}{mm} to \SI{7}{mm}. To compensate for the decrease in ground clearance the length of both the low band and high band arms are adjusted to meet the bandwidth requirements.
+Going from the top antenna to the side antenna the ground clearance decreases from \SI{10}{mm} to \SI{7}{mm}. To compensate for the decrease in ground clearance the length of both the low band and high band arms are adjusted to obtain the highest bandwidth within the low band and high band. 
+
+The surface currents of the top antenna are shown in Figure \ref{fig:ant1_sc}. In the low band the left arm is excited and as the frequency increases the short becomes more excited. This illustrated the different operation modes of the two arm folded monopole.   
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.32\linewidth}
@@ -66,11 +67,11 @@ Going from the top antenna to the side antenna the ground clearance decreases fr
     \caption{S-parameters with $C_2=\SI{0.3}{pF}$ for both antennas.}
     \label{fig:ant1surfaces}
 \end{figure}
+The S-parameters for both antennas are shown in Figure \ref{fig:sparam_mono}. The return loss $S_{11}$ and $S_{22}$ shows that both antennas almost covers the desired bandwidth. However from \SI{2500}{MHz} to \SI{2650}{MHz} both antennas are \SI{-1}{dB} to \SI{-3}{dB} lower than required. The side antenna \ref{fig:ant1_s22} also shows a lower level than desired at \SI{1750}{MHz} and in the low band limits. During the S-parameter simulation sweep of one antenna the variable capacitor of the other antenna is set to initial fixed value of \SI{0.3}{pF}. 
 
-The S11 and S22 sweeps \ref{fig:sparam_mono} shows that both antennas almost covers the desired bandwidth specified in the requirements \ref{cha:reqspec}. However at approx. \SI{2500}{MHz} to \SI{2650}{MHz} both antennas are \SI{-1}{dB} to \SI{-3}{dB} lower than required. The return loss from the side antenna  
-\ref{fig:ant1_s22} also shows a lower level that desired, at approx \SI{-5}{dB}. From the requirement specification \ref{cha:reqspec} it is specified that for the low band the minimum channel bandwidth should be \SI{80}{MHz} and for the high band \SI{720}{MHz}. The channel bandwidth for both antennas are shown in Table. \ref{tab:asd}
+The isolation loss $S_{21}$ is shown in Figure \ref{fig:sparam_mono}. The $S_{21}$ sweep shows a low isolation loss at \SI{5}{dB} in the low band. The surface current simulations \ref{fig:ant1_sc} shows that the monopole antenna design excites the ground plane, which could cause the low isolation loss. This should be taken into consideration as the isolation loss can have a significant effect on the MIMO operation.      
 
-\subsection{Bandwidth}
+The channel bandwidth for both antennas are shown in Table. \ref{tab:bw_sol1}. Both antennas have the desired bandwidth in the lower bands, however only the top antenna fulfill the bandwidth requirement in the high band. The side antenna lacks \SI{37}{MHz} in the high band.
 
     \begin{table}
         \centering
@@ -86,7 +87,7 @@ The S11 and S22 sweeps \ref{fig:sparam_mono} shows that both antennas almost cov
             \hline
         \end{tabular}
         \caption{Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
-        \label{tab:bw_sol2}
+        \label{tab:bw_sol1}
     \end{table}
 
 \begin{figure}[htbp]
