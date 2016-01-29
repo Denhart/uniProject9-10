@@ -1,5 +1,6 @@
 \section{Antenna Design 2 -- Triangle-Feed Antenna}
 \fixme{Insert results for the talk/play/read mode and SAR results.}
+\fixme{Write some text for this section}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.24\linewidth}
@@ -26,6 +27,7 @@
     \label{fig:triang_positions}
 \end{figure}
 
+\FloatBarrier
 \subsection{Read Mode}
 
 \begin{figure}[htbp]
@@ -34,6 +36,23 @@
     \caption{Triangular feed antenna in read mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
     \label{fig:triang_sparam_read}
 \end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|r|r|r|}
+        \hline
+        Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+        \hline
+        Top     & Low  & 570         & 2583       & 2013 \\
+        Side    & Low  & 779         & 891        & 112  \\
+        \hline
+        Top     & High & 570         & 2583       & 2013 \\
+        Side    & High & 1506        & 2623       & 1117 \\
+        \hline
+    \end{tabular}
+    \caption{Triangle feed antenna in read mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively. It is seen that, for the low capacitor settings on the top antenna, both the low and high band are covered at the same time.}
+    \label{tab:bw_sol2read}
+\end{table}
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -64,6 +83,7 @@
 \end{figure}
 
 
+\FloatBarrier
 \subsection{Play Mode}
 
 \begin{figure}[htbp]
@@ -72,6 +92,23 @@
     \caption{Triangular feed antenna in play mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
     \label{fig:triang_sparam_play}
 \end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|r|r|r|}
+        \hline
+        Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+        \hline
+        Top     & Low  & 629         & 928        & 299  \\
+        Side    & Low  & 780         & 881        & 101  \\
+        \hline
+        Top     & High & 1379        & 2703       & 1324 \\
+        Side    & High & 1388        & 2559       & 1171 \\
+        \hline
+    \end{tabular}
+    \caption{Triangle feed antenna in play mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively. The bandwidth for the side antennas high band is ignoring the slight rise above \SI{-6}{dB} in the middle of the high band.}
+    \label{tab:bw_sol2play}
+\end{table}
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -101,6 +138,7 @@
     \label{fig:tiang_sparam_sweep_play}
 \end{figure}
 
+\FloatBarrier
 \subsection{Talk Mode}
 
 \begin{figure}[htbp]
@@ -109,6 +147,23 @@
     \caption{Triangular feed antenna in talk mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
     \label{fig:triang_sparam_talk}
 \end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|r|r|r|}
+        \hline
+        Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+        \hline
+        Top     & Low  & 701         & 2597       & 1896 \\
+        Side    & Low  & 749         & 844        & 95   \\
+        \hline
+        Top     & High & 701         & 2597       & 1896 \\
+        Side    & High & 1439        & 2516       & 1077 \\
+        \hline
+    \end{tabular}
+    \caption{Triangle feed antenna in talk mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively. It is, again, seen that both the low and high band are covered at the same time for the top antenna.}
+    \label{tab:bw_sol2talk}
+\end{table}
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -138,6 +193,15 @@
     \label{fig:tiang_sparam_sweep_talk}
 \end{figure}
 
+\FloatBarrier
 \subsection{SAR}
+The result from the SAR simulation is shown in Figure~\ref{fig:triang_sar_sim}. It is seen, that the maximum SAR is greater than the required maximum of \SI{2}{kg/W}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/tech_sol/trianglefeed/sar/sar.pdf}
+    \caption{SAR simulation of the triangle feed antenna. \fixme{Insert SAR for antenna 2!}}
+    \label{fig:triang_sar_sim}
+\end{figure}
 
 
