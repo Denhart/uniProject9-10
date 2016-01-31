@@ -90,36 +90,55 @@ The channel bandwidth for both antennas are shown in Table. \ref{tab:bw_sol1}. B
         \label{tab:bw_sol1}
     \end{table}
 
+%S-Parameter sweep
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/s11}
-        \caption{S11 plot for the bottom antenna.}
+        \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
         \label{fig:ant1_s11}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/s22}
-        \caption{S22 plot for the side antenna.}
+        \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
         \label{fig:ant1_s22}
     \end{subfigure}
 ~
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/s21-s11}
-        \caption{$S_{21}$ with $C_2$ = \SI{0.3}{pF} and $C_1$ varying from \SI{0.3}{pF} to \SI{2.9}{pF}.}
+        \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
         \label{fig:ant1_s11}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/s21-s22}
-        \caption{$S_{21}$ with $C_2$ = \SI{0.3}{pF} and $C_1$ varying from \SI{0.3}{pF} to \SI{2.9}{pF}.}
+        \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
         \label{fig:ant1_s22}
     \end{subfigure}
-    \caption{Parameter sweep for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
-    \label{fig:sparam_mono}
+    \caption{Parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \label{fig:sparam_mono_free_space}
 \end{figure}
+
+% Correlation
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/free_space/s11_corr}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/free_space/s22_corr}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_sol1}
+\end{figure}
+
+
 
 
