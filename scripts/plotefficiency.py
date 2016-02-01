@@ -75,7 +75,7 @@ if 1:
     ax1.set_xlim(f.min(), f.max())
     for x in [700, 960, 1710, 2650]:
         ax1.axvline(x, color='k', linestyle='--')
-        ax1.text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
+        ax1.text(x, 0.2, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
     ax1.set_ylim(-9, 0)
     ax1.set_yticks([-9, -6, -3, 0])
     if (args.xlabel):
@@ -88,7 +88,7 @@ if 1:
     ax2.set_ylim(-9,0)
     ax2.set_yticks([-9,-6,-3,0])
     ax2.set_yticklabels(around(10**(ax2.get_yticks()/10),2))
-    ax2.set_ylabel("Efficiency [.]")
+    ax2.set_ylabel("Efficiency [.]", rotation=270)
 
     if len(args.files) > 1:
         if not args.nolegend:
