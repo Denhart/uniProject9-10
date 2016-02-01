@@ -90,9 +90,9 @@ if 1:
     ax2.set_yticklabels(around(10**(ax2.get_yticks()/10),2))
     ax2.set_ylabel("Efficiency [.]", rotation=270)
 
-    if len(args.files) > 1:
-        if not args.nolegend:
-            legend(args.files, loc=9, bbox_to_anchor=(0.5, -0.2), ncol=2, fancybox=False, prop={'size': 8}, handlelength=3)
+    # if len(args.files) > 1:
+    #     if not args.nolegend:
+    #         legend(args.files, loc=9, bbox_to_anchor=(0.5, -0.2), ncol=2, fancybox=False, prop={'size': 8}, handlelength=3)
 
     tight_layout()
     if args.show:
