@@ -60,12 +60,12 @@ def freqscale(f):
 if 1:
     figure(figsize=(3.5, 3))
     f *= freqscale(f)
-    plot(f.T,y.T)
+    plot(f.T,y.T,zorder=1)
     xlabel("Frequency [MHz]")
     ylabel("Correlation [.]")
     xlim(f.min(), f.max())
     for x in [700, 960, 1710, 2650]:
-        axvline(x, color='k', linestyle='--')
+        axvline(x, color='k', linestyle='--', zorder=3)
         text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
     ylim(0, 1)
     yticks([0,0.25,0.5,0.75,1.0])
@@ -73,6 +73,10 @@ if 1:
         xlabel(args.xlabel)
     if (args.ylabel):
         ylabel(args.ylabel)
+
+    axvspan(960, 1710, ec="white", fc="white", zorder=2)
+    axvspan(f.min(), 700, ec="white", fc="white", zorder=2)
+    axvspan(2650, f.max(), ec="white", fc="white", zorder=2)
     grid(True)
     if len(args.corrfiles) > 1:
         if not args.nolegend:

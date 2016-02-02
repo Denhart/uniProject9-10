@@ -69,22 +69,27 @@ if 1:
     y = to_db(y)
 
     ax1 = subplot(111)
-    ax1.plot(f.T,y.T)
+    ax1.plot(f.T,y.T, zorder=1)
     ax1.set_xlabel("Frequency [MHz]")
     ax1.set_ylabel("Efficiency [dB]")
     ax1.set_xlim(f.min(), f.max())
-    for x in [700, 960, 1710, 2650]:
-        ax1.axvline(x, color='k', linestyle='--')
-        ax1.text(x, 0.2, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
     ax1.set_ylim(-9, 0)
     ax1.set_yticks([-9, -6, -3, 0])
     if (args.xlabel):
         ax1.set_xlabel(args.xlabel)
     if (args.ylabel):
         ax1.set_ylabel(args.ylabel)
-    grid(True)
 
-    ax2 = gca().twinx()
+    ax1.axvspan(960, 1710, ec="white", fc="white", zorder=2)
+    ax1.axvspan(f.min(), 700, ec="white", fc="white", zorder=2)
+    ax1.axvspan(2650, f.max(), ec="white", fc="white", zorder=2)
+    ax1.grid(True)
+
+    for x in [700, 960, 1710, 2650]:
+        ax1.axvline(x, color='k', linestyle='--', zorder=3)
+        ax1.text(x, 0.2, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
+
+    ax2 = ax1.twinx()
     ax2.set_ylim(-9,0)
     ax2.set_yticks([-9,-6,-3,0])
     ax2.set_yticklabels(around(10**(ax2.get_yticks()/10),2))
