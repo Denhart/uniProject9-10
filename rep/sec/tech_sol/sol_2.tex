@@ -124,5 +124,21 @@ The bandwidth in the high and low band for each antenna is shown in Table~\ref{t
 The correlation between the top an side antennas are shown in Figure~\ref{fig:corr_sol2} when sweeping the tuning capacitors. It is seen that the correlation in the high band is very low while the correlation in the low band is not the best. This may be caused by the fact that both antennas are coupling to the ground plane to radiate. A solution might be to use a different type of antenna for the side than for the top.
 
 % Efficiency
-\fixme{Missing graph: Tunable efficiencies for each antenna.}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/efficiency-ac1.pdf}
+        \caption{Antenna 1. Sweeping $C_1$, fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/efficiency-ac2.pdf}
+        \caption{Antenna 1. Sweeping $C_2$, fixing $C_1$.}
+    \end{subfigure}
+    \caption{Efficiency for each antenna when sweeping the tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_sol2}
+\end{figure}
 
+\fixme{Add efficiencies for antenna 2}
