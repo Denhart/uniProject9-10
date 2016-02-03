@@ -56,7 +56,7 @@ The tuned S-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen th
 % Sweep description
 It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna resonates. The CCE antenna couples to the chassis an uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.
 
-This design provides high bandwidth, covering all desired bands for both antennas. However, the isolation between the two antennas is not the best. Additionally, building the antenna on lossy FR-4 may prove to decrease the efficiency bandwidth. \fixme{Update these two paragraphs when correlation and efficiency graphs are shown.}
+This design provides high bandwidth, covering all desired bands for both antennas. However, the isolation between the two antennas is not the best. Additionally, building the antenna on lossy FR-4 may prove to decrease the efficiency bandwidth compared to an antenna with a less lossy isolator.
 
 \begin{table}[htbp]
     \centering
@@ -76,7 +76,7 @@ This design provides high bandwidth, covering all desired bands for both antenna
 \end{table}
 
 % Bandwidth
-The bandwidth in the high and low band for each antenna is shown in Table~\ref{tab:bw_sol2}. It is clear that both antennas fulfill the requirements of tunable bandwidth seen in the requirement specification, Section~\ref{cha:reqspec}.
+The bandwidth in the high and low band for each antenna is shown in Table~\ref{tab:bw_sol2}. It is clear that both antennas fulfill the requirements of tunable impedance bandwidth seen in the requirement specification, Section~\ref{cha:reqspec}.
 
 \begin{figure}[htbp]
     \begin{subfigure}{0.49\linewidth}
@@ -129,16 +129,15 @@ The correlation between the top an side antennas are shown in Figure~\ref{fig:co
     \begin{subfigure}{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/trianglefeed/efficiency-ac1.pdf}
-        \caption{Antenna 1. Sweeping $C_1$, fixing $C_2$.}
+        \caption{Top antenna. Sweeping $C_1$, fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/trianglefeed/efficiency-ac2.pdf}
-        \caption{Antenna 1. Sweeping $C_2$, fixing $C_1$.}
+        \caption{Side antenna. Sweeping $C_2$, fixing $C_1$.}
     \end{subfigure}
     \caption{Efficiency for each antenna when sweeping the tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:eff_sol2}
 \end{figure}
-
-\fixme{Add efficiencies for antenna 2}
+The total system efficiency (i.e.\ including mismatch loss) is shown for a sweep of capacitance values in Figure~\ref{fig:eff_sol2}. It is seen that, for the lowest capacitance setting, the top antenna has a total efficiency greater than \SI{-3}{dB}. The side antenna has a total efficiency greater than \SI{-3}{dB} in the high band for its low capacitance settings. In the low band, the antenna can be tuned to cover the whole band at a total efficiency above \SI{-4}{dB}.
