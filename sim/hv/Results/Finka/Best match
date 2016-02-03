@@ -1,0 +1,79 @@
+Best match
+ L_l1 14.34
+ L_l2 27.47
+ C_l3 3.27
+ L_l4 5.51
+ C_h1 1.20
+ L_h2 7.80
+ C_h3 5
+ C_h4 2.40
+FUCKING
+
+ Side antenna, med extra 8mm 
+ godt match: 
+
+ s_L_l1 15,65
+ s_L_l2 25,015
+ s_C_l3 4,213
+ s_L_l4 3,70
+ s_C_h1 0,96
+ s_L_h2 9,229
+ s_C_h3 5,068
+ s_C_h4 2,942
+
+
+ Side antenna: 
+ Tunable cap s_C_h3 0-6 pF
+
+ og resten 
+
+ s_L_l1 20.57
+ s_L_l2 20.977
+ s_C_l3 4,9114
+ s_L_l4 3,3344
+ s_C_h1 1.04
+ s_L_h2 8,694
+ s_C_h3 6,0202
+ s_C_h4 3,883
+
+
+finka_Chang_mimo_noChangeSide: 
+Top antenna: 
+ L_l1 14.34
+ L_l2 27.47
+ C_l3 3.0 <- Make this tunable 
+ L_l4 5.51
+ C_h1 1.20
+ L_h2 7.80
+ C_h3 5
+ C_h4 2.40
+
+Side antenna: 
+ L_l1 14.34
+ L_l2 27.47
+ C_l3 3.27
+ L_l4 5.51
+ C_h1 1.20
+ L_h2 7.80
+ C_h3 5
+ C_h4 2.40
+
+With 5 mm extra to side: 
+ s_L_l1 10.49
+ s_L_l2 15.93
+ s_C_l3 6.1
+ s_L_l4 4.52
+ s_C_h1 1.266 <- Make this tunable 
+ s_L_h2 5.17
+ s_C_h3 3.467
+ s_C_h4 2.69
+
+
+
+
+
+
+
+
+
+
