@@ -1,8 +1,6 @@
 \section{Antenna Design 2 -- Triangle-Feed Antenna}
 In this section, the results from Section~\ref{sec:techsol_triang} will be repeated, having the phone in read mode, play mode, and talk mode. Additionally, the maximum SAR value, recorded in the users head, will be simulated. The antenna positions, for each use case, are shown in Figure~\ref{fig:triang_positions}.
 
-\fixme{Insert results for the talk/play/read mode and SAR results.}
-\fixme{Write some text for this section}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.24\linewidth}
@@ -37,7 +35,7 @@ The S-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref
 
 The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol2_read}. The correlation is, for frequencies above \SI{750}{MHz}, below 0.5 when sweeping the top antenna. When sweeping the side antenna, the correlation remains below 0.5 for all capacitor settings. The correlation has dropped significantly from the free-space simulation in Figure~\ref{fig:corr_sol2}.
 
-\fixme{Efficiency graph.}
+The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol2read}.
 
 \begin{figure}[htbp]
     \centering
@@ -107,6 +105,25 @@ The correlation between the antennas, when sweeping the tunable capacitors, are 
     \label{fig:corr_sol2_read}
 \end{figure}
 
+% Efficiency
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/read_mode/efficiency-ac1-csh1.pdf}
+        \caption{Top antenna. Sweeping $C_1$, fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/read_mode/efficiency-ac2-csh2.pdf}
+        \caption{Side antenna. Sweeping $C_2$, fixing $C_1$.}
+    \end{subfigure}
+    \caption{Triangle feed antenna in read mode. Efficiency for each antenna when sweeping the tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_sol2read}
+\end{figure}
+\fixme{Write about efficiency.}
+
 
 \FloatBarrier
 \subsection{Play Mode}
@@ -117,7 +134,7 @@ The S-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref
 
 The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol2_play}. The correlation is similar to that of the read mode.
 
-\fixme{Efficiency graph.}
+The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol2play}.
 
 \begin{figure}[htbp]
     \centering
@@ -187,6 +204,24 @@ The correlation between the antennas, when sweeping the tunable capacitors, are 
     \label{fig:corr_sol2_play}
 \end{figure}
 
+% Efficiency
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/play_mode/efficiency-ac1-csh1.pdf}
+        \caption{Top antenna. Sweeping $C_1$, fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/play_mode/efficiency-ac2-csh2.pdf}
+        \caption{Side antenna. Sweeping $C_2$, fixing $C_1$.}
+    \end{subfigure}
+    \caption{Triangle feed antenna in play mode. Efficiency for each antenna when sweeping the tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_sol2play}
+\end{figure}
+\fixme{Write about efficiency.}
 
 \FloatBarrier
 \subsection{Talk Mode}
@@ -197,7 +232,7 @@ The S-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref
 
 The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol2_talk}. The correlation is very low between the antennas for every capacitor setting.
 
-\fixme{Efficiency graph.}
+The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol2talk}.
 
 \begin{figure}[htbp]
     \centering
@@ -266,6 +301,25 @@ The correlation between the antennas, when sweeping the tunable capacitors, are 
     \caption{Triangle feed antenna in talk mode. Correlation between antennas then sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:corr_sol2_talk}
 \end{figure}
+
+% Efficiency
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/talk_mode/efficiency-ac1-csh1.pdf}
+        \caption{Top antenna. Sweeping $C_1$, fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/trianglefeed/talk_mode/efficiency-ac2-csh2.pdf}
+        \caption{Side antenna. Sweeping $C_2$, fixing $C_1$.}
+    \end{subfigure}
+    \caption{Triangle feed antenna in talk mode. Efficiency for each antenna when sweeping the tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_sol2talk}
+\end{figure}
+\fixme{Write about efficiency.}
 
 
 \FloatBarrier
