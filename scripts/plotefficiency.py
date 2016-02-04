@@ -73,8 +73,8 @@ if 1:
     ax1.set_xlabel("Frequency [MHz]")
     ax1.set_ylabel("Efficiency [dB]")
     ax1.set_xlim(f.min(), f.max())
-    ax1.set_ylim(-9, 0)
-    ax1.set_yticks([-9, -6, -3, 0])
+    ax1.set_ylim(-15, 0)
+    ax1.set_yticks([-15,-12, -9, -6, -3, 0])
     if (args.xlabel):
         ax1.set_xlabel(args.xlabel)
     if (args.ylabel):
@@ -87,13 +87,13 @@ if 1:
 
     for x in [700, 960, 1710, 2650]:
         ax1.axvline(x, color='k', linestyle='--', zorder=3)
-        ax1.text(x, 0.2, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
+        ax1.text(x, 0.3, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
 
     ax2 = ax1.twinx()
-    ax2.set_ylim(-9,0)
-    ax2.set_yticks([-9,-6,-3,0])
-    ax2.set_yticklabels(around(10**(ax2.get_yticks()/10),2))
-    ax2.set_ylabel("Efficiency [.]", rotation=270)
+    ax2.set_ylim(-15,0)
+    ax2.set_yticks([-15,-12,-9,-6,-3,0])
+    ax2.set_yticklabels([int(x) for x in around(100*10**(ax2.get_yticks()/10))])
+    ax2.set_ylabel("Efficiency [%]", rotation=270, va="bottom")
 
     # if len(args.files) > 1:
     #     if not args.nolegend:
