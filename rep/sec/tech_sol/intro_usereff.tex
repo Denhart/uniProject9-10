@@ -1,40 +1,44 @@
-\chapter{User Efficiency Simulations}
+\chapter{User Effect Simulations}
+In this chapter, the antennas from Chapter~\ref{cha:nousersim} are simulated in use.
+The four simulation models are shown in Figure~\ref{fig:usereff_intro}. The SAR simulation is solely used to check the requirement for maximum SAR seen in the requirement specification, Chapter~\ref{cha:reqspec}. For the other three simulations, the same results as in Chapter~\ref{cha:nousersim} are shown to see how the antennas perform when the phones are in use..
 
-
-\begin{itemize}
-\item Meshcells approx $15500000$ head and hand
-\item Meshcells approx $7500000$ one hand
-\item Meshcells approx $7500000$ two hands 
-\end{itemize}
+The below settings were used when simulating the user effect:
+\begin{description}
+\item[Accuracy] \SI{-60}{dB}.
+\item[One hand (read mode)] Approximately \num{7500000} mesh cells.
+\item[Two hands (play mode)] Approximately \num{15000000} mesh cells.
+\item[Head and hand (talk mode, SAR)] Approximately \num{15000000} mesh cells.
+\end{description}
 
 \begin{figure}[htbp]
-    \begin{subfigure}[b]{0.49\linewidth}
+    \centering
+    \begin{subfigure}[b]{0.24\linewidth}
         \centering
-        \includegraphics{img/tech_sol/usereff_intro/usereff_headhand}
-        \caption{User effect with head and hand -- talk mode.}
+        \includegraphics[width=\linewidth, height=4cm, keepaspectratio]{img/tech_sol/usereff_intro/usereff_onehand}
+        \caption{Read mode.}
+        \label{fig:usereff_onehand}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.24\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=4cm, keepaspectratio]{img/tech_sol/usereff_intro/usereff_twohand}
+        \caption{Play mode.}
+        \label{fig:usereff_twohand}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.24\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=4cm, keepaspectratio]{img/tech_sol/usereff_intro/usereff_headhand}
+        \caption{Talk mode.}
         \label{fig:usereff_headhand}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.49\linewidth}
+    \begin{subfigure}[b]{0.24\linewidth}
         \centering
-        \includegraphics{img/tech_sol/usereff_intro/usereff_sar}
+        \includegraphics[width=\linewidth, height=4cm, keepaspectratio]{img/tech_sol/usereff_intro/usereff_sar}
         \caption{SAR simulation.}
         \label{fig:usereff_sar}
-      \end{subfigure}
-      ~
-      \begin{subfigure}[b]{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/usereff_intro/usereff_onehand}
-        \caption{User effect with one hand -- read mode.}
-        \label{fig:usereff_onehand}
-      \end{subfigure}
-      \hfill
-      \begin{subfigure}[b]{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/usereff_intro/usereff_twohand}
-        \caption{User effect with two hands -- play mode.}
-        \label{fig:usereff_twohand}
-      \end{subfigure}
-      \caption{User effect simulation modes.}
+    \end{subfigure}
+    \caption{User effect simulation modes.}
     \label{fig:usereff_intro}
 \end{figure}
