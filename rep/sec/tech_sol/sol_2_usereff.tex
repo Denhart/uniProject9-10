@@ -321,7 +321,8 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
 
 \FloatBarrier
 \subsection{SAR}
-The result from the SAR simulation is shown in Figure~\ref{fig:triang_sar_sim}. It is seen, that the maximum SAR is much larger than the required maximum of \SI{2}{W\per kg}. This is because the phone cover used in the simulation is made from foam which virtually correspond to having no cover at all. In real life, a plastic cover and a large screen will be present between antennas and phone. This is expected to lower the SAR significantly.
+
+The result from the SAR simulation is shown in Figure~\ref{fig:triang_sar_sim}. It is seen, that the maximum SAR is much larger than the required maximum of \SI{2}{W\per kg} for the side antenna. This is likely because the side antenna is very close to the head of the user as seen in Figure~\ref{fig:triang_positions}. A possible way to improve this may be to simulate the phone's screen, which will be located between (part of) the antenna and the head. This may reflect some of the radiated power away from the user, lowering the maximum SAR.
 
 \begin{figure}[htbp]
     \centering
