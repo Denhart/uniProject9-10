@@ -14,6 +14,7 @@
     \freq{wispry} & Must use a wiSpry WS1040 MEMS variable capacitor chip in the matching network.\\
     \hline
 \end{tabularx}
+
 \section{Specific Requirements}
 \noindent 
 \begin{tabularx}{\linewidth}{|l|l|X|}
@@ -26,9 +27,10 @@
     \sreq{physdim} & Physical dimensions & External: $70\times140\times7$\,\si{mm\cubed}, PCB: $55\times120\times1.6$\,\si{mm\cubed} (FR-4)\\
     \sreq{copper} & Ground plane copper thickness & \SI{0.035}{mm} \\
     \sreq{correlation} & Correlation between antenna elements & $\rho_e < 0.5$\\
-    \sreq{efficiency} & Total efficiency of antenna (in-band) & $>\SI{50}{\%}$ \\
+    \sreq{efficiency} & Total efficiency in free-space  & $>\SI{50}{\%}$ \\
     \sreq{sar} & Maximum SAR & \SI{2}{W\per kg} averaged over \SI{10}{g} of tissue\\
     \sreq{tunable} & Tunable capacitor range (WS1040)& \SI{0.3}{pF} to \SI{2.9}{pF} in steps of \SI{0.2}{pF} (\SI{0.1}{pF} minimum)  \\
+    \sreq{ltepower} & Reference power level  & \SI{23}{dBm} (\SI{0.2}{W})\\
     \hline
 \end{tabularx}
 
