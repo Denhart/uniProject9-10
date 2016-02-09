@@ -324,6 +324,8 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
 
 The result from the SAR simulation is shown in Figure~\ref{fig:triang_sar_sim}. It is seen, that the maximum SAR is much larger than the required maximum of \SI{2}{W\per kg} for the side antenna. This is likely because the side antenna is very close to the head of the user as seen in Figure~\ref{fig:triang_positions}. A possible way to improve this may be to simulate the phone's screen, which will be located between (part of) the antenna and the head. This may reflect some of the radiated power away from the user, lowering the maximum SAR.
 
+To fulfill the SAR requirements, it is possible to only one the top antenna for the uplink, where most power is emitted, and use both antennas in the downlink. For this reason, no further SAR simulations are performed at this point.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/trianglefeed/sar/sar.pdf}
