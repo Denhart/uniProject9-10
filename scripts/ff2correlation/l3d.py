@@ -24,7 +24,6 @@ def plotflat(r, x_lim=(0,360), y_lim=(0,180), cmap="jet"):
 # @param r Matrix to plot.
 # @param stride Resolution of the output. 1=detailed+slow, 10=rough+fast.
 def plot3d(r, stride=2):
-    figure()
     ax = subplot(111, projection="3d")
 
     ntheta, nphi = r.shape
