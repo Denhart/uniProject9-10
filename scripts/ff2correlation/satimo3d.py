@@ -45,7 +45,6 @@ def plot3d(theta, phi, r, stride=10):
     z = r*outer(cos(theta), ones_like(phi))
 
     # ax.plot_wireframe(x,y,z)
-    print(x.shape,y.shape,z.shape)
     ax.plot_surface(x,y,z, cstride=stride, rstride=stride, facecolors=cm.jet(e/e.max()), linewidth=0)
 
     ax.set_xlabel('x')

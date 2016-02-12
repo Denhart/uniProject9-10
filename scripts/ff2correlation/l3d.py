@@ -1,5 +1,7 @@
 from numpy import *
 from matplotlib.pyplot import *
+from matplotlib import cm
+from mpl_toolkits.mplot3d import Axes3D
 
 # Plot a farfield-matrix as a color-map.
 #
@@ -16,6 +18,28 @@ def plotflat(r, x_lim=(0,360), y_lim=(0,180), cmap="jet"):
     ylim(*y_lim)
     grid(True)
     colorbar()
+
+# Plot a matrix, (theta x phi), in 3d space.
+#
+# @param r Matrix to plot.
+# @param stride Resolution of the output. 1=detailed+slow, 10=rough+fast.
+def plot3d(r, stride=2):
+    figure()
+    ax = subplot(111, projection="3d")
+
+    ntheta, nphi = r.shape
+
+    phi = linspace(0, 2*pi, nphi)
+    theta = linspace(0, pi, ntheta)  # include 0 deg
+
+    x = r*outer(sin(theta), cos(phi))
+    y = r*outer(sin(theta), sin(phi))
+    z = r*outer(cos(theta), ones_like(phi))
+
+    ax.plot_surface(x,y,z, cstride=stride, rstride=stride, facecolors=cm.jet(r/r.max()), linewidth=0)
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_zlabel('z')
 
 # Do a spherical integral of a theta-phi matrix.
 #
