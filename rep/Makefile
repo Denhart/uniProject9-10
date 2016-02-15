@@ -20,12 +20,18 @@ IMAGES            = $(wildcard img/*)\
 		    $(wildcard img/*/*)\
 		    $(wildcard img/*/*/*)\
 		    $(wildcard img/*/*/*/*)\
-		    $(wildcard img/*/*/*/*/*)
+		    $(wildcard img/*/*/*/*/*)\
+		    $(wildcard img/*/*/*/*/*/*)\
+		    $(wildcard img/*/*/*/*/*/*/*)\
+		    $(wildcard img/*/*/*/*/*/*/*/*)
 EPSPDFFILES       = $(patsubst %.eps, %.pdf, $(wildcard img/*.eps))\
 		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*.eps))\
 		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*.eps))\
 		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*/*.eps))\
-		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*/*/*.eps))
+		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*/*/*.eps))\
+		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*/*/*/*.eps))\
+		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*/*/*/*/*.eps))\
+		    $(patsubst %.eps, %.pdf, $(wildcard img/*/*/*/*/*/*/*/*.eps))
 BILAG             = $(wildcard app/*/*.tex)
 
 pdf : $(MAIN).pdf 
