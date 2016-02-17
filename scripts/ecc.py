@@ -6,8 +6,8 @@ import satimo
 import cst
 
 def satimo_example():
-    M1 = satimo.loadfile("satimo_ifa.txt")
-    M2 = satimo.loadfile("satimo_slot.txt")
+    M1 = satimo.loadfile("ff2correlation/satimo_ifa.txt")
+    M2 = satimo.loadfile("ff2correlation/satimo_slot.txt")
 
     Ft1 = satimo.ff2mat(M1, 4, 5)
     Fp1 = satimo.ff2mat(M1, 2, 3)
@@ -16,6 +16,8 @@ def satimo_example():
 
     ECC = l3d.ecc(Ft1, Ft2, Fp1, Fp2)
     print(ECC)
+    Ftot = sqrt(abs(Ft1)**2 + abs(Fp1)**2)
+    l3d.plotflat(Ftot)
 
 def cst_example():
     M1 = cst.loadfile("cst_870_top.txt")
@@ -31,6 +33,9 @@ def cst_example():
     print(ECC)
 
 if __name__ == "__main__":
+    satimo_example()
+    show()
+    exit()
     p = argparse.ArgumentParser()
     p.add_argument("fnames", help="farfield files to compute correlation for", nargs=2)
     p.add_argument("-s", "--satimo", help="input files are from Satimo", action="store_true")
