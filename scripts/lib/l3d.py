@@ -23,13 +23,17 @@ def plotflat(r, x_lim=(0,360), y_lim=(0,180), cmap="jet"):
 #
 # @param r Matrix to plot.
 # @param stride Resolution of the output. 1=detailed+slow, 10=rough+fast.
-def plot3d(r, stride=2):
+# @param th_lim Upper and lower theta limits.
+# @param ph_lim Upper and lower phi limits.
+def plot3d(r, stride=1, th_lim=(0, pi), ph_lim=(0, 2*pi)):
     ax = subplot(111, projection="3d")
 
     ntheta, nphi = r.shape
 
-    phi = linspace(0, 2*pi, nphi)
-    theta = linspace(0, pi, ntheta)  # include 0 deg
+    theta = linspace(th_lim[0], th_lim[1], ntheta)  # include 0 deg
+    phi = linspace(ph_lim[0], ph_lim[1], nphi)
+    print(phi.shape, theta.shape)
+    # theta = array([12,36,60,84,108,132,156,180])*pi/180
 
     x = r*outer(sin(theta), cos(phi))
     y = r*outer(sin(theta), sin(phi))
