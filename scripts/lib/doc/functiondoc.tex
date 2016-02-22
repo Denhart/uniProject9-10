@@ -51,7 +51,8 @@ and each "E" is a complex matrix, (theta x phi), containing the received fields.
 \end{verbatim}
 
 \subsubsection{radiatedpower(h,v)}
-Compute the radiated power for each frequency in the h and v list.
+Compute the radiated power for each frequency in the h and v list, using
+radiatedpower\_single().
 
 \begin{verbatim}
 - h: List of complex (theta x phi) matrices -- one for each frequency.
@@ -166,5 +167,6 @@ of the plot in spherical coordinates.
 - r: Matrix to plot (theta x phi).
 - th_lim: Minimum and maximum theta/y-axis value.
 - ph_lim: Minimum and maximum phi/x-axis value.
+- cmap: Color map to use.
 \end{verbatim}
 

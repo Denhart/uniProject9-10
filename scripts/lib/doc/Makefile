@@ -3,4 +3,4 @@ pdf :
 	pdflatex SatimoPythonLib.tex
 
 clean : 
-	rm -rf *.aux *.log *.out
+	rm -rf *.aux *.log *.out *.toc

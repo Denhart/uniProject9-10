@@ -42,6 +42,7 @@ sub layout {
         my $desc = "";
         my $doc = $hash{$f};
         ($desc,$doc) = ($1,$2) if ($hash{$f} =~ m/(.*?)<ENDDESC>\s*(.*)/xms);
+        $desc =~ s/_/\\_/g;
 
         $format .= "\\subsubsection{$f}\n";
         $format .= "$desc\n\\begin{verbatim}\n$doc\n\\end{verbatim}\n\n";
