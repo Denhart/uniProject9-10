@@ -2,17 +2,17 @@ from numpy import *
 from matplotlib.pyplot import *
 import argparse
 import l3d
-import satimo
+import satenv
 import cst
 
-def satimo_example():
-    M1 = satimo.loadfile("ff2correlation/satimo_ifa.txt")
-    M2 = satimo.loadfile("ff2correlation/satimo_slot.txt")
+def satenv_example():
+    M1 = satenv.loadfile("ff2correlation/satimo_ifa.txt")
+    M2 = satenv.loadfile("ff2correlation/satimo_slot.txt")
 
-    Ft1 = satimo.ff2mat(M1, 4, 5)
-    Fp1 = satimo.ff2mat(M1, 2, 3)
-    Ft2 = satimo.ff2mat(M2, 4, 5)
-    Fp2 = satimo.ff2mat(M2, 2, 3)
+    Ft1 = satenv.ff2mat(M1, 4, 5)
+    Fp1 = satenv.ff2mat(M1, 2, 3)
+    Ft2 = satenv.ff2mat(M2, 4, 5)
+    Fp2 = satenv.ff2mat(M2, 2, 3)
 
     ECC = l3d.ecc(Ft1, Ft2, Fp1, Fp2)
     print(ECC)
@@ -33,27 +33,27 @@ def cst_example():
     print(ECC)
 
 if __name__ == "__main__":
-    satimo_example()
+    satenv_example()
     show()
     exit()
     p = argparse.ArgumentParser()
     p.add_argument("fnames", help="farfield files to compute correlation for", nargs=2)
-    p.add_argument("-s", "--satimo", help="input files are from Satimo", action="store_true")
+    p.add_argument("-s", "--satenv", help="input files are from SatEnv", action="store_true")
     p.add_argument("-c", "--cst", help="input files are from CST", action="store_true")
     args = p.parse_args()
 
-    if args.satimo and args.cst:
-        print("Could not determine whether CST or Satimo files.")
+    if args.satenv and args.cst:
+        print("Could not determine whether CST or SatEnv files.")
         exit()
-    elif args.satimo:
-        M1 = satimo.loadfile(args.fnames[0])
-        M2 = satimo.loadfile(args.fnames[1])
+    elif args.satenv:
+        M1 = satenv.loadfile(args.fnames[0])
+        M2 = satenv.loadfile(args.fnames[1])
 
-        Ft1 = satimo.ff2mat(M1, 4, 5)
-        Fp1 = satimo.ff2mat(M1, 2, 3)
+        Ft1 = satenv.ff2mat(M1, 4, 5)
+        Fp1 = satenv.ff2mat(M1, 2, 3)
 
-        Ft2 = satimo.ff2mat(M2, 4, 5)
-        Fp2 = satimo.ff2mat(M2, 2, 3)
+        Ft2 = satenv.ff2mat(M2, 4, 5)
+        Fp2 = satenv.ff2mat(M2, 2, 3)
     elif args.cst:
         M1 = cst.loadfile(args.fnames[0])
         M2 = cst.loadfile(args.fnames[1])
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         Ft2 = cst.ff2mat(M2, 3, 4)
         Fp2 = cst.ff2mat(M2, 5, 6)
     else:
-        print("Please specify either CST or Satimo (see --help)")
+        print("Please specify either CST or SatEnv (see --help)")
         exit()
 
     ECC = l3d.ecc(Ft1, Ft2, Fp1, Fp2)

@@ -29,9 +29,11 @@ def col2mat(column, ntheta=127, nphi=64):
 # @param data Rows/column-matrix, as exported by loadfile().
 # @param column_abs Column of data containing the real part of the farfield.
 # @param column_phase Column of data containing the imaginary  part of the
+# @param ntheta Number of rows in the output (theta in the input).
+# @param nphi Number of columns in the output (phi in the input).
 # farfield.
 # @return Matrix (phi x theta) like col2mat().
-def ff2mat(data, column_real, column_imag):
+def ff2mat(data, column_real, column_imag, ntheta=127, nphi=64):
     re = data[:,column_real]
     im = data[:,column_imag]
-    return col2mat(re + 1j*im)
+    return col2mat(re + 1j*im, ntheta, nphi)
