@@ -35,6 +35,9 @@
     This python 3 library makes it possible to extract data and calibrate measurements using trx-files exported directly from Satimo Passive Measurement.
 \end{abstract}
 
+\tableofcontents
+
+
 \section{Files}
 \begin{tabularx}{\linewidth}{lX}
     \texttt{cst.py} & Import CST files for manipulation/comparison. \\
@@ -72,7 +75,7 @@ where $m$ is the number of $\theta$-elements (e.g.\ 15 for Satimo) and $n$ is th
         Elements & $\theta$ & $\phi$ \\
         \hline
         $m_{1,1}$ & \ang{0} & \ang{0} \\
-        $m_{1,n}$ & \ang{0} & $\sim\ang{360}$ \\
+        $m_{1,n}$ & \ang{0} & $\ang{360}$ \\
         $m_{m,1}$ & \ang{180}$^{\dagger}$ & \ang{0} \\
         \hline
     \end{tabular}
