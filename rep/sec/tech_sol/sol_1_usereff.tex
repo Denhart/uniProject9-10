@@ -1,5 +1,5 @@
 \section{Antenna Design 1 -- Monopole}
-In this section the three user effect simulations in read, play and talk mode will be presented and documented. Furthermore a SAR simulation will be carried out to investigate the maximum SAR value over the low and high band. The results is a repetision of the results represented in Section~\ref{sec:techsol1_monopole}.    
+In this section the three user effect simulations in data, play and talk mode will be presented and documented. Furthermore a SAR simulation will be carried out to investigate the maximum SAR value over the low and high band. The results is a repetision of the results represented in Section~\ref{sec:techsol1_monopole}.    
 The top and side antenna position in each user effect mode, can be seen in Figure \ref{fig:sol1_monoant_positions}.
 
 \fixme{Efficiency documentation and conclusion}
@@ -7,8 +7,8 @@ The top and side antenna position in each user effect mode, can be seen in Figur
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.24\linewidth}
-        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/read_mode/3d_read_mode.PNG}
-        \caption{Read mode.}
+        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/data_mode/3d_data_mode.PNG}
+        \caption{Data mode.}
     \end{subfigure}
     \begin{subfigure}[b]{0.24\linewidth}
         \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/play_mode/3d_play_mode.PNG}
@@ -27,17 +27,22 @@ The top and side antenna position in each user effect mode, can be seen in Figur
 \end{figure}
 
 \FloatBarrier
-\subsection{Read Mode}
+\subsection{Data Mode}
 %S-parameter
-The S-parameter sweeps for the read mode, can be seen on Figure \ref{fig:sparam_mono_read_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1read}. The top antenna covers the required bandwidth in both the low and high band. However as seen in the Table \ref{tab:bw_sol1read} the side antenna only covers the bandwidth in the high band and the low band needs additional tuning to fulfill the bandwidth requirements. The S-parameter sweeps \ref{fig:sparam_mono_read_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{10}{dB} and \SI{8}{dB} for the top and side antenna respectively.       
+The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_data_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1data}. The top antenna covers the required bandwidth in both the low and high band. However as seen in the Table \ref{tab:bw_sol1data} the side antenna only covers the bandwidth in the high band and the low band needs additional tuning to fulfill the bandwidth requirements. The S-parameter sweeps \ref{fig:sparam_mono_data_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{10}{dB} and \SI{8}{dB} for the top and side antenna respectively.       
+qz
+%Correlation
+The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sols_data}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{'øæ,luntrwad
+pF}. The correlation for the top and side antenna is below 0.5 for both the low and high band as desired.
 
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sols_read}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side antenna is below 0.5 for both the low and high band as desired.
+%Efficiency
+The efficiency in data mode for both antennas, can be seen in Figure \ref{fig:corr_sols_data}. The efficiency is plotted for each sweep of the tunable capacitors. Comparing the efficiency in data mode with the free space efficiency, the data mode is decreases with 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics{img/tech_sol/monopole/read_mode/sparam_read.pdf}
-    \caption{Monopole antenna in read mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
-    \label{fig:triang_sparam_read}
+    \includegraphics{img/tech_sol/monopole/data_mode/sparam_data.pdf}
+    \caption{Monopole antenna in data mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
+    \label{fig:triang_sparam_data}
 \end{figure}
 
 \begin{table}[htbp]
@@ -53,76 +58,74 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
     Side    & High & 1765 &  2120 & 355 \\
     \hline
   \end{tabular}
-  \caption{Monopole antenna in read mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
-
-
-  \label{tab:bw_sol1read}
+  \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+  \label{tab:bw_sol1data}
 \end{table}
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/read_mode/s11}
+        \includegraphics{img/tech_sol/monopole/data_mode/s11}
         \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/read_mode/s22}
+        \includegraphics{img/tech_sol/monopole/data_mode/s22}
         \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
 ~
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/read_mode/s21_s11}
+        \includegraphics{img/tech_sol/monopole/data_mode/s21_s11}
         \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/read_mode/s21_s22}
+        \includegraphics{img/tech_sol/monopole/data_mode/s21_s22}
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{S-parameter sweep in read mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
-    \label{fig:sparam_mono_read_mode}
+    \caption{S-parameter sweep in data mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \label{fig:sparam_mono_data_mode}
 \end{figure}
 
 % Correlation
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
-        \includegraphics{img/tech_sol/monopole/read_mode/s11_corr}
+        \includegraphics{img/tech_sol/monopole/data_mode/s11_corr}
         \caption{Sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
-        \includegraphics{img/tech_sol/monopole/read_mode/s22_corr}
+        \includegraphics{img/tech_sol/monopole/data_mode/s22_corr}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Monopole antenna in read mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
-    \label{fig:corr_sols_read}
+    \caption{Monopole antenna in data mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_sols_data}
 \end{figure}
 
 % Efficiency
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
-        \includegraphics{img/tech_sol/monopole/read_mode/efficiency-ac1-csh1}
+        \includegraphics{img/tech_sol/monopole/data_mode/efficiency-ac1-csh1}
         \caption{Sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
-        \includegraphics{img/tech_sol/monopole/read_mode/efficiency-ac1-csh1}
+        \includegraphics{img/tech_sol/monopole/data_mode/efficiency-ac1-csh1}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Monopole antenna in read mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
-    \label{fig:corr_sols_read}
+    \caption{Monopole antenna in data mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_sols_data}
 \end{figure}
 
 \FloatBarrier
 \subsection{Play Mode}
 %S-parameter
-The S-parameter sweeps for the read mode, can be seen on Figure \ref{fig:sparam_mono_play_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1play}. The top antenna covers the required bandwidth in the low band but lacks \SI{87}{MHz} in the high band. The side antenna does not fulfill any of the bandwidth requirements and will need additional tuning. The S-parameter sweeps \ref{fig:sparam_mono_play_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{10}{dB} for the top and side antenna respectively.       
+The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_play_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1play}. The top antenna covers the required bandwidth in the low band but lacks \SI{87}{MHz} in the high band. The side antenna does not fulfill any of the bandwidth requirements and will need additional tuning. The S-parameter sweeps \ref{fig:sparam_mono_play_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{10}{dB} for the top and side antenna respectively.       
 
 The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sols_play}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side exceeds the required correlation limit with 0.1 in the low band from \SI{700}{MHz} to \SI{880}{MHz}.
 
@@ -130,7 +133,7 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
     \centering
     \includegraphics{img/tech_sol/monopole/play_mode/sparams_play.pdf}
     \caption{Monopole antenna in play mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
-    \label{fig:triang_sparam_read}
+    \label{fig:triang_sparam_data}
 \end{figure}
 
 \begin{table}[htbp]
@@ -211,7 +214,7 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
 \FloatBarrier
 \subsection{Talk Mode}
 %S-parameter
-The S-parameter sweeps for the read mode, can be seen on Figure \ref{fig:sparam_mono_talk_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1talk}. The top antenna covers the required bandwidth both in the low band and high band. The side antenna only covers the high band and will need some  additional tuning in the low band. The S-parameter sweeps \ref{fig:sparam_mono_talk_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{8}{dB} both the top and side antenna respectively.
+The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_talk_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1talk}. The top antenna covers the required bandwidth both in the low band and high band. The side antenna only covers the high band and will need some  additional tuning in the low band. The S-parameter sweeps \ref{fig:sparam_mono_talk_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{8}{dB} both the top and side antenna respectively.
 
 The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sols_talk}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side exceeds the required correlation limit with 0.15 in the low band from \SI{700}{MHz} to \SI{750}{MHz}.
 
@@ -219,7 +222,7 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
     \centering
     \includegraphics{img/tech_sol/monopole/talk_mode/sparams_talk.pdf}
     \caption{Monopole antenna in talk mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
-    \label{fig:triang_sparam_read}
+    \label{fig:triang_sparam_data}
 \end{figure}
 
 %bandwidth
@@ -280,7 +283,7 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
     \caption{Monopole antenna in talk mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
-    \label{fig:corr_sol1_read}
+    \label{fig:corr_sol1_data}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -295,7 +298,7 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
     \caption{Monopole antenna in talk mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
-    \label{fig:eff_sol1_read}
+    \label{fig:eff_sol1_data}
 \end{figure}
 
 \FloatBarrier
