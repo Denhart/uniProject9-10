@@ -1,11 +1,9 @@
 from numpy import *
 
-# Load a CST exported file.
-#
-# @param f File to load.
-# @return Matrix with the files rows/columns.
-def loadfile(f):
-    return loadtxt(f, skiprows=2)
+THETA_ABS_COLUMN   = 3
+THETA_PHASE_COLUMN = 4
+PHI_ABS_COLUMN     = 5
+PHI_PHASE_COLUMN   = 6
 
 # Convert a CST-exported column to a matrix with phi the 
 # x-axis and theta on the y-axis.
@@ -19,14 +17,21 @@ def col2mat(column, nx=360, ny=181):
     d = flipud(d)
     return d
 
-# Create a farfield matrix (theta x phi) from the imported data
-# of a CSV file.
+# Load a CST exported file to two (theta x phi) matrices -- one for theta and
+# one for phi plarization.
 #
-# @param data Rows/column-matrix, as exported by loadfile().
-# @param column_abs Column of data containing the abs value of the farfield.
-# @param column_phase Column of data containing the phase value of the farfield.
-# @return Matrix (phi x theta) like col2mat().
-def ff2mat(data, column_abs, column_phase):
-    A = 10**(data[:,column_abs]/20)
-    phi = data[:,column_phase] * pi/180
-    return col2mat(A*exp(1j*phi))
+# @param f File to load.
+# @return [T,P] where T and P are each a (theta x phi) matrix.
+def loadff(f):
+    data = loadtxt(f, skiprows=2)
+
+    A = 10**(data[:,THETA_ABS_COLUMN]/20)
+    phase = data[:,THETA_PHASE_COLUMN] * pi/180
+    T = col2mat(A*exp(1j*phase))
+
+    A = 10**(data[:,PHI_ABS_COLUMN]/20)
+    phase = data[:,PHI_PHASE_COLUMN] * pi/180
+    P = col2mat(A*exp(1j*phase))
+
+    return [T,P]
+

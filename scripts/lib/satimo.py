@@ -14,10 +14,10 @@ SATIMO_NUM_ELEVATION = 15
 SATIMO_NUM_AZIMUTH = 8
 SATIMO_NUM_SAMPLES = SATIMO_NUM_ELEVATION * SATIMO_NUM_AZIMUTH
 
-# Convert a Satimo-exported column to a matrix with phi the 
+# Convert a Satimo PM-exported column to a matrix with phi the 
 # x-axis and theta on the y-axis.
 #
-# @param column Column from a Satimo export.
+# @param column Column from a Satimo PM export.
 # @param ntheta Number of rows in the output (theta in the input).
 # @param nphi Number of columns in the output (phi in the input).
 # @return Matrix with phi on the x-axis and theta on the y-axis.
@@ -33,6 +33,7 @@ def col2mat(column, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
 
 # Load a trx measurement file from Satimo PM into memory. 
 #
+# @param f TRX file to load.
 # @return [f, list_horiz, list_vert] where
 #     f = [f1, f2, f3, ...]
 #     list_horiz = [E_horiz_f1, E_horiz_f2, E_horiz_f3, ...]
@@ -69,22 +70,27 @@ def loadtrx(f):
 #
 # @param Etot Matrix (theta x phi) from Satimo PM to compute the radiate power
 #        of (surface integration).
+# @return Surface integral of Etot ~ radiated power.
 def radiatedpower_single(Etot):
     ntheta,nphi = Etot.shape
 
     # TODO: Figure out whether to start from 22.5 or 12 (or 15)
-    theta = pi/180 * linspace(0, 180-12, ntheta)
+    # TODO: Also correct this in the documentation!
+    theta = pi/180 * linspace(0, 180-22.5, ntheta)
     phi   = pi/180 * linspace(0, 360, nphi)
 
     I = l3d.intsphere(Etot, theta, phi)
     return I
 
-# Compute the radiated power for each frequency in the h and v list.
+# Compute the radiated power for each frequency in the h and v list, using
+# radiatedpower_single().
 #
 # @param h List of complex (theta x phi) matrices -- one for each frequency.
 #        Horizontal polarization.
 # @param v List of complex (theta x phi) matrices -- one for each frequency.
 #        Vertical polarization.
+# @return A vector with the radiated power for each frequency/element of h and
+#        v.
 def radiatedpower(h,v):
     N = len(h)
     P_rad = zeros(N)
@@ -115,6 +121,7 @@ def loadref(f):
 #        lowest to highest frequency).
 # @param reffiles List of reference files relating to the calibration
 #        measurements (order: lowest to highest frequency).
+# @return [f,Ptot] -- the total power for each frequency.
 def totalpower_table(calfiles, reffiles):
     # Get Efficiency from reference files
     f_ref = array([0]) # Must be initialize to use max()
@@ -153,6 +160,7 @@ def totalpower_table(calfiles, reffiles):
 # @param calfiles List of calibration measurement files (trx files).
 # @param reffiles List of reference files relating to the calibration
 #        measurements.
+# @return [f,eff] -- the total efficiency, eff, for each frequency, f.
 def efficiency(trxfile, calfiles, reffiles):
     f,h,v = loadtrx(trxfile)
     P_rad = radiatedpower(h,v) 

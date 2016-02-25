@@ -3,21 +3,29 @@ from matplotlib.pyplot import *
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
 
-# Plot a farfield-matrix as a color-map.
+# Plot a farfield-matrix as a color-map. Remember that 0 degrees is the bottom
+# of the plot in spherical coordinates.
 #
 # @param r Matrix to plot (theta x phi).
-# @param x_lim Minimum and maximum x-axis value.
-# @param y_lim Minimum and maximum y-axis value.
-def plotflat(r, x_lim=(0,360), y_lim=(0,180), cmap="jet"):
+# @param th_lim Minimum and maximum theta/y-axis value.
+# @param ph_lim Minimum and maximum phi/x-axis value.
+# @param cmap Color map to use.
+def plotflat(r, th_lim=(0,pi), ph_lim=(0,2*pi), cmap="jet"):
     nx, ny = shape(r.T)
-    x = linspace(x_lim[0], x_lim[1], nx)
-    y = linspace(y_lim[0], y_lim[1], ny)
+    phmin = ph_lim[0] * 180/pi
+    phmax = ph_lim[1] * 180/pi
+    thmin = th_lim[0] * 180/pi
+    thmax = th_lim[1] * 180/pi
+    x = linspace(phmin, phmax, nx)
+    y = linspace(thmin, thmax, ny)
     X,Y = meshgrid(x,y)
     pcolor(X,Y,r, cmap=cmap)
-    xlim(*x_lim)
-    ylim(*y_lim)
+    xlim(phmin,phmax)
+    ylim(thmin,thmax)
     grid(True)
     colorbar()
+    xlabel("$\phi$ [degrees]")
+    ylabel("$\\theta$ [degrees]")
 
 # Plot a matrix, (theta x phi), in 3d space.
 #
@@ -32,8 +40,6 @@ def plot3d(r, stride=1, th_lim=(0, pi), ph_lim=(0, 2*pi)):
 
     theta = linspace(th_lim[0], th_lim[1], ntheta)  # include 0 deg
     phi = linspace(ph_lim[0], ph_lim[1], nphi)
-    print(phi.shape, theta.shape)
-    # theta = array([12,36,60,84,108,132,156,180])*pi/180
 
     x = r*outer(sin(theta), cos(phi))
     y = r*outer(sin(theta), sin(phi))
