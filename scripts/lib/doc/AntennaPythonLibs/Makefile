@@ -1,6 +1,6 @@
 pdf : 
 	perl extractdoc.pl
-	pdflatex SatimoPythonLib.tex
+	pdflatex AntennaPythonLibs.tex
 
 clean : 
 	rm -rf *.aux *.log *.out *.toc

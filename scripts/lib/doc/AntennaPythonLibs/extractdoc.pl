@@ -50,9 +50,9 @@ sub layout {
     return $format;
 }
 
-my %doc1 = extractdoc("../satimo.py");
-my %doc2 = extractdoc("../cst.py");
-my %doc3 = extractdoc("../l3d.py");
+my %doc1 = extractdoc("../../satimo.py");
+my %doc2 = extractdoc("../../cst.py");
+my %doc3 = extractdoc("../../l3d.py");
 
 open(my $o_h, ">", "functiondoc.tex");
 print $o_h layout("Satimo", %doc1);

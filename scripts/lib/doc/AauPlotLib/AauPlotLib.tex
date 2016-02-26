@@ -1,0 +1,67 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{tabularx}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage[top=19mm, bottom=43mm, left=12.925mm, right=12.925mm, a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    pdfpagelabels=true,
+    plainpages=false,
+    pdfauthor={Søren Bøgeskov Nørgaard, Henrik Aarup Vesterager, Lasse Thomsen},
+    pdftitle={AAU Plot Library},
+    pdfsubject={},
+    bookmarksdepth=3,
+    bookmarksnumbered=true,
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    pdfstartview=FitH
+}
+
+\title{AAU Plot Library}
+\author{Søren B.\ Nørgaard, Henrik A.\ Vesterager, Lasse Thomsen}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    The functions of this module makes it easy to plot consistent figures for the report.
+\end{abstract}
+
+\tableofcontents
+
+
+\section{Files}
+\begin{tabularx}{\linewidth}{lX}
+    \texttt{aauplot.py} & Library file. \\
+\end{tabularx}
+
+\section{Installation}
+\input{../install.tex}
+
+\section{Modules}
+\input{functiondoc.tex}
+
+\clearpage
+\section{Examples}
+
+\subsection{Plot S-Parameters}
+
+S-parameters can be easily plotted using a script like the one below. The result is shown in Figure~\ref{fig:example1}.
+\VerbatimInput{examples/ex1.py}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{examples/ex1_sparams.pdf}
+    \caption{Efficiency plot from the example.}
+    \label{fig:example1}
+\end{figure}
+
+\end{document}
