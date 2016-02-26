@@ -14,7 +14,7 @@
     pdfpagelabels=true,
     plainpages=false,
     pdfauthor={Søren Bøgeskov Nørgaard, Henrik Aarup Vesterager, Lasse Thomsen},
-    pdftitle={Satimo Python Library},
+    pdftitle={Antenna Python Libraries},
     pdfsubject={},
     bookmarksdepth=3,
     bookmarksnumbered=true,
@@ -26,13 +26,13 @@
     pdfstartview=FitH
 }
 
-\title{Satimo Python Library}
+\title{Antenna Python Libraries}
 \author{Søren B.\ Nørgaard, Henrik A.\ Vesterager, Lasse Thomsen}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-    This python 3 library makes it possible to extract data and calibrate measurements using trx-files exported directly from Satimo Passive Measurement.
+    This collection of python 3 libraries makes it possible to extract data and calibrate measurements using trx-files exported directly from Satimo Passive Measurement. These can be compared to exported CST data.
 \end{abstract}
 
 \tableofcontents
@@ -46,16 +46,7 @@
 \end{tabularx}
 
 \section{Installation}
-\begin{enumerate}
-\item Make sure to install Python 3, numpy, scipy, and matplotlib.
-\item Put the above files in a central directory (e.g.\ \texttt{C:/PathTo/Something}).
-\item Add this path to the environment variable \texttt{PYTHONPATH} (\emph{Environment Variables} in Windows and \texttt{.bashrc} or \texttt{.profile} in Linux/OSX). E.g.\
-    \begin{verbatim}
-# ~/.profile
-export PYTHONPATH=$PYTHONPATH:/home/soren/hdd/svn/project9-10/scripts/lib
-    \end{verbatim}
-\end{enumerate}
-
+\input{../install}
 
 \section{Data Format}
 The basic data format for a measurement is a $\theta \times \phi$-matrix for each frequency.
