@@ -15,12 +15,20 @@ Scale to get frequency axis to MHz
 - f: Frequency axis.
 \end{verbatim}
 
+\subsubsection{legend(**kwargs)}
+Add a legend to the plot. The labels for the legend are specified with the
+``label'' option when plotting a graph.
+
+\begin{verbatim}
+- kwargs: All parameters are passed on to matplotlib.pyplot.legend().
+\end{verbatim}
+
 \subsubsection{sparam(f, s, l="")}
 Plot an S-parameter.
 
 \begin{verbatim}
 - f: Frequency axis for the plot.
-- s: S-parameter (abs-value) to plot.
+- s: S-parameter (abs-value in dB) to plot.
 - l: Label for the legend
 \end{verbatim}
 

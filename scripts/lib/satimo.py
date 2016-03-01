@@ -1,6 +1,5 @@
 from numpy import *
 from matplotlib.pyplot import *
-from scipy.interpolate import *
 import re
 import l3d
 import satenv
@@ -76,10 +75,25 @@ def radiatedpower_single(Etot):
 
     # TODO: Figure out whether to start from 22.5 or 12 (or 15)
     # TODO: Also correct this in the documentation!
+    # theta = pi/180 * linspace(0, 180-22.5, ntheta)
     theta = pi/180 * linspace(0, 180-22.5, ntheta)
     phi   = pi/180 * linspace(0, 360, nphi)
 
     I = l3d.intsphere(Etot, theta, phi)
+    return I
+
+def alt_radiatedpower_single(Etot):
+    ntheta,nphi = Etot.shape
+
+    theta = pi/180 * linspace(0, 180-12, ntheta)
+    phi   = pi/180 * linspace(0, 360, nphi)
+
+    I = 0
+    for i in range(ntheta):
+        for j in range(nphi):
+            I += Etot[i,j] * sin(theta[i])
+    I *= 2*pi/15*pi/8
+
     return I
 
 # Compute the radiated power for each frequency in the h and v list, using
@@ -95,12 +109,22 @@ def radiatedpower(h,v):
     N = len(h)
     P_rad = zeros(N)
     for i in range(N):
-        P_rad[i] = radiatedpower_single( abs(h[i])**2 + abs(v[i])**2 )
+        P_rad[i] = alt_radiatedpower_single( abs(h[i])**2 + abs(v[i])**2 )
 
     return P_rad
 
 # Load a reference file containing S11, Gain, and Efficiency of a
 # reference/calibration antenna.
+# The reference files are cut to the following ranges, depending on file name:
+# HomeRef600: No crop.
+# SD740-70: 700--800 MHz.
+# SD850-02: 800--900 MHz.
+# SD900-52: 900--1000 MHz.
+# SD1900-49: No crop.
+# SD2050-36: No crop.
+# SD2450-43: No crop.
+# Note that the 740 MHz reference file has the efficiency and gain columns
+# swapped!
 # 
 # @param f File name.
 # @return M[0]=frequency(Hz), M[1]=S11(.), M[2]=Gain(.), M[3]=Eff(.)
@@ -111,6 +135,16 @@ def loadref(f):
     M[1] = 10**(M[1]/20)
     M[2] = 10**(M[2]/10)
     M[3] = 10**(M[3]/10)
+
+    if "SD740-70" in f:
+        # Swap efficiency and gain column
+        M = M[[0,1,3,2]]
+        M = M[:, logical_and(M[0]>=700e6, M[0]<800e6)]
+    if "SD850-02" in f:
+        M = M[:, logical_and(M[0]>=800e6, M[0]<900e6)]
+    if "SD900-52" in f:
+        M = M[:, logical_and(M[0]>=900e6, M[0]<1000e6)]
+
     return M
 
 # Make a table of calibrated "total power" for each frequency.
