@@ -1,10 +1,25 @@
-\section{Testspecification}
+\chapter{Testspecification}
 \subsubsection{Test of Requirement~\sreqref{fbands}---Frequency Bands/Tunable Range}
-S11 using a VNA 
+The frequency spectrum and the tunable range is tested by measuring the S11 and S22 parameters, using a VNA, for the top and side antenna respectively. The tunable range is done accordingly to requirement \sreqref{tunable} using a variable capacitor in the range \SI{0.3}{pF} to \SI{2.9}{pF} in steps of \SI{0.2}{pF} (\SI{0.1}{pF} minimum). 
 \subsubsection{Test of Requirement~\sreqref{bandwidthlow}---Minimum Tunable Bandwidth in the Low Band}
-S11 using a VNA
+The minimum required bandwidth in the low band  is measured as requirement~\sreqref{fbands}. The minimum required bandwidth is measured from the highest achievable bandwidth when sweeping each capacitor accordingly to requirement \sreqref{tunable}.
 
 \subsubsection{Test of Requirement~\sreqref{bandwidthhigh}---Minimum Tunable Bandwidth in the High Band}
-S11 using a VNA
+The minimum required bandwidth in the high band is measured as requirement~\sreqref{fbands}. The minimum required bandwidth is measured from the highest achievable bandwidth when sweeping each capacitor accordingly to requirement \sreqref{tunable}.
 
 \subsubsection{Test of Requirement~\sreqref{bandwidthhigh}---Physical Dimensions}
+The physical dimensions of the PCB, antenna and the external limitations are measured by a measuring tape. 
+
+\subsubsection{Test of Requirement~\sreqref{copper}---Copper Thickness} This requirement is not tested, as the chosen PCB has a copper thickness of \SI{0.035}{mm}.
+
+\subsubsection{Test of Requirement~\sreqref{correlation}---Correlation Between Antenna Elements}
+
+
+\subsubsection{Test of Requirement~\sreqref{efficiency}---Total Efficiency in Free-Space}
+
+\subsubsection{Test of Requirement~\sreqref{sar}---Maximum SAR}
+
+
+\subsubsection{Test of Requirement~\sreqref{tunable}---Physical Dimensions} This requirement is not tested, as the variable capacitor chip is chosen as a wiSpry WS1040 MEMS chip accordingly to requirement~\freqref{wispry}. 
+
+\cite{cita2015}
