@@ -1,4 +1,15 @@
 \subsection{Satimo}
+\subsubsection{\_radiatedpower\_single(Etot)}
+Radiated power from a (theta x phi) total E-field matrix.
+
+\begin{verbatim}
+- Etot: Matrix (theta x phi) from Satimo PM to compute the radiate power
+        of (surface integration).
+
+Return:
+Surface integral of Etot ~ radiated power.
+\end{verbatim}
+
 \subsubsection{col2mat(column, ntheta=SATIMO\_NUM\_ELEVATION, nphi=SATIMO\_NUM\_AZIMUTH)}
 Convert a Satimo PM-exported column to a matrix with phi the 
 x-axis and theta on the y-axis.
@@ -28,6 +39,16 @@ Return:
 \subsubsection{loadref(f)}
 Load a reference file containing S11, Gain, and Efficiency of a
 reference/calibration antenna.
+The reference files are cut to the following ranges, depending on file name:
+HomeRef600: No crop.
+SD740-70: 700--800 MHz.
+SD850-02: 800--900 MHz.
+SD900-52: 900--1000 MHz.
+SD1900-49: No crop.
+SD2050-36: No crop.
+SD2450-43: No crop.
+Note that the 740 MHz reference file has the efficiency and gain columns
+swapped!
 
 \begin{verbatim}
 - f: File name.
@@ -63,17 +84,6 @@ radiatedpower\_single().
 Return:
 A vector with the radiated power for each frequency/element of h and
         v.
-\end{verbatim}
-
-\subsubsection{radiatedpower\_single(Etot)}
-Radiated power from a (theta x phi) total E-field matrix.
-
-\begin{verbatim}
-- Etot: Matrix (theta x phi) from Satimo PM to compute the radiate power
-        of (surface integration).
-
-Return:
-Surface integral of Etot ~ radiated power.
 \end{verbatim}
 
 \subsubsection{totalpower\_table(calfiles, reffiles)}
