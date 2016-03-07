@@ -22,12 +22,31 @@ SATIMO_NUM_SAMPLES = SATIMO_NUM_ELEVATION * SATIMO_NUM_AZIMUTH
 # @return Matrix with phi on the x-axis and theta on the y-axis.
 def col2mat(column, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
     d = resize(column, (nphi, ntheta))
-    M1 = d[ix_(range(0,nphi), range(0,int(ntheta/2)+1))]  # Include 0 deg
-    M2 = d[ix_(range(0,nphi), range(int(ntheta/2), ntheta))]  # Include 0 deg
-    M2 = fliplr(M2)
-    d = vstack((M2, M1)).T
-    d = flipud(d)
 
+    # M1 = d[:,7:] # phi=0:180, theta=0:180
+    # M2 = fliplr(d[:,:8]) # phi=180:360, theta=0:180 (originally, theta=-180:0)
+
+    theta0 = ntheta/2
+    M1 = d[:,theta0:] # phi=0:180, theta=0:180
+    M2 = fliplr(d[:,:theta0+1]) # phi=180:360, theta=0:180 (originally, theta=-180:0)
+
+    M = vstack((M1, M2)) # phi=0:360, theta=0:180
+    M = M.T # (phi x theta) -> (theta x phi)
+
+    return M
+
+# Convert a (theta x phi) matrix into the original column-format from the trx
+# file.
+#
+# @param mat Matrix with phi on the x-axis and theta on the y-axis.
+# @param ntheta Number of rows in the output (theta in the input).
+# @param nphi Number of columns in the output (phi in the input).
+# @return Column like a Satimo PM export, like the trx format.
+def mat2col(mat, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
+    theta0 = ntheta/2 + 1
+    d = mat.T
+    d = hstack((fliplr(d[theta0:,1:]), d[0:theta0,:]))
+    d = d.reshape(1,-1)[0]
     return d
 
 # Load a trx measurement file from Satimo PM into memory. 
@@ -71,30 +90,91 @@ def loadtrx(f):
 #        of (surface integration).
 # @return Surface integral of Etot ~ radiated power.
 def radiatedpower_single(Etot):
+    # return radiatedpower_single_sbn(Etot)
+    return radiatedpower_single_sam(Etot)
+    # return radiatedpower_single_alt(Etot)
+
+var =0
+def radiatedpower_single_sbn(Etot):
+    global var
     ntheta,nphi = Etot.shape
 
     # TODO: Figure out whether to start from 22.5 or 12 (or 15)
     # TODO: Also correct this in the documentation!
-    # theta = pi/180 * linspace(0, 180-22.5, ntheta)
     theta = pi/180 * linspace(0, 180-22.5, ntheta)
+    # theta = pi/180 * linspace(0, 180-15, ntheta)
     phi   = pi/180 * linspace(0, 360, nphi)
 
+    # # 2D interpolation
+    # nthetanew = 200
+    # nphinew = 400
+    # thetanew = pi/180 * linspace(0, 180, nthetanew)
+    # phinew = pi/180 * linspace(0, 360, nphinew)
+
+    # E1 = []
+    # for i in range(ntheta):
+    #     E1.append(interp(phinew, phi, Etot[i]))
+    # E1 = array(E1)
+
+    # E2 = []
+    # for i in range(nphinew):
+    #     E2.append(interp(thetanew, theta, E1[:,i]))
+    # E2 = array(E2).T
+
+    # if var == 0:
+    #     var += 1
+    #     # figure(1)
+    #     # l3d.plot3d(Etot)
+    #     # figure(2)
+    #     # l3d.plot3d(E2)
+    #     # show()
+
+    # Surface integral
     I = l3d.intsphere(Etot, theta, phi)
+    # I = l3d.intsphere(E2, thetanew, phinew)
+    # I = radiatedpower_single_manual(Etot)
     return I
 
-def alt_radiatedpower_single(Etot):
+def radiatedpower_single_alt(Etot):
     ntheta,nphi = Etot.shape
-
-    theta = pi/180 * linspace(0, 180-12, ntheta)
-    phi   = pi/180 * linspace(0, 360, nphi)
+    theta = pi/180 * linspace(0, 180, ntheta)
 
     I = 0
     for i in range(ntheta):
         for j in range(nphi):
             I += Etot[i,j] * sin(theta[i])
+
     I *= 2*pi/15*pi/8
 
     return I
+
+def radiatedpower_single_sam(Etot):
+    Etot = mat2col(Etot)
+    # Hpol = d[0]**2 + d[1]**2
+    # Vpol = d[2]**2 + d[3]**2
+    # theta = linspace(12, 360-12, 15)*pi/180
+    # theta = linspace(22.5, 360-22.5, 15)*pi/180
+    theta = linspace(-180+22.5, 180-22.5, 15) *pi/180
+
+    I = 0
+    for i in range(len(Etot)):
+
+        # TODO: Figure out why the below averaging is needed.
+
+        E1 = Etot[i] * abs(sin(theta[i%15]))
+        E2 = Etot[i] * abs(sin(theta[(i+1)%15]))
+        E3 = Etot[i] * abs(sin(theta[(i-1)%15]))
+        I += (E1+E2+E3)/3
+
+        # Original with mistake is shown below.
+        # Samantha's implementation: The first 15 samples are multiplied with
+        # sin(theta[0]) BUT: The first 15 samples are for 15 different theta
+        # values and one phi value!  Therefore, the computation is incorrect!
+
+        # I += Etot[i] * sin(theta[floor((i+1)/15)]) 
+
+    eff = I*2*pi/15*pi/8
+    return eff
 
 # Compute the radiated power for each frequency in the h and v list, using
 # radiatedpower_single().
@@ -109,7 +189,7 @@ def radiatedpower(h,v):
     N = len(h)
     P_rad = zeros(N)
     for i in range(N):
-        P_rad[i] = alt_radiatedpower_single( abs(h[i])**2 + abs(v[i])**2 )
+        P_rad[i] = radiatedpower_single( abs(h[i])**2 + abs(v[i])**2 )
 
     return P_rad
 
@@ -158,7 +238,7 @@ def loadref(f):
 # @return [f,Ptot] -- the total power for each frequency.
 def totalpower_table(calfiles, reffiles):
     # Get Efficiency from reference files
-    f_ref = array([0]) # Must be initialize to use max()
+    f_ref = array([0]) # Must be initialized to use max()
     eff_ref = array([])
     for i in range(len(reffiles)):
         m       = loadref(reffiles[i])
@@ -188,18 +268,33 @@ def totalpower_table(calfiles, reffiles):
 
     return [f, P_tot]
 
+# Moving average filter.
+#
+# @param values Values/array to filter.
+# @param windows Size of the moving average filter.
+# @return Moving average filtered values.
+def ma(values, window):
+    weights = repeat(1.0, window)/window
+    sma = convolve(values, weights, 'valid')
+    return sma
+
 # Get the total efficiency of a trx file, exported from Satimo.
 #
 # @param trxfile File, exported from Satimo PM, to compute the efficiency of.
 # @param calfiles List of calibration measurement files (trx files).
 # @param reffiles List of reference files relating to the calibration
 #        measurements.
+# @param f_tot Frequency axis of an existing total-power table.
+# @param P_tot Power axis of an existing total-power table. If an existing
+#        total-power table is supplied, the efficiency computation is much faster.
 # @return [f,eff] -- the total efficiency, eff, for each frequency, f.
-def efficiency(trxfile, calfiles, reffiles):
+def efficiency(trxfile, calfiles=[], reffiles=[], f_tot=[], P_tot=[]):
     f,h,v = loadtrx(trxfile)
     P_rad = radiatedpower(h,v) 
 
-    f_tot,P_tot = totalpower_table(calfiles, reffiles)
+    if (len(f_tot)==0 and len(P_tot)==0):
+        f_tot,P_tot = totalpower_table(calfiles, reffiles)
+
     P_tot = interp(f, f_tot, P_tot)
 
     eff = P_rad/P_tot
