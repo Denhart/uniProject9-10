@@ -11,7 +11,6 @@ calfiles = [
         "calib/850RefDipole.trx",
         "calib/900RefDipole.trx",
         "calib/1800RefDipole.trx",
-        "calib/1900RefDipole.trx",
         "calib/2050RefDipole.trx",
         "calib/2450RefDipole.trx",
         ]
@@ -23,7 +22,6 @@ reffiles = [
         "calib/SD850-02.ref",
         "calib/SD900-51.ref",
         "calib/SD1800-45.ref",
-        "calib/SD1900-49.ref",
         "calib/SD2050-36.ref",
         "calib/SD2450-43.ref",
         ]
@@ -43,6 +41,13 @@ for x in [
     eff = hstack((eff_L,eff_H))
 
     aauplot.efficiency(f,eff,label=x[2])
+
+# Simulations for comparison
+M1 = loadtxt("sim/top_09pf.txt", skiprows=2).T
+M2 = loadtxt("sim/side_03pf.txt", skiprows=2).T
+
+aauplot.efficiency(M1[0], M1[1], label="Top, simulated")
+aauplot.efficiency(M2[0], M2[1], label="Side, simulated")
 
 aauplot.end_efficiency(f, loc=4);
 
