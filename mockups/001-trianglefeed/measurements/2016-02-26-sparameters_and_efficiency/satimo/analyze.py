@@ -42,22 +42,9 @@ for x in [
     f = hstack((f_L,f_H))
     eff = hstack((eff_L,eff_H))
 
-    avg = 1
-    # plot(satimo.ma(f/1e6,avg),satimo.ma(10*log10(eff),avg),label=x[2])
     aauplot.efficiency(f,eff,label=x[2])
-
-# f_sam,eff_sam = loadtxt("../Sam-eff/Triag-LB-Top-H.csv", delimiter=",").T
-# f_sam,eff_sam = loadtxt("../Sam-eff/Triag-LB-Top-V.csv", delimiter=",").T
-# f_sam,eff_sam = loadtxt("../Sam-eff/Triag-LB-Side-H.csv", delimiter=",").T
-# f_sam,eff_sam = loadtxt("../Sam-eff/Triag-LB-Side-V.csv", delimiter=",").T
-# plot(f_sam, eff_sam, label="Sam H")
-# aauplot.efficiency(f_sam, eff_sam, label="Samantha H")
-# f_sam,eff_sam = loadtxt("../Sam-eff/Triag-LB-Top-V.csv", delimiter=",").T
-# plot(f_sam, eff_sam, label="Sam V")
-# legend(fontsize=12)
-# aauplot.efficiency(f_sam, eff_sam, label="Samantha V")
 
 aauplot.end_efficiency(f, loc=4);
 
 savefig("efficiency.pdf")
-show()
+# show()
