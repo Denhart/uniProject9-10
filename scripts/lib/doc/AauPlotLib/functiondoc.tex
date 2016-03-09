@@ -1,4 +1,21 @@
 \subsection{AAU Plot}
+\subsubsection{efficiency(f, e, c="-", label="")}
+Plot an efficiency graph.
+
+\begin{verbatim}
+- f: Frequency axis.
+- e: Efficiency (. or dB).
+- c: Color/linetype string (e.g. '--b' for dashed blue).
+- label: Label for the graph's legend.
+\end{verbatim}
+
+\subsubsection{end\_efficiency(f, loc=1, fontsize=8)}
+Finish the efficiency plot with legend, etc.
+
+\begin{verbatim}
+- f: Frequency axis.
+\end{verbatim}
+
 \subsubsection{figure(**kwargs)}
 Set up a figure of the correct dimensions and the correct font for the
 report.
@@ -23,12 +40,22 @@ Add a legend to the plot. The labels for the legend are specified with the
 - kwargs: All parameters are passed on to matplotlib.pyplot.legend().
 \end{verbatim}
 
-\subsubsection{sparam(f, s, l="")}
+\subsubsection{sparam(f, s, label="")}
 Plot an S-parameter.
 
 \begin{verbatim}
 - f: Frequency axis for the plot.
 - s: S-parameter (abs-value in dB) to plot.
-- l: Label for the legend
+- label: Label for the legend
+\end{verbatim}
+
+\subsubsection{to\_db(x)}
+Convert/preserve data in dB
+
+\begin{verbatim}
+- x: Data to convert (e.g. efficiency).
+
+Return:
+Data in dB.
 \end{verbatim}
 

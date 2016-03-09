@@ -90,20 +90,46 @@ def loadtrx(f):
 #        of (surface integration).
 # @return Surface integral of Etot ~ radiated power.
 def radiatedpower_single(Etot):
-    # return radiatedpower_single_sbn(Etot)
-    return radiatedpower_single_sam(Etot)
-    # return radiatedpower_single_alt(Etot)
+    ntheta_,nphi_ = shape(Etot) # Shape of the original matrix.
+    Etot = mat2col(Etot)
 
-var =0
-def radiatedpower_single_sbn(Etot):
-    global var
+    ntheta = nphi_ - 1 # Shape/ordering of column data (original satimo data).
+    nphi = ntheta_
+    theta = linspace(-180+22.5, 180-22.5, ntheta) * pi/180
+
+    I = 0
+    for i in range(len(Etot)):
+        E1 = Etot[i] * abs(sin(theta[i     % ntheta]))
+        E2 = Etot[i] * abs(sin(theta[(i+1) % ntheta]))
+        E3 = Etot[i] * abs(sin(theta[(i-1) % ntheta]))
+        I += (E1+E2+E3)/3
+
+        # Original with mistake is shown below.
+        # Samantha's implementation: The first 15 samples are multiplied with
+        # sin(theta[0]) BUT: The first 15 samples are for 15 different theta
+        # values and one phi value!  Therefore, the computation is incorrect!
+
+        # I += Etot[i] * sin(theta[floor((i+1)/15)]) 
+
+    eff = I*2*pi/15*pi/8
+    return eff
+
+# Alternative way of computing the radiated power/surface integral. For a small
+# sample size, this method is not as accurate as radiatedpower_single.
+#
+# @param Etot Matrix (theta x phi) from Satimo PM to compute the radiate power
+#        of (surface integration).
+# @return Surface integral of Etot ~ radiated power.
+def radiatedpower_single_alt(Etot):
     ntheta,nphi = Etot.shape
 
     # TODO: Figure out whether to start from 22.5 or 12 (or 15)
     # TODO: Also correct this in the documentation!
     theta = pi/180 * linspace(0, 180-22.5, ntheta)
-    # theta = pi/180 * linspace(0, 180-15, ntheta)
     phi   = pi/180 * linspace(0, 360, nphi)
+
+    # Surface integral
+    I = l3d.intsphere(Etot, theta, phi)
 
     # # 2D interpolation
     # nthetanew = 200
@@ -121,60 +147,9 @@ def radiatedpower_single_sbn(Etot):
     #     E2.append(interp(thetanew, theta, E1[:,i]))
     # E2 = array(E2).T
 
-    # if var == 0:
-    #     var += 1
-    #     # figure(1)
-    #     # l3d.plot3d(Etot)
-    #     # figure(2)
-    #     # l3d.plot3d(E2)
-    #     # show()
-
-    # Surface integral
-    I = l3d.intsphere(Etot, theta, phi)
     # I = l3d.intsphere(E2, thetanew, phinew)
-    # I = radiatedpower_single_manual(Etot)
-    return I
-
-def radiatedpower_single_alt(Etot):
-    ntheta,nphi = Etot.shape
-    theta = pi/180 * linspace(0, 180, ntheta)
-
-    I = 0
-    for i in range(ntheta):
-        for j in range(nphi):
-            I += Etot[i,j] * sin(theta[i])
-
-    I *= 2*pi/15*pi/8
 
     return I
-
-def radiatedpower_single_sam(Etot):
-    Etot = mat2col(Etot)
-    # Hpol = d[0]**2 + d[1]**2
-    # Vpol = d[2]**2 + d[3]**2
-    # theta = linspace(12, 360-12, 15)*pi/180
-    # theta = linspace(22.5, 360-22.5, 15)*pi/180
-    theta = linspace(-180+22.5, 180-22.5, 15) *pi/180
-
-    I = 0
-    for i in range(len(Etot)):
-
-        # TODO: Figure out why the below averaging is needed.
-
-        E1 = Etot[i] * abs(sin(theta[i%15]))
-        E2 = Etot[i] * abs(sin(theta[(i+1)%15]))
-        E3 = Etot[i] * abs(sin(theta[(i-1)%15]))
-        I += (E1+E2+E3)/3
-
-        # Original with mistake is shown below.
-        # Samantha's implementation: The first 15 samples are multiplied with
-        # sin(theta[0]) BUT: The first 15 samples are for 15 different theta
-        # values and one phi value!  Therefore, the computation is incorrect!
-
-        # I += Etot[i] * sin(theta[floor((i+1)/15)]) 
-
-    eff = I*2*pi/15*pi/8
-    return eff
 
 # Compute the radiated power for each frequency in the h and v list, using
 # radiatedpower_single().
@@ -196,13 +171,15 @@ def radiatedpower(h,v):
 # Load a reference file containing S11, Gain, and Efficiency of a
 # reference/calibration antenna.
 # The reference files are cut to the following ranges, depending on file name:
-# HomeRef600: No crop.
-# SD740-70: 700--800 MHz.
-# SD850-02: 800--900 MHz.
-# SD900-52: 900--1000 MHz.
-# SD1900-49: No crop.
-# SD2050-36: No crop.
-# SD2450-43: No crop.
+# \begin{itemize}
+# \item HomeRef600: No crop.
+# \item SD740-70: 700--800 MHz.
+# \item SD850-02: 800--900 MHz.
+# \item SD900-52: 900--1000 MHz.
+# \item SD1900-49: No crop.
+# \item SD2050-36: No crop.
+# \item SD2450-43: No crop.
+# \end{itemize}
 # Note that the 740 MHz reference file has the efficiency and gain columns
 # swapped!
 # 
