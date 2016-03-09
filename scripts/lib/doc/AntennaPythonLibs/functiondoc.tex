@@ -1,15 +1,4 @@
 \subsection{Satimo}
-\subsubsection{\_radiatedpower\_single(Etot)}
-Radiated power from a (theta x phi) total E-field matrix.
-
-\begin{verbatim}
-- Etot: Matrix (theta x phi) from Satimo PM to compute the radiate power
-        of (surface integration).
-
-Return:
-Surface integral of Etot ~ radiated power.
-\end{verbatim}
-
 \subsubsection{col2mat(column, ntheta=SATIMO\_NUM\_ELEVATION, nphi=SATIMO\_NUM\_AZIMUTH)}
 Convert a Satimo PM-exported column to a matrix with phi the 
 x-axis and theta on the y-axis.
@@ -23,7 +12,7 @@ Return:
 Matrix with phi on the x-axis and theta on the y-axis.
 \end{verbatim}
 
-\subsubsection{efficiency(trxfile, calfiles, reffiles)}
+\subsubsection{efficiency(trxfile, calfiles=[], reffiles=[], f\_tot=[], P\_tot=[])}
 Get the total efficiency of a trx file, exported from Satimo.
 
 \begin{verbatim}
@@ -31,6 +20,9 @@ Get the total efficiency of a trx file, exported from Satimo.
 - calfiles: List of calibration measurement files (trx files).
 - reffiles: List of reference files relating to the calibration
         measurements.
+- f_tot: Frequency axis of an existing total-power table.
+- P_tot: Power axis of an existing total-power table. If an existing
+        total-power table is supplied, the efficiency computation is much faster.
 
 Return:
 [f,eff] -- the total efficiency, eff, for each frequency, f.
@@ -40,13 +32,15 @@ Return:
 Load a reference file containing S11, Gain, and Efficiency of a
 reference/calibration antenna.
 The reference files are cut to the following ranges, depending on file name:
-HomeRef600: No crop.
-SD740-70: 700--800 MHz.
-SD850-02: 800--900 MHz.
-SD900-52: 900--1000 MHz.
-SD1900-49: No crop.
-SD2050-36: No crop.
-SD2450-43: No crop.
+\begin{itemize}
+\item HomeRef600: No crop.
+\item SD740-70: 700--800 MHz.
+\item SD850-02: 800--900 MHz.
+\item SD900-52: 900--1000 MHz.
+\item SD1900-49: No crop.
+\item SD2050-36: No crop.
+\item SD2450-43: No crop.
+\end{itemize}
 Note that the 740 MHz reference file has the efficiency and gain columns
 swapped!
 
@@ -71,6 +65,30 @@ Return:
 and each "E" is a complex matrix, (theta x phi), containing the received fields.
 \end{verbatim}
 
+\subsubsection{ma(values, window)}
+Moving average filter.
+
+\begin{verbatim}
+- values: Values/array to filter.
+- windows: Size of the moving average filter.
+
+Return:
+Moving average filtered values.
+\end{verbatim}
+
+\subsubsection{mat2col(mat, ntheta=SATIMO\_NUM\_ELEVATION, nphi=SATIMO\_NUM\_AZIMUTH)}
+Convert a (theta x phi) matrix into the original column-format from the trx
+file.
+
+\begin{verbatim}
+- mat: Matrix with phi on the x-axis and theta on the y-axis.
+- ntheta: Number of rows in the output (theta in the input).
+- nphi: Number of columns in the output (phi in the input).
+
+Return:
+Column like a Satimo PM export, like the trx format.
+\end{verbatim}
+
 \subsubsection{radiatedpower(h,v)}
 Compute the radiated power for each frequency in the h and v list, using
 radiatedpower\_single().
@@ -84,6 +102,29 @@ radiatedpower\_single().
 Return:
 A vector with the radiated power for each frequency/element of h and
         v.
+\end{verbatim}
+
+\subsubsection{radiatedpower\_single(Etot)}
+Radiated power from a (theta x phi) total E-field matrix.
+
+\begin{verbatim}
+- Etot: Matrix (theta x phi) from Satimo PM to compute the radiate power
+        of (surface integration).
+
+Return:
+Surface integral of Etot ~ radiated power.
+\end{verbatim}
+
+\subsubsection{radiatedpower\_single\_alt(Etot)}
+Alternative way of computing the radiated power/surface integral. For a small
+sample size, this method is not as accurate as radiatedpower\_single.
+
+\begin{verbatim}
+- Etot: Matrix (theta x phi) from Satimo PM to compute the radiate power
+        of (surface integration).
+
+Return:
+Surface integral of Etot ~ radiated power.
 \end{verbatim}
 
 \subsubsection{totalpower\_table(calfiles, reffiles)}
