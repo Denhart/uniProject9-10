@@ -11,14 +11,13 @@ h = h[0]
 v = v[0]
 
 E = sqrt(abs(h)**2 + abs(v)**2)
-thetamax = (180-22.5) * pi/180 # No probe at theta = 180
 
 figure()
-l3d.plot3d(E, th_lim=(0, thetamax))
+l3d.plot3d(E, th_lim=(0, 180-22.5)) # No probe at theta = 180
 savefig("ex2_3dfarfield.pdf")
 
 figure()
-l3d.plotflat(E, th_lim=(0, thetamax))
+l3d.plotflat(E, th_lim=(0, 180-22.5))
 savefig("ex2_2dfarfield.pdf")
 
 show()

@@ -2,6 +2,7 @@ from numpy import *
 from matplotlib.pyplot import *
 import aauplot
 import satimo
+import l3d
 
 aauplot.figure(figsize=(7,6))
 
