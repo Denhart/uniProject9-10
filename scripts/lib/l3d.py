@@ -7,15 +7,15 @@ from mpl_toolkits.mplot3d import Axes3D
 # of the plot in spherical coordinates.
 #
 # @param r Matrix to plot (theta x phi).
-# @param th_lim Minimum and maximum theta/y-axis value.
-# @param ph_lim Minimum and maximum phi/x-axis value.
+# @param th_lim Minimum and maximum theta/y-axis value (degrees).
+# @param ph_lim Minimum and maximum phi/x-axis value (degrees).
 # @param cmap Color map to use.
-def plotflat(r, th_lim=(0,pi), ph_lim=(0,2*pi), cmap="jet"):
+def plotflat(r, th_lim=(0,180), ph_lim=(0,360), cmap="jet"):
     nx, ny = shape(r.T)
-    phmin = ph_lim[0] * 180/pi
-    phmax = ph_lim[1] * 180/pi
-    thmin = th_lim[0] * 180/pi
-    thmax = th_lim[1] * 180/pi
+    phmin = ph_lim[0]
+    phmax = ph_lim[1]
+    thmin = th_lim[0]
+    thmax = th_lim[1]
     x = linspace(phmin, phmax, nx)
     y = linspace(thmin, thmax, ny)
     X,Y = meshgrid(x,y)
@@ -31,15 +31,15 @@ def plotflat(r, th_lim=(0,pi), ph_lim=(0,2*pi), cmap="jet"):
 #
 # @param r Matrix to plot.
 # @param stride Resolution of the output. 1=detailed+slow, 10=rough+fast.
-# @param th_lim Upper and lower theta limits.
-# @param ph_lim Upper and lower phi limits.
-def plot3d(r, stride=1, th_lim=(0, pi), ph_lim=(0, 2*pi)):
+# @param th_lim Upper and lower theta limits (degrees).
+# @param ph_lim Upper and lower phi limits (degrees).
+def plot3d(r, stride=1, th_lim=(0, 180), ph_lim=(0, 360)):
     ax = subplot(111, projection="3d")
 
     ntheta, nphi = r.shape
 
-    theta = linspace(th_lim[0], th_lim[1], ntheta)  # include 0 deg
-    phi = linspace(ph_lim[0], ph_lim[1], nphi)
+    theta = linspace(th_lim[0], th_lim[1], ntheta)*pi/180  # include 0 deg
+    phi = linspace(ph_lim[0], ph_lim[1], nphi)*pi/180
 
     x = r*outer(sin(theta), cos(phi))
     y = r*outer(sin(theta), sin(phi))

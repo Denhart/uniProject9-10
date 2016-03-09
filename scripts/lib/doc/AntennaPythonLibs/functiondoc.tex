@@ -200,24 +200,24 @@ Return:
 Scalar result of the integration.
 \end{verbatim}
 
-\subsubsection{plot3d(r, stride=1, th\_lim=(0, pi), ph\_lim=(0, 2*pi))}
+\subsubsection{plot3d(r, stride=1, th\_lim=(0, 180), ph\_lim=(0, 360))}
 Plot a matrix, (theta x phi), in 3d space.
 
 \begin{verbatim}
 - r: Matrix to plot.
 - stride: Resolution of the output. 1=detailed+slow, 10=rough+fast.
-- th_lim: Upper and lower theta limits.
-- ph_lim: Upper and lower phi limits.
+- th_lim: Upper and lower theta limits (degrees).
+- ph_lim: Upper and lower phi limits (degrees).
 \end{verbatim}
 
-\subsubsection{plotflat(r, th\_lim=(0,pi), ph\_lim=(0,2*pi), cmap="jet")}
+\subsubsection{plotflat(r, th\_lim=(0,180), ph\_lim=(0,360), cmap="jet")}
 Plot a farfield-matrix as a color-map. Remember that 0 degrees is the bottom
 of the plot in spherical coordinates.
 
 \begin{verbatim}
 - r: Matrix to plot (theta x phi).
-- th_lim: Minimum and maximum theta/y-axis value.
-- ph_lim: Minimum and maximum phi/x-axis value.
+- th_lim: Minimum and maximum theta/y-axis value (degrees).
+- ph_lim: Minimum and maximum phi/x-axis value (degrees).
 - cmap: Color map to use.
 \end{verbatim}
 
