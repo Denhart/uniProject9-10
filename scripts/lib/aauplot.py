@@ -42,13 +42,14 @@ def to_db(x):
 #
 # @param f Frequency axis for the plot.
 # @param s S-parameter (abs-value in dB) to plot.
+# @param c Color/linetype string (e.g. '--b' for dashed blue).
 # @param label Label for the legend
-def sparam(f, s, label=""):
+def sparam(f, s, c="-", label=""):
     f *= freqscale(f)
     plt.xlim(f.min(), f.max())
     plt.ylim(-24, 0)
     plt.yticks([-24, -18, -12, -6, 0])
-    plt.plot(f, s, label=label)
+    plt.plot(f, s, c, label=label)
 
     plt.xlabel("Frequency [MHz]")
     plt.ylabel("Magnitude [dB]")
