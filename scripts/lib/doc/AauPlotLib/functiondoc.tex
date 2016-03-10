@@ -9,11 +9,19 @@ Plot an efficiency graph.
 - label: Label for the graph's legend.
 \end{verbatim}
 
-\subsubsection{end\_efficiency(f, loc=1, fontsize=8)}
+\subsubsection{end\_efficiency(loc=1, fontsize=8)}
 Finish the efficiency plot with legend, etc.
 
 \begin{verbatim}
-- f: Frequency axis.
+- loc: Location of the legend (like matplotlib.pyplot.legend())
+- fontsize: Font size for the legend.
+\end{verbatim}
+
+\subsubsection{end\_sparam(**kwargs)}
+Finish the S-parameter plot with legend, etc.
+
+\begin{verbatim}
+- kwargs: Parameters passed onto matplotlib.pyplot.legend().
 \end{verbatim}
 
 \subsubsection{figure(**kwargs)}
@@ -32,20 +40,13 @@ Scale to get frequency axis to MHz
 - f: Frequency axis.
 \end{verbatim}
 
-\subsubsection{legend(**kwargs)}
-Add a legend to the plot. The labels for the legend are specified with the
-``label'' option when plotting a graph.
-
-\begin{verbatim}
-- kwargs: All parameters are passed on to matplotlib.pyplot.legend().
-\end{verbatim}
-
-\subsubsection{sparam(f, s, label="")}
+\subsubsection{sparam(f, s, c="-", label="")}
 Plot an S-parameter.
 
 \begin{verbatim}
 - f: Frequency axis for the plot.
 - s: S-parameter (abs-value in dB) to plot.
+- c: Color/linetype string (e.g. '--b' for dashed blue).
 - label: Label for the legend
 \end{verbatim}
 

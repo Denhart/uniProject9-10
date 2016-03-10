@@ -15,16 +15,20 @@ The antenna has initially been matched for the best bandwidth. The component val
 
 \begin{figure}[htbp]
         \centering
-        \includegraphics{img/tech_sol/schematic_tuning_1}\\[1cm]
-        \footnotesize
-        \begin{tabular}{|l|l|l|l|}
-            \hline
-            & $C_1$ & $L_1$ & $C_2$ \\
-            \hline
-            Top antenna & \SI{3.45}{pF} & \SI{7.89}{nH} & $[0.3,2.9]\,$pF\\
-            Side antenna & \SI{2.42}{pF} & \SI{5.69}{nH} & $[0.3,2.9]\,$pF\\
-            \hline
+        \begin{tabular}{m{3in}m{3in}}
+            \centering
+            \includegraphics{img/tech_sol/schematic_tuning_1}&
+            \centering
+            \footnotesize
+            \begin{tabular}{|l|l|l|l|}
+                \hline
+                & $C_1$ & $L_1$ & $C_2$ \\
+                \hline
+                Top antenna & \SI{3.0}{pF} & \SI{6.8}{nH} & \SI{0.9}{pF} \\
+                Side antenna & \SI{2.2}{pF} & \SI{5.6}{nH} & \SI{0.3}{pF} \\
+                \hline
+            \end{tabular}
         \end{tabular}
-    \caption{Matching circuit for the triangle-feed antenna prototype.}
-    \label{fig:techschem}
+    \caption{Matching circuit for the triangle-feed antenna prototype. These are the component values where the bandwidth is found to be the largest.}
+    \label{fig:triang_proto_matching}
 \end{figure}
