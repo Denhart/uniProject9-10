@@ -44,7 +44,7 @@ for x in [
 
     aauplot.efficiency(f,eff,label=x[2])
 
-aauplot.end_efficiency(f, loc=4);
+aauplot.end_efficiency(loc=4);
 
 savefig("efficiency.pdf")
-# show()
+show()

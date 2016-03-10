@@ -19,6 +19,6 @@ reffiles = ["SD850-02.ref"]
 
 f,e = satimo.efficiency("Triag-Top-LB.trx", calfiles, reffiles)
 aauplot.efficiency(f,10*log10(e), label="SBN")
-aauplot.end_efficiency(f)
+aauplot.end_efficiency()
 
 show()
