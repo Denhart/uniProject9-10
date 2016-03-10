@@ -49,7 +49,7 @@ M2 = loadtxt("sim/side_03pf.txt", skiprows=2).T
 aauplot.efficiency(f, interp(f, M1[0], M1[1]), label="Top, simulated")
 aauplot.efficiency(f, interp(f, M2[0], M2[1]), label="Side, simulated")
 
-aauplot.end_efficiency(f, loc=4);
+aauplot.end_efficiency(loc=4);
 
 savefig("efficiency.pdf")
 show()
