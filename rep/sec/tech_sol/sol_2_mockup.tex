@@ -2,7 +2,7 @@
 
 A prototype of the triangle-feed antenna has been built. The results will be described in this section.
 
-The prototype is shown in Figure~\ref{fig:triang_proto}. Compared to the simulation, see Figure~\ref{fig:ant2techschem}, a \SI{5}{mm} strip of copper has been added next to the feed line.  \fixme{Simulation results when adding this copper strip. Describe why this works.}
+The prototype is shown in Figure~\ref{fig:triang_proto}. Compared to the simulation, see Figure~\ref{fig:ant2techschem}, a \SI{5}{mm} strip of copper has been added next to the feed line. A free-space simulation has been made with the added copper strip for comparison. \fixme{Describe why copper strip works.}
 
 \begin{figure}[htbp]
     \centering
@@ -11,7 +11,7 @@ The prototype is shown in Figure~\ref{fig:triang_proto}. Compared to the simulat
     \label{fig:triang_proto}
 \end{figure}
 
-The antenna has initially been matched for the best bandwidth. The component values are shown in Figure~\ref{fig:triang_proto_matching}.
+The antenna has initially been matched for the best bandwidth. The component values are shown in Figure~\ref{fig:triang_proto_matching}. The measured and simulated S-parameters and total efficiency is shown in Figure~\ref{fig:triang_proto_sparam_eff}. From the S-parameters it is seen that, in general, the resonances of the measurement correspond well with the resonances of the simulation -- especially for the top antenna. The levels of the return loss peaks are not the same but the antenna is nearly compliant with the impedance bandwidth requirement at \SI{5}{dB} return loss. The isolation is better than the simulated, peaking at around \SI{-8}{dB}. The efficiency is generally slightly lower than the simulated. This is to be expected as real-life matching components are lossy due to their Equivalent Series Resistance (ESR). It is seen that the efficiency bandwidth of the side antenna in the low band is greater than the simulation. This is due to the more wide-band matching seen in the corresponding S-parameters, S22, in the low band. Generally, the efficiency peaks correspond well with the return loss peaks and is quite good, peaking at above \SI{-3}{dB} in both the high and the low band.
 
 \begin{figure}[htbp]
         \centering
@@ -31,4 +31,28 @@ The antenna has initially been matched for the best bandwidth. The component val
         \end{tabular}
     \caption{Matching circuit for the triangle-feed antenna prototype. These are the component values where the bandwidth is found to be the largest.}
     \label{fig:triang_proto_matching}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/trianglefeed/mockup/best_sparams.pdf}
+        \caption{S-parameters.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/trianglefeed/mockup/best_efficiency.pdf}
+        \caption{Total efficiency.}
+    \end{subfigure}
+    \caption{S-parameters and total efficiency of the triangle-feed antenna prototype with the component values from Figure~\ref{fig:triang_proto_matching}.}
+    \label{fig:triang_proto_sparam_eff}
+\end{figure}
+
+In addition to the S-parameters and the total efficiency, the envelope correlation coefficient has also been computed for the prototype. The result is shown in Figure~\ref{fig:triang_proto_ecc}, compared to the simulation. It is clearly seen that the simulated and measured correlation coefficients are very different. The reason for this is, most likely, that the antenna was not perfectly aligned when the top antenna and the side antenna were measured. To obtain realistic correlation results, the antenna should be located in the \emph{exact} same position for every measurement.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/tech_sol/trianglefeed/mockup/best_correlation.pdf}
+    \caption{Measured and simulated envelope correlation coefficient for the triangle-feed antenna.}
+    \label{fig:triang_proto_ecc}
 \end{figure}
