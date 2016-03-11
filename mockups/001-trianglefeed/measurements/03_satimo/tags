@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Axes3D	l3d.py	/^from mpl_toolkits.mplot3d import Axes3D$/;"	i
+Calib	matlab/Calib_Satimo.m	/^function [eff_dB]=Calib(L,dat) % passing line number (=freq) and data from file$/;"	f
+Calib_Satimo	matlab/Calib_Satimo.m	/^function[]=Calib_Satimo()$/;"	f
+SATIMO_ANTENNA_ANGLES	satimo.py	/^SATIMO_ANTENNA_ANGLES = array([12,36,60,84,108,132,156,180,204,228,252,276,300,324,348])*pi\/180$/;"	v
+SATIMO_NUM_AZIMUTH	satimo.py	/^SATIMO_NUM_AZIMUTH = 8$/;"	v
+SATIMO_NUM_ELEVATION	satimo.py	/^SATIMO_NUM_ELEVATION = 15$/;"	v
+SATIMO_NUM_SAMPLES	satimo.py	/^SATIMO_NUM_SAMPLES = SATIMO_NUM_ELEVATION * SATIMO_NUM_AZIMUTH$/;"	v
+Sat_measEff	matlab/Satimo_measEff.m	/^function [effdB]=Sat_measEff(L,dat)$/;"	f
+Sat_measEff	matlab/effmock.m	/^function [effdB]=Sat_measEff(L,dat)$/;"	f
+Satimo_measEff	matlab/Satimo_measEff.m	/^function [f,effdB]=Satimo_measEff(file,band)$/;"	f
+TRX_NUM_HEADER_LINES	satimo.py	/^TRX_NUM_HEADER_LINES = 36$/;"	v
+calib_per_Frange	matlab/Calib_Satimo.m	/^function [Cal_tableFreq]=calib_per_Frange(Freq,file)$/;"	f
+cm	l3d.py	/^from matplotlib import cm$/;"	i
+col2mat	satenv.py	/^def col2mat(column, ntheta=127, nphi=64):$/;"	f
+col2mat	satimo.py	/^def col2mat(column, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):$/;"	f
+ecc	l3d.py	/^def ecc(Eth1, Eth2, Eph1, Eph2):$/;"	f
+efficiency	satimo.py	/^def efficiency(fil, caldir="calib", refdir="calib"):$/;"	f
+ff2mat	satenv.py	/^def ff2mat(data, column_real, column_imag, ntheta=127, nphi=64):$/;"	f
+interp_refDipole	matlab/interp_refDipole.m	/^function [exp_eff_interp]=interp_refDipole(freq,step)$/;"	f
+intsphere	l3d.py	/^def intsphere(r, theta, phi):$/;"	f
+l3d	satimo.py	/^import l3d$/;"	i
+loadfile	satenv.py	/^def loadfile(f):$/;"	f
+loadref	satimo.py	/^def loadref(f):$/;"	f
+loadtrx	satimo.py	/^def loadtrx(f):$/;"	f
+plot3d	l3d.py	/^def plot3d(r, stride=1, th_lim=(0, pi), ph_lim=(0, 2*pi)):$/;"	f
+plotSati	matlab/effmock.m	/^function plotSati()$/;"	f
+plotflat	l3d.py	/^def plotflat(r, x_lim=(0,360), y_lim=(0,180), cmap="jet"):$/;"	f
+radiatedpower	satimo.py	/^def radiatedpower(h,v):$/;"	f
+radiatedpower_single	satimo.py	/^def radiatedpower_single(Etot):$/;"	f
+re	satimo.py	/^import re$/;"	i
+satenv	satimo.py	/^import satenv$/;"	i
+test_loadtrx	satimo.py	/^def test_loadtrx():$/;"	f
+totalpower_table	satimo.py	/^def totalpower_table():$/;"	f
