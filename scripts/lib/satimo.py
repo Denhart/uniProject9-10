@@ -84,24 +84,27 @@ def loadtrx(f):
 
     return [freq, list_horiz, list_vert]
 
-# Radiated power from a (theta x phi) total E-field matrix.
+# Compute a spherical integral over the sphere recorded in Satimo. This is used
+# for efficiency and correlation computation. The integration is not over a
+# whole sphere, as a probe is missing at theta = 180 deg. Due to the low number
+# of samples recorded in Satimo, the integration must be done carefully, only
+# considering each sample one time. This is why l3d.intsphere() is not used.
 #
-# @param Etot Matrix (theta x phi) from Satimo PM to compute the radiate power
-#        of (surface integration).
-# @return Surface integral of Etot ~ radiated power.
-def radiatedpower_single(Etot):
-    ntheta_,nphi_ = shape(Etot) # Shape of the original matrix.
-    Etot = mat2col(Etot)
+# @param E Field matrix to integrate (theta x phi).
+# @return Spherical integral of E.
+def intsphere(E):
+    ntheta_,nphi_ = shape(E) # Shape of the original matrix.
+    E = mat2col(E)
 
     ntheta = nphi_ - 1 # Shape/ordering of column data (original satimo data).
     nphi = ntheta_
     theta = linspace(-180+22.5, 180-22.5, ntheta) * pi/180
 
     I = 0
-    for i in range(len(Etot)):
-        E1 = Etot[i] * abs(sin(theta[i     % ntheta]))
-        E2 = Etot[i] * abs(sin(theta[(i+1) % ntheta]))
-        E3 = Etot[i] * abs(sin(theta[(i-1) % ntheta]))
+    for i in range(len(E)):
+        E1 = E[i] * abs(sin(theta[i     % ntheta]))
+        E2 = E[i] * abs(sin(theta[(i+1) % ntheta]))
+        E3 = E[i] * abs(sin(theta[(i-1) % ntheta]))
         I += (E1+E2+E3)/3
 
         # Original with mistake is shown below.
@@ -109,18 +112,17 @@ def radiatedpower_single(Etot):
         # sin(theta[0]) BUT: The first 15 samples are for 15 different theta
         # values and one phi value!  Therefore, the computation is incorrect!
 
-        # I += Etot[i] * sin(theta[floor((i+1)/15)]) 
+        # I += E[i] * sin(theta[floor((i+1)/15)]) 
 
-    eff = I*2*pi/15*pi/8
-    return eff
+    return I*2*pi/15*pi/8
 
 # Alternative way of computing the radiated power/surface integral. For a small
-# sample size, this method is not as accurate as radiatedpower_single.
+# sample size, this method is not as accurate as intsphere().
 #
 # @param Etot Matrix (theta x phi) from Satimo PM to compute the radiate power
 #        of (surface integration).
 # @return Surface integral of Etot ~ radiated power.
-def radiatedpower_single_alt(Etot):
+def intsphere_alt(Etot):
     ntheta,nphi = Etot.shape
 
     # TODO: Figure out whether to start from 22.5 or 12 (or 15)
@@ -151,6 +153,42 @@ def radiatedpower_single_alt(Etot):
 
     return I
 
+# Compute the envelope correlation coefficient between two Satimo farfields.
+# The farfields are split into theta and phi part. Each part is a matrix with
+# theta on one axis and phi on the other. This function uses the
+# satimo.intsphere() and not l3d.intsphere() and is therefore more accurate for
+# Satimo measurements.
+#
+# @param Eth1 List of E-fields, theta part, antenna 1
+# @param Eth2 List of E-fields, theta part, antenna 2
+# @param Eph1 List of E-fields, phi part, antenna 1
+# @param Eph1 List of E-fields, phi part, antenna 2
+# @return Envelope Correlation Coefficients (array, one for each element in the
+#         input lists.)
+#
+# @note https://mns.ifn.et.tu-dresden.de/Lists/nPublications/Attachments/612/Wang_Q_WSA_10.pdf
+def ecc(Eth1, Eth2, Eph1, Eph2):
+    N = len(Eth1)
+    ecc = []
+    for i in range(N):
+        # Correlation
+        Pv = intsphere(abs(Eth1[i])**2)
+        Ph = intsphere(abs(Eph1[i])**2)
+        XPR = Pv/Ph
+
+        Pt = 1 / (4*pi)
+        Pp = 1 / (4*pi)
+
+        A = lambda Etm,Etn,Epm,Epn: XPR*Etm*conj(Etn)*Pt + Epm*conj(Epn)*Pp
+
+        I1 = intsphere(A(Eth1[i],Eth2[i],Eph1[i],Eph2[i]))
+        I2 = intsphere(A(Eth1[i],Eth1[i],Eph1[i],Eph1[i]))
+        I3 = intsphere(A(Eth2[i],Eth2[i],Eph2[i],Eph2[i]))
+
+        ecc.append(abs(I1/sqrt(I2*I3))**2)
+
+    return array(ecc)
+
 # Compute the radiated power for each frequency in the h and v list, using
 # radiatedpower_single().
 #
@@ -164,7 +202,7 @@ def radiatedpower(h,v):
     N = len(h)
     P_rad = zeros(N)
     for i in range(N):
-        P_rad[i] = radiatedpower_single( abs(h[i])**2 + abs(v[i])**2 )
+        P_rad[i] = intsphere( abs(h[i])**2 + abs(v[i])**2 )
 
     return P_rad
 

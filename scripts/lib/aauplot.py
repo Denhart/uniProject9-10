@@ -84,15 +84,15 @@ def efficiency(f, e, c="-", label=""):
     f *= freqscale(f)
     e = to_db(e)
 
-    fstep = min(np.diff(f))
+    fstep = min(min(np.diff(f)), 0.5) # Maximum step size is 0.5 MHz
     fmin = min(f)
     fmax = max(f)
-    f_LB = np.arange(fmin, 960, fstep)
-    f_HB = np.arange(1710, fmax, fstep)
+    f_LB = np.arange(700, 960, fstep)
+    f_HB = np.arange(1710, 2650, fstep)
 
     lb_h = plt.plot(f_LB, np.interp(f_LB, f, e), c, label=label)
     if fmax >= 1710:
-        hb_h = plt.plot(f_HB, np.interp(f_HB, f, e), color=lb_h[0].get_color())
+        hb_h = plt.plot(f_HB, np.interp(f_HB, f, e), color=lb_h[0].get_color(), linestyle=lb_h[0].get_linestyle())
 
 # Finish the efficiency plot with legend, etc.
 #
@@ -108,7 +108,7 @@ def end_efficiency(loc=1, fontsize=8):
     plt.grid(True)
     
     for x in [700, 960, 1710, 2650]:
-        plt.axvline(x, color='k', linestyle='--', zorder=3)
+        plt.axvline(x, color='k', linestyle='--')
         plt.text(x, 0.3, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
 
     ax1 = plt.gca()
@@ -118,5 +118,43 @@ def end_efficiency(loc=1, fontsize=8):
     ax2.set_yticks([-15,-12,-9,-6,-3,0])
     ax2.set_yticklabels([int(x) for x in np.around(100*10**(ax2.get_yticks()/10))])
     ax2.set_ylabel("Efficiency [%]", rotation=270, va="bottom")
+
+    plt.tight_layout()
+
+# Plot correlation
+#
+# @param f Frequency axis.
+# @param ecc Envelope correlation coefficient.
+# @param c Color/linetype string (e.g. '--b' for dashed blue).
+# @param label Label for the graph's legend.
+def correlation(f, ecc, c="-", label=""):
+    f *= freqscale(f)
+
+    fstep = min(min(np.diff(f)), 0.5) # Maximum step size is 0.5 MHz
+    fmin = min(f)
+    fmax = max(f)
+    f_LB = np.arange(700, 960, fstep)
+    f_HB = np.arange(1710, 2650, fstep)
+
+    lb_h = plt.plot(f_LB, np.interp(f_LB, f, ecc), c, label=label)
+    if fmax >= 1710:
+        hb_h = plt.plot(f_HB, np.interp(f_HB, f, ecc), color=lb_h[0].get_color(), linestyle=lb_h[0].get_linestyle())
+
+# Finish the correlation plot with legend, etc.
+#
+# @param loc Location of the legend (like matplotlib.pyplot.legend())
+# @param fontsize Font size for the legend.
+def end_correlation(loc=1, fontsize=8):
+    plt.legend(loc=loc, fontsize=fontsize, handlelength=3)
+    plt.xlabel("Frequency [MHz]")
+    plt.ylabel("Correlation [.]")
+    plt.ylim(0, 1)
+    plt.yticks([0,0.25,0.50,0.75,1.0])
+
+    plt.grid(True)
+    
+    for x in [700, 960, 1710, 2650]:
+        plt.axvline(x, color='k', linestyle='--')
+        plt.text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
 
     plt.tight_layout()
