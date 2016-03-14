@@ -25,6 +25,7 @@ calfiles = [
 
 f_tot,P_tot = satimo.totalpower_table(calfiles, reffiles)
 datadir = "data/Satimo/"
+avg = 20
 
 # TOP ANTENNA ##################################################################
 aauplot.figure()
@@ -41,8 +42,8 @@ for x in [
     f_L,eff_L = satimo.efficiency(datadir + x[0], f_tot=f_tot, P_tot=P_tot)
     f_H,eff_H = satimo.efficiency(datadir + x[1], f_tot=f_tot, P_tot=P_tot)
 
-    f = hstack((f_L,f_H))
-    eff = hstack((eff_L,eff_H))
+    f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
+    eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
     aauplot.efficiency(f,eff)
 
@@ -64,8 +65,8 @@ for x in [
     f_L,eff_L = satimo.efficiency(datadir + x[0], f_tot=f_tot, P_tot=P_tot)
     f_H,eff_H = satimo.efficiency(datadir + x[1], f_tot=f_tot, P_tot=P_tot)
 
-    f = hstack((f_L,f_H))
-    eff = hstack((eff_L,eff_H))
+    f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
+    eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
     aauplot.efficiency(f,eff)
 
