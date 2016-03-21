@@ -20,20 +20,15 @@ def satenv_example():
     l3d.plotflat(Ftot)
 
 def cst_example():
-    M1 = cst.loadfile("cst_870_top.txt")
-    M2 = cst.loadfile("cst_870_side.txt")
-
-    Ft1 = cst.ff2mat(M1, 3, 4)
-    Fp1 = cst.ff2mat(M1, 5, 6)
-
-    Ft2 = cst.ff2mat(M2, 3, 4)
-    Fp2 = cst.ff2mat(M2, 5, 6)
+    Ft1,Fp1 = cst.loadff("ff2correlation/cst_870_top.txt")
+    Ft2,Fp2 = cst.loadff("ff2correlation/cst_870_side.txt")
 
     ECC = l3d.ecc(Ft1, Ft2, Fp1, Fp2)
-    print(ECC)
+    print("Expected ECC", 0.23578)
+    print("Computed ECC", ECC)
 
 if __name__ == "__main__":
-    satenv_example()
+    cst_example()
     show()
     exit()
     p = argparse.ArgumentParser()
