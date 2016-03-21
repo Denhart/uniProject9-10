@@ -77,16 +77,16 @@ def ecc(Eth1, Eth2, Eph1, Eph2):
     theta = linspace(0, pi, ntheta)
 
     # Correlation
-    Pv = intsphere(abs(Eth1)**2, theta, phi)
-    Ph = intsphere(abs(Eph1)**2, theta, phi)
-    XPR = Pv/Ph
+    XPR12 = intsphere(abs(Eth2)**2, theta, phi) / intsphere(abs(Eph1)**2, theta, phi)
+    XPR11 = intsphere(abs(Eth1)**2, theta, phi) / intsphere(abs(Eph1)**2, theta, phi)
+    XPR22 = intsphere(abs(Eth2)**2, theta, phi) / intsphere(abs(Eph2)**2, theta, phi)
 
     Pt = 1 / (4*pi)
     Pp = 1 / (4*pi)
 
-    A = lambda Etm,Etn,Epm,Epn: XPR*Etm*conj(Etn)*Pt + Epm*conj(Epn)*Pp
+    A = lambda Etm,Etn,Epm,Epn,XPR: XPR*Etm*conj(Etn)*Pt + Epm*conj(Epn)*Pp
 
-    I1 = intsphere(A(Eth1,Eth2,Eph1,Eph2), theta,phi)
-    I2 = intsphere(A(Eth1,Eth1,Eph1,Eph1), theta,phi)
-    I3 = intsphere(A(Eth2,Eth2,Eph2,Eph2), theta,phi)
+    I1 = intsphere(A(Eth1,Eth2,Eph1,Eph2,XPR12), theta,phi)
+    I2 = intsphere(A(Eth1,Eth1,Eph1,Eph1,XPR11), theta,phi)
+    I3 = intsphere(A(Eth2,Eth2,Eph2,Eph2,XPR22), theta,phi)
     return abs(I1/sqrt(I2*I3))**2

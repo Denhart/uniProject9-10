@@ -1,25 +1,38 @@
-\chapter{Testspecification}
-\subsubsection{Test of Requirement~\sreqref{fbands}---Frequency Bands/Tunable Range}
-The frequency spectrum and the tunable range is tested by measuring the S11 and S22 parameters, using a VNA, for the top and side antenna respectively. The tunable range is done accordingly to requirement \sreqref{tunable} using a variable capacitor in the range \SI{0.3}{pF} to \SI{2.9}{pF} in steps of \SI{0.2}{pF} (\SI{0.1}{pF} minimum). 
-\subsubsection{Test of Requirement~\sreqref{bandwidthlow}---Minimum Tunable Bandwidth in the Low Band}
-The minimum required bandwidth in the low band  is measured as requirement~\sreqref{fbands}. The minimum required bandwidth is measured from the highest achievable bandwidth when sweeping each capacitor accordingly to requirement \sreqref{tunable}.
+\chapter{Test Specification}
+In this chapter, it will be described how the specific requirements from Chapter~\ref{cha:reqspec} will be tested.
 
-\subsubsection{Test of Requirement~\sreqref{bandwidthhigh}---Minimum Tunable Bandwidth in the High Band}
-The minimum required bandwidth in the high band is measured as requirement~\sreqref{fbands}. The minimum required bandwidth is measured from the highest achievable bandwidth when sweeping each capacitor accordingly to requirement \sreqref{tunable}.
+\paragraph{Test of Requirement~\sreqref{fbands} -- Frequency Bands/Tunable Range}
+The frequency bands are chosen according to the LTE bands \cite{radio2015electronics}. This specification determines what is ``in-band'' for other requirements, below, and is not tested by itself.
 
-\subsubsection{Test of Requirement~\sreqref{bandwidthhigh}---Physical Dimensions}
-The physical dimensions of the PCB, antenna and the external limitations are measured by a measuring tape. 
+\paragraph{Test of Requirement~\sreqref{bandwidthlow} -- Minimum Tunable Bandwidth in the Low Band}
+The return loss, correlation, and efficiency is measured within the low band for the capacitance range specified in Requirement~\sreqref{tunable}. The specified bandwidth must be obtained for a minimum of one capacitance value. See Requirements~\sreqref{retloss}, \sreqref{correlation}, and \sreqref{efficiency}.
 
-\subsubsection{Test of Requirement~\sreqref{copper}---Copper Thickness} This requirement is not tested, as the chosen PCB has a copper thickness of \SI{0.035}{mm}.
+\paragraph{Test of Requirement~\sreqref{bandwidthhigh} -- Minimum Tunable Bandwidth in the High Band}
+The return loss, correlation, and efficiency is measured within the high band for the capacitance range specified in Requirement~\sreqref{tunable}. The specified bandwidth must be obtained for a minimum of one capacitance value. See Requirements~\sreqref{retloss}, \sreqref{correlation}, and \sreqref{efficiency}.
 
-\subsubsection{Test of Requirement~\sreqref{correlation}---Correlation Between Antenna Elements}
+\paragraph{Test of Requirement~\sreqref{physdim} -- Physical Dimensions}
+The physical dimensions of the PCB, antenna, and the external limitations are measured with a measuring tape. 
 
+\paragraph{Test of Requirement~\sreqref{copper} -- Copper Thickness}
+The PCB is chosen to have a copper thickness according to the requirement.
 
-\subsubsection{Test of Requirement~\sreqref{efficiency}---Total Efficiency in Free-Space}
+\paragraph{Test of Requirement~\sreqref{retloss} -- In-band Return Loss}
+The return loss is determined by measuring the S-parameters on a vector network analyzer (VNA). The return loss is then $\text{RL}_1 = -|S_{11}|$ for the top antenna and $\text{RL}_2 = -|S_{22}|$ for the side antenna \cite{pozar2011microwave}.
 
-\subsubsection{Test of Requirement~\sreqref{sar}---Maximum SAR}
+\paragraph{Test of Requirement~\sreqref{correlation} -- In-band Correlation Between Antenna Elements}
+The correlation between antennas is determined from the farfield pattern, measured in the Satimo StarLab, assuming isotropic distribution of incoming waves. The correlation is then found according to Equation~\ref{eq:envlop_corr}.
 
+\paragraph{Test of Requirement~\sreqref{efficiency} -- In-band Total Efficiency in Free-Space}
+The total efficiency is determined from the farfield pattern, measured in the Satimo StarLab.
+The total efficiency is then found according to Equation~\ref{eq:mimo_total_eff_satimo}.
 
-\subsubsection{Test of Requirement~\sreqref{tunable}---Physical Dimensions} This requirement is not tested, as the variable capacitor chip is chosen as a wiSpry WS1040 MEMS chip accordingly to requirement~\freqref{wispry}. 
+\paragraph{Test of Requirement~\sreqref{sar} -- Maximum SAR}
+\fixme{How is SAR measured? Do we only simulate it?}
 
-\cite{cita2015}
+\paragraph{Test of Requirement~\sreqref{tunable} -- Tunable Capacitor Range} 
+The tunable capacitor is chosen according the this requirement.
+
+\paragraph{Test of Requirement~\sreqref{ltepower} -- Reference Power Level}
+The specified power level is used for SAR simulations and is not tested.
+
+% \cite{cita2015}

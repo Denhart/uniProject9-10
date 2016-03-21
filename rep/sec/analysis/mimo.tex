@@ -25,19 +25,70 @@ The array gain is the result of coherent combining of the wireless signals at th
 By using MIMO the interference from different users and base-stations can be avoided by exploiting extra spatial degrees of freedom, such as array gain. Furthermore, beam-steering could be implemented such that the signal could be directed towards the designated receiver. Obviously all of the above can not be used at the same time, however using a combination  allows for improved coverage, capacity and reliability. \cite{}
  
 \subsection{Antenna Design in MIMO Applications}
-The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{total}$. The near-field coupling is a measure of the coupled power towards the second antenna when the first antenna is excited. The coupling is evaluated by the $S_{21}$ parameter and is often referred to as the \emph{isolation}. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. 
+The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{\text{total}}$. The near-field coupling is a measure of the coupled power towards the second antenna when the first antenna is excited. The coupling is evaluated by the $S_{21}$ parameter and is often referred to as the \emph{isolation}. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. 
 
 The total efficiency is simply given by Equation~\ref{eq:mimo_total_eff}\cite{Tatomirescu2011PortIsolation}, where $\eta_{\text{rad}}$ is the radiation efficiency, which takes dielectric and conductive losses into account. 
 \begin{align} 
 \label{eq:mimo_total_eff}
 \eta_{\text{total}}=\eta_{\text{rad}} (1-|S_{11}|^2 - |S_{21}|^2)
 \end{align}
+In practice, the total efficiency may be found directly by supplying a known amount of power to the antenna and observing the power radiated by the antenna. The total efficiency is then the ratio of the radiated power to the supplied/total power:
+\begin{align}
+    \label{eq:mimo_total_eff_satimo}
+    \eta_{\text{total}} = \frac{P_{\text{rad}}}{P_{\text{total}}}
+\end{align}
+The radiated power is proportional to the spherical integral of the farfield obtained in an anechoic chamber:
+\begin{equation}
+    \label{eq:mimo_prad}
+    P_{\text{rad}} \propto \intsphere{|F_{\theta}|^2 + |F_{\phi}|^2}
+    % P_{\text{rad}} \propto \int_0^{2\pi}\int_0^{\pi} |F_{\theta}|^2 + |F_{\phi}|^2\ \sin{\theta}d\phi d\theta
+\end{equation}
+where $F$ is the complex field sampled for each polarization. The total power, $P_{\text{total}}$, can be found (relatively) by rearranging Equation~\ref{eq:mimo_total_eff_satimo} and using Equation~\ref{eq:mimo_prad} \emph{on a reference antenna} with known total efficiency, $\eta_{\text{total}}^{\prime}$ (here, $^{\prime}$ denotes the reference antenna):
+\begin{equation}
+    \label{eq:mimo_ptot}
+    P_{\text{total}} \propto \frac{P_{\text{rad}}^{\prime}}{\eta_{\text{total}}^{\prime}}
+\end{equation}
+As both the radiated power and the total power is now found using the same relative power measure (the same radiated-power formula, Equation~\ref{eq:mimo_prad}), the total efficiency can be found using Equation~\ref{eq:mimo_total_eff_satimo}.
 
-The envelope correlation coefficient can be calculated by Equation~\ref{eq:envlop_corr} \cite{Tatomirescu2011PortIsolation}. The far-field radiation pattern needs to be measured in order to reliably calculate the envelope correlation coefficient.
+The envelope correlation coefficient can be calculated by Equation~\ref{eq:envlop_corr} \cite{Wang2010}. The far-field radiation pattern, $F$ for each polarization, needs to be measured in order to reliably calculate the envelope correlation coefficient.
 \begin{align} 
 \label{eq:envlop_corr}
-\rho = \frac{\oint(\text{XPD} \cdot E_{\theta X}(\Omega) \cdot) E^*_{\theta X} \cdot p_\theta(\Omega)+E_{\phi Y}(\Omega) \cdot) E^*_{\phi Y} \cdot p_\phi(\Omega) )d\Omega}{\sqrt{\oint(\text{XPD}\cdot G_{\theta X}(\Omega) \cdot p_\theta(\Omega)+G_{\phi X}(\Omega) \cdot p_\phi(\Omega))d\Omega \cdot \oint(\text{XPD}\cdot G_{\theta Y}(\Omega) \cdot p_\theta(\Omega)+G_{\phi Y}(\Omega) \cdot p_\phi(\Omega))d\Omega }}
+\rho = 
+\left|  
+%
+\frac
+{\intsphere{A_{12}(\theta,\phi)}}
+{\sqrt{\intsphere{A_{11}(\theta,\phi)} \intsphere{A_{22}(\theta,\phi)}}}
+%
+\right|^2
 \end{align}
+where
+\def\xpr{\text{XPR}}
+\begin{where}
+\item[$A_{mn}$]
+    $
+    \xpr_{mn} \cdot E_{\theta,m}(\theta,\phi) E^*_{\theta,n}(\theta,\phi) P_{\theta}(\theta,\phi)
+    +
+    E_{\phi,m}(\theta,\phi)E^*_{\phi,n}(\theta,\phi)P_{\phi}(\theta,\phi)
+    $
+\item[$E_{x,m}(\theta,\phi)$] The recorded complex farfield in the polarization $x$ of antenna $m$.
+\item[$P_x(\theta,\phi)$] The distribution of incoming waves for polarization $x$. If the distribution is assumed to be isotropic, this can be set to $1/4\pi$.
+\item[$\xpr_{mn}$] Cross polarization ratio $= P_{v,m}/P_{h,n}$ for the antenna set $mn$.
+\item[$P_{v,m}$] Relative power in the $\theta$ polarization, 
+    \begin{equation*}
+        P_v = \intsphere{|E_{\theta,m}|^2}
+    \end{equation*}
+\item[$P_{h,n}$] Relative power in the $\phi$ polarization,
+    \begin{equation*}
+        P_h = \intsphere{|E_{\phi,n}|^2}
+    \end{equation*}
+\end{where}
+
+% \begin{align} 
+% \label{eq:envlop_corr}
+% \rho = \frac{\oint(\text{XPD} \cdot E_{\theta X}(\Omega) \cdot) E^*_{\theta X} \cdot p_\theta(\Omega)+E_{\phi Y}(\Omega) \cdot) E^*_{\phi Y} \cdot p_\phi(\Omega) )d\Omega}{\sqrt{\oint(\text{XPD}\cdot G_{\theta X}(\Omega) \cdot p_\theta(\Omega)+G_{\phi X}(\Omega) \cdot p_\phi(\Omega))d\Omega \cdot \oint(\text{XPD}\cdot G_{\theta Y}(\Omega) \cdot p_\theta(\Omega)+G_{\phi Y}(\Omega) \cdot p_\phi(\Omega))d\Omega }}
+% \end{align}
+\fixme{Søren: Write the form used in the actual implementation.}
 
 Equation~\ref{eq:envlop_corr} assumes uniform 3D angular power spectrum of the received signal and is not valid if this is not the case. The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams}\cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency. \cite{}
 \begin{align}

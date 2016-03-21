@@ -2,11 +2,6 @@ from numpy import *
 from matplotlib.pyplot import *
 import re
 import l3d
-import satenv
-# rcParams['font.family'] = "serif" 
-# rcParams['font.size'] = "8" 
-# rcParams['text.latex.preamble'] = [r'\usepackage{times}', r'\usepackage{mathptm}'] 
-# rcParams['text.usetex'] = 'true'
 
 TRX_NUM_HEADER_LINES = 36
 SATIMO_NUM_ELEVATION = 15
@@ -172,18 +167,18 @@ def ecc(Eth1, Eth2, Eph1, Eph2):
     ecc = []
     for i in range(N):
         # Correlation
-        Pv = intsphere(abs(Eth1[i])**2)
-        Ph = intsphere(abs(Eph1[i])**2)
-        XPR = Pv/Ph
+        XPR12 = intsphere(abs(Eth2[i])**2) / intsphere(abs(Eph1[i])**2)
+        XPR11 = intsphere(abs(Eth1[i])**2) / intsphere(abs(Eph1[i])**2)
+        XPR22 = intsphere(abs(Eth2[i])**2) / intsphere(abs(Eph2[i])**2)
 
         Pt = 1 / (4*pi)
         Pp = 1 / (4*pi)
 
-        A = lambda Etm,Etn,Epm,Epn: XPR*Etm*conj(Etn)*Pt + Epm*conj(Epn)*Pp
+        A = lambda Etm,Etn,Epm,Epn,XPR: XPR*Etm*conj(Etn)*Pt + Epm*conj(Epn)*Pp
 
-        I1 = intsphere(A(Eth1[i],Eth2[i],Eph1[i],Eph2[i]))
-        I2 = intsphere(A(Eth1[i],Eth1[i],Eph1[i],Eph1[i]))
-        I3 = intsphere(A(Eth2[i],Eth2[i],Eph2[i],Eph2[i]))
+        I1 = intsphere(A(Eth1[i],Eth2[i],Eph1[i],Eph2[i],XPR12))
+        I2 = intsphere(A(Eth1[i],Eth1[i],Eph1[i],Eph1[i],XPR11))
+        I3 = intsphere(A(Eth2[i],Eth2[i],Eph2[i],Eph2[i],XPR22))
 
         ecc.append(abs(I1/sqrt(I2*I3))**2)
 
