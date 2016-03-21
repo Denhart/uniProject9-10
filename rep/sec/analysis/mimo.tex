@@ -41,7 +41,6 @@ The radiated power is proportional to the spherical integral of the farfield obt
 \begin{equation}
     \label{eq:mimo_prad}
     P_{\text{rad}} \propto \intsphere{|F_{\theta}|^2 + |F_{\phi}|^2}
-    % P_{\text{rad}} \propto \int_0^{2\pi}\int_0^{\pi} |F_{\theta}|^2 + |F_{\phi}|^2\ \sin{\theta}d\phi d\theta
 \end{equation}
 where $F$ is the complex field sampled for each polarization. The total power, $P_{\text{total}}$, can be found (relatively) by rearranging Equation~\ref{eq:mimo_total_eff_satimo} and using Equation~\ref{eq:mimo_prad} \emph{on a reference antenna} with known total efficiency, $\eta_{\text{total}}^{\prime}$ (here, $^{\prime}$ denotes the reference antenna):
 \begin{equation}
@@ -74,23 +73,17 @@ where
 \item[$E_{x,m}(\theta,\phi)$] The recorded complex farfield in the polarization $x$ of antenna $m$.
 \item[$P_x(\theta,\phi)$] The distribution of incoming waves for polarization $x$. If the distribution is assumed to be isotropic, this can be set to $1/4\pi$.
 \item[$\xpr_{mn}$] Cross polarization ratio $= P_{v,m}/P_{h,n}$ for the antenna set $mn$.
-\item[$P_{v,m}$] Relative power in the $\theta$ polarization, 
+\item[$P_{v,m}$] Relative power in the $\theta$ polarization of antenna $m$, 
     \begin{equation*}
-        P_v = \intsphere{|E_{\theta,m}|^2}
+        P_{v,m} = \intsphere{|E_{\theta,m}|^2}
     \end{equation*}
-\item[$P_{h,n}$] Relative power in the $\phi$ polarization,
+\item[$P_{h,n}$] Relative power in the $\phi$ polarization of antenna $n$,
     \begin{equation*}
-        P_h = \intsphere{|E_{\phi,n}|^2}
+        P_{h,n} = \intsphere{|E_{\phi,n}|^2}
     \end{equation*}
 \end{where}
 
-% \begin{align} 
-% \label{eq:envlop_corr}
-% \rho = \frac{\oint(\text{XPD} \cdot E_{\theta X}(\Omega) \cdot) E^*_{\theta X} \cdot p_\theta(\Omega)+E_{\phi Y}(\Omega) \cdot) E^*_{\phi Y} \cdot p_\phi(\Omega) )d\Omega}{\sqrt{\oint(\text{XPD}\cdot G_{\theta X}(\Omega) \cdot p_\theta(\Omega)+G_{\phi X}(\Omega) \cdot p_\phi(\Omega))d\Omega \cdot \oint(\text{XPD}\cdot G_{\theta Y}(\Omega) \cdot p_\theta(\Omega)+G_{\phi Y}(\Omega) \cdot p_\phi(\Omega))d\Omega }}
-% \end{align}
-\fixme{Søren: Write the form used in the actual implementation.}
-
-Equation~\ref{eq:envlop_corr} assumes uniform 3D angular power spectrum of the received signal and is not valid if this is not the case. The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams}\cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency. \cite{}
+The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams}\cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency. \fixme{Cite here}
 \begin{align}
 \label{eq:envlop_corr_Sparams}
   \rho_e \approx |\rho_c|^2 = \frac{|S^*_{11}S_{12}+S^*_{21}S_{22}|^2}{(1-|S_{11}|^2-|S_{21}|^2)(1-|S_{22}|^2-|S_{12}|^2)}
