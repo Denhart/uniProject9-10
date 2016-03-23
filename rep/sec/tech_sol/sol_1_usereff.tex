@@ -1,7 +1,6 @@
 
 \section{Antenna Design 1 -- Monopole}
-In this section the three user effect simulations in data, play and talk mode will be presented and documented. Furthermore a SAR simulation will be carried out to investigate the maximum SAR value over the low and high band. The results is a repetision of the results represented in Section~\ref{sec:techsol1_monopole}.    
-The top and side antenna position in each user effect mode, can be seen in Figure \ref{fig:sol1_monoant_positions}.
+In this section, the antenna from Section~\ref{sec:techsol1_monopole} will be simulated in use. The antenna positions are shown in Figure~\ref{fig:sol1_monoant_positions}.
 
 \fixme{conclusion}
 
@@ -30,8 +29,8 @@ The top and side antenna position in each user effect mode, can be seen in Figur
 \FloatBarrier
 \subsection{Data Mode}
 %S-parameter
-The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_data_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1data}. The top antenna covers the required bandwidth in both the low and high band. However as seen in the Table \ref{tab:bw_sol1data} the side antenna only covers the bandwidth in the high band and the low band needs additional tuning to fulfill the bandwidth requirements. The S-parameter sweeps \ref{fig:sparam_mono_data_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{10}{dB} and \SI{8}{dB} for the top and side antenna respectively.       
-qz
+The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_data_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1data}. The top antenna covers the required bandwidth in both the low and high band. However, as seen in the Table \ref{tab:bw_sol1data} the side antenna only covers the bandwidth in the high band and the low band needs additional tuning to fulfill the bandwidth requirements. The S-parameter sweeps \ref{fig:sparam_mono_data_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{10}{dB} and \SI{8}{dB} for the top and side antenna respectively.       
+
 %Correlation
 The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sol1_data}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side antenna is below 0.5 for both the low and high band as desired.
 
@@ -316,7 +315,7 @@ The simulation results are as expected compared to the data mode, as the play mo
 
 \FloatBarrier
 \subsection{SAR}
-The SAR simulation results for both antennas is shown in Figure \ref{fig:sol1_sar}. As seen from the figure, the SAR value for both antennas exceeds the requirement of \SI{2}{W\per kg}. The top antenna has a maximum SAR value of \SI{3}{W\per kg} at \SI{2350}{MHz} and for the side antenna \SI{2.5}{W\per kg} at \SI{1710}{MHz}. Generally the top antenna exceeds the requirement in the frequency spectrum from \SI{1710}{MHz} to \SI{2500}{MHz}. The general SAR value evaluated over the whole spectrum is quite low except at the maximum value at \SI{1710}{MHz}. 
+The SAR simulation results for both antennas is shown in Figure \ref{fig:sol1_sar}. As seen from the figure, the SAR value for both antennas exceeds the requirement of \SI{2}{W\per kg}. The top antenna has a maximum SAR value of \SI{3}{W\per kg} at \SI{2350}{MHz} and for the side antenna \SI{2.5}{W\per kg} at \SI{1710}{MHz}. Generally, the top antenna exceeds the requirement in the frequency spectrum from \SI{1710}{MHz} to \SI{2500}{MHz}. The general SAR value evaluated over the whole spectrum is quite low except at the maximum value at \SI{1710}{MHz}. 
 
 \begin{figure}[htbp]
     \centering
