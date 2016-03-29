@@ -1,9 +1,11 @@
-\section{Monopole Antenna -- Version 1}
+\section{Monopole Antenna -- Prototype}
 The first monopole prototype can be seen in Figure \ref{fig:ant1_proto1_3d}. As seen on the figure both monopole antennas were very fragile. The feed pads were too small and fragile, which caused them to brake off, also as seen on the figure.
 
-To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times \SI{2.5}{mm}$ feed pads. The pad size was chosen to match the final tuning pcb for the project. Furthermore a fr4 support was added under the antenna feeds to make it more robust. The new prototype can be seen in Figure \fixme{figure of new prototype here}.
+To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times \SI{2.5}{mm}$ feed pads. The pad size was chosen to match the final tuning PCB for the project. Furthermore a fr4 support was added under the antenna feeds to make it more robust. The new prototype can be seen in Figure \fixme{figure of new prototype here}.
 
 \subsection{Simulation}
+The second prototype had some small changes of the feed pad and fr4 support, as described above. As a result the matching deviated some in comparison with version 1 matching simulations, which can be seen in Figure \ref{fig:sparam_mono_free_space}. To compensate for the design changes, the component values was changes accordingly. The new component values can be seen in Table \ref{fig:mono_proto_sim_matching}.
+
 \begin{figure}[htbp]
         \centering
         \begin{tabular}{m{3in}m{3in}}
@@ -24,8 +26,8 @@ To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times 
     \label{fig:mono_proto_sim_matching}
 \end{figure}
 
-The S-parameters of the prototype can be seen on Figure \ref{fig:sparam_mono_proto_sim}. 
 
+The S-parameters of the prototype can be seen on Figure \ref{fig:sparam_mono_proto_sim}. In comparison with version 1 S-parameter S11 and S22, the spectrum coverage for the top antenna has been slightly improved. The improvement is significant in the high band, where the top antenna now covers from \SI{1500}{MHz} to \SI{3000}{MHz}, only with a small decrease of \SI{-1}{dB} around \SI{2500}{MHz.}. The side antenna also shows spectrum improvement in the high band, but lacks some coverage of approx \SI{-3}{dB} from \SI{1710}{MHz} to \SI{1800}{MHz}. Generally the low band coverage for both antennas compared with version 1, have decreased but still covers the band.
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -62,14 +64,14 @@ The S-parameters of the prototype can be seen on Figure \ref{fig:sparam_mono_pro
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics[scale=0.1]{img/tech_sol/monopole/prototype_v1/monopole_v1}
+        \includegraphics[scale=0.08]{img/tech_sol/monopole/prototype_v1/monopole_v1}
         \caption{Monopole prototype version 1}
         \label{fig:ant1_proto1_3d}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics[scale=0.1]{img/tech_sol/monopole/prototype_v1/monopole_v1}
+        \includegraphics[scale=0.08]{img/tech_sol/monopole/prototype_v1/monopole_v1}
         \caption{Monopole prototype version 2}
         \label{fig:ant1_proto2_3d}
     \end{subfigure}
@@ -78,3 +80,4 @@ The S-parameters of the prototype can be seen on Figure \ref{fig:sparam_mono_pro
 \end{figure}
 
 \subsection{Measurements}
+
