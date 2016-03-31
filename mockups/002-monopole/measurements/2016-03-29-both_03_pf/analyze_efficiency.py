@@ -25,14 +25,14 @@ calfiles = [
 
 f_tot,P_tot = satimo.totalpower_table(calfiles, reffiles)
 datadir = "satimo/antenna/"
-avg = 20
+avg = 80
 
 # TOP ANTENNA ##################################################################
 aauplot.figure()
 for x in [
-        ["lasse-LB-Top-H.trx", "lasse-HB-Top-H.trx", "Top H"],
+        #["lasse-LB-Top-H.trx", "lasse-HB-Top-H.trx", "Top H"],
         ["lasse-LB-Top-V.trx", "lasse-HB-Top-V.trx", "Top V"],
-        ["lasse-LB-Side-H.trx", "lasse-HB-Side-H.trx", "Side H"],
+        #["lasse-LB-Side-H.trx", "lasse-HB-Side-H.trx", "Side H"],
         ["lasse-LB-Side-V.trx", "lasse-HB-Side-V.trx", "Side V"],
         ]:
 
@@ -43,7 +43,14 @@ for x in [
     eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
     aauplot.efficiency(f,eff,label=x[2])
+    
+#Simulation
+M1 = loadtxt("sim/eff_top.txt", skiprows=2).T
+M2 = loadtxt("sim/eff_side.txt", skiprows=2).T
 
+aauplot.efficiency(f, interp(f, M1[0]*1000, M1[1]), "--b", label="Top, sim")
+aauplot.efficiency(f, interp(f, M2[0]*1000, M2[1]), "--g", label="Side, sim")
+  
 aauplot.end_efficiency(loc=4);
 savefig("efficiency.pdf")
 
