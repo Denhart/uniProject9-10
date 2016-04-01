@@ -53,7 +53,7 @@ savefig("s21_csh1.pdf")
 
 #S12
 aauplot.figure()
-for s in top:
+for s in side:
     m = loadtxt(vnadir + s, skiprows=5).T
     f = m[0]
     S11 = m[1] + 1j*m[2]
