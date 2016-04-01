@@ -72,7 +72,7 @@ def end_sparam(**kwargs):
 
     plt.grid(True)
     plt.legend(**kwargs)
-    plt.tight_layout()
+    plt.tight_layout(rect=(0,0,1,0.97))
 
 # Plot an efficiency graph.
 #
@@ -119,7 +119,7 @@ def end_efficiency(loc=1, fontsize=8):
     ax2.set_yticklabels([int(x) for x in np.around(100*10**(ax2.get_yticks()/10))])
     ax2.set_ylabel("Efficiency [%]", rotation=270, va="bottom")
 
-    plt.tight_layout()
+    plt.tight_layout(rect=(0,0,1,0.97))
 
 # Plot correlation
 #
