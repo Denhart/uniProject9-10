@@ -157,4 +157,4 @@ def end_correlation(loc=1, fontsize=8):
         plt.axvline(x, color='k', linestyle='--')
         plt.text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
 
-    plt.tight_layout()
+    plt.tight_layout(rect=(0,0,1,0.97))
