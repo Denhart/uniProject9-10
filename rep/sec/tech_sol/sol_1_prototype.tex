@@ -82,7 +82,7 @@ The S-parameters of the prototype can be seen on Figure \ref{fig:sparam_mono_pro
 
 \FloatBarrier
 \subsection{Measurements}
-A comparison between the simulated and measured s-parameters can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The simulated and measured results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore some component values were changes going from simulation to the prototype. The prototype component values can be seen in Table \ref{fig:mono_proto_meas_matching}
+A comparison between the simulated and measured s-parameters can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The simulated and measured results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore some component values were changes going from the simulation environment to the prototype. The prototype component values can be seen in Table \ref{fig:mono_proto_meas_matching}. Measuring the S-parameter and Efficiency sweep it was found, that the highest bandwidth was achieved with the tunable capacitor at \SI{0.3}{pF}. The bandwidth results for the top and side antenna, can be seen in Table \ref{tab:bw_sol1_proto}.
 
 \begin{figure}[htbp]
         \centering
@@ -119,7 +119,24 @@ A comparison between the simulated and measured s-parameters can be seen on Figu
     \label{fig:mono_proto_sparam_eff}
 \end{figure}
 
-\begin{figure}[htbp]
+    \begin{table}
+      \centering
+      \begin{tabular}{|l|l|r|r|r|}
+        \hline
+        Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+        \hline
+        Top     & Low  & 830        & 1000       & 170 \\
+        Side    & Low  & 830         & 930        & 100 \\
+        \hline
+        Top     & High & 1800        & 2300       & 500 \\
+        Side    & High & 2650        & 3000       & 300 \\
+        \hline
+      \end{tabular}
+      \caption{Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
+      \label{tab:bw_sol1_proto}
+    \end{table}
+
+    \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/prototype_v2/meas_s11_csh1}
