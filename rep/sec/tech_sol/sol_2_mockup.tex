@@ -50,6 +50,23 @@ The antenna has initially been matched for the best bandwidth. The component val
     \label{fig:triang_proto_sparam_eff}
 \end{figure}
 
+   \begin{table}
+      \centering
+      \begin{tabular}{|l|l|r|r|r|}
+        \hline
+        Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+        \hline
+        Top     & Low  & 830        & 1000       & 170 \\
+        Side    & Low  & 830         & 930        & 100 \\
+        \hline
+        Top     & High & 1800        & 2300       & 500 \\
+        Side    & High & 2650        & 3000       & 300 \\
+        \hline
+      \end{tabular}
+      \caption{Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
+      \label{tab:bw_sol2_proto}
+    \end{table}
+
 In addition to the S-parameters and the total efficiency, the envelope correlation coefficient has also been computed for the prototype. The result is shown in Figure~\ref{fig:triang_proto_ecc}, compared to the simulation. It is clearly seen that the simulated and measured correlation coefficients are very different. The reason for this is, most likely, that the antenna was not perfectly aligned when the top antenna and the side antenna were measured. To obtain realistic correlation results, the antenna should be located in the \emph{exact} same position for every measurement.
 
 \begin{figure}[htbp]
