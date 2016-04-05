@@ -39,7 +39,7 @@ void usart0_init()
 #define RFFE_SDATA 0
 #define RFFE_SCLK 1
 #define RFFE_DELAY_US 0
-void rffe_sdata(uint8_t x)
+static inline void rffe_sdata(uint8_t x)
 {
     if (x)
         RFFE_PORT |= (1 << RFFE_SDATA);
@@ -47,7 +47,7 @@ void rffe_sdata(uint8_t x)
         RFFE_PORT &= ~(1 << RFFE_SDATA);
 }
 
-void rffe_sclk(uint8_t x)
+static inline void rffe_sclk(uint8_t x)
 {
     if (x)
         RFFE_PORT |= (1 << RFFE_SCLK);
@@ -55,7 +55,7 @@ void rffe_sclk(uint8_t x)
         RFFE_PORT &= ~(1 << RFFE_SCLK);
 }
 
-void rffe_start()
+static inline void rffe_start()
 {
     // Start condition
     rffe_sclk(0);
@@ -69,7 +69,7 @@ void rffe_start()
     _delay_us(RFFE_DELAY_US);
 }
 
-void rffe_send_bit(uint8_t bit)
+static inline void rffe_send_bit(uint8_t bit)
 {
     rffe_sdata(bit);
     rffe_sclk(1);
@@ -78,7 +78,7 @@ void rffe_send_bit(uint8_t bit)
     _delay_us(RFFE_DELAY_US);
 }
 
-void rffe_send_slave_address(uint8_t address)
+static inline void rffe_send_slave_address(uint8_t address)
 {
     int8_t i;
     for (i = 3; i >= 0; i--){
@@ -86,7 +86,7 @@ void rffe_send_slave_address(uint8_t address)
     }
 }
 
-void rffe_send_parity(uint8_t p)
+static inline void rffe_send_parity(uint8_t p)
 {
     p = p ^ (p >> 4 | p << 4);
     p = p ^ (p >> 2);
@@ -96,7 +96,7 @@ void rffe_send_parity(uint8_t p)
     rffe_send_bit(!p); // Total number of '1's == odd
 }
 
-void rffe_send_byte(uint8_t byte)
+static inline void rffe_send_byte(uint8_t byte)
 {
     int8_t i;
     // Clock out data
@@ -108,7 +108,7 @@ void rffe_send_byte(uint8_t byte)
     rffe_send_parity(byte);
 }
 
-void rffe_bus_park()
+static inline void rffe_bus_park()
 {
     rffe_send_bit(0);
 }
@@ -119,20 +119,65 @@ void rffe_set_reg(uint8_t address, uint8_t reg, uint8_t value)
     rffe_send_slave_address(address);
     rffe_send_byte((0x02 << 5) | reg); // Write reg cmd
     rffe_send_byte(value);
-
     rffe_bus_park();
 }
 
+#define WS1040_A 0x07
+#define WS1040_B 0x06
 ISR (USART_RX_vect)
 {
     // Code to be executed when the USART receives a byte here
     static uint8_t r;
     r = UDR0;
-    if (r == '0') {
-        rffe_set_reg(0x07, 0x01, 0x55);
-    }
-    else if (r == '1') {
-        rffe_set_reg(0x07, 0x02, 0x00);
+    switch (r) {
+    case '0':
+        rffe_set_reg(WS1040_A, 0x01, 0x00);
+        break;
+    case '1':
+        rffe_set_reg(WS1040_A, 0x01, 0x01);
+        break;
+    case '2':
+        rffe_set_reg(WS1040_A, 0x01, 0x02);
+        break;
+    case '3':
+        rffe_set_reg(WS1040_A, 0x01, 0x03);
+        break;
+    case '4':
+        rffe_set_reg(WS1040_A, 0x01, 0x04);
+        break;
+    case '5':
+        rffe_set_reg(WS1040_A, 0x01, 0x05);
+        break;
+    case '6':
+        rffe_set_reg(WS1040_A, 0x01, 0x06);
+        break;
+    case '7':
+        rffe_set_reg(WS1040_A, 0x01, 0x07);
+        break;
+    case '8':
+        rffe_set_reg(WS1040_A, 0x01, 0x08);
+        break;
+    case '9':
+        rffe_set_reg(WS1040_A, 0x01, 0x09);
+        break;
+    case 'a':
+        rffe_set_reg(WS1040_A, 0x01, 0x0a);
+        break;
+    case 'b':
+        rffe_set_reg(WS1040_A, 0x01, 0x0b);
+        break;
+    case 'c':
+        rffe_set_reg(WS1040_A, 0x01, 0x0c);
+        break;
+    case 'd':
+        rffe_set_reg(WS1040_A, 0x01, 0x0d);
+        break;
+    case 'e':
+        rffe_set_reg(WS1040_A, 0x01, 0x0e);
+        break;
+    case 'f':
+        rffe_set_reg(WS1040_A, 0x01, 0x0f);
+        break;
     }
 }
 

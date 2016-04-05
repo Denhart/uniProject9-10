@@ -94,7 +94,7 @@ PRJSRC=main.c
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
-OPTLEVEL=1
+OPTLEVEL=3
 
 
 #####      AVR Dude 'writeflash' options       #####
