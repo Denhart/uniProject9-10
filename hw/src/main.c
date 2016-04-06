@@ -63,32 +63,33 @@ void rffe_set_reg(uint8_t address, uint8_t reg, uint8_t value)
     int8_t i, j;
     uint8_t byte;
 
+    // BUILD COMMAND ///////////////////////////////////////////////////////////
     // 0:      Start: SDATA pulse while SCLK low
     rffe_command[0] = RFFE_LH; 
 
-    // 1--4:   Address
+    // 1--4:   Address of chip
     for (i = 3, j = 1; i >= 0; i--, j++)
         rffe_command[j] = ((address >> i) & 0x01) ? RFFE_HH : RFFE_HL;
 
-    // 5--12:  Write register command + register
+    // 5--12:  Write register command (0x02, 3 MSb) + register number (5 LSb)
     byte = (0x02 << 5) | reg;
     for (i = 7, j = 5; i >= 0; i--, j++)
         rffe_command[j] = ((byte >> i) & 0x01) ? RFFE_HH : RFFE_HL;
 
-    // 13:     Parity
+    // 13:     Parity of previous byte
     rffe_command[13] = rffe_parity(byte) ? RFFE_HH : RFFE_HL;
 
-    // 14--21: Value
+    // 14--21: Value of register (8 bit)
     for (i = 7, j = 14; i >= 0; i--, j++)
         rffe_command[j] = ((value >> i) & 0x01) ? RFFE_HH : RFFE_HL;
 
-    // 22:     Parity
+    // 22:     Parity of previous byte
     rffe_command[22] = rffe_parity(value) ? RFFE_HH : RFFE_HL;
 
-    // 23:     Bus park
+    // 23:     Bus park: Clock out a 0 bit
     rffe_command[23] = RFFE_HL;
 
-
+    // SEND COMMAND ////////////////////////////////////////////////////////////
     PORTC = rffe_command[0]; // Start
     PORTC = RFFE_LL;
     PORTC = rffe_command[1]; // Slave address
