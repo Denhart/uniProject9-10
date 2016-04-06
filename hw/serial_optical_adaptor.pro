@@ -1,4 +1,4 @@
-update=Mon 04 Apr 2016 03:42:14 PM CEST
+update=Wed 06 Apr 2016 01:36:44 PM CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -60,3 +60,5 @@ LibName28=contrib
 LibName29=valves
 LibName30=if-d91
 LibName31=if-e97
+LibName32=adg3300
+LibName33=lp3984
