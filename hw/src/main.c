@@ -56,38 +56,41 @@ uint8_t rffe_parity(uint8_t p)
     return !p;
 }
 
+void rffe_variable_to_rffe(uint8_t input, uint8_t *output, uint8_t start, uint8_t len)
+{
+    int8_t i, j;
+    for (i = len-1, j = start; i >= 0; i--, j++)
+        output[j] = ((input >> i) & 0x01) ? RFFE_HH : RFFE_HL;
+}
+
 void rffe_set_reg(uint8_t address, uint8_t reg, uint8_t value)
 {
     uint8_t rffe_command[24];
     uint8_t sclk_pin = (1 << RFFE_SCLK);
-    int8_t i, j;
-    uint8_t byte;
+    uint8_t reg_command;
 
     // BUILD COMMAND ///////////////////////////////////////////////////////////
+    // The reason for splitting BUILD and SEND in two parts is to have
+    // consistent timing when clocking out the RFFE protocol.
+
     // 0:      Start: SDATA pulse while SCLK low
-    rffe_command[0] = RFFE_LH; 
-
     // 1--4:   Address of chip
-    for (i = 3, j = 1; i >= 0; i--, j++)
-        rffe_command[j] = ((address >> i) & 0x01) ? RFFE_HH : RFFE_HL;
-
     // 5--12:  Write register command (0x02, 3 MSb) + register number (5 LSb)
-    byte = (0x02 << 5) | reg;
-    for (i = 7, j = 5; i >= 0; i--, j++)
-        rffe_command[j] = ((byte >> i) & 0x01) ? RFFE_HH : RFFE_HL;
-
     // 13:     Parity of previous byte
-    rffe_command[13] = rffe_parity(byte) ? RFFE_HH : RFFE_HL;
-
     // 14--21: Value of register (8 bit)
-    for (i = 7, j = 14; i >= 0; i--, j++)
-        rffe_command[j] = ((value >> i) & 0x01) ? RFFE_HH : RFFE_HL;
-
     // 22:     Parity of previous byte
-    rffe_command[22] = rffe_parity(value) ? RFFE_HH : RFFE_HL;
-
     // 23:     Bus park: Clock out a 0 bit
-    rffe_command[23] = RFFE_HL;
+    reg_command = (0x02 << 5) | reg;
+
+    //                    From          To             Start  Length
+    rffe_variable_to_rffe(address,      rffe_command,  1,     4);      // Slave address
+    rffe_variable_to_rffe(reg_command,  rffe_command,  5,     8);      // Register command + register
+    rffe_variable_to_rffe(value,        rffe_command,  14,    8);      // Value of register
+
+    rffe_command[0] = RFFE_LH;                                         // Start condition
+    rffe_command[13] = rffe_parity(reg_command) ? RFFE_HH : RFFE_HL;   // Parity: Register command + register
+    rffe_command[22] = rffe_parity(value) ? RFFE_HH : RFFE_HL;         // Parity: Value of register
+    rffe_command[23] = RFFE_HL;                                        // Bus park
 
     // SEND COMMAND ////////////////////////////////////////////////////////////
     PORTC = rffe_command[0]; // Start
