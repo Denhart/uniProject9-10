@@ -1,10 +1,10 @@
 \section{Monopole Antenna -- Prototype}
 The first monopole prototype can be seen in Figure \ref{fig:ant1_proto1_3d}. As seen on the figure both monopole antennas were very fragile. The feed pads were too small and fragile, which caused them to brake off, also as seen on the figure.
 
-To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times \SI{2.5}{mm}$ feed pads. The pad size was chosen to match the final tuning PCB for the project. Furthermore a FR4 support was added under the antenna feeds to make it more robust. The new prototype can be seen in Figure \ref{fig:ant1_proto2_3d}.
+To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times \SI{2.5}{mm}$ feed pads. The pad size was chosen to match the final tuning PCB for the project, which can be seen in Figure \ref{fig:samanthas_board}. Furthermore a FR4 support was added under the antenna feeds to make it more robust. The new prototype can be seen in Figure \ref{fig:ant1_proto2_3d}.
 
 \begin{figure}[htbp]
-   \begin{subfigure}[b]{0.49\linewidth}
+  \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[scale=0.2]{img/tech_sol/monopole/prototype_v1/monopole_v1}
         \caption{Monopole prototype version 1}
@@ -81,7 +81,7 @@ The S-parameter sweep of the new design can be seen on Figure \ref{fig:sparam_mo
 
 \FloatBarrier
 \subsection{Measurements}
-A comparison between the simulated and measured s-parameters can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The simulated and measured results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore some component values were changes going from the simulation environment to the prototype. The prototype component values can be seen in Table \ref{fig:mono_proto_meas_matching}. Measuring the S-parameter and Efficiency sweep it was found, that the highest bandwidth was achieved with the tunable capacitor at \SI{0.3}{pF}. The bandwidth results for the top and side antenna, can be seen in Table \ref{tab:bw_sol1_proto}. From the table it is seen, that both antennas covers the required bandwidth in the low band, but have some troubles in the high band. 
+A comparison between the simulated and measured S-parameters can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The simulated and measured results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore some component values were changes going from the simulation environment to the prototype. The prototype component values can be seen in Table \ref{fig:mono_proto_meas_matching}. Measuring the S-parameter and Efficiency sweep it was found, that the highest bandwidth was achieved with the tunable capacitor at \SI{0.3}{pF}. The bandwidth results for the top and side antenna, can be seen in Table \ref{tab:bw_sol1_proto}. From the table it is seen, that both antennas covers the required bandwidth in the low band, but have some troubles in the high band. 
 
 The total efficiency measured and simulated with the tunable capacitors at \SI{0.3}{pF} can be seen on Figure \ref{fig:mono_proto_sparam_eff}. Generally the simulation results, shows a higher efficiency as expected. The lowest efficiencies are measured at \SI{2400}{MHz} and from \SI{700}{MHz} to \SI{750}{MHz} with the lowest efficiency at \SI{15}{\percent}. Overall the top antenna shows the best results, but still have some problems in the low band, where the efficiency drops to \SI{25}{\percent}.
 
