@@ -29,7 +29,95 @@ The transmitter is made up from an open-collector comparator. The UART TX signal
 \section{Receiver}
 The light detector (IF-D91) functions as a light-dependent current source. When lit, around \SI{3}{\micro\ampere} is supplied and when dark, around \SI{10}{nA} is supplied. When this current is supplied to a \SI{100}{k\ohm} resistor, the voltage will alter between \SI{300}{mV} (light) and \SI{1}{mV} (dark). The potentiometer on the inverting input of the comparator is used to set a threshold between these two values. By way of the pull-up resistor on the output, this means that the output will be high when light is supplied to the light detector and the output will be low when no light is supplied.
 
-\section{Micro Controller and Protocol}
-\fixme{Finish the chapter from here.}
+\section{Microcontroller and Protocol}
+The microcontroller is an Atmel ATmega168. It receives one-byte commands from the PC through UART at \SI{9600}{baud}. The commands are ASCII characters as described in Table~\ref{tab:rffe_commands}.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|r|l|}
+        \hline
+        UART command & Action & Value & Note \\
+        \hline
+        A & Set active slave address & \texttt{0b0111} & \\
+        B & Set active slave address & \texttt{0b0110} & \\
+        \hline
+        x & Set active register & 1 & Capacitor 1\\
+        y & Set active register & 2 & Capacitor 2\\
+        z & Set active register & 3 & Capacitor 3\\
+        t & Set active register & 4 & Capacitor 4\\
+        \hline
+        0 & Set register value & \texttt{0x00} & \SI{0.30}{pF}\\
+        1 & Set register value & \texttt{0x01} & \SIrange{0.39}{0.48}{pF}\\
+        2 & Set register value & \texttt{0x02} & \SI{0.66}{pF}\\
+        3 & Set register value & \texttt{0x03} & \SIrange{0.75}{0.83}{pF}\\
+        4 & Set register value & \texttt{0x04} & \SI{1.01}{pF}\\
+        5 & Set register value & \texttt{0x05} & \SIrange{1.10}{1.19}{pF}\\
+        6 & Set register value & \texttt{0x06} & \SI{1.37}{pF}\\
+        7 & Set register value & \texttt{0x07} & \SIrange{1.46}{1.55}{pF}\\
+        8 & Set register value & \texttt{0x08} & \SI{1.73}{pF}\\
+        9 & Set register value & \texttt{0x09} & \SIrange{1.81}{1.90}{pF}\\
+        a & Set register value & \texttt{0x0a} & \SI{2.08}{pF}\\
+        b & Set register value & \texttt{0x0b} & \SIrange{2.17}{2.26}{pF}\\
+        c & Set register value & \texttt{0x0c} & \SI{2.44}{pF}\\
+        d & Set register value & \texttt{0x0d} & \SIrange{2.53}{2.62}{pF}\\
+        e & Set register value & \texttt{0x0e} & \SI{2.79}{pF}\\
+        f & Set register value & \texttt{0x0f} & \SIrange{2.88}{2.97}{pF}\\
+        \hline
+    \end{tabular}
+    \caption{UART commands and the resulting action on the microcontroller.}
+    \label{tab:rffe_commands}
+\end{table}
+
+Two possible addresses are valid for the WS1040, making it possible to communicate with two separate chips on the same bus. The address depends on the high/low state of the USID pin on the WS1040. The WS1040 contains four capacitors which can be set individually. The capacitance range can be increased by connecting capacitors in parallel.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+        \tikzstyle{bit} = [minimum height=5mm, minimum width=5mm, inner sep=0pt, draw];
+        \foreach \i/\j in {
+            0/S, 
+            1/A3, 2/A2, 3/A1, 4/A0,
+            5/0, 6/1, 7/0, 8/R4, 9/R3, 10/R2, 11/R1, 12/R0, 13/P,
+            14/D7, 15/D6, 16/D5, 17/D4, 18/D3, 19/D2, 20/D1, 21/D0, 22/P,
+            23/BP
+        } {
+            \node [bit,anchor=south west] at (\i,0) {\j};
+        };
+
+        \draw[very thick] (0,0) rectangle (1,1);
+        \draw[very thick] (1,0) rectangle (5,1);
+        \draw[very thick] (5,0) rectangle (13,1);
+        \draw[very thick] (13,0) rectangle (14,1);
+        \draw[very thick] (14,0) rectangle (22,1);
+        \draw[very thick] (22,0) rectangle (23,1);
+        \draw[very thick] (23,0) rectangle (24,1);
+
+        \tikzstyle{T} = [anchor=west];
+        \begin{scope}[yshift=-10mm, yscale=0.7]
+            \foreach \i/\j/\l in {
+                0/S/Start condition,
+                1/A/Slave address,
+                2/010/Write register command,
+                3/R/Register to write to,
+                4/P/Parity bits,
+                5/D/Value to set the register to,
+                6/BP/Bus park
+            } {
+                \node[T] at (0,-\i) {\j};
+                \node[T] at (2,-\i) {\l};
+            };
+        \end{scope}
+    \end{tikzpicture}
+    \caption{RFFE command for writing to a register.}
+    \label{fig:rffe_write_register}
+\end{figure}
+The RFFE command, used for writing to a register, is shown in Figure~\ref{fig:rffe_write_register}. The sequence is clocked out serially. A one bit is observed when the SCLK line goes high while the SDATA line is high and a zero bit is observed when the SCLK line goes high while the SDATA line is low. The start, parity, and bus park condition are described as follows:
+\begin{description}
+    \item[Start] SDATA pulses high while the SCLK line is kept low.
+    \item[Parity] The parity is low if the number of ones in the preceding byte is odd. The parity is high if the number of ones in the preceding byte is even.
+    \item[Bus park] SCLK is pulsed while SDATA is kept low (i.e.\ a zero is clocked out).
+\end{description}
+
+\fixme{Figure: Example of a RFFE write reg command. }
 
 \section{Level Shifting and WS1040 Interface}
