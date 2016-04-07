@@ -147,6 +147,7 @@ void rffe_set_reg(uint8_t address, uint8_t reg, uint8_t value)
 #define WS1040_A 0x07
 #define WS1040_B 0x06
 static uint8_t ws1040_address = WS1040_A;
+static uint8_t ws1040_reg = 0x01;
 ISR (USART_RX_vect)
 {
     // Code to be executed when the USART receives a byte here
@@ -159,53 +160,65 @@ ISR (USART_RX_vect)
     case 'B':
         ws1040_address = WS1040_B;
         break;
+    case 'x':
+        ws1040_reg = 0x01;
+        break;
+    case 'y':
+        ws1040_reg = 0x02;
+        break;
+    case 'z':
+        ws1040_reg = 0x03;
+        break;
+    case 't':
+        ws1040_reg = 0x04;
+        break;
     case '0':
-        rffe_set_reg(ws1040_address, 0x01, 0x00);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x00);
         break;
     case '1':
-        rffe_set_reg(ws1040_address, 0x01, 0x01);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x01);
         break;
     case '2':
-        rffe_set_reg(ws1040_address, 0x01, 0x02);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x02);
         break;
     case '3':
-        rffe_set_reg(ws1040_address, 0x01, 0x03);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x03);
         break;
     case '4':
-        rffe_set_reg(ws1040_address, 0x01, 0x04);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x04);
         break;
     case '5':
-        rffe_set_reg(ws1040_address, 0x01, 0x05);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x05);
         break;
     case '6':
-        rffe_set_reg(ws1040_address, 0x01, 0x06);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x06);
         break;
     case '7':
-        rffe_set_reg(ws1040_address, 0x01, 0x07);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x07);
         break;
     case '8':
-        rffe_set_reg(ws1040_address, 0x01, 0x08);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x08);
         break;
     case '9':
-        rffe_set_reg(ws1040_address, 0x01, 0x09);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x09);
         break;
     case 'a':
-        rffe_set_reg(ws1040_address, 0x01, 0x0a);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x0a);
         break;
     case 'b':
-        rffe_set_reg(ws1040_address, 0x01, 0x0b);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x0b);
         break;
     case 'c':
-        rffe_set_reg(ws1040_address, 0x01, 0x0c);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x0c);
         break;
     case 'd':
-        rffe_set_reg(ws1040_address, 0x01, 0x0d);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x0d);
         break;
     case 'e':
-        rffe_set_reg(ws1040_address, 0x01, 0x0e);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x0e);
         break;
     case 'f':
-        rffe_set_reg(ws1040_address, 0x01, 0x0f);
+        rffe_set_reg(ws1040_address, ws1040_reg, 0x0f);
         break;
     }
 }
