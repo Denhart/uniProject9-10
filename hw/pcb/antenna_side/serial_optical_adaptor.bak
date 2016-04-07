@@ -310,13 +310,13 @@ Text Label 4400 4650 2    60   ~ 0
 GND
 Text Label 5500 4650 0    60   ~ 0
 VCC
-Text Label 4400 5050 2    60   ~ 0
-AVR_RFFE_SDATA
 Text Label 4400 5150 2    60   ~ 0
+AVR_RFFE_SDATA
+Text Label 4400 5050 2    60   ~ 0
 AVR_RFFE_SCLK
-Text Label 5950 5050 0    60   ~ 0
-RFFE_SDATA
 Text Label 5950 5150 0    60   ~ 0
+RFFE_SDATA
+Text Label 5950 5050 0    60   ~ 0
 RFFE_SCLK
 $Comp
 L CONN_02X03 P1
