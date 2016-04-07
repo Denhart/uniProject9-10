@@ -98,8 +98,15 @@ def efficiency(f, e, c="-", label=""):
 #
 # @param loc Location of the legend (like matplotlib.pyplot.legend())
 # @param fontsize Font size for the legend.
-def end_efficiency(loc=1, fontsize=8):
-    plt.legend(loc=loc, fontsize=fontsize, handlelength=3)
+def end_efficiency(**kwargs):
+    if kwargs.get("loc") == None:
+        kwargs["loc"] = 1
+    if kwargs.get("fontsize") == None:
+        kwargs["fontsize"] = 8
+    if kwargs.get("handlelength") == None:
+        kwargs["handlelength"] = 3
+
+    plt.legend(**kwargs)
     plt.xlabel("Frequency [MHz]")
     plt.ylabel("Efficiency [dB]")
     plt.ylim(-15, 0)
