@@ -592,6 +592,4 @@ Text Label 7050 4600 0    60   ~ 0
 GND
 Text Label 6850 4600 0    60   ~ 0
 GND
-Text Notes 850  7700 0    118  ~ 24
-Husk: RFFE Sclk og SDATA byttet! Fortæl søren\n
 $EndSCHEMATC
