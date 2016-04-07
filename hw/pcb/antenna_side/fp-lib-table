@@ -2,4 +2,5 @@
   (lib (name hw)(type KiCad)(uri "$(KIPRJMOD)")(options "")(descr ""))
   (lib (name hw2)(type KiCad)(uri "$(KIPRJMOD)")(options "")(descr ""))
   (lib (name hw4)(type KiCad)(uri "$(KIPRJMOD)")(options "")(descr ""))
+  (lib (name antenna_side)(type KiCad)(uri "$(KIPRJMOD)")(options "")(descr ""))
 )
