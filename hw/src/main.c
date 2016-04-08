@@ -35,16 +35,16 @@ void usart0_init()
     sei();
 }
 
-// RFFE_XY, X=SCLK, Y=SDATA
-#define RFFE_HH 0b00000011
-#define RFFE_HL 0b00000010
-#define RFFE_LH 0b00000001
-#define RFFE_LL 0b00000000
+#define RFFE_DDR DDRB
+#define RFFE_PORT PORTB
+#define RFFE_SDATA 6
+#define RFFE_SCLK 7
 
-#define RFFE_PORT PORTC
-#define RFFE_SDATA 0
-#define RFFE_SCLK 1
-#define RFFE_DELAY_US 0
+// RFFE_XY, X=SCLK, Y=SDATA
+#define RFFE_HH (1<<RFFE_SCLK)|(1<<RFFE_SDATA)
+#define RFFE_HL (1<<RFFE_SCLK)|(0<<RFFE_SDATA)
+#define RFFE_LH (0<<RFFE_SCLK)|(1<<RFFE_SDATA)
+#define RFFE_LL (0<<RFFE_SCLK)|(0<<RFFE_SDATA)
 
 uint8_t rffe_parity(uint8_t p)
 {
@@ -93,54 +93,54 @@ void rffe_set_reg(uint8_t address, uint8_t reg, uint8_t value)
     rffe_command[23] = RFFE_HL;                                        // Bus park
 
     // SEND COMMAND ////////////////////////////////////////////////////////////
-    PORTC = rffe_command[0]; // Start
-    PORTC = RFFE_LL;
-    PORTC = rffe_command[1]; // Slave address
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[2];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[3];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[4];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[5]; // Write Register Command
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[6];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[7];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[8]; // Register number
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[9];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[10];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[11];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[12];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[13]; // Parity
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[14]; // Value
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[15];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[16];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[17];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[18];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[19];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[20];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[21];
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[22]; // Parity
-    PORTC &= ~ sclk_pin;
-    PORTC = rffe_command[23]; // Bus park
-    PORTC &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[0]; // Start
+    RFFE_PORT = RFFE_LL;
+    RFFE_PORT = rffe_command[1]; // Slave address
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[2];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[3];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[4];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[5]; // Write Register Command
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[6];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[7];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[8]; // Register number
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[9];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[10];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[11];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[12];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[13]; // Parity
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[14]; // Value
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[15];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[16];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[17];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[18];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[19];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[20];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[21];
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[22]; // Parity
+    RFFE_PORT &= ~ sclk_pin;
+    RFFE_PORT = rffe_command[23]; // Bus park
+    RFFE_PORT &= ~ sclk_pin;
 
 }
 
@@ -225,8 +225,8 @@ ISR (USART_RX_vect)
 
 int main (void) 
 {
-    DDRC = 0x03; // PC0, PC1 = output for RFFE
-    PORTC = 0x00;
+    RFFE_DDR = (1<<RFFE_SCLK) | (1<<RFFE_SDATA); // Output for RFFE
+    RFFE_PORT = 0x00;
 
     usart0_init();
     while (1) {
