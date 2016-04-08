@@ -1,0 +1,26 @@
+from numpy import *
+from matplotlib.pyplot import *
+import aauplot
+
+files = [
+    ["eff_3mm_7mm.txt", "b", "3mm"],
+    ["eff_4mm_7mm.txt", "g", "4mm"],
+    ["eff_5mm_7mm.txt", "r", "5mm"],
+    ["eff_6mm_7mm.txt", "c", "6mm"],
+    ["eff_7mm_7mm.txt", "m", "7mm"],
+    ["eff_8mm_7mm.txt", "y", "8mm"],
+    ["eff_9mm_7mm.txt", "k", "9mm"],
+    ["eff_10mm_7mm.txt", "0.5", "10mm"]
+]
+
+
+aauplot.figure()
+
+for f in files:
+    m=loadtxt(f[0],skiprows=2).T
+    aauplot.efficiency(m[0],m[1],f[1], label=f[2])
+
+aauplot.end_efficiency(ncol=3, loc=8, handlelength=2)
+savefig("eff_5mm.pdf")
+
+show()
