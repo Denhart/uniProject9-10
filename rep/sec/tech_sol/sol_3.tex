@@ -17,12 +17,12 @@
     \par\bigskip
         \begin{subfigure}[b]{\linewidth}
         \centering
-        \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
             \hline
-                         & $L_{l1}$       & $L_{l2}$        & $L_{l3}$      & $L_{l4}$       & $C_{l4}$       & $C_{h1}$      & $L_{h2}$      & $C_{h3}$       & $C_{h4}$ \\
+                         & $L_{l1}$       & $L_{l2}$        & $C_{l3}$      & $L_{l4}$       & $C_{h1}$       & $L_{h2}$      & $C_{h3}$      & $C_{h4}$    \\
             \hline
-            Top antenna  & \SI{3.45}{nH}  & \SI{7.89}{nH}  & \SI{7.89}{nH} & \SI{7.89}{nH} & \SI{7.89}{pF} & \SI{7.89}{pF} & \SI{7.89}{nH} & \SI{7.89}{pF} & \SI{7.89}{pF} \\
-            Side antenna & \SI{2.42}{nH}  & \SI{5.69}{nH}  & \SI{5.69}{nH} & \SI{5.69}{nH} & \SI{5.69}{pF} & \SI{5.69}{pF} & \SI{5.69}{nH} & \SI{5.69}{pF} & \SI{5.69}{pF}  \\
+            Top antenna  & \SI{14,34}{nH}  & \SI{25}{nH}  & \SI{2,9}{pF} & \SI{5,51}{nH} & \SI{1,2}{pF} & \SI{7,80}{nH} & \SI{5}{pF} & \SI{2.4}{pF} \\
+            Side antenna & \SI{10,49}{nH}  & \SI{15,93}{nH}  & \SI{6.1}{pF} & \SI{4.52}{nH} & \SI{0.68}{pF} & \SI{5.17}{nH} & \SI{3.47}{pF} & \SI{2.69}{pF} \\
             \hline
         \end{tabular}
         \caption{Component values}
@@ -42,7 +42,7 @@ As seen on Figure~\ref{fig:ant3techschem} the matching network is quite complex,
 % What makes it radiate at 900, 1800, and 2400?
 The low-band element consists of a non-resonant CCE, where the resonance is dependent on the matching circuit. For this design, the matching is \emph{mostly} performed by $L_{l1}$, $L_{l2}$, $L_{l3}$, $L_{l4}$ and $C_{l4}$. The higher-band is matched by $C_{h1}$, $L_{h2}$, $C_{h3}$ and $C_{h4}$, futhermore there is a natural resonnance at \SI{2700}{MHz}, at the trapezoidal feed (Port 2), which extends the frequency of operation. It should also be noted that the low- and high-band are dependend on every part of the matching network, even though the components a denoted high (h) and low (l). 
  
-The surface currents, illustrating how the structure resonates after matching, is shown in Figure~\ref{fig:ant3surfaces}.
+The surface currents, illustrating how the structure resonates after matching, is shown in Figure~\ref{fig:ant3_sc}.
 
 
 \begin{figure}[htbp]
@@ -75,7 +75,7 @@ The surface currents, illustrating how the structure resonates after matching, i
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/nonresonant/simulation/freespace/Spara-static}
-    \caption{S-parameters with $s\_C_{h1}=\SI{0.3}{pF}$ for both antennas.\fixme{Not correct val}}
+    \caption{S-parameters with $C_{l3} = \SI{2.9}{pF}$ and $s\_C_{h1} = \SI{0.68}{pF}$}
     \label{fig:ant3sparams}
 \end{figure}
 
@@ -93,19 +93,19 @@ This design provides high bandwidth, covering most desired bands for both antenn
         \hline
         Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
         \hline
-        Top     & Low  & 688         & 1073       & 385 \\
-        Side    & Low  & 824         & 962        & 138 \\
+        Top     & Low  & 689         & 970       & 281 \\
+        Side    & Low  & 854         & 899        & 45 \\
         \hline
-        Top     & High & 1577        & 2637       & 1060 \\
-        Side    & High & 1535        & 2654       & 1119 \\
+        Top     & High & 1705        & 2655       & 950 \\
+        Side    & High & 1690        & 2804       & 1114 \\
         \hline
     \end{tabular}
     \caption{Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
     \label{tab:bw_sol3}
 \end{table}
-
+85.7
 % Bandwidth
-The bandwidth of each antenna is shown in Table~\ref{tab:bw_sol3}. It is clear that both antennas fulfill the requirements of tunable impedance bandwidth seen in the requirement specification, Section~\ref{cha:reqspec}. Below are shown the S-parameters when tuning. 
+The bandwidth of each antenna is shown in Table~\ref{tab:bw_sol3}. It is clear that both antennas fulfill the requirements of tunable impedance bandwidth seen in the requirement specification, Section~\ref{cha:reqspec}. Below are shown the S-parameters when tuning. The fixed antenna will be set to the maximum capacitor value, since this yields the best match.  
 
 \begin{figure}[htbp]
     \begin{subfigure}{0.49\linewidth}
