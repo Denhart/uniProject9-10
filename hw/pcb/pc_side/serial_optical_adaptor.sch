@@ -154,7 +154,7 @@ TX
 Text Label 650  3650 0    60   ~ 0
 GND
 Text Label 650  750  0    60   ~ 0
-VCC
+Vdd
 Text Notes 5650 650  0    60   ~ 0
 RECEIVER
 Text Notes 1700 650  0    60   ~ 0
@@ -282,7 +282,7 @@ D+
 Text Label 1800 5500 0    60   ~ 0
 D-
 Text Label 1800 5600 0    60   ~ 0
-VCC
+Vbus
 Text Label 1800 5300 0    60   ~ 0
 GND
 Text Label 1400 5100 0    60   ~ 0
@@ -292,7 +292,7 @@ D+
 Text Label 2700 5100 2    60   ~ 0
 D-
 Text Label 4400 4500 1    60   ~ 0
-VCC
+Vbus
 Text Label 2700 5200 2    60   ~ 0
 RST
 Text Label 4600 4500 1    60   ~ 0
@@ -302,7 +302,7 @@ SUSP1
 Text Label 5400 5700 0    60   ~ 0
 SUSP2
 Text Label 4500 4500 1    60   ~ 0
-VCC
+Vbus
 Text Label 5400 5000 0    60   ~ 0
 DTR
 Text Label 5400 5100 0    60   ~ 0
