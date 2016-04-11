@@ -1,10 +1,10 @@
 \chapter{Optical RFFE Communication}
 \label{cha:optical_rffe_comm}
-The WiSpry WS1040 digital capacitor is adjusted using the MIPI RFFE (RF Front End) protocol. In order to simplify sweep-measurements, which are a large part of this project, it is advantageous to be able to adjust the capacitance from outside the anechoic chamber. As having a long copper cable from running from the antenna to outside the chamber might disturb the measurement significantly, a fiber optic cable will be used for communication between computer and antenna. As the fiber optic cable contains no metal, it should be less disturbing to the measurements.
+The WiSpry WS1040 digital capacitor is adjusted using the MIPI RFFE (RF Front End) protocol. In order to simplify sweep-measurements, which are a large part of this project, it is advantageous to be able to adjust the capacitance from outside the anechoic chamber. As having a long copper cable from running from the antenna to outside the chamber may disturb the measurement significantly, a fiber optic cable will be used for communication between computer and antenna. As the fiber optic cable contains no metal, it should be less disturbing to the measurements.
 
 The RFFE protocol requires three signals:
 \begin{description}
-    \item[SDATA] Bi-directional serial data signal carrying ones and zeros from the master (PC) to the slave (ws1040) and back. Both the master and the slave can drive this line.
+    \item[SDATA] Bi-directional serial data signal carrying ones and zeros from the master (PC) to the slave (WS1040) and back. Both the master and the slave can drive this line.
     \item[SCLK] Serial clock. The master both clocks data to and from the slave.
     \item[VIO] Reference voltage of \SI{1.8}{V}. The SDATA and SCLK signals swing from \SI{0}{V} to VIO so VIO is the common reference -- not ground!
 \end{description}
@@ -121,7 +121,7 @@ Two possible addresses are valid for the WS1040, making it possible to communica
     \caption{RFFE command for writing to a register.}
     \label{fig:rffe_write_register}
 \end{figure}
-The RFFE command, used for writing to a register, is shown in Figure~\ref{fig:rffe_write_register}. The sequence is clocked out serially. A one bit is observed when the SCLK line goes high while the SDATA line is high and a zero bit is observed when the SCLK line goes high while the SDATA line is low. The start, parity, and bus park condition are described as follows:
+The RFFE command used for writing to a register is shown in Figure~\ref{fig:rffe_write_register}. The sequence is clocked out serially. A one bit is observed when the SCLK line goes high while the SDATA line is high and a zero bit is observed when the SCLK line goes high while the SDATA line is low. The start, parity, and bus park condition are described as follows:
 \begin{description}
     \item[Start] SDATA pulses high while the SCLK line is kept low.
     \item[Parity] The parity is low if the number of ones in the preceding byte is odd. The parity is high if the number of ones in the preceding byte is even.
@@ -131,7 +131,7 @@ An example of and RFFE Write Register command is shown in Figure~\ref{fig:rffe_e
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{img/optical_rffe/avr_rffe_reg1_0x00}
+    \includegraphics{img/optical_rffe/avr_rffe_reg1_0x00}
     \caption{Example of an RFFE command from the microcontroller.}
     \label{fig:rffe_example}
 \end{figure}
