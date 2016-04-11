@@ -14,14 +14,24 @@ The purpose of this communication link is solely to write to registers in the WS
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[angle=270, width=\linewidth]{img/optical_rffe/schematic}
-    \caption{Schematic for optical RFFE communication -- antenna-side. \fixme{Update schematic: New RFFE pins (PB6=SDATA PB7=SCLK) and annotations on schematic}}
-    \label{fig:rffe_schematic}
+    \includegraphics[angle=270, width=\linewidth]{img/optical_rffe/schematic_pc}
+    \caption{Schematic for optical RFFE communication -- PC-side.}
+    \label{fig:rffe_schematic_pc}
 \end{figure}
 
-The total schematic is shown in Figure~\ref{fig:rffe_schematic}. Both the transmitter and receiver is included on the antenna-side board and the PC-side board. On the PC side, the RX and TX lines are connected to a PC using an USB to UART adapter. On the antenna side, the RFFE\_SCLK, RFFE\_SDATA, and Vrffe lines are connected to the WS1040 chip.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[angle=270, width=\linewidth]{img/optical_rffe/schematic_ant}
+    \caption{Schematic for optical RFFE communication -- antenna-side.}
+    \label{fig:rffe_schematic_ant}
+\end{figure}
 
-In the following, each part of the design is described.
+The schematics are shown in Figure~\ref{fig:rffe_schematic_pc} and Figure~\ref{fig:rffe_schematic_ant}. Both the transmitter and receiver is included on the antenna-side board and the PC-side board. On the PC side, the RX and TX lines are connected to a PC using an USB to UART adapter (PC2102). On the antenna side, the RFFE\_SCLK, RFFE\_SDATA, and Vrffe lines are connected to the WS1040 chip.
+
+In the following, each part of the design is described. The transmitter and receiver circuit are the same on both sides although only the transmitter is used on the PC side and only the receiver is used on the antenna side.
+
+\section{USB to Serial Adapter}
+In order to communicate from the PC using UART, a USB-to-serial adapter (PC2102) is used. The input is simply a USB connection to the PC and the output is a RX and a TX line for the optical circuit.
 
 \section{Transmitter}
 The transmitter is made up from an open-collector comparator. The UART TX signal is connected to the inverting input of the comparator and a voltage divider, dividing the supply range in half, is connected to the non-inverting input. This means that when the input-signal is high (above $V_{cc}/2$), the comparator will pull down the cathode of the LED down to ground, lighting up the LED. When the input-signal is low (below $V_{cc}/2$), the output of the comparator will be floating, and no current will run through the LED -- no light.
