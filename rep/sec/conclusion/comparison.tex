@@ -2,20 +2,43 @@
 
 \begin{table}[htbp]
     \centering
-    % \begin{tabularx}{\linewidth}{XcCCCCC}
-    \begin{tabularx}{\linewidth}{p{20mm}Xk{21mm}k{16mm}k{24mm}k{21mm}k{21mm}}
+    \footnotesize
+    \begin{tabularx}{\linewidth}{p{21mm}Xk{13mm}k{17mm}k{13mm}k{20mm}k{17mm}k{17mm}}
         \toprule
-        &&&&& \multicolumn{2}{c}{$\eta_{\text{tot}}$ of main antenna} \\\cline{6-7}
-        Antenna & Type & Antenna volume (\si{mm\cubed}) & Antenna area (\si{mm\squared}) & Total dimensions (\si{mm\cubed}) & Low band (\si{\%}) & High band (\si{\%})  \\
+        &&&&&& \multicolumn{2}{c}{$\eta_{\text{tot}}$ of main antenna} \\\cline{7-8}
+        Antenna & Note & Tuner type & Antenna volume (\si{mm\cubed}) & Antenna area (\si{mm\squared}) & Total dimensions (\si{mm\cubed}) & Low band (\si{\%}) & High band (\si{\%})  \\
         \midrule
-        Monopole & & & & & & \\
-        Triangle-feed & & & & & & \\
-        Broken arrow & & & & & & \\
+        Monopole top                & Monopole                    & Discrete & 3885   & 555   & $130\times62\times7$     & 38--60 & 43--98 \\
+        Monopole side               & Monopole                    & Discrete & 2646   & 378   & $130\times62\times7$     & 28--64 & 31--84 \\
+        Triangle-feed top           & Non-resonant and microstrip & Discrete & 4340   & 620   & $140\times69\times7$     & 47--70 & 59--92 \\
+        Triangle-feed side          & Non-resonant and microstrip & Discrete & 4550   & 650   & $140\times69\times7$     & 48--72 & 59--91 \\
+        Non-resonant top            & Non-resonant                & Discrete & 2850   & 570   & $129.5\times67\times6.6$ &        & \\
+        Non-resonant side           & Non-resonant                & Discrete & 3087.5 & 617.5 & $129.5\times67\times6.6$ &        & \\
+        \midrule
+        \cite{ilvonen2014multiband} main & Planar ProtoM          & MEMS     & 1170   & 900   & $120\times60\times1.5$   & 30--57 & 44–78  \\
+        \cite{ilvonen2014multiband} aux  & Planar ProtoM          & MEMS     & 1170   & 900   & $120\times60\times1.5$   & 29--57 & 43--78 \\
+        \cite{ilvonen2014multiband} main & ProtoM                 & MEMS     & 3900   & 900   & $120\times60\times5$     & 49--72 & 56--88 \\
+        \cite{ilvonen2014multiband} aux  & ProtoM                 & MEMS     & 3900   & 900   & $120\times60\times5$     & 48--72 & 55--88 \\
+        \cite{morris2014tunable}         & Monopole               & MEMS     & 1500   & ?     & ?                        & 28--60 & 45--97 \\
         \bottomrule
     \end{tabularx}
-    % \end{tabularx}
-    \caption{Comparison of reconfigurable LTE antenna designs (measured free space parameters).}
+    \caption{Comparison of reconfigurable LTE antenna designs (measured free space parameters). The total efficiencies the maximum obtainable bandwidth in-band for all measured capacitor values.}
     \label{tab:comparison_reconf_lte}
 \end{table}
 
-\fixme{Search-and-replace Broken arrow antenna.}
+% morris2014tunable Tunable Antennas for Mobile Devices: Achieving High Performance in Compelling Form Factors 
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6848618
+% 
+% A Compact Multi-band Tunable LTE Antenna for Mobile Applications
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7304964
+% 
+% Alternative Duplexing for LTE FDD using the Theory of Characteristic Modes
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7228959
+% 
+% Reconfigurable Antenna for Future Spectrum Reallocations in 5G Communications
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7347359
+
+
+\fixme{Search-and-replace Broken arrow antenna. And Allan. And Mulepose}
+
+\fixme{Finish filling out the table.}
