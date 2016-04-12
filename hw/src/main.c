@@ -54,6 +54,7 @@ uint8_t rffe_parity(uint8_t p)
     p &= 1;
 
     return !p;
+    /* return p; */
 }
 
 void rffe_variable_to_rffe(uint8_t input, uint8_t *output, uint8_t start, uint8_t len)
