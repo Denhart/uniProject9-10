@@ -53,8 +53,8 @@ uint8_t rffe_parity(uint8_t p)
     p = p ^ (p >> 1);
     p &= 1;
 
-    return !p;
-    /* return p; */
+    return !p;  // Total #1's = odd
+    /* return p; // Total #1's = even */
 }
 
 void rffe_variable_to_rffe(uint8_t input, uint8_t *output, uint8_t start, uint8_t len)
