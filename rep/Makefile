@@ -46,22 +46,24 @@ force :
 	$(LATEX) $(MAIN).tex
 
 $(MAIN).pdf :  $(TEXFILES) $(IMAGES) $(EPSPDFFILES) $(BILAG) $(BIB)
-	@ echo "*** RUNNING LATEX FIRST TIME ***"
-	@ $(LATEX) $(MAIN).tex
-	@ if egrep -s 'No file.*\.bbl|Citation.*?undefined' $(MAIN).log;then\
-		echo "*** RUNNING BIBTEX AND LATEX ***" ;\
-		$(BIBTEX) $(MAIN).aux ;\
-		$(LATEX) $(MAIN).tex ;\
-		fi
-	@ if egrep -s 'No file.*\.bbl|Citation.*?undefined' $(MAIN).log;then\
-		echo "*** RUNNING BIBTEX AND LATEX AGAIN ***" ;\
-		$(BIBTEX) $(MAIN).aux ;\
-		$(LATEX) $(MAIN).tex ;\
-		fi
-	@ if egrep -s 'Rerun (LaTeX|to get cross-references right)' $(MAIN).log;then\
-		echo "*** RUNNING LATEX AGAING TO GET REFERENCES ***" ;\
-		$(LATEX) $(MAIN).tex ;\
-		fi
+	latexmk -pdf $(MAIN)
+
+	# @ echo "*** RUNNING LATEX FIRST TIME ***"
+	# @ $(LATEX) $(MAIN).tex
+	# @ if egrep -s 'No file.*\.bbl|Citation.*?undefined' $(MAIN).log;then\
+	# 	echo "*** RUNNING BIBTEX AND LATEX ***" ;\
+	# 	$(BIBTEX) $(MAIN).aux ;\
+	# 	$(LATEX) $(MAIN).tex ;\
+	# 	fi
+	# @ if egrep -s 'No file.*\.bbl|Citation.*?undefined' $(MAIN).log;then\
+	# 	echo "*** RUNNING BIBTEX AND LATEX AGAIN ***" ;\
+	# 	$(BIBTEX) $(MAIN).aux ;\
+	# 	$(LATEX) $(MAIN).tex ;\
+	# 	fi
+	# @ if egrep -s 'Rerun (LaTeX|to get cross-references right)' $(MAIN).log;then\
+	# 	echo "*** RUNNING LATEX AGAING TO GET REFERENCES ***" ;\
+	# 	$(LATEX) $(MAIN).tex ;\
+	# 	fi
 
 clean :
 	rm -f *.aux
