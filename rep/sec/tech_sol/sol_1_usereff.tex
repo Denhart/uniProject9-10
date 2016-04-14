@@ -1,4 +1,3 @@
-
 \section{Antenna Design 1 -- Monopole}
 In this section, the antenna from Section~\ref{sec:techsol1_monopole} will be simulated in use. The antenna positions are shown in Figure~\ref{fig:sol1_monoant_positions}.
 
@@ -41,7 +40,7 @@ The efficiency in data mode for both antennas, can be seen in Figure \ref{fig:ef
     \centering
     \includegraphics{img/tech_sol/monopole/data_mode/sparam_data.pdf}
     \caption{Monopole antenna in data mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
-    \label{fig:triang_sparam_data}
+    \label{fig:mono_sparam_data}
 \end{figure}
 
 \begin{table}[htbp]
@@ -138,7 +137,7 @@ The simulation results are as expected compared to the data mode, as the play mo
     \centering
     \includegraphics{img/tech_sol/monopole/play_mode/sparams_play.pdf}
     \caption{Monopole antenna in play mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
-    \label{fig:triang_sparam_data}
+    \label{fig:mono_play_sparam_data}
 \end{figure}
 
 \begin{table}[htbp]
@@ -234,7 +233,7 @@ The simulation results are as expected compared to the data mode, as the play mo
     \centering
     \includegraphics{img/tech_sol/monopole/talk_mode/sparams_talk.pdf}
     \caption{Monopole antenna in talk mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
-    \label{fig:triang_sparam_data}
+    \label{fig:mono_talk_sparam_data}
 \end{figure}
 
 %bandwidth
@@ -315,12 +314,11 @@ The simulation results are as expected compared to the data mode, as the play mo
 
 \FloatBarrier
 \subsection{SAR}
-The SAR simulation results for both antennas is shown in Figure \ref{fig:sol1_sar}. As seen from the figure, the SAR value for both antennas exceeds the requirement of \SI{2}{W\per kg}. The top antenna has a maximum SAR value of \SI{3}{W\per kg} at \SI{2350}{MHz} and for the side antenna \SI{2.5}{W\per kg} at \SI{1710}{MHz}. Generally, the top antenna exceeds the requirement in the frequency spectrum from \SI{1710}{MHz} to \SI{2500}{MHz}. The general SAR value evaluated over the whole spectrum is quite low except at the maximum value at \SI{1710}{MHz}. 
-
+The SAR simulation results for both antennas is shown in Figure \ref{fig:sol1_sar}. As seen from the figure, the SAR value for both antennas is within the requirement of \SI{2}{W\per kg}. The top antenna has a maximum SAR value of \SI{1.4}{W\per kg} at \SI{1800}{MHz} and for the side antenna \SI{1.1}{W\per kg} at \SI{1700}{MHz}. Generally the SAR value for both antennas complies with the requirement and is especially low in the low band. \fixme{correct sar value for the side antenna.}
 \begin{figure}[htbp]
     \centering
-    \includegraphics{img/tech_sol/monopole/sar/sol1_sar.pdf}
-    \caption{SAR simulation of the monopole antenna.}
+    \includegraphics{img/tech_sol/monopole/sar/Top_antenna.pdf}
+    \caption{SAR simulation of the monopole antenna.\fixme{new sar plot with screen}}
     \label{fig:sol1_sar}
 \end{figure}
 
