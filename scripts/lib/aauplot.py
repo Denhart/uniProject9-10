@@ -96,8 +96,7 @@ def efficiency(f, e, c="-", label=""):
 
 # Finish the efficiency plot with legend, etc.
 #
-# @param loc Location of the legend (like matplotlib.pyplot.legend())
-# @param fontsize Font size for the legend.
+# @param kwargs Arguments passed on to matplotlib.pyplot.legend()
 def end_efficiency(**kwargs):
     if kwargs.get("loc") == None:
         kwargs["loc"] = 1
@@ -163,5 +162,49 @@ def end_correlation(loc=1, fontsize=8):
     for x in [700, 960, 1710, 2650]:
         plt.axvline(x, color='k', linestyle='--')
         plt.text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
+
+    plt.tight_layout(rect=(0,0,1,0.97))
+
+# Plot a SAR graph.
+#
+# @param f Frequency axis.
+# @param e Efficiency (. or dB).
+# @param c Color/linetype string (e.g. '--b' for dashed blue).
+# @param label Label for the graph's legend.
+def sar(f, sar, c="-", label=""):
+    f *= freqscale(f)
+
+    fstep = min(min(np.diff(f)), 0.5) # Maximum step size is 0.5 MHz
+    fmin = min(f)
+    fmax = max(f)
+    f_LB = np.arange(700, 960, fstep)
+    f_HB = np.arange(1710, 2650, fstep)
+
+    lb_h = plt.plot(f_LB, np.interp(f_LB, f, sar), c, label=label)
+    if fmax >= 1710:
+        hb_h = plt.plot(f_HB, np.interp(f_HB, f, sar), color=lb_h[0].get_color(), linestyle=lb_h[0].get_linestyle())
+
+# Finish the SAR plot with legend, etc.
+#
+# @param kwargs Arguments passed on to matplotlib.pyplot.legend()
+def end_sar(**kwargs):
+    if kwargs.get("loc") == None:
+        kwargs["loc"] = 1
+    if kwargs.get("fontsize") == None:
+        kwargs["fontsize"] = 8
+    if kwargs.get("handlelength") == None:
+        kwargs["handlelength"] = 3
+
+    plt.legend(**kwargs)
+    plt.xlabel("Frequency [MHz]")
+    plt.ylabel("SAR [W/kg]")
+    plt.ylim(0, 4)
+    plt.yticks([0,1,2,3,4])
+
+    plt.grid(True)
+    
+    for x in [700, 960, 1710, 2650]:
+        plt.axvline(x, color='k', linestyle='--')
+        plt.text(x, 4.1, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
 
     plt.tight_layout(rect=(0,0,1,0.97))
