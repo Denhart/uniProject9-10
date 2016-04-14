@@ -11,4 +11,5 @@ aauplot.sar(m2[0], m2[1], label="Side")
 
 aauplot.end_sar()
 
+savefig("sar.pdf")
 show()
