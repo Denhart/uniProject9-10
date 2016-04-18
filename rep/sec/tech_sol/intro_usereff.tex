@@ -3,8 +3,6 @@
 In this chapter, the antennas from Chapter~\ref{cha:nousersim} are simulated in use.
 The four simulation models are shown in Figure~\ref{fig:usereff_intro}. The SAR simulation is solely used to check the requirement for maximum SAR seen in the requirement specification, Chapter~\ref{cha:reqspec}. For the other three simulations, the same results as in Chapter~\ref{cha:nousersim} are shown to see how the antennas perform when the phones are in use.
 
-All the simulations are done with a phone case in order to align the phone and make the simulations more accurate. The case used is made of thin \SI{0.5}{mm} plastic and is customized to fit each antenna design. Furthermore to make the SAR simulations even more accurate a screen model made of PEC is used.  
-
 The below settings were used when simulating the user effect:
 \begin{description}
 \item[Accuracy] \SI{-60}{dB}.
@@ -12,6 +10,25 @@ The below settings were used when simulating the user effect:
 \item[Two hands (play mode)] Approximately \num{15000000} mesh cells.
 \item[Head and hand (talk mode, SAR)] Approximately \num{15000000} mesh cells.
 \end{description}
+
+
+The material types and constants can be seen in Table \ref{tab:cst_material}. The head, hand and spacer is made accordingly to the CTIA test plan \cite{cita2015}.
+\begin{table}
+  \centering
+  \begin{tabular}{|l|l|r|r|r|}
+    \hline
+    Type & Material & Permeability [$\mu$] & Permittivity [$\epsilon$] & Bandwidth [MHz] \\
+    \hline
+    Case      & Plastic  & 1         & 3       & 81 \\
+    Spacer    & Vacuum  & 1         & 1        & 165 \\
+    Hand      & mus & 1        & 2589       & 644 \\
+    Head      & High & 1842        & 2671       & 849 \\
+      bj        & 1 & 2nd & 45 \\ 
+    \hline
+  \end{tabular}
+  \caption{Material types and constants used in the user effect simulations.}
+  \label{tab:cst_material}
+\end{table}
 
 \begin{figure}[htbp]
     \centering
