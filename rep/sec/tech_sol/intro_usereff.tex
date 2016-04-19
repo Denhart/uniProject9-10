@@ -13,7 +13,8 @@ The below settings were used when simulating the user effect:
 \item[Head and hand (talk mode, SAR)] Approximately \num{15000000} mesh cells.
 \end{description}
 
-The material types and constants can be seen in Table \ref{tab:cst_material}. The head, hand and spacer is made accordingly to the CTIA test plan \cite{cita2015}.
+The material types and constants can be seen in Table \ref{tab:cst_material}. The head, hand and spacer is made accordingly to the CTIA test plan \cite{cita2015}. Second order permittivity dispersion model fits have been used for the head and hand models to gain more accurate results in the user effect simulations.
+
 \begin{table}
   \centering
   \begin{tabular}{|l|l|r|r|}
@@ -22,9 +23,9 @@ The material types and constants can be seen in Table \ref{tab:cst_material}. Th
     \hline
     Case      & Plastic  & 1    & 3       \\
     Spacer    & Vacuum   & 1    & 1       \\
-    Hand      & Shell    & 1    & 2nd     \\
+    Hand      & Shell and fluid   & 1    & 2nd order disp.     \\
     Head      & Shell    & 1    & 3.7     \\
-    Head      & Fluid    & 1    & 2nd     \\ 
+    Head      & Fluid    & 1    & 2nd order disp.     \\ 
     \hline
   \end{tabular}
   \caption{Material types and constants used in the user effect simulations.}
@@ -32,8 +33,8 @@ The material types and constants can be seen in Table \ref{tab:cst_material}. Th
 \end{table}
 
 \begin{figure}[htbp]
-    \centering
-    \begin{subfigure}[b]{0.24\linewidth}
+  \centering
+  \begin{subfigure}[b]{0.24\linewidth}
         \centering
         \includegraphics[width=\linewidth, height=4cm, keepaspectratio]{img/tech_sol/usereff_intro/usereff_onehand}
         \caption{Data mode.}
