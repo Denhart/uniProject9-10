@@ -322,9 +322,10 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
 \FloatBarrier
 \subsection{SAR}
 
-The result from the SAR simulation is shown in Figure~\ref{fig:triang_sar_sim}. It is seen, that the maximum SAR is much larger than the required maximum of \SI{2}{W\per kg} for the side antenna. This is likely because the side antenna is very close to the head of the user as seen in Figure~\ref{fig:triang_positions}. A possible way to improve this may be to simulate the phone's screen, which will be located between (part of) the antenna and the head. This may reflect some of the radiated power away from the user, lowering the maximum SAR.
+The result from the SAR simulation is shown in Figure~\ref{fig:triang_sar_sim}. It is seen, that the maximum SAR is much lower than the required maximum of \SI{2}{W\per kg} for both antennas. Both antennas fulfill the requirement with a max SAR value of \SI{0.8}{W\per kg} at \SI{2600}{MHz} and \SI{1.3}{W\per kg} at \SI{2000}{MHz} for the top and side antenna respectively.   
+Both in the low band and high band the overall SAR value is quite low, with a few peaks in the high band.
 
-To fulfill the SAR requirements, it is possible to only one the top antenna for the uplink, where most power is emitted, and use both antennas in the downlink. For this reason, no further SAR simulations are performed at this point.
+It is possible lower the SAR even more, only using the top antenna for the uplink, where most power is emitted, and use both antennas in the downlink.
 
 \begin{figure}[htbp]
     \centering
@@ -332,6 +333,4 @@ To fulfill the SAR requirements, it is possible to only one the top antenna for 
     \caption{SAR simulation of the triangle feed antenna.}
     \label{fig:triang_sar_sim}
 \end{figure}
-
-\fixme{Re-do simulations with more realistic cover?}
 
