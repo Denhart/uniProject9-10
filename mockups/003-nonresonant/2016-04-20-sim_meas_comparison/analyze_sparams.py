@@ -2,24 +2,82 @@ from numpy import *
 from matplotlib.pyplot import *
 import aauplot
 
-# Top antenna = S22
-# Side antenna = S11
-f,S22,S22_,S11,S21 = loadtxt("sparams/lasse_03_03.csv", skiprows=3).T
+vnadir = "meas/"
+top = ["henrik-top-0.3-pF.s2p",
+         "sparamsAll.txt",
+        # "henrik-top-1.1-pF.s2p",
+        # "henrik-top-1.5-pF.s2p",
+        # "henrik-top-2.0-pF.s2p",
+        # "henrik-top-2.7-pF.s2p",
+        # "henrik-top-3.0-pF.s2p",
+        ]
 
+side = ["henrik-top-0.3-pF.s2p",
+        # "henrik-top-0.7-pF.s2p",
+        # "henrik-top-1.1-pF.s2p",
+        # "henrik-top-1.5-pF.s2p",
+        # "henrik-top-2.0-pF.s2p",
+        # "henrik-top-2.7-pF.s2p",
+        # "henrik-top-3.0-pF.s2p",
+        ]
+
+#S11
 aauplot.figure()
-aauplot.sparam(f,S11,label="S11 meas")
-aauplot.sparam(f,S22,label="S22 meas")
-aauplot.sparam(f,S21,label="S21 meas")
+for s in top:
+    m = loadtxt(vnadir + s, skiprows=5).T
+    f = m[0]
+    S11 = m[1] + 1j*m[2]
+    S21 = m[3] + 1j*m[4]
+    S12 = m[5] + 1j*m[6]
+    S22 = m[7] + 1j*m[8]
 
-m = loadtxt("sim/s11.txt", skiprows=2).T
-aauplot.sparam(m[0], m[1], "--b", label="S11 sim")
-m = loadtxt("sim/s22.txt", skiprows=2).T
-aauplot.sparam(m[0], m[1], "--g", label="S22 sim")
-m = loadtxt("sim/s21.txt", skiprows=2).T
-aauplot.sparam(m[0], m[1], "--r", label="S21 sim")
+    aauplot.sparam(f, 20*log10(abs(S11)))
 
+aauplot.end_sparam()
+savefig("s11_csh1.pdf")
 
-aauplot.end_sparam(ncol=2, loc=8)
+#S21
+aauplot.figure()
+for s in top:
+    m = loadtxt(vnadir + s, skiprows=5).T
+    f = m[0]
+    S11 = m[1] + 1j*m[2]
+    S21 = m[3] + 1j*m[4]
+    S12 = m[5] + 1j*m[6]
+    S22 = m[7] + 1j*m[8]
 
-savefig("sparams.pdf")
+    aauplot.sparam(f, 20*log10(abs(S21)))
+
+aauplot.end_sparam()
+savefig("s21_csh1.pdf")
+
+#S12
+aauplot.figure()
+for s in side:
+    m = loadtxt(vnadir + s, skiprows=5).T
+    f = m[0]
+    S11 = m[1] + 1j*m[2]
+    S21 = m[3] + 1j*m[4]
+    S12 = m[5] + 1j*m[6]
+    S22 = m[7] + 1j*m[8]
+
+    aauplot.sparam(f, 20*log10(abs(S12)))
+
+aauplot.end_sparam()
+savefig("s12_csh1.pdf")
+
+#S22
+aauplot.figure()
+for s in side:
+    m = loadtxt(vnadir + s, skiprows=5).T
+    f = m[0]
+    S11 = m[1] + 1j*m[2]
+    S21 = m[3] + 1j*m[4]
+    S12 = m[5] + 1j*m[6]
+    S22 = m[7] + 1j*m[8]
+
+    aauplot.sparam(f, 20*log10(abs(S22)))
+
+aauplot.end_sparam()
+savefig("s22_csh1.pdf")
 show()

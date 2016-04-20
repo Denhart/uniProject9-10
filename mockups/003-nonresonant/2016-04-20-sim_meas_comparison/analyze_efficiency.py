@@ -30,10 +30,10 @@ avg = 80
 # TOP ANTENNA ##################################################################
 aauplot.figure()
 for x in [
-        #["lasse-LB-Top-H.trx", "lasse-HB-Top-H.trx", "Top H"],
-        ["lasse-LB-Top-V.trx", "lasse-HB-Top-V.trx", "Top V"],
-        #["lasse-LB-Side-H.trx", "lasse-HB-Side-H.trx", "Side H"],
-        ["lasse-LB-Side-V.trx", "lasse-HB-Side-V.trx", "Side V"],
+        #["henrik-LB-Top-V.trx", "henrik-HB-Top-V.trx", "Top H"],
+         ["henrik-0.3--LB-Top-H.trx", "henrik-0.3--HB-Top-H.trx", "Top H"],
+        #["henrik-LB-Side-V.trx", "henrik-HB-Side-H.trx", "Side H"],
+         ["henrik-side--LB-Side-H.trx", "henrik-side--HB-Side-H.trx", "Side H"],
         ]:
 
     f_L,eff_L = satimo.efficiency(datadir + x[0], f_tot=f_tot, P_tot=P_tot)
@@ -48,8 +48,8 @@ for x in [
 M1 = loadtxt("sim/eff_top.txt", skiprows=2).T
 M2 = loadtxt("sim/eff_side.txt", skiprows=2).T
 
-aauplot.efficiency(f, interp(f, M1[0]*1000, M1[1]), "--b", label="Top, sim")
-aauplot.efficiency(f, interp(f, M2[0]*1000, M2[1]), "--g", label="Side, sim")
+aauplot.efficiency(f, interp(f, M1[0], M1[1]), "--b", label="Top, sim")
+aauplot.efficiency(f, interp(f, M2[0], M2[1]), "--g", label="Side, sim")
   
 aauplot.end_efficiency(loc=4);
 savefig("efficiency.pdf")
