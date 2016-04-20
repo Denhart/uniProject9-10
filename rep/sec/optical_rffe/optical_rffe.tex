@@ -1,6 +1,6 @@
 \chapter{Optical RFFE Communication}
 \label{cha:optical_rffe_comm}
-The WiSpry WS1040 digital capacitor is adjusted using the MIPI RFFE (RF Front End) protocol. In order to simplify sweep-measurements, which are a large part of this project, it is advantageous to be able to adjust the capacitance from outside the anechoic chamber. As having a long copper cable from running from the antenna to outside the chamber may disturb the measurement significantly, a fiber optic cable will be used for communication between computer and antenna. As the fiber optic cable contains no metal, it should be less disturbing to the measurements.
+The WiSpry WS1040 digital capacitor is adjusted using the MIPI RFFE (RF Front End) protocol. In order to simplify sweep-measurements, which are a large part of this project, it is advantageous to be able to adjust the capacitance from outside the anechoic chamber. As having a long copper cable running from the antenna to outside the chamber may disturb the measurement significantly, a fiber optic cable will be used for communication between computer and antenna. As the fiber optic cable contains no metal, it should be less disturbing to the measurements.
 
 The RFFE protocol requires three signals:
 \begin{description}
@@ -10,7 +10,7 @@ The RFFE protocol requires three signals:
 \end{description}
 The WS1040 chip is rated for a supply voltage between \SI{2.7}{V} and \SI{5.0}{V}, so the VIO voltage is generated separately for communication.
 
-The purpose of this communication link is solely to write to registers in the WS1040 so only one-way communication is necessary. To minimize the number of fibers, it is chosen to communicate via UART (Universal Asynchronous Receiver/Transmitter) over the fiber and generate the RFFE signals locally on by a microcontroller at the antenna side. This requires only one fiber to be connected. In case a response were required, two fibers could be connected.
+The purpose of this communication link is solely to write to registers in the WS1040 so only one-way communication is necessary. To minimize the number of fibers, it is chosen to communicate via UART (Universal Asynchronous Receiver/Transmitter) over the fiber and generate the RFFE signals locally by a microcontroller at the antenna side. This requires only one fiber to be connected. In case a response were required, two fibers could be connected.
 
 \begin{figure}[htbp]
     \centering
