@@ -4,15 +4,16 @@ import matplotlib.pyplot as plt
 # Set up a figure of the correct dimensions and the correct font for the
 # report.
 #
+# @param args Positional arguments for matplotlib.pyplot.figure()
 # @param kwargs All arguments are passed onto the matplotlib.pyplot.figure()
 #        function.
-def figure(**kwargs):
+def figure(*args, **kwargs):
     if kwargs.get("figsize") == None:
         kwargs["figsize"] = (3.5, 3)
 
     plt.rcParams['font.family'] = "Times New Roman"
     plt.rcParams['font.size'] = "8"
-    plt.figure(**kwargs)
+    plt.figure(*args, **kwargs)
 
 # Scale to get frequency axis to MHz
 #
