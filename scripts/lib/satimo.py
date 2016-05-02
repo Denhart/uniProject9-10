@@ -21,7 +21,7 @@ def col2mat(column, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
     # M1 = d[:,7:] # phi=0:180, theta=0:180
     # M2 = fliplr(d[:,:8]) # phi=180:360, theta=0:180 (originally, theta=-180:0)
 
-    theta0 = ntheta/2
+    theta0 = int(ntheta/2)
     M1 = d[:,theta0:] # phi=0:180, theta=0:180
     M2 = fliplr(d[:,:theta0+1]) # phi=180:360, theta=0:180 (originally, theta=-180:0)
 
@@ -38,7 +38,7 @@ def col2mat(column, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
 # @param nphi Number of columns in the output (phi in the input).
 # @return Column like a Satimo PM export, like the trx format.
 def mat2col(mat, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
-    theta0 = ntheta/2 + 1
+    theta0 = int(ntheta/2) + 1
     d = mat.T
     d = hstack((fliplr(d[theta0:,1:]), d[0:theta0,:]))
     d = d.reshape(1,-1)[0]
