@@ -1,0 +1,24 @@
+\subsubsection{col2mat(column, nx=360, ny=181)}
+Convert a CST-exported column to a matrix with phi the 
+x-axis and theta on the y-axis.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- column: Column from a Satimo export.
+- nx: Number of columns in the output (phi in the input).
+- ny: Number of rows in the output (theta in the input).
+
+Return:
+Matrix with phi on the x-axis and theta on the y-axis.
+\end{lstlisting}
+
+\subsubsection{loadff(f)}
+Load a CST exported file to two (theta x phi) matrices -- one for theta and
+one for phi plarization.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: File to load.
+
+Return:
+[T,P] where T and P are each a (theta x phi) matrix.
+\end{lstlisting}
+

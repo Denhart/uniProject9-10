@@ -1,0 +1,167 @@
+\subsubsection{col2mat(column, ntheta=SATIMO\_NUM\_ELEVATION, nphi=SATIMO\_NUM\_AZIMUTH)}
+Convert a Satimo PM-exported column to a matrix with phi the 
+x-axis and theta on the y-axis.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- column: Column from a Satimo PM export.
+- ntheta: Number of rows in the output (theta in the input).
+- nphi: Number of columns in the output (phi in the input).
+
+Return:
+Matrix with phi on the x-axis and theta on the y-axis.
+\end{lstlisting}
+
+\subsubsection{ecc(Eth1, Eth2, Eph1, Eph2)}
+Compute the envelope correlation coefficient between two Satimo farfields.
+The farfields are split into theta and phi part. Each part is a matrix with
+theta on one axis and phi on the other. This function uses the
+satimo.intsphere() and not l3d.intsphere() and is therefore more accurate for
+Satimo measurements.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- Eth1: List of E-fields, theta part, antenna 1
+- Eth2: List of E-fields, theta part, antenna 2
+- Eph1: List of E-fields, phi part, antenna 1
+- Eph1: List of E-fields, phi part, antenna 2
+
+Return:
+Envelope Correlation Coefficients (array, one for each element in the
+        input lists.)
+
+Note:
+https://mns.ifn.et.tu-dresden.de/Lists/nPublications/Attachments/612/Wang_Q_WSA_10.pdf
+\end{lstlisting}
+
+\subsubsection{efficiency(trxfile, calfiles=[], reffiles=[], f\_tot=[], P\_tot=[])}
+Get the total efficiency of a trx file, exported from Satimo.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- trxfile: File, exported from Satimo PM, to compute the efficiency of.
+- calfiles: List of calibration measurement files (trx files).
+- reffiles: List of reference files relating to the calibration
+        measurements.
+- f_tot: Frequency axis of an existing total-power table.
+- P_tot: Power axis of an existing total-power table. If an existing
+        total-power table is supplied, the efficiency computation is much faster.
+
+Return:
+[f,eff] -- the total efficiency, eff, for each frequency, f.
+\end{lstlisting}
+
+\subsubsection{intsphere(E)}
+Compute a spherical integral over the sphere recorded in Satimo. This is used
+for efficiency and correlation computation. The integration is not over a
+whole sphere, as a probe is missing at theta = 180 deg. Due to the low number
+of samples recorded in Satimo, the integration must be done carefully, only
+considering each sample one time. This is why l3d.intsphere() is not used.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- E: Field matrix to integrate (theta x phi).
+
+Return:
+Spherical integral of E.
+\end{lstlisting}
+
+\subsubsection{intsphere\_alt(Etot)}
+Alternative way of computing the radiated power/surface integral. For a small
+sample size, this method is not as accurate as intsphere().
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- Etot: Matrix (theta x phi) from Satimo PM to compute the radiate power
+        of (surface integration).
+
+Return:
+Surface integral of Etot ~ radiated power.
+\end{lstlisting}
+
+\subsubsection{loadref(f)}
+Load a reference file containing S11, Gain, and Efficiency of a
+reference/calibration antenna.
+The reference files are cut to the following ranges, depending on file name:
+\begin{itemize}
+\item HomeRef600: No crop.
+\item SD740-70: 700--800 MHz.
+\item SD850-02: 800--900 MHz.
+\item SD900-52: 900--1000 MHz.
+\item SD1900-49: No crop.
+\item SD2050-36: No crop.
+\item SD2450-43: No crop.
+\end{itemize}
+Note that the 740 MHz reference file has the efficiency and gain columns
+swapped!
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: File name.
+
+Return:
+M[0]=frequency(Hz), M[1]=S11(.), M[2]=Gain(.), M[3]=Eff(.)
+\end{lstlisting}
+
+\subsubsection{loadtrx(f)}
+Load a trx measurement file from Satimo PM into memory. 
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: TRX file to load.
+
+Return:
+[f, list_horiz, list_vert] where
+        f = [f1, f2, f3, ...]
+        list_horiz = [E_horiz_f1, E_horiz_f2, E_horiz_f3, ...]
+        list_vert  = [E_vert_f1,  E_vert_f2,  E_vert_f3,  ...]
+and each "E" is a complex matrix, (theta x phi), containing the received fields.
+\end{lstlisting}
+
+\subsubsection{ma(values, window)}
+Moving average filter.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- values: Values/array to filter.
+- windows: Size of the moving average filter.
+
+Return:
+Moving average filtered values.
+\end{lstlisting}
+
+\subsubsection{mat2col(mat, ntheta=SATIMO\_NUM\_ELEVATION, nphi=SATIMO\_NUM\_AZIMUTH)}
+Convert a (theta x phi) matrix into the original column-format from the trx
+file.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- mat: Matrix with phi on the x-axis and theta on the y-axis.
+- ntheta: Number of rows in the output (theta in the input).
+- nphi: Number of columns in the output (phi in the input).
+
+Return:
+Column like a Satimo PM export, like the trx format.
+\end{lstlisting}
+
+\subsubsection{radiatedpower(h,v)}
+Compute the radiated power for each frequency in the h and v list, using
+radiatedpower\_single().
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- h: List of complex (theta x phi) matrices -- one for each frequency.
+        Horizontal polarization.
+- v: List of complex (theta x phi) matrices -- one for each frequency.
+        Vertical polarization.
+
+Return:
+A vector with the radiated power for each frequency/element of h and
+        v.
+\end{lstlisting}
+
+\subsubsection{totalpower\_table(calfiles, reffiles)}
+Make a table of calibrated ``total power'' for each frequency.
+Having (1) the total power and (2) the radiated power for a given antenna,
+makes it possible to compute the total efficiency of the antenna.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- calfiles: List of calibration measurement files (trx files) (order:
+        lowest to highest frequency).
+- reffiles: List of reference files relating to the calibration
+        measurements (order: lowest to highest frequency).
+
+Return:
+[f,Ptot] -- the total power for each frequency.
+\end{lstlisting}
+

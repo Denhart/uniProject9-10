@@ -1,0 +1,51 @@
+\subsubsection{ecc(Eth1, Eth2, Eph1, Eph2)}
+Compute the envelope correlation coefficient between two farfields. The
+farfields are split into theta and phi part. Each part is a matrix with
+theta on one axis and phi on the other.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- Eth1: E-field, theta part, antenna 1
+- Eth2: E-field, theta part, antenna 2
+- Eph1: E-field, phi part, antenna 1
+- Eph1: E-field, phi part, antenna 2
+
+Return:
+Envelope Correlation Coefficient (scalar)
+
+Note:
+https://mns.ifn.et.tu-dresden.de/Lists/nPublications/Attachments/612/Wang_Q_WSA_10.pdf
+\end{lstlisting}
+
+\subsubsection{intsphere(r, theta, phi)}
+Do a spherical integral of a theta-phi matrix.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- r: Matrix to integrate (x-axis=phi, y-axis=theta).
+- phi: Phi axis values.
+- theta: Theta axis values.
+
+Return:
+Scalar result of the integration.
+\end{lstlisting}
+
+\subsubsection{plot3d(r, stride=1, th\_lim=(0, 180), ph\_lim=(0, 360))}
+Plot a matrix, (theta x phi), in 3d space.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- r: Matrix to plot.
+- stride: Resolution of the output. 1=detailed+slow, 10=rough+fast.
+- th_lim: Upper and lower theta limits (degrees).
+- ph_lim: Upper and lower phi limits (degrees).
+\end{lstlisting}
+
+\subsubsection{plotflat(r, th\_lim=(0,180), ph\_lim=(0,360), cmap="jet")}
+Plot a farfield-matrix as a color-map. Remember that 0 degrees is the bottom
+of the plot in spherical coordinates.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- r: Matrix to plot (theta x phi).
+- th_lim: Minimum and maximum theta/y-axis value (degrees).
+- ph_lim: Minimum and maximum phi/x-axis value (degrees).
+- cmap: Color map to use.
+\end{lstlisting}
+
