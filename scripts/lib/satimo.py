@@ -8,8 +8,8 @@ SATIMO_NUM_ELEVATION = 15
 SATIMO_NUM_AZIMUTH = 8
 SATIMO_NUM_SAMPLES = SATIMO_NUM_ELEVATION * SATIMO_NUM_AZIMUTH
 
-# Convert a Satimo PM-exported column to a matrix with phi the 
-# x-axis and theta on the y-axis.
+# Convert a Satimo PM-exported column to a matrix with $\phi$ on the 
+# x-axis and $\theta$ on the y-axis.
 #
 # @param column Column from a Satimo PM export.
 # @param ntheta Number of rows in the output (theta in the input).
@@ -30,8 +30,8 @@ def col2mat(column, ntheta=SATIMO_NUM_ELEVATION, nphi=SATIMO_NUM_AZIMUTH):
 
     return M
 
-# Convert a (theta x phi) matrix into the original column-format from the trx
-# file.
+# Convert a $(\theta \times \phi)$ matrix into the original column-format from
+# the trx file.
 #
 # @param mat Matrix with phi on the x-axis and theta on the y-axis.
 # @param ntheta Number of rows in the output (theta in the input).
@@ -81,9 +81,10 @@ def loadtrx(f):
 
 # Compute a spherical integral over the sphere recorded in Satimo. This is used
 # for efficiency and correlation computation. The integration is not over a
-# whole sphere, as a probe is missing at theta = 180 deg. Due to the low number
-# of samples recorded in Satimo, the integration must be done carefully, only
-# considering each sample one time. This is why l3d.intsphere() is not used.
+# whole sphere, as a probe is missing at $\theta = \ang{180}$. Due to the low
+# number of samples recorded in Satimo, the integration must be done carefully,
+# only considering each sample one time. This is why \texttt{l3d.intsphere()}
+# is not used.
 #
 # @param E Field matrix to integrate (theta x phi).
 # @return Spherical integral of E.
@@ -112,7 +113,7 @@ def intsphere(E):
     return I*2*pi/15*pi/8
 
 # Alternative way of computing the radiated power/surface integral. For a small
-# sample size, this method is not as accurate as intsphere().
+# sample size, this method is not as accurate as \texttt{intsphere()}.
 #
 # @param Etot Matrix (theta x phi) from Satimo PM to compute the radiate power
 #        of (surface integration).
@@ -151,8 +152,9 @@ def intsphere_alt(Etot):
 # Compute the envelope correlation coefficient between two Satimo farfields.
 # The farfields are split into theta and phi part. Each part is a matrix with
 # theta on one axis and phi on the other. This function uses the
-# satimo.intsphere() and not l3d.intsphere() and is therefore more accurate for
-# Satimo measurements.
+# \texttt{satimo.intsphere()} and not \texttt{l3d.intsphere()} and is therefore
+# more accurate for Satimo measurements. \emph{Note that no gain calibration is
+# performed!}
 #
 # @param Eth1 List of E-fields, theta part, antenna 1
 # @param Eth2 List of E-fields, theta part, antenna 2
@@ -185,7 +187,7 @@ def ecc(Eth1, Eth2, Eph1, Eph2):
     return array(ecc)
 
 # Compute the radiated power for each frequency in the h and v list, using
-# radiatedpower_single().
+# \texttt{satimo.intsphere()}.
 #
 # @param h List of complex (theta x phi) matrices -- one for each frequency.
 #        Horizontal polarization.
@@ -237,7 +239,7 @@ def loadref(f):
 
     return M
 
-# Make a table of calibrated "total power" for each frequency.
+# Make a table of calibrated ``total power'' for each frequency.
 # Having (1) the total power and (2) the radiated power for a given antenna,
 # makes it possible to compute the total efficiency of the antenna.
 #

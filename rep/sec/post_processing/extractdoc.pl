@@ -56,6 +56,7 @@ sub layout {
 my %doc1 = extractdoc("../../../scripts/lib/satimo.py");
 my %doc2 = extractdoc("../../../scripts/lib/cst.py");
 my %doc3 = extractdoc("../../../scripts/lib/l3d.py");
+my %doc4 = extractdoc("../../../scripts/lib/aauplot.py");
 my $o_h;
 
 open($o_h, ">", "functiondoc_satimo.tex");
@@ -70,3 +71,6 @@ open($o_h, ">", "functiondoc_l3d.tex");
 print $o_h layout("L3D", %doc3);
 close($o_h);
 
+open($o_h, ">", "functiondoc_aauplot.tex");
+print $o_h layout("AAUplot", %doc4);
+close($o_h);
