@@ -18,7 +18,7 @@ def col2mat(column, nx=360, ny=181):
     return d
 
 # Load a CST exported file to two (theta x phi) matrices -- one for theta and
-# one for phi plarization.
+# one for phi polarization.
 #
 # @param f File to load.
 # @return [T,P] where T and P are each a (theta x phi) matrix.
