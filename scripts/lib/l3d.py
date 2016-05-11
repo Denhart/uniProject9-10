@@ -3,8 +3,8 @@ from matplotlib.pyplot import *
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
 
-# Plot a farfield-matrix as a color-map. Remember that 0 degrees is the bottom
-# of the plot in spherical coordinates.
+# Plot a farfield-matrix as a color-map. Remember that \ang{0} is the bottom of
+# the plot in spherical coordinates.
 #
 # @param r Matrix to plot (theta x phi).
 # @param th_lim Minimum and maximum theta/y-axis value (degrees).
@@ -27,7 +27,7 @@ def plotflat(r, th_lim=(0,180), ph_lim=(0,360), cmap="jet"):
     xlabel("$\phi$ [degrees]")
     ylabel("$\\theta$ [degrees]")
 
-# Plot a matrix, (theta x phi), in 3d space.
+# Plot a matrix, $(\theta \times \phi)$, in 3D space.
 #
 # @param r Matrix to plot.
 # @param stride Resolution of the output. 1=detailed+slow, 10=rough+fast.
@@ -50,7 +50,7 @@ def plot3d(r, stride=1, th_lim=(0, 180), ph_lim=(0, 360)):
     ax.set_ylabel('y')
     ax.set_zlabel('z')
 
-# Do a spherical integral of a theta-phi matrix.
+# Do a spherical integral of a $(\theta \times \phi)$ matrix.
 #
 # @param r Matrix to integrate (x-axis=phi, y-axis=theta).
 # @param phi Phi axis values.
@@ -60,8 +60,8 @@ def intsphere(r, theta, phi):
     return trapz(trapz(r, phi) * sin(theta), theta)
 
 # Compute the envelope correlation coefficient between two farfields. The
-# farfields are split into theta and phi part. Each part is a matrix with
-# theta on one axis and phi on the other.
+# farfields are split into $\theta$ and $\phi$ part. Each part is a matrix with
+# $\theta$ on one axis and $\phi$ on the other.
 #
 # @param Eth1 E-field, theta part, antenna 1
 # @param Eth2 E-field, theta part, antenna 2

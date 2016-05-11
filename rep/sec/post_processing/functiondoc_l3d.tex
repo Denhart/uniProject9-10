@@ -1,7 +1,7 @@
 \subsubsection{ecc(Eth1, Eth2, Eph1, Eph2)}
 Compute the envelope correlation coefficient between two farfields. The
-farfields are split into theta and phi part. Each part is a matrix with
-theta on one axis and phi on the other.
+farfields are split into $\theta$ and $\phi$ part. Each part is a matrix with
+$\theta$ on one axis and $\phi$ on the other.
 
 \begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
 - Eth1: E-field, theta part, antenna 1
@@ -17,7 +17,7 @@ https://mns.ifn.et.tu-dresden.de/Lists/nPublications/Attachments/612/Wang_Q_WSA_
 \end{lstlisting}
 
 \subsubsection{intsphere(r, theta, phi)}
-Do a spherical integral of a theta-phi matrix.
+Do a spherical integral of a $(\theta \times \phi)$ matrix.
 
 \begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
 - r: Matrix to integrate (x-axis=phi, y-axis=theta).
@@ -29,7 +29,7 @@ Scalar result of the integration.
 \end{lstlisting}
 
 \subsubsection{plot3d(r, stride=1, th\_lim=(0, 180), ph\_lim=(0, 360))}
-Plot a matrix, (theta x phi), in 3d space.
+Plot a matrix, $(\theta \times \phi)$, in 3D space.
 
 \begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
 - r: Matrix to plot.
@@ -39,8 +39,8 @@ Plot a matrix, (theta x phi), in 3d space.
 \end{lstlisting}
 
 \subsubsection{plotflat(r, th\_lim=(0,180), ph\_lim=(0,360), cmap="jet")}
-Plot a farfield-matrix as a color-map. Remember that 0 degrees is the bottom
-of the plot in spherical coordinates.
+Plot a farfield-matrix as a color-map. Remember that \ang{0} is the bottom of
+the plot in spherical coordinates.
 
 \begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
 - r: Matrix to plot (theta x phi).
