@@ -1,0 +1,51 @@
+\chapter{Post Processing}
+\label{cha:postproc}
+
+In this chapter, the libraries for post processing data from CST and Satimo will be described. The libraries are written in Python. By the end of the chapter, usage examples will be given.
+
+\section{Data Format}
+The trx files, from Satimo Passive Measurement, contain data formatted in four columns:
+\begin{enumerate}
+    \item Horizontal polarization, real part.
+    \item Horizontal polarization, imaginary part.
+    \item Vertical polarization, real part.
+    \item Vertical polarization, imaginary part.
+\end{enumerate}
+Each column contains 
+\begin{equation}
+    n_r =  n_f \times n_a \times n_e
+\end{equation}
+where
+\begin{where}
+\item[$n_r$] Total number of rows per column.
+\item[$n_f$] Number of different frequencies in the measurement.
+\item[$n_a$] Number of azimuth coordinates (usually 8).
+\item[$n_e$] Number of elevation coordinates (usually 15).
+\end{where}
+The first $n_a \times n_e$ rows are for the first frequency and the next $n_a \times n_e$ rows are for the second frequency. Within this, the first $n_e$ rows are for the first azimuth angle and so on.
+
+To get a better overview, the basic format for the following libraries is a $\theta \times \phi$-matrix like the following:
+\begin{equation}
+    M = \begin{bmatrix}
+        m_{1,1} & m_{1,2} & \dots & m_{1,n} \\
+        m_{2,1} & m_{2,2} & \dots & m_{2,n} \\
+        \vdots & \vdots & & \vdots \\
+        m_{m,1} & m_{m,2} & \dots & m_{m,n}
+    \end{bmatrix}
+\end{equation}
+The data is rearranged to have $\phi$ go from \ang{0} to \ang{360} and $\theta$ from \ang{0} to \ang{180} as shown in Table~\ref{tab:matrixformat}.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|c|}
+        \hline
+        Elements & $\theta$ & $\phi$ \\
+        \hline
+        $m_{1,1}$ & \ang{0} & \ang{0} \\
+        $m_{1,n}$ & \ang{0} & $\ang{360}$ \\
+        $m_{m,1}$ & \ang{180}$^{\dagger}$ & \ang{0} \\
+        \hline
+    \end{tabular}
+    \caption{Format of $\theta\times\phi$-matrix. $^{\dagger}$For Satimo measurements, this is $180-22.5=\ang{157.5}$ because of the blind spot in the bottom.}
+    \label{tab:matrixformat}
+\end{table}
