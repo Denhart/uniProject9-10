@@ -1,5 +1,7 @@
 \section{Examples}
 
+In this section, examples will be given of the libraries described above. The several libraries may be used in each example.
+
 \subsection{Extract Efficiency from Satimo}
 In the following example, the efficiency of an antenna is extracted. In order to do this, calibration measurements must be added to the \texttt{calfiles} list. The \texttt{reffiles} list contains reference data of the antennas used for calibration. \emph{Note, that the files from these two lists must be written in ascending order, i.e.\ lowest frequency first}. In this example, the file \texttt{antenna\_meas.trx} is the antenna from which the efficiency is extracted. The output is saved to the file shown in Figure~\ref{fig:pp_example1}.
 
@@ -81,3 +83,40 @@ The result is shown in Figure~\ref{fig:pp_example5}.
     \label{fig:pp_example5}
 \end{figure}
 
+\subsection{aauplot: Plot S-Parameters}
+In the following script, a CSV file from a VNA is plotted using the aauplot library. The output is shown in Figure~\ref{fig:aauplot_ex1}
+
+\lstinputlisting[caption{aauplot: Plot S-parameters}, label=lst:aauplot1]{sec/post_processing/examples_aauplot/ex1.py}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{sec/post_processing/examples_aauplot/ex1_sparams.pdf}
+    \caption{Output from Listing~\ref{lst:aauplot1}.}
+    \label{fig:aauplot_ex1}
+\end{figure}
+
+\subsection{aauplot: Plot Efficiency}
+The Satimo library is here used to extract the efficiency of an antenna measured in the Satimo chamber. The aauplot library is used to plot the result. Note that, as opposed to the efficiency example shown above, a calibration table is computed prior to analysis. This means that the calibration is only loaded once, making the processing faster. This can be done when several measurements from the same calibration are analyzed. The result is shown in Figure~\ref{fig:aauplot_ex2}.
+
+\lstinputlisting[caption={aauplot: Plot Efficiency}, label=lst:aauplot2]{sec/post_processing/examples_aauplot/ex2.py}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{sec/post_processing/examples_aauplot/ex2_efficiency}
+    \caption{Output from Listing~\ref{lst:aauplot2}.}
+    \label{fig:aauplot_ex2}
+\end{figure}
+
+\subsection{aauplot: Plot Correlation from a Satimo Measurement}
+In this example, the farfield of two antennas measured in Satimo. The Satimo Library and the aauplot library is used to plot the envelope correlation coefficient. The result is shown in Figure~\ref{fig:aauplot_ex3}. Note that the two measured antennas must be positioned in \emph{exactly} the same position.
+
+\lstinputlisting[caption={aauplot: Plot correlation from a Satimo measurement.}, label=lst:aauplot3]{sec/post_processing/examples_aauplot/ex3.py}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{sec/post_processing/examples_aauplot/ex3_correlation}
+    \caption{Output from Listing~\ref{lst:aauplot3}.}
+    \label{fig:aauplot_ex3}
+\end{figure}
+
+\fixme{Write ``install'' section}

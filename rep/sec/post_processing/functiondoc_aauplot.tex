@@ -1,0 +1,96 @@
+\subsubsection{correlation(f, ecc, c="-", label="")}
+Plot correlation
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: Frequency axis.
+- ecc: Envelope correlation coefficient.
+- c: Color/linetype string (e.g. '--b' for dashed blue).
+- label: Label for the graph's legend.
+\end{lstlisting}
+
+\subsubsection{efficiency(f, e, c="-", label="")}
+Plot an efficiency graph.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: Frequency axis.
+- e: Efficiency (. or dB).
+- c: Color/linetype string (e.g. '--b' for dashed blue).
+- label: Label for the graph's legend.
+\end{lstlisting}
+
+\subsubsection{end\_correlation(loc=1, fontsize=8)}
+Finish the correlation plot with legend, etc.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- loc: Location of the legend (like matplotlib.pyplot.legend())
+- fontsize: Font size for the legend.
+\end{lstlisting}
+
+\subsubsection{end\_efficiency(**kwargs)}
+Finish the efficiency plot with legend, etc.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- kwargs: Arguments passed on to matplotlib.pyplot.legend()
+\end{lstlisting}
+
+\subsubsection{end\_sar(**kwargs)}
+Finish the SAR plot with legend, etc.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- kwargs: Arguments passed on to matplotlib.pyplot.legend()
+\end{lstlisting}
+
+\subsubsection{end\_sparam(**kwargs)}
+Finish the S-parameter plot with legend, etc.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- kwargs: Parameters passed onto matplotlib.pyplot.legend().
+\end{lstlisting}
+
+\subsubsection{figure(*args, **kwargs)}
+Set up a figure of the correct dimensions and the correct font for the
+report.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- args: Positional arguments for matplotlib.pyplot.figure()
+- kwargs: All arguments are passed onto the matplotlib.pyplot.figure()
+        function.
+\end{lstlisting}
+
+\subsubsection{freqscale(f)}
+Scale to get frequency axis to MHz
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: Frequency axis.
+\end{lstlisting}
+
+\subsubsection{sar(f, sar, c="-", label="")}
+Plot a SAR graph.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: Frequency axis.
+- e: Efficiency (. or dB).
+- c: Color/linetype string (e.g. '--b' for dashed blue).
+- label: Label for the graph's legend.
+\end{lstlisting}
+
+\subsubsection{sparam(f, s, c="-", label="")}
+Plot an S-parameter.
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- f: Frequency axis for the plot.
+- s: S-parameter (abs-value in dB) to plot.
+- c: Color/linetype string (e.g. '--b' for dashed blue).
+- label: Label for the legend
+\end{lstlisting}
+
+\subsubsection{to\_db(x)}
+Convert/preserve data in dB
+
+\begin{lstlisting}[numbers=none, frame=none, xleftmargin=0em, language=, basicstyle=\footnotesize\ttfamily]
+- x: Data to convert (e.g. efficiency).
+
+Return:
+Data in dB.
+\end{lstlisting}
+
