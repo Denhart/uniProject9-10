@@ -5,8 +5,8 @@ THETA_PHASE_COLUMN = 4
 PHI_ABS_COLUMN     = 5
 PHI_PHASE_COLUMN   = 6
 
-# Convert a CST-exported column to a matrix with phi the 
-# x-axis and theta on the y-axis.
+# Convert a CST-exported column to a matrix with $\phi$ on the 
+# x-axis and $\theta$ on the y-axis.
 #
 # @param column Column from a Satimo export.
 # @param nx Number of columns in the output (phi in the input).
@@ -17,8 +17,8 @@ def col2mat(column, nx=360, ny=181):
     d = flipud(d)
     return d
 
-# Load a CST exported file to two (theta x phi) matrices -- one for theta and
-# one for phi polarization.
+# Load a CST exported file to two $(\theta \times \phi)$ matrices -- one for
+# $\theta$ and one for $\phi$ polarization.
 #
 # @param f File to load.
 # @return [T,P] where T and P are each a (theta x phi) matrix.
