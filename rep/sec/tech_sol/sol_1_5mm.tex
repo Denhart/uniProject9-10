@@ -56,7 +56,6 @@ The effieicncy ground clearence comparison shows some similar results. In the hi
 
 Furthermore a sweep on the antenna height was also carried out from \SI{7}{mm} to \SI{4}{mm}. The results are not included as the top antenna was unable to cover the high band at anything lower than \SI{7}{mm} in height.
 
-
 The simulated S-parameter for both the top and the side antenna can be seen on Figure \ref{fig:ant1_6pf_sparam}. The bandwidth results can be seen in Table \ref{tab:bw_sol1_6pf}. Both antennas fulfill the requirement for the low band and in the high band only the top antenna experiences some problems. The top antenna lacks \SI{76}{MHz} of bandwidth in the high band. The lack of \SI{76}{MHz} band width is acceptable as it covers close to the \SI{720}{MHz} requirement.
 
 The tuned S-parameters for both antennas can be seen in Figure \ref{fig:sparam_mono_6pf_free_space}. From the results it is seen that both antennas covers the entire low band. In the high band only the top antenna experiences some minor problems of \SI{-1}{dB} and \SI{-3}{dB} loss in the band limits. The isolation loss have improved a bit comparing with the results from the first design, but is still significant in the lower band.     
@@ -66,7 +65,7 @@ The tuned efficiency for both antennas can be seen in Figure \ref{fig:eff_sol1_6
 % S-parameters at C1 and C3 = 0.6pf
 \begin{figure}[htbp]
     \centering
-    \includegraphics{img/tech_sol/monopole/5mm/6pf_sparams}
+    \includegraphics{img/tech_sol/monopole/5mm/sweep_5mm}
     \caption{S-parameters with $C_2=\SI{0.3}{pF}$ for both antennas.}
     \label{fig:ant1_6pf_sparam}
 \end{figure}
@@ -93,25 +92,25 @@ The tuned efficiency for both antennas can be seen in Figure \ref{fig:eff_sol1_6
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/5mm/6pf_s11}
+        \includegraphics{img/tech_sol/monopole/5mm/sweep_s11}
         \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/5mm/6pf_s22}
+        \includegraphics{img/tech_sol/monopole/5mm/sweep_s22_12p}
         \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
 ~
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/5mm/6pf_s11_s21}
+        \includegraphics{img/tech_sol/monopole/5mm/sweep_s11_s21}
         \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
-        \includegraphics{img/tech_sol/monopole/5mm/6pf_s22_s21}
+        \includegraphics{img/tech_sol/monopole/5mm/sweep_s22_s21_12p}
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
     \caption{S-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
