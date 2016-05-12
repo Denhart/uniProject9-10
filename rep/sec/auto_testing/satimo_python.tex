@@ -1,0 +1,56 @@
+\section{Satimo Automatic Test}
+\label{sec:satimo_python}
+The efficiency measurements are in general the most time consuming, and automating this process saves a lot of time. Unfortunately there is no public API or common interface to control the Satimo chamber. Therefor the only way to control the chamber is to automate the GUI (Graphical User Interface), which is done in Python.
+
+\subsection{Python Library}
+The Python library is based around another library called pywinauto, which is for Windows GUI Automation. Basically it sends ``click'' and ``keystroke'' events to specific buttons and input fields programmatically. Another tool called SWAPY was used to find button and input field IDs. 
+
+Currently the created library only supports Satimo Passive measurements, and it is able to initiate a frequency sweep in a given frequency range and number of samples. The library detects when a sweep is done, and automatically exports the data in a \verb|TRX| file. The library also makes it easier to calibrate Satimo, such that the user only has to change the antenna and press \verb|Enter|, for each calibration antenna. Below is an example of calibrating, starting a sweep and exporting the data.  
+
+\begin{lstlisting}
+import satimopm
+satimopm.calib()
+satimopm.satimoSPM(startFreq, endFreq, samples, filename)
+print("Sweep done")
+\end{lstlisting}
+ 
+\subsubsection{Combining with the Optical RFFE adapter}
+As with the VNA library, we can combine the Satimo automation code with the optical RFFE adapter board. The adapter board, requires a serial command, which is done using the pyserial library. The combined program is then able to sweep through every capacitor value and save a file for every measurement. This program is listed below. 
+
+\begin{lstlisting}
+import satimopm
+import serial
+
+basename = "triag_top_vert"
+serial_port = "/dev/ttyUSB0"
+
+# Start serial port
+ser = serial.Serial(serial_port)
+ser.flushInput()
+ser.flushOutput()
+
+# Only slave address A = 0x7 is used
+ser.write(b"Ax0Ay0Az0At0")
+
+# Start sweep
+for x in [
+        ["0_0_0_0", b"Ax0Ay0Az0At0"],
+        ["2_0_0_0", b"Ax2Ay0Az0At0"],
+        ["4_0_0_0", b"Ax4Ay0Az0At0"],
+        ...
+        ["f_f_f_f", b"AxfAyfAzfAtf"],
+        ]:
+    fname,cmd = x
+    fname = basename + "_" + fname
+    ser.write(cmd)
+    satimopm.measure(fname)
+
+ser.close()
+\end{lstlisting}
+
+Here the \verb|measure| is a function, which contains a collection of calls to the more basic \verb|satimopm.satimoSPM|.
+
+
+
+
+
