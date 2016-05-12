@@ -1,0 +1,75 @@
+\section{VNA Automatic Test}
+\label{sec:vna_python}
+In order to faster do sweep-measurements on the built mockups the VNA measurements have been automated and combined with the optical RFFE adapter. It is possible to control the VNA using GPIB (General Purpose Interface Bus), VISA protocol (Virtual Instrument Software Architecture) and SCPI (Standard Commands for Programmable Instruments). This has been implemented in Python and specifically for a Rohde \& Schwarz ZVB 8 VNA, and is documented in this Appendix. 
+
+\subsection{National Instruments GPIB-USB-B Adapter}
+A NI GPIB USB adapter is used for the communication between the PC and the VNA. For this to work in Linux a few modifications are needed. First the ni-gpib kernel module has to be loaded using \verb|modprobe ni_usb_gpib|. Next a firmware update is needed, which has to be loaded every time, to ease pain, a small script has been made that does this step. 
+
+\begin{lstlisting}
+#!/bin/bash
+#Firmware files: http://linux-gpib.sourceforge.net/firmware/
+usbDev="$(lsusb | grep "3923:702b National" | sed 's/://' | awk '{print $2 "/" $4}')"
+
+if [ -z "$usbDev" ]; then
+   echo "NIgpib device not found"
+else
+   modprobe ni_usb_gpib
+   fxload -D /dev/bus/usb/$usbDev -I %/lib/firmware/ni_usb_gpib/niusbb_firmware.hex -s %/lib/firmware/ni_usb_gpib/niusbb_loader.hex    
+fi
+\end{lstlisting}
+
+\subsection{Python Library}
+The Python library is based around Pyvisa, which handles the VISA and SCPI protocol part and the communication with the USB GPIB adapter. The Rohde \& Schwarz ZVB 8 operating manual~\cite{} contains a chapter with all SCPI commands used. The library handles the setup of the VNA, which includes the correct frequency range, labels and number of samples. Besides the setup function it also contains a save function, which changes the number of samples, exports the data formatted as a \verb|s2p| file. Below is an example of initializing the VNA and saving a sweep. 
+
+\begin{lstlisting}
+from vnalib import VNA
+# Connect to VNA and initialize
+myVNA = VNA("GPIB0::20::INSTR", "D:\\vna_measurement\\")
+myVNA.initSettings()
+# Save s2p file
+myVNA.save("myfile")
+\end{lstlisting}
+ 
+\subsubsection{Combining with the Optical RFFE adapter}
+To fully automate the sweeping process, the code has been combined with the optical RFFE adapter board. The adapter board, requires a serial command, which is done using the pyserial library. The combined program is then able to sweep through every capacitor value and save a file for every measurement. This program is listed below. 
+
+\begin{lstlisting}
+from vnalib import VNA
+import time
+import serial
+serial_port = "/dev/ttyUSB0"
+basename = "triag"
+
+# Connect to VNA
+myVNA = VNA("GPIB0::20::INSTR", "D:\\vna_measurements\\")
+myVNA.initSettings()
+input("Perform manual calibration and press Enter...")
+
+# Start serial port
+ser = serial.Serial(serial_port)
+ser.flushInput()
+ser.flushOutput()
+
+# Only slave address A = 0x7 is used
+ser.write(b"Ax0Ay0Az0At0")
+
+# Start sweep
+for x in [
+        ["0_0_0_0", b"Ax0Ay0Az0At0"],
+        ["2_0_0_0", b"Ax2Ay0Az0At0"],
+        ["4_0_0_0", b"Ax4Ay0Az0At0"],
+        ...
+        ["f_f_f_f", b"AxfAyfAzfAtf"],
+        ]:
+    fname,cmd = x
+    fname = basename + "_" + fname
+    ser.write(cmd)
+    input("")
+    myVNA.save(fname)
+    print("Saved file")
+\end{lstlisting}
+
+
+
+
+
