@@ -159,8 +159,6 @@ Text Notes 5650 650  0    60   ~ 0
 RECEIVER
 Text Notes 1700 650  0    60   ~ 0
 TRANSMITTER
-Text Notes 3050 1600 0    60   ~ 0
-FIBER OPTIC\nCABLE
 $Comp
 L IF-E97 D1
 U 1 1 57029DC9
@@ -242,14 +240,6 @@ Connection ~ 5900 3650
 Wire Wire Line
 	5900 1950 5900 750 
 Connection ~ 5900 750 
-Wire Bus Line
-	2850 1450 3000 1450
-Wire Bus Line
-	2850 1550 3000 1550
-Wire Bus Line
-	3650 1450 3800 1450
-Wire Bus Line
-	3400 1550 3800 1550
 Wire Wire Line
 	4000 1300 4000 750 
 Wire Wire Line
