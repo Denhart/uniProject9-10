@@ -1,5 +1,6 @@
 \section{Antenna Design 1 -- Minimized Monopole}
 \label{sec:techsol1_monopole_5mm}
+
 The minimized monopole design and the tuning schematic can be seen on Figure \ref{fig:ant1techschem_6pf}. The design is still based on the first folded monopole design, but is made smaller and simpler without any folding.
 
 \begin{figure}[htbp]
@@ -18,8 +19,8 @@ The minimized monopole design and the tuning schematic can be seen on Figure \re
             \hline
             & $C_1$ & $L_1$ & $C_2$ \\
             \hline
-            Top antenna & \SI{3.02}{pF} & \SI{7.99}{nH} & $[0.3,2.9]\,$pF\\
-            Side antenna & \SI{1.81}{pF} & \SI{5.27}{nH} & $[0.3,2.9]\,$pF\\
+            Top antenna & \SI{2.23}{pF} & \SI{3.94}{nH} & $[0.6,6]\,$pF\\
+            Side antenna & \SI{2.15}{pF} & \SI{3,17}{nH} & $[1.2,12]\,$pF\\
             \hline
         \end{tabular}
         \caption{Tuning/matching circuit.}
@@ -29,6 +30,7 @@ The minimized monopole design and the tuning schematic can be seen on Figure \re
     \label{fig:ant1techschem_6pf}
 \end{figure}
 
+\subsection{Ground Clearence Simulation}
 The ground clearence S11 and efficiency simulation can be seen on Figure \ref{fig:eff_s11_mono_sim_5mm}.
 The simulation sweep is done from \SI{10}{mm} to \SI{3}{mm} ground clearence in \SI{1}{mm} steps and only for the top antenna. Each ground clearence simulation is matched and tuned to get the highest bandwidth possible.
 
@@ -55,6 +57,8 @@ The effieicncy ground clearence comparison shows some similar results. In the hi
 \end{figure}
 
 Furthermore a sweep on the antenna height was also carried out from \SI{7}{mm} to \SI{4}{mm}. The results are not included as the top antenna was unable to cover the high band at anything lower than \SI{7}{mm} in height.
+
+\subsection{Minimized Monopole Simulation}
 
 The simulated S-parameter for both the top and the side antenna can be seen on Figure \ref{fig:ant1_6pf_sparam}. The bandwidth results can be seen in Table \ref{tab:bw_sol1_6pf}. Both antennas fulfill the requirement for the low band and in the high band only the top antenna experiences some problems. The top antenna lacks \SI{76}{MHz} of bandwidth in the high band. The lack of \SI{76}{MHz} band width is acceptable as it covers close to the \SI{720}{MHz} requirement.
 
@@ -132,5 +136,7 @@ The tuned efficiency for both antennas can be seen in Figure \ref{fig:eff_sol1_6
     \caption{Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:eff_sol1_6pf_free}
 \end{figure}
+
+\subsection{Minimized Monopole Measurements}
 
 
