@@ -87,11 +87,10 @@ The measured and simulated envelope correlation coefficient can be seen in Figur
 The S-parameter sweep can be seen in Figure \ref{fig:nonresonant_proto_sweep_sparams}. The top antenna sweep S11 shows that the antenna is capable of covering the entire low band and most of the high band. In the high band the antenna have some problems from approx. \SI{2400}{MHz} to \SI{2650}{MHz}, as the return loss drops to approx. \SI{-3}{dB}. The results of the side antenna S22 shows that the antenna was unable to be tuned. Many component changes were made and it had no effect on the frequency tuning of the antenna. 
 The highest isolation loss measured is \SI{-9}{dB} in the low band. In the high band the isolation loss is generally low with a max value of \SI{-14}{dB} over a bandwidth of approx. \SI{20}{MHz}. 
 
-The efficiency sweep can be seen in Figure \ref{fig:nonresonant_proto_sweep_efficiency}. From the results it is seen, that the top antenna covers the low band quite well with an efficiency from \SI{70}{\percent} to \SI{95}{\percent}. However in the high band the top antenna experiences some problems in the higher frequencies. The efficiency is approx. \SI{80}{\percent} from \SI{1710}{MHz} to \SI{2200}{MHz}, but drops to \SI{21}{\percent} from \SI{2200}{MHz} to \SI{2650}{MHz}. Generally tuning the top antenna results in an overall efficiency drop that is most significant in the higher frequencies.
-As mentioned earlier the side antenna was unable to be tuned as the top so only one measurement of the side antenna efficiency were made. The effieicncy results for the side antenna is therefore as described above in the comparison of the simulated and measured results.
+The efficiency sweep can be seen in Figure \ref{fig:nonresonant_proto_sweep_efficiency}. From the results it is seen, that the top antenna covers the low band quite well with an efficiency from \SI{70}{\percent} to \SI{95}{\percent}. However, in the high band the top antenna experiences some problems in the higher frequencies. The efficiency is approx. \SI{80}{\percent} from \SI{1710}{MHz} to \SI{2200}{MHz}, but drops to \SI{21}{\percent} from \SI{2200}{MHz} to \SI{2650}{MHz}. Generally tuning the top antenna results in an overall efficiency drop that is most significant in the higher frequencies.
+As mentioned earlier the side antenna was unable to be tuned as the top so only one measurement of the side antenna efficiency were made. The efficiency results for the side antenna is therefore as described above in the comparison of the simulated and measured results.
 
-
-tuning makes the efficiency to drop
+tuning makes the efficiency to drop \fixme{Finish this}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -103,7 +102,7 @@ tuning makes the efficiency to drop
     \begin{subfigure}{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/nonresonant/prototype/s22_csh1.pdf}
-        \caption{$S_{22}$, sweeping the side antenna and fixing the top antenna.}
+        \caption{$S_{22}$, sweeping the top antenna and fixing the side antenna.}
     \end{subfigure}
     \\
     \begin{subfigure}{0.49\linewidth}
@@ -111,13 +110,7 @@ tuning makes the efficiency to drop
         \includegraphics{img/tech_sol/nonresonant/prototype/s21_csh1.pdf}
         \caption{$S_{21}$, sweeping the top antenna and fixing the side antenna.}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/nonresonant/prototype/s12_csh1.pdf}
-        \caption{$S_{21}$, sweeping the side antenna and fixing the top antenna.}
-    \end{subfigure}
-    \caption{Non-resonant antenna. S-parameters for different shunt-capacitor values.}
+    \caption{Non-resonant antenna. S-parameters for different shunt-capacitor values. The side antenna does not change resonance as desired when the shunt capacitor is changed. Therefore, only the top antenna is swept.}
     \label{fig:nonresonant_proto_sweep_sparams}
 \end{figure}
 
@@ -130,8 +123,8 @@ tuning makes the efficiency to drop
     \hfill
     \begin{subfigure}{0.49\linewidth}
         \includegraphics{img/tech_sol/nonresonant/prototype/efficiency_side.pdf}
-        \caption{Side antenna, sweeping the side antenna and fixing the top antenna.}
+        \caption{Side antenna, fixing both top and side antenna.}
     \end{subfigure}
-    \caption{Total efficiency for each of the antennas when sweeping the shunt-capacitor values.}
+    \caption{Total efficiency of both antennas when sweeping the top antenna. The side antenna does not sweep as desired when changing the capacitor. Therefore, no sweeps are made for the side antenna.}
     \label{fig:nonresonant_proto_sweep_efficiency}
 \end{figure}
