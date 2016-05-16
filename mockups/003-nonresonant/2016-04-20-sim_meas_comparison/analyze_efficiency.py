@@ -25,7 +25,7 @@ calfiles = [
 
 f_tot,P_tot = satimo.totalpower_table(calfiles, reffiles)
 datadir = "satimo/antenna/"
-avg = 80
+avg = 20
 
 # TOP ANTENNA ##################################################################
 aauplot.figure()
