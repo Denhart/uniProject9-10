@@ -1,8 +1,7 @@
 \section{High Band Improvement}
-From the S-parameter measurements of both the triangle feed antenna and the minimized monopole antenna it is clear that both antennas are experiencing problems in the high band.
-The problem occured when going from the WiSpy board without the chip to the final board with the communication PCB, battery and the WiSpy chip. It seemed that, despite different antenna structures, the antennas were detuned when measured on the final WiSpy board.
-The first approach was to counteract the high band problem by creating another resonance at an even higher frequency than required. The minimized monopole was modified to be a four arm monopole with an extra resonance at approx. \SI{2.7}{GHz} for both the top and side antenna. The technical drawing of the modified monopole can be seen on Figure \ref{fig:sparam_5mm_highband} together with a Table \ref{fig:sparam_5mm_highband}of the component values used in the simulation.
-Furthermore to find the course of the problem an investigation was made to wheater the detuning was caused by the communication PCB, battery or the WiSpy chip. 
+From the S-parameter measurements of both the triangle feed antenna and the minimized monopole antenna, it is clear that both antennas are experiencing problems in the high band when moved from simulation to the PCB with tuner.
+
+It has been chosen to elaborate on the minimized monopole antenna design and improve the high band. In order to do so, a second set of arms has been added to the antennas as shown in Figure~\ref{fig:sparam_5mm_highband}. As previous experience has shown that the simplified simulations will detune in practice, the matching components in Figure~\ref{fig:sparam_5mm_highband} have been chosen to resonate slightly higher than desired. 
 
 \begin{figure}[htbp]
     \begin{subfigure}[b]{0.49\linewidth}
@@ -32,9 +31,9 @@ Furthermore to find the course of the problem an investigation was made to wheat
 \end{figure}
 
 \FloatBarrier
-\subsection{Modified Monopole Simulation}
+\subsection{Simulation}
 
-The S-parameter sweep can be seen on Figure \ref{fig:sparam_mono_modi_sim}
+The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB.
 
 % Sweeping S-parameters
 \begin{figure}[htbp]
@@ -66,7 +65,10 @@ The S-parameter sweep can be seen on Figure \ref{fig:sparam_mono_modi_sim}
 \end{figure}
 
 \FloatBarrier
-\subsection{Modified Monopole Measurements}
+\subsection{User Effect Simulations}
+
+\FloatBarrier
+\subsection{Measurements}
 
 \begin{figure}[htbp]
         \centering
@@ -89,50 +91,68 @@ The S-parameter sweep can be seen on Figure \ref{fig:sparam_mono_modi_sim}
 \end{figure}
 
 \begin{figure}[htbp]
-   \begin{subfigure}[b]{0.49\linewidth}
-        \centering
+    \centering
+    \begin{subfigure}{0.49\linewidth}
         \includegraphics{img/tech_sol/monopole/highband/meas/tuner/S11.pdf}
-        \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
+        \caption{S11.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.49\linewidth}
-        \centering
+    \begin{subfigure}{0.49\linewidth}
         \includegraphics{img/tech_sol/monopole/highband/meas/tuner/S22.pdf}
-        \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
+        \caption{S22.}
     \end{subfigure}
-~
-    \begin{subfigure}[b]{0.49\linewidth}
-        \centering
+    \\
+    \begin{subfigure}{0.49\linewidth}
         \includegraphics{img/tech_sol/monopole/highband/meas/tuner/S21.pdf}
-        \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
+        \caption{S21.}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/monopole/highband/meas/tuner/S21.pdf}
-        \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
-    \end{subfigure}
-    \caption{S-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{S-parameters for the modified minimized monopole prototype. The top-tuner is swept from approximately \SI{0.6}{pF} to \SI{6}{pF} and the side-tuner is swept from approximately \SI{1.2}{pF} to \SI{12}{pF}. The two tuners are tracking the first half of the sweep.}
     \label{fig:sparam_mono_modi_meas}
 \end{figure}
 
 \FloatBarrier
-\subsection{Detuning Investigation}
+\subsection{Final Design and Measurements}
+In this section, the final design with all above mentioned improvements will be presented. The design is shown in Figure~\ref{fig:final_lassedouble}, and dimensions of the antenna elements are the same as shown in Figure~\ref{fig:sparam_5mm_highband}. As shown in Figure~\ref{fig:final_lassedouble}, a capacitor has been added on each transmission line (from SMA to matching network), improving the return loss significantly. The matching network is nearly the same as in Figure~\ref{fig:mono_matching_modi_meas}. The exact component values are printed on Figure~\ref{fig:final_lassedouble}.
 
 \begin{figure}[htbp]
-   \begin{subfigure}[t]{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/monopole/highband/meas/no_tuner/sparams_best_match.pdf}
-        \caption{S-parameters for the modified monopole antenna without the tuner.}
-        \label{fig:sparams_notuner_mono_modi_meas}
+    \centering
+    \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/lassedouble.pdf}
+    \caption{Final antenna design with capacitors added to the transmission line to improve high-band performance.}
+    \label{fig:final_lassedouble}
+\end{figure}
+
+The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the top antenna, the tunable bandwidth in the low band (by \SI{960}{MHz}) is \SI{140}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band can be covered from \SI{1710}{MHz} to around \SI{2450}{MHz}. There is still a problem covering the band from \SI{2550}{MHz} to \SI{2650}{MHz} but all bands from \SI{700}{MHz} to \SI{2400}{MHz} can be covered. For the side antenna, the tunable bandwidth by \SI{960}{MHz} is \SI{70}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band covers from \SI{1710}{MHz} to \SI{1975}{MHz} and from \SI{2095}{MHz} to \SI{2275}{MHz}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/S11.pdf}
+        \caption{S11.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/monopole/highband/meas/tuner_comparison/sparam_comparison}
-        \caption{S-parameter comparison of the WiSpy board with and without the battery and communication PCB.}
-        \label{fig:sparams_tuner_mono_modi_meas}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/S22.pdf}
+        \caption{S22.}
     \end{subfigure}
-    \caption{S-parameter comparison of WiSpy PCB's}
-    \label{fig:sparams_comp_mono_modi_meas}
+    \\
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/S21.pdf}
+        \caption{S21.}
+    \end{subfigure}
+    \caption{S-parameters of the final antenna design. The top antenna is swept from approximately \SI{0.6}{pF} to \SI{6}{pF} and the side antenna from approximately \SI{1.2}{pF} to \SI{12}{pF}. The tuners are tracking the first half of the sweep.} 
+    \label{fig:final_sparams}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \fixme{Insert measurements.}
+        \caption{Top antenna.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \caption{Side antenna.}
+    \end{subfigure}
+    \caption{Total efficiency of the final antenna design. The top antenna is swept from approximately \SI{0.6}{pF} to \SI{6}{pF} and the side antenna from approximately \SI{1.2}{pF} to \SI{12}{pF}. The tuners are tracking the first half of the sweep.}
+    \label{fig:final_efficiency}
 \end{figure}

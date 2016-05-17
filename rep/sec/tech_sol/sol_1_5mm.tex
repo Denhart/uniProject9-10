@@ -1,6 +1,3 @@
-\section{Antenna Design 1 -- Minimized Monopole}
-\label{sec:techsol1_monopole_5mm}
-
 The minimized monopole design and the tuning schematic can be seen on Figure \ref{fig:ant1techschem_6pf}. The design is still based on the first folded monopole design, but is made smaller and simpler without any folding.
 
 \begin{figure}[htbp]
@@ -31,36 +28,36 @@ The minimized monopole design and the tuning schematic can be seen on Figure \re
 \end{figure}
 
 \FloatBarrier
-\subsection{Ground Clearence Simulation}
-The ground clearence S11 and efficiency simulation can be seen on Figure \ref{fig:eff_s11_mono_sim_5mm}.
-The simulation sweep is done from \SI{10}{mm} to \SI{3}{mm} ground clearence in \SI{1}{mm} steps and only for the top antenna. Each ground clearence simulation is matched and tuned to get the highest bandwidth possible.
+\section{Ground clearance Simulation}
+The ground clearance S11 and efficiency simulation can be seen in Figure \ref{fig:eff_s11_mono_sim_5mm}.
+The simulation sweep is done from \SI{10}{mm} to \SI{3}{mm} ground clearance in \SI{1}{mm} steps and only for the top antenna. Each ground clearance simulation is matched and tuned to get the highest bandwidth possible.
 
-From the S11 results it is clear that the bandwidth decreases as the ground clearence decreases. The most noticeable results is at \SI{5}{mm} clearence as the bandwidth from this point does not increase significantly when increasing the ground clearence. However decreasing the ground clearence further to \SI{4}{mm} and \SI{3}{mm} the bandwidth drops significantly. Based on these results is was chosen to minimize the antenna design to a ground clearence of \SI{5}{mm}.
+From the S11 results it is clear that the bandwidth decreases as the ground clearance decreases. The most noticeable results is at \SI{5}{mm} clearance as the bandwidth from this point does not increase significantly when increasing the ground clearance. However decreasing the ground clearance further to \SI{4}{mm} and \SI{3}{mm} the bandwidth drops significantly. Based on these results is was chosen to minimize the antenna design to a ground clearance of \SI{5}{mm}.
 
-The effieicncy ground clearence comparison shows some similar results. In the high band it's clear that decresing the ground clearence will also decrease the bandwidth. However the high band results seems hard to compare, as the different simulations is matched at different frequencies to gain the highest bandwidth. The comparison is more noticeable in the low band, where it is clear, that the lower the clearence the lower the efficiency. Generally the effieicncy does not drop that much when decreasing the ground clearence. It should also be possible to increase the efficiency and compensated for the drop with tuning.  
+The efficiency ground clearance comparison shows some similar results. In the high band it's clear that decreasing the ground clearance will also decrease the bandwidth. However the high band results seems hard to compare, as the different simulations is matched at different frequencies to gain the highest bandwidth. The comparison is more noticeable in the low band, where it is clear, that the lower the clearance the lower the efficiency. Generally the efficiency does not drop that much when decreasing the ground clearance. It should also be possible to increase the efficiency and compensated for the drop with tuning.  
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/5mm/s11_5mm}
-        \caption{S11 parameter for the top antenna, when sweeping the ground clearence.}
+        \caption{S11 parameter for the top antenna, when sweeping the ground clearance.}
         \label{fig:s11_mono_sim_5mm}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/5mm/eff_5mm}
-        \caption{Efficiency for the top antenna, when sweeping the ground clearence.}
+        \caption{Efficiency for the top antenna, when sweeping the ground clearance.}
         \label{fig:eff_mono_sim_5mm}
     \end{subfigure}
-    \caption{S11 and efficiency for the top antenna, when sweeping the ground clearence from \SI{3}{mm} to \SI{10}{mm}}
+    \caption{S11 and efficiency for the top antenna, when sweeping the ground clearance from \SI{3}{mm} to \SI{10}{mm}}
     \label{fig:eff_s11_mono_sim_5mm}
 \end{figure}
 
 Furthermore a sweep on the antenna height was also carried out from \SI{7}{mm} to \SI{4}{mm}. The results are not included as the top antenna was unable to cover the high band at anything lower than \SI{7}{mm} in height.
 
 \FloatBarrier
-\subsection{Minimized Monopole Simulation}
+\section{Simulation}
 
 The simulated S-parameter for both the top and the side antenna can be seen on Figure \ref{fig:ant1_6pf_sparam}. The bandwidth results can be seen in Table \ref{tab:bw_sol1_6pf}. Both antennas fulfill the requirement for the low band and in the high band only the top antenna experiences some problems. The top antenna lacks \SI{76}{MHz} of bandwidth in the high band. The lack of \SI{76}{MHz} band width is acceptable as it covers close to the \SI{720}{MHz} requirement.
 
@@ -140,7 +137,8 @@ The tuned efficiency for both antennas can be seen in Figure \ref{fig:eff_sol1_6
 \end{figure}
 
 \FloatBarrier
-\subsection{Minimized Monopole Measurements}
+\section{Measurements}
+\fixme{Write about measurements}
 
 \begin{figure}[htbp]
         \centering
