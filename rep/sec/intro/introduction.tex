@@ -7,6 +7,9 @@ The specifications of 4G increase the number of antennas (MIMO), extend the band
 One way to overcome this problem is by using frequency-reconfigurability, to achieve good efficiency in the low bands and increase the number of bands that can be covered. Tuning can be performed on the antenna feeding line \cite{} \cite{} or on the antenna element \cite{} \cite{}. In this project MEMS tunable capacitors are used, since they offer low insertion loss, high voltage handling, and low power consumption\cite{}. Furthermore, the project aims to develop tunable antennas supporting MIMO operation on LTE bands for a handset. 
 \fixme{Update cites}
 
+\section{Reading Guidelines}
+Throughout the report, a lot of sweep-plots will be presented with many plots per figure. The color order presented in Figure~\ref{fig:colororder} is used for all sweeps so the first plot is always blue, the next is green, and so forth.
+
 \definecolor{bb}{rgb}{0.0, 0.0, 1.0}
 \definecolor{gg}{rgb}{0.0, 0.5, 0.0}
 \definecolor{rr}{rgb}{1.0, 0.0, 0.0}
@@ -22,6 +25,9 @@ One way to overcome this problem is by using frequency-reconfigurability, to ach
             \path (\x,1) ++ (right:0.5) node[above] {\x};
         };
     \end{tikzpicture}
-    \caption{Color order for sweep plots in the report. \fixme{Move to readers guide?}}
+    \caption{Color order for sweep plots in the report.}
     \label{fig:colororder}
 \end{figure}
+
+When two-port S-parameter measurements are mentioned in the report, port 1 is always the top-antenna and port 2 is the side-antenna unless otherwise noted.
+
