@@ -19,6 +19,8 @@ fi
 \end{lstlisting}
 
 \subsection{Python Library}
+The procedure for installing this library is shown in Section~\ref{sec:pythoninstall}.
+
 The Python library is based around Pyvisa, which handles the VISA and SCPI protocol part and the communication with the USB GPIB adapter. The Rohde \& Schwarz ZVB 8 operating manual~\cite{RhodeSmanual} contains a chapter with all SCPI commands used. The library handles the setup of the VNA, which includes the correct frequency range, labels and number of samples. Besides the setup function it also contains a save function, which changes the number of samples, exports the data formatted as a \verb|s2p| file. Below is an example of initializing the VNA and saving a sweep. 
 
 \begin{lstlisting}

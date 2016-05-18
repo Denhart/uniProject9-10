@@ -1,7 +1,20 @@
 \chapter{Post Processing}
 \label{cha:postproc}
 
-In this chapter, the libraries for post processing data from CST and Satimo will be described. The libraries are written in Python. By the end of the chapter, usage examples will be given.
+In this chapter, the libraries for post processing data from CST and Satimo will be described. The libraries are written in Python. By the end of the chapter, usage examples will be given. The libraries can be downloaded at \fixme{Add link to libraries or a CD.}
+
+\section{Installation}
+\label{sec:pythoninstall}
+The libraries can be used on both Windows, Linux, and OSX. In order to use the libraries, they must be added to Python's PATH variable so Python can find them. The following steps show the procedure:
+\begin{enumerate}
+\item Make sure to install Python 3, numpy, scipy, and matplotlib.
+\item Put the library files in a central directory (e.g.\ \texttt{C:/PathTo/Something}).
+\item Add this path to the environment variable \texttt{PYTHONPATH} (\emph{Environment Variables} in Windows and \texttt{.bashrc} or \texttt{.profile} in Linux/OSX). An example is shown in Listing~\ref{lst:profile}
+\end{enumerate}
+\begin{lstlisting}[caption={Example of a \texttt{.profile} file for Linux, adding a library directory to the Python path.}, label=lst:profile, language=sh]
+# ~/.profile
+export PYTHONPATH=$PYTHONPATH:/home/soren/pythonlibs
+\end{lstlisting}
 
 \section{Data Format}
 The trx files, from Satimo Passive Measurement, contain data formatted in four columns:

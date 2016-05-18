@@ -3,6 +3,8 @@
 The efficiency measurements are in general the most time consuming, and automating this process saves a lot of time. Unfortunately there is no public API or common interface to control the Satimo chamber. Therefor the only way to control the chamber is to automate the GUI (Graphical User Interface), which is done in Python.
 
 \subsection{Python Library}
+The procedure for installing this library is shown in Section~\ref{sec:pythoninstall}.
+
 The Python library is based around another library called pywinauto, which is for Windows GUI Automation. Basically it sends ``click'' and ``keystroke'' events to specific buttons and input fields programmatically. Another tool called SWAPY was used to find button and input field IDs. 
 
 Currently the created library only supports Satimo Passive measurements, and it is able to initiate a frequency sweep in a given frequency range and number of samples. The library detects when a sweep is done, and automatically exports the data in a \verb|TRX| file. The library also makes it easier to calibrate Satimo, such that the user only has to change the antenna and press \verb|Enter|, for each calibration antenna. Below is an example of calibrating, starting a sweep and exporting the data.  
