@@ -121,8 +121,6 @@ In this section, the final design with all above mentioned improvements will be 
     \label{fig:final_lassedouble}
 \end{figure}
 
-The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the top antenna, the tunable bandwidth in the low band (by \SI{960}{MHz}) is \SI{140}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band can be covered from \SI{1710}{MHz} to around \SI{2450}{MHz}. There is still a problem covering the band from \SI{2550}{MHz} to \SI{2650}{MHz} but all bands from \SI{700}{MHz} to \SI{2400}{MHz} can be covered. For the side antenna, the tunable bandwidth by \SI{960}{MHz} is \SI{70}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band covers from \SI{1710}{MHz} to \SI{1975}{MHz} and from \SI{2095}{MHz} to \SI{2275}{MHz}.
-
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -146,13 +144,28 @@ The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the t
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
-        \fixme{Insert measurements.}
+        \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/efficiency_top.pdf}
         \caption{Top antenna.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/efficiency_side.pdf}
         \caption{Side antenna.}
     \end{subfigure}
     \caption{Total efficiency of the final antenna design. The top antenna is swept from approximately \SI{0.6}{pF} to \SI{6}{pF} and the side antenna from approximately \SI{1.2}{pF} to \SI{12}{pF}. The tuners are tracking the first half of the sweep.}
     \label{fig:final_efficiency}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Henrik og Lasse: I skal under ingen omstændigheder kopiere teksten nedenfor.
+% Der går noget galt hvis I prøver! Skriv noget fra bunden i stedet!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the top antenna, the tunable bandwidth in the low band (by \SI{960}{MHz}) is \SI{140}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band can be covered from \SI{1710}{MHz} to around \SI{2450}{MHz}. There is still a problem covering the band from \SI{2550}{MHz} to \SI{2650}{MHz} but all bands from \SI{700}{MHz} to \SI{2400}{MHz} can be covered. For the side antenna, the tunable bandwidth by \SI{960}{MHz} is \SI{70}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band covers from \SI{1710}{MHz} to \SI{1975}{MHz} and from \SI{2095}{MHz} to \SI{2275}{MHz}.
+
+The measured efficiency is shown in Figure~\ref{fig:final_efficiency}. The top antenna is able to cover the low band at \SI{-4}{dB} efficiency and the high band at \SI{-3}{dB} from \SI{1710}{MHz} to \SI{2430}{MHz}. The side antenna is not as good and is only able to cover the low band at and efficiency between \SI{-10}{dB} to \SI{-4}{dB}. The high band has two resonances and is covered at \SI{-3}{dB} from \SI{1710}{MHz} to \SI{1960}{MHz} and from \SI{2130}{MHz} to \SI{2260}{MHz}. Both shown a problem covering the very highest bands above \SI{2550}{MHz}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
