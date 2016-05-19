@@ -10,6 +10,7 @@ for i in [1,2,3]:
     aauplot.figure(i)
 
 for fil in filelist:
+# for fil in [filelist[0]]:
     m = loadtxt(fil, skiprows=5).T
     f = m[0]
     s11 = 20*log10(m[1] + 1j*m[2])

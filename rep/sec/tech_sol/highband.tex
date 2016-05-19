@@ -1,4 +1,4 @@
-\section{High Band Improvement}
+\section{Modified Minimized Design}
 From the S-parameter measurements of both the triangle feed antenna and the minimized monopole antenna, it is clear that both antennas are experiencing problems in the high band when moved from simulation to the PCB with tuner.
 
 It has been chosen to elaborate on the minimized monopole antenna design and improve the high band. In order to do so, a second set of arms has been added to the antennas as shown in Figure~\ref{fig:sparam_5mm_highband}. As previous experience has shown that the simplified simulations will detune in practice, the matching components in Figure~\ref{fig:sparam_5mm_highband} have been chosen to resonate slightly higher than desired. 
@@ -162,12 +162,30 @@ In this section, the final design with all above mentioned improvements will be 
     \label{fig:final_efficiency}
 \end{figure}
 
+\begin{table}
+    \centering
+    \begin{tabular}{|l|l|r|r|r|}
+        \hline
+        Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+        \hline
+        Top & Low & 828 & 958 & 130 \\
+        Side & Low & 935 & 1010 & 75 \\
+        \hline
+        Top & High    & 1773 & 2414 & 641 \\
+        Side & High 1 & 1815 & 1980 & 165 \\
+        Side & High 2 & 2166 & 2262 &  96 \\
+        \hline
+    \end{tabular}
+    \caption{Maximum measured \SI{-6}{dB} impedance bandwidth of the final antenna design.}
+    \label{tab:final_bandwidths}
+\end{table}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Henrik og Lasse: I skal under ingen omstændigheder kopiere teksten nedenfor.
 % Der går noget galt hvis I prøver! Skriv noget fra bunden i stedet!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the top antenna, the tunable bandwidth in the low band (by \SI{960}{MHz}) is \SI{140}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band can be covered from \SI{1710}{MHz} to around \SI{2450}{MHz}. There is still a problem covering the band from \SI{2550}{MHz} to \SI{2650}{MHz} but all bands from \SI{700}{MHz} to \SI{2400}{MHz} can be covered. For the side antenna, the tunable bandwidth by \SI{960}{MHz} is \SI{70}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band covers from \SI{1710}{MHz} to \SI{1975}{MHz} and from \SI{2095}{MHz} to \SI{2275}{MHz}.
+The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the top antenna, the tunable bandwidth in the low band (by \SI{960}{MHz}) is \SI{130}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band can be covered from \SI{1710}{MHz} to around \SI{2450}{MHz}. There is still a problem covering the band from \SI{2550}{MHz} to \SI{2650}{MHz} but all bands from \SI{700}{MHz} to \SI{2400}{MHz} can be covered. For the side antenna, the tunable bandwidth by \SI{960}{MHz} is \SI{75}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band covers from \SI{1710}{MHz} to \SI{1975}{MHz} and from \SI{2095}{MHz} to \SI{2275}{MHz}. The impedance bandwidths are summarized in Table~\ref{tab:final_bandwidths}.
 
 The measured efficiency is shown in Figure~\ref{fig:final_efficiency}. The top antenna is able to cover the low band at \SI{-4}{dB} efficiency and the high band at \SI{-3}{dB} from \SI{1710}{MHz} to \SI{2430}{MHz}. The side antenna is not as good and is only able to cover the low band at and efficiency between \SI{-10}{dB} to \SI{-4}{dB}. The high band has two resonances and is covered at \SI{-3}{dB} from \SI{1710}{MHz} to \SI{1960}{MHz} and from \SI{2130}{MHz} to \SI{2260}{MHz}. Both shown a problem covering the very highest bands above \SI{2550}{MHz}.
 
