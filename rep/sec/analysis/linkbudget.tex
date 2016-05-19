@@ -1,0 +1,64 @@
+\subsection{Example LTE Link Budget}
+In this section, an example link budget is given to show what parts of the link is affected by the antenna design. The link shows the total path loss expected in a link. Using the path loss models from Section~\ref{sec:propmodels}, this path loss can be used to estimate the possible communication distance.
+
+The presented link budget is for typical values and is largely based on \cite{holma2011lte}. The maximum path loss is computed as
+\begin{equation}
+    \label{eq:linkbudget}
+    \begin{aligned}
+        \text{max path loss} &= \text{power} + \text{gains}\\
+        &- \text{SNR requirement} - \text{noise} - \text{losses} - \text{margin}
+    \end{aligned}
+\end{equation}
+where all quantities are given in dB. 
+
+The values for the link budget are shown in Table~\ref{tab:linkbudget}. The entries dependent on the antenna design are described below.
+
+\paragraph{TX Antenna Gain} The antenna gain is defined as the product of the directivity and the total efficiency of an antenna \cite{balanis2012antenna}. However, for a MIMO system, the multiplexing efficiency is a better metric than total efficiency as it also takes the correlation between antennas into account (see Section~\ref{sec:muxefficiency}). The antenna gains for the link budget are then found by summing the individual directivities and the multiplexing efficiency.
+
+\paragraph{Body Loss} The body loss is caused partially by the user blocking the radiation pattern of the antennas and partially by the user detuning the antennas. The detuning may be helped using a digital tuner to retune the antenna in the presence of a user.
+
+\def\MARK{$^{\dagger}$\xspace}
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|r|r|}
+        \hline
+        \textbf{Power}         &                     &        &     \\
+        Maximum TX power       & \cite{holma2011lte} & 23     & dBm \\
+        \hline
+        %
+        \textbf{Antenna gains} &                     &        &     \\
+        TX antenna gain        & \MARK               & 0      & dBi \\
+        RX antenna gain        & \cite{holma2011lte} & 18     & dBi \\
+        \hline
+        %
+        \textbf{SNR}           &                     &        &     \\
+        SNR requirement        & \cite{holma2011lte} & $-7$   & dB  \\
+        \hline
+        %
+        \textbf{Noise}         &                     &        &     \\
+        eNode B noise figure   & \cite{holma2011lte} & 2      & dB  \\
+        Thermal noise          & \cite{holma2011lte} & $-119$ & dBm \\
+        \hline
+        %
+        \textbf{Losses}        &                     &        &     \\
+        Body loss              & \MARK               & 0      & dB  \\
+        Cable loss             & \cite{holma2011lte} & 2      & dB  \\
+        \hline
+        %
+        \textbf{Margins}       &                     &        &     \\
+        Interference margin    & \cite{holma2011lte} & 2      & dB  \\
+        \hline
+        %
+        \textbf{Maximum path loss (Equation~\ref{eq:linkbudget})} & & 161    & dB  \\
+        \hline
+    \end{tabular}
+    \caption{Example uplink link budget for LTE. \MARK{}Dependent on/may be improved by the antenna design.}
+    \label{tab:linkbudget}
+\end{table}
+
+It is desired to have as low a maximum path loss as possible. The antennas developed in the report will therefore aim to fulfill the following criteria:
+\begin{itemize}
+    \item Increase the antenna gains by increasing the total efficiency.
+    \item Increase the effective antenna gain (multiplexing efficiency or diversity gain) by lowering the farfield correlation between the two antennas.
+    \item Lower the effect of body loss by using a digitally tunable capacitor to re-tune the antenna in the presence of a user.
+\end{itemize}

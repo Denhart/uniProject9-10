@@ -39,7 +39,7 @@ These different regions are illustrated on Figure~\ref{fig:field-regions}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[scale=1]{img/analysis/radiationfields}
-  \caption{Visualization of different fields\cite{balanis2012antenna}}
+  \caption{Visualization of different fields \cite{balanis2012antenna}.}
   \label{fig:field-regions}
 \end{figure}
 
@@ -218,6 +218,7 @@ In this case it is assumed that there is no impedance or polarization mismatch. 
 
 
 \section{Basic Propargation Models}
+\label{sec:propmodels}
 This section will describe some simple propagation models and terms, that can be used to establish a rough estimate of the losses from propagation, which can be used in link budgets. The simplest propagation model is the Free space path loss, which is given in Equation~\ref{eq:fspl}.
 
 The free-space path loss is however not very realistic, since it does not take trees, buildings etc. into account\cite{balanis2012antenna}. There are however a myriad of empirical models, which are based on actual measurements. The drawback is however that these empirical models tend not to be general and a given model might not be suited for two different cities. This results in that empirical models often are grouped into three main branches, foliage, terrain and city models\cite{goldsmith2005wireless}. For foliage areas models such as the Weissbergers model and the ITU Vegetation model can be used\cite{goldsmith2005wireless}. For terrain areas, models such as the Egli or Longley-Rice model are used\cite{goldsmith2005wireless}. To model the path loss in cities, the Young, Okumura, Hata or the COST 231 models can be used\cite{goldsmith2005wireless}. It should be noted that some of these models are not usable in upper LTE frequency range, and thus care should be taken when applying these models. 
