@@ -25,7 +25,7 @@ calfiles = [
         ]
 
 f_tot,P_tot = satimo.totalpower_table(calfiles, reffiles)
-avg = 1
+avg = 25
 aauplot.figure()
 
 # TOP ANTENNA ##################################################################
@@ -35,13 +35,13 @@ f_L,eff_L = satimo.efficiency("satimo/antenna/wonder_top_horiz_0_0-LB.trx", f_to
 f_H,eff_H = satimo.efficiency("satimo/antenna/wonder_top_horiz_0_0-HB.trx", f_tot=f_tot, P_tot=P_tot)
 f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
 eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
-aauplot.efficiency(f,eff, '-b', label="$+$ RFFE")
+aauplot.efficiency(f,eff, '-b', label="Top $+$ RFFE")
 
 f_L,eff_L = satimo.efficiency("satimo/antenna/wonder-top-noOptical--LB-H.trx", f_tot=f_tot, P_tot=P_tot)
 f_H,eff_H = satimo.efficiency("satimo/antenna/wonder-top-noOptical--HB-H.trx", f_tot=f_tot, P_tot=P_tot)
 f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
 eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
-aauplot.efficiency(f,eff, '--c', label="$-$ RFFE")
+aauplot.efficiency(f,eff, '--c', label="Top $-$ RFFE")
 
 # SIDE ANTENNA #################################################################
 print("Processing side antenna...")
@@ -50,13 +50,13 @@ f_L,eff_L = satimo.efficiency("satimo/antenna/wonder_side_horiz_0_0_0_0-LB.trx",
 f_H,eff_H = satimo.efficiency("satimo/antenna/wonder_side_horiz_0_0_0_0-HB.trx", f_tot=f_tot, P_tot=P_tot)
 f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
 eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
-aauplot.efficiency(f,eff, '-g', label="$+$ RFFE")
+aauplot.efficiency(f,eff, '-g', label="Side $+$ RFFE")
 
 f_L,eff_L = satimo.efficiency("satimo/antenna/wonder-side-noOptical--LB-H.trx", f_tot=f_tot, P_tot=P_tot)
 f_H,eff_H = satimo.efficiency("satimo/antenna/wonder-side-noOptical--HB-H.trx", f_tot=f_tot, P_tot=P_tot)
 f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
 eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
-aauplot.efficiency(f,eff, '--y', label="$-$ RFFE")
+aauplot.efficiency(f,eff, '--y', label="Side $-$ RFFE")
 
 aauplot.end_efficiency(loc=8, ncol=2);
 savefig("efficiency.pdf")
