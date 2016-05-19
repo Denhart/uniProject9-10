@@ -30,10 +30,10 @@ avg = 80
 # TOP ANTENNA ##################################################################
 aauplot.figure()
 for x in [
-        #["lasse-LB-Top-H.trx", "lasse-HB-Top-H.trx", "Top H"],
-        ["lasse-LB-Top-V.trx", "lasse-HB-Top-V.trx", "Top V"],
-        #["lasse-LB-Side-H.trx", "lasse-HB-Side-H.trx", "Side H"],
-        ["lasse-LB-Side-V.trx", "lasse-HB-Side-V.trx", "Side V"],
+        #["lasse-LB-Top-H.trx", "lasse-HB-Top-H.trx", "Top V"],
+        ["lasse_top_horiz_0_0-LB.trx", "lasse_top_horiz_0_0-HB.trx", "Top H"],
+        #["lasse-LB-Side-H.trx", "lasse-HB-Side-H.trx", "Side V"],
+        ["lasse_side_horiz_0_0_0_0-LB.trx", "lasse_side_horiz_0_0_0_0-HB.trx", "Side H"],
         ]:
 
     f_L,eff_L = satimo.efficiency(datadir + x[0], f_tot=f_tot, P_tot=P_tot)
