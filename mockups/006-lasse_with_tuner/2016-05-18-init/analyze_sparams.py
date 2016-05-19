@@ -2,24 +2,33 @@ from numpy import *
 from matplotlib.pyplot import *
 import aauplot
 
-# Top antenna = S22
-# Side antenna = S11
-f,S22,S22_,S11,S21 = loadtxt("sparams/lasse_03_03.csv", skiprows=3).T
-
 aauplot.figure()
-aauplot.sparam(f,S11,label="S11 meas")
-aauplot.sparam(f,S22,label="S22 meas")
-aauplot.sparam(f,S21,label="S21 meas")
 
-m = loadtxt("sim/s11.txt", skiprows=2).T
-aauplot.sparam(m[0], m[1], "--b", label="S11 sim")
-m = loadtxt("sim/s22.txt", skiprows=2).T
-aauplot.sparam(m[0], m[1], "--g", label="S22 sim")
-m = loadtxt("sim/s21.txt", skiprows=2).T
-aauplot.sparam(m[0], m[1], "--r", label="S21 sim")
+# Measurement
+m = loadtxt("meas/lasse_0_0_0_0.s2p", skiprows=5).T
+f = m[0]
+S11 = m[1] + 1j*m[2]
+S21 = m[3] + 1j*m[4]
+S12 = m[5] + 1j*m[6]
+S22 = m[7] + 1j*m[8]
 
+aauplot.sparam(f, 20*log10(abs(S11)), "-b", label="S11 meas")
+aauplot.sparam(f, 20*log10(abs(S21)), "-g", label="S21 meas")
+aauplot.sparam(f, 20*log10(abs(S22)), "-r", label="S22 meas")
 
-aauplot.end_sparam(ncol=2, loc=8)
+# Simulation
+fS11,S11s = loadtxt("sim/S11", skiprows=2).T
+fS21,S21s = loadtxt("sim/S21", skiprows=2).T
+fS12,S12s = loadtxt("sim/S12", skiprows=2).T
+fS22,S22s = loadtxt("sim/S22", skiprows=2).T
+
+aauplot.sparam(fS11,S11s, "--b", label="S11 sim")
+aauplot.sparam(fS21,S21s, "--g", label="S21 sim")
+aauplot.sparam(fS22,S22s, "--r", label="S22 sim")
+
+xlim(500, 3000)
+aauplot.end_sparam(loc=8, ncol=2)
 
 savefig("sparams.pdf")
 show()
+
