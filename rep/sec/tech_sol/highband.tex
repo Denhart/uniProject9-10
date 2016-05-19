@@ -4,14 +4,14 @@ From the S-parameter measurements of both the triangle feed antenna and the mini
 It has been chosen to elaborate on the minimized monopole antenna design and improve the high band. In order to do so, a second set of arms has been added to the antennas as shown in Figure~\ref{fig:sparam_5mm_highband}. As previous experience has shown that the simplified simulations will detune in practice, the matching components in Figure~\ref{fig:sparam_5mm_highband} have been chosen to resonate slightly higher than desired. 
 
 \begin{figure}[htbp]
-    \begin{subfigure}[b]{0.49\linewidth}
+    \begin{subfigure}[t]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/highband/3d_drawing}
         \caption{Technical drawing.}
         \label{fig:ant1technical_highband}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.49\linewidth}
+    \begin{subfigure}[t]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/schematic_tuning_1}\\[1cm]
 \footnotesize
@@ -32,6 +32,9 @@ It has been chosen to elaborate on the minimized monopole antenna design and imp
 
 \FloatBarrier
 \subsection{Simulation}
+\label{sec:highbandsimulations}
+
+\fixme{Finish this section}
 
 The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB.
 
@@ -69,6 +72,9 @@ The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has bee
 
 \FloatBarrier
 \subsection{Measurements}
+The antennas just simulated have been built and soldered onto the PCB described in the introduction. The component values for the matching network are shown in Figure~\ref{fig:mono_matching_modi_meas}. The measured S-parameters are shown in Figure~\ref{fig:sparam_mono_modi_meas}. When compared to the simulations in Section~\ref{sec:highbandsimulations}, it is seen that the antenna is indeed detunes as expected. However, the bandwidth is severely reduced and, even with different values for the matching network, the desired bandwidth at \SI{6}{dB} return loss could not be obtained.
+
+In order to obtain better results, the transmission lines one the board has been modified for the final design and measurement. This will be described in the next section.
 
 \begin{figure}[htbp]
         \centering
@@ -168,4 +174,4 @@ The measured efficiency is shown in Figure~\ref{fig:final_efficiency}. The top a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+From the measurements it is seen that the top antenna is performs well in all bands except the bands from \SI{2550}{MHz} to \SI{2650}{MHz}. The side antenna does not perform quite as good but is piecewise acceptable -- especially in the high bands.
