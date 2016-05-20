@@ -1,0 +1,29 @@
+\section{Conclusion}
+The three preliminary antenna designs have now been prototyped and measured for a range of discrete tuning capacitor values. As expected, the results from the simplified simulations did not exactly match the prototypes, but the general resonances of the three designs were distinguishable.
+
+All designs did retune as the discrete shunt capacitor was changed, except for the non-resonant side antenna. The matching network only made it possible to match the antenna well, but no capacitors could be altered which would retune the antenna. Apart from this, this antenna did obtain a quite acceptable bandwidth in the high band and the high end of the low band.
+
+The correlation has been computed but the positioning of the antennas in the Satimo chamber did not allow for all antennas to be located in exactly the same position for the top and side measurements so these results should not be trusted. An exception to this is the monopole for which a styrofoam jig was set up, allowing the positioning to be quite accurate. It is seen that the measured correlation for this antenna coincides well with the simulated. For the other two antennas, the correlation from the simulation should be trusted more than the measured.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|}
+        \hline
+        & \multicolumn{2}{c|}{Top} & \multicolumn{2}{c|}{Side} \\
+        \hline
+        & L & H & L & H \\
+        \hline
+        Monopole & $-2.5$ & $-0.2$ & $-2.0$ & $-1.0$ \\
+        Triangle-feed & $-1.5$ & $-0.5$ & $-1.5$ & $-0.5$ \\
+        Non-resonant & $-0.2$ & $-0.5$ & $-3.5$ & $-0.2$ \\
+        \hline
+    \end{tabular}
+    \caption{Peak efficiency (dB) in the low/high band for the prototypes of the three preliminary designs.}
+    \label{tab:peakefficiencyproto}
+\end{table}
+
+The peak efficiencies of the three prototypes are summarized in Table~\ref{tab:peakefficiencyproto}. It is clear that the non-resonant design peaked very well with its top antenna. However, this antenna did not cover the whole high band and the side antenna was not tunable. Therefore, this design has not been chosen for later implementation on a PCB.
+
+Both the monopole and the triangle-feed design were also quite efficient both in the low and the high band. The triangle-feed design, however, did preserve a higher efficiency during the sweep and had a higher minimum efficiency than the monopole did. For this reason, the triangle-feed design has been chosen as the first design to implement with the PCB in Chapter~\ref{cha:pcb}.
+
+All the three preliminary designs have been designed to use up all the given space from the requirements in Chapter~\ref{cha:reqspec} and therefore have a ground clearance of \SI{10}{mm} each. However, as the actual space in a mobile phone is limited, it may be desirable to go for less ground clearance. The next chapter will describe the design of an antenna with a smaller ground clearance. Here it will be shown how the ground clearance affects the bandwidth of the antenna and another design for the PCB will be initiated.

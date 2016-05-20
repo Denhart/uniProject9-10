@@ -11,7 +11,7 @@ The prototype is shown in Figure~\ref{fig:triang_proto}. Compared to the simulat
     \label{fig:triang_proto}
 \end{figure}
 
-\subsection{Measurement and Simulation Comparison}
+\subsection{Measurements}
 The measured and simulated S-parameters and total efficiency is shown in Figure~\ref{fig:triang_proto_sparam_eff}. The component values used in the measurement are shown in Figure~\ref{fig:triang_proto_matching}. From the S-parameters it is seen that, in general, the resonances of the measurement correspond well with the resonances of the simulation -- especially for the top antenna. The levels of the return loss peaks are not the same but the antenna is nearly compliant with the impedance bandwidth requirement at \SI{5}{dB} return loss. The isolation is better than the simulated, peaking at around \SI{-8}{dB}. The efficiency is generally slightly lower than the simulated. This is to be expected as real-life matching components are lossy due to their Equivalent Series Resistance (ESR). It is seen that the efficiency bandwidth of the side antenna in the low band is greater than the simulation. This is due to the more wide-band matching seen in the corresponding S-parameters, S22, in the low band. Generally, the efficiency peaks correspond well with the return loss peaks and is quite good, peaking at above \SI{-3}{dB} in both the high and the low band.
 
 The highest achievable bandwidth for both antennas, can be seen in Table \ref{tab:bw_sol2_proto}. From the table it is seen, that both antennas covers the required bandwidth quite well except for the top antenna. The top antenna is experiencing some problems in the high band, as it only covers \SI{500}{MHz}. This however does not seem like a big problem, as the bandwidth taken at \SI{-5}{dB} covers approximately \SI{1000}{MHz}.
@@ -77,7 +77,7 @@ In addition to the S-parameters and the total efficiency, the envelope correlati
     \label{fig:triang_proto_ecc}
 \end{figure}
 
-\subsection{Capacitor Sweep}
+% \subsection{Capacitor Sweep}
 The shunt capacitor for each antenna has been swept to see the tuning ranges of the antennas. The S-parameters are shown in Figure~\ref{fig:triang_proto_sweep_sparams}. The efficiency-sweeps are shown in Figure~\ref{fig:triang_proto_sweep_efficiency}. All component values, except the shunt capacitors, are the same values as in Figure~\ref{fig:triang_proto_matching}.
 
 From the S-parameters, it is seen that both the high and the low band for both antennas are covered at a return loss greater than \SI{5}{dB} for the low capacitance settings. Both antennas can be tuned down using the shunt capacitor to cover the lower part of the low band.
