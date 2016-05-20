@@ -74,24 +74,26 @@ In this section the modified monopole antenna will be simulated in pratice use w
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.24\linewidth}
-        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/data_mode/3d_data_mode.PNG}
+        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/highband/ue/datamode/3d_datamode.PNG}
         \caption{Data mode.}
     \end{subfigure}
     \begin{subfigure}[b]{0.24\linewidth}
-        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/play_mode/3d_play_mode.PNG}
+        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/highband/ue/playplay/3d_playmode.PNG}
         \caption{Play mode.}
     \end{subfigure}
     \begin{subfigure}[b]{0.24\linewidth}
-        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/talk_mode/3d_talk_mode.PNG}
+        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/highband/ue/talkmode/3d_talkmode.PNG}
         \caption{Talk mode.}
     \end{subfigure}
     \begin{subfigure}[b]{0.24\linewidth}
-        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/sar/3d_sar.PNG}
+        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/highband/ue/sar/3d_sar.PNG}
         \caption{SAR.}
     \end{subfigure}
     \caption{MIMO monopole antenna position for each user effect simulation.}
     \label{fig:position_mono_modi}
 \end{figure}
+
+\fixme{S-parameter plot and bandwidth table for all positions.}
 \FloatBarrier
 \subsubsection{Data Mode}
 %S-Parameters
@@ -307,7 +309,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}.
 
 \FloatBarrier
 \subsubsection{SAR}
-The SAR simulation results can be seen in Figure \ref{fig:sar_mono_modi}. As seen from the figure the sar values for both the top and the side antenna fulfills the requirement.
+The SAR simulation results can be seen in Figure \ref{fig:sar_mono_modi}. As seen from the figure the sar values for both the top and the side antenna fulfills the requirement. The top antenna has the highest SAR value of \SI{1.5}{W\per kg} in the high band and the side antenna has a maximum SAR value of \SI{0.6}{W\per kg} in the high band. 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/monopole/highband/ue/sar/sar.pdf}
