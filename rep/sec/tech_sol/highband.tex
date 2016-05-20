@@ -71,6 +71,207 @@ The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has bee
 \subsection{User Effect Simulations}
 
 \FloatBarrier
+\subsubsection{Data Mode}
+
+%S-Parameter
+\begin{figure}[htbp]
+   \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/s11.pdf}
+        \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/s22.pdf}
+        \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+~
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/s12.pdf}
+        \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/s21.pdf}
+        \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{S-parameter sweep in data mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \label{fig:sparam_mono_modi_data_mode}
+\end{figure}
+
+%Correlation
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/corr_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/corr_top.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Monopole antenna in data mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_mono_modi_data_mode}
+\end{figure}
+ \fixme{replace top with side correlation}
+
+%Efficiency
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/eff_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/eff_top.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Monopole antenna in data mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_mono_modi_data_mode}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Play Mode}
+
+  \begin{figure}[htbp]
+    \begin{subfigure}[b]{0.49\linewidth}
+      \centering
+      \includegraphics{img/tech_sol/monopole/highband/ue/playmode/s11.pdf}
+      \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/s22.pdf}
+        \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+~
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/s12.pdf}
+        \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/s21.pdf}
+        \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{S-parameter sweep in play mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \label{fig:sparam_mono_modi_play_mode}
+\end{figure}
+
+% Correlation
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/corr_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/corr_top.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Monopole antenna in play mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_mono_modi_play_mode}
+\end{figure}
+
+%Efficiency
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/eff_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/eff_side.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Monopole antenna in play mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_mono_modi_play_mode}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Talk Mode}
+
+\begin{figure}[htbp]
+   \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/s11.pdf}
+        \caption{$S_{11}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/s22.pdf}
+        \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+~
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/s12.pdf}
+        \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/s21.pdf}
+        \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \caption{S-parameter sweep in talk mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \label{fig:sparam_mono_modi_talk_mode}
+\end{figure}
+
+% Correlation
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/corr_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/corr_side.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Monopole antenna in talk mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_mono_modi_talk_mode}
+\end{figure}
+
+%Efficiency
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/eff_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/eff_side.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Monopole antenna in talk mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_mono_modi_talk_mode}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{SAR}
+The SAR simulation results can be seen in Figure \ref{fig:sar_mono_modi}. As seen from the figure the sar values for both the top and the side antenna fulfills the requirement.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/tech_sol/monopole/highband/ue/sar/sar.pdf}
+    \caption{SAR simulation of the monopole antenna.\fixme{new sar plot with screen}}
+    \label{fig:sar_mono_modi}
+\end{figure}
+
+\FloatBarrier
 \subsection{Measurements}
 The antennas just simulated have been built and soldered onto the PCB described in the introduction. The component values for the matching network are shown in Figure~\ref{fig:mono_matching_modi_meas}. The measured S-parameters are shown in Figure~\ref{fig:sparam_mono_modi_meas}. When compared to the simulations in Section~\ref{sec:highbandsimulations}, it is seen that the antenna is indeed detunes as expected. However, the bandwidth is severely reduced and, even with different values for the matching network, the desired bandwidth at \SI{6}{dB} return loss could not be obtained.
 
