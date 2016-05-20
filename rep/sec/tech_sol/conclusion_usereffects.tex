@@ -1,0 +1,30 @@
+\section{Conclusion}
+The three preliminary designs have now been simulated in use cases where a user is present. All three designs appear to meet the requirements for specific absorption rate.
+
+It is very clear from the simulations that the user has the effect of detuning the resonances of all antennas. The talk mode had the most severe effect on the antennas where the data and play modes were slightly more subtle.
+
+The peak efficiencies are summarized in Table~\ref{tab:peakefficiencycomp}. Overall, the largest impact seems to be on the folded monopole antenna -- especially in the low band. Both the triangle-feed antenna and the non-resonant design seem to hold up quite a bit better in data mode and play mode.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|r|r|}
+        \hline
+        Design             & \multicolumn{2}{c|}{Data mode}   & \multicolumn{2}{c|}{Play mode}   & \multicolumn{2}{c|}{Talk mode} \\
+        \hline
+         & L & H & L & H & L & H \\
+        \hline
+        Monopole top       & $-5.5$ & $-2.5$ & $-7.0 $  & $-4.5$ & $-11.0  $ & $-8.0$ \\
+        Monopole side      & $-9.5$ & $-1.5$ & $-13.0 $ & $-4.0$ & $-11.0  $ & $-6.0$ \\
+        \hline
+        Triangle-feed top  & $-5.0$ & $-3.0$ & $-3.0  $ & $-5.5$ & $-8.5 $   & $-5.0$ \\
+        Triangle-feed side & $-4.5$ & $-3.0$ & $-4.5$   & $-3.5$ & $-11.5$   & $-7.5$ \\
+        \hline
+        Non-resonant top   & $-4.5$ & $-3.0$ & $-3.0  $ & $-4.5$ & $-8.5 $   & $-5.5$ \\
+        Non-resonant side  & $-5.0$ & $-1.5$ & $-3.0 $  & $-2.5$ & $-12.0  $ & $-6.5$ \\
+        \hline
+    \end{tabular}
+    \caption{Peak efficiency (dB) in the low/high band for the three preliminary designs in different use cases (rounded to \SI{0.5}{dB}).}
+    \label{tab:peakefficiencycomp}
+\end{table}
+
+Now all simulations of the preliminary designs have been finished. The simulations have been simplified compared to how the antennas would be built in real life (no transmission lines, no component losses, no component placement). In order to really verify the designs, the next step is therefore to prototype the designs on copper clad boards with discrete components.
