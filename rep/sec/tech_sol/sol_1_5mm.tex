@@ -28,7 +28,7 @@ The minimized monopole design and the tuning schematic can be seen on Figure \re
 \end{figure}
 
 \FloatBarrier
-\section{Ground clearance Simulation}
+\section{Ground Clearance Simulation}
 The ground clearance S11 and efficiency simulation can be seen in Figure \ref{fig:eff_s11_mono_sim_5mm}.
 The simulation sweep is done from \SI{10}{mm} to \SI{3}{mm} ground clearance in \SI{1}{mm} steps and only for the top antenna. Each ground clearance simulation is matched and tuned to get the highest bandwidth possible.
 
@@ -229,4 +229,9 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_mini_meas}. The top
 \end{figure}
 
 
+\section{Conclusion}
+It is found, as expected, that a larger ground clearance makes it possible to get a larger bandwidth. However, it was found that even with only \SI{5}{mm} ground clearance, a decent design could be made for a digitally tunable antenna.
 
+A very simple antenna has been designed, simulated, and measured on a PCB with a MEMS tuner on it. It appears to be on a par with the preliminary design during the simulation phase. However, the measurement results showed a significant detuning and drop in efficiency and return loss when the PCB with a MEMS tuner was used. Especially, the high band was hard to get resonating on the board. The design will therefore be modified to resonate better at high frequencies before it is used for the final measurements.
+
+The next chapter will first describe the implementation of the triangle-feed antenna with the PCB and MEMS tuner as well. The design from this chapter will, at the same time, be revised to cover the high band better. The development, simulations, measurements, and refinements of this antenna will also be covered in the following.
