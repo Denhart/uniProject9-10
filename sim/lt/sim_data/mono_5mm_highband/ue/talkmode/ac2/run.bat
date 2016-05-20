@@ -1,0 +1,1 @@
+plotefficiency 1.2.txt 1.5.txt 1.8.txt 2.1.txt 2.4.txt 2.7.txt 3.3.txt 3.6.txt 3.9.txt 3.txt 4.2.txt 4.5.txt 4.8.txt 5.1.txt 5.4.txt 5.7.txt 6.txt 7.2.txt 7.5.txt 7.8.txt 8.1.txt 8.4.txt 8.7.txt 9.3.txt 9.6.txt 9.txt 10.2.txt 10.5.txt 10.8.txt 11.1.txt 11.4.txt 11.7.txt 12.txt -o efficiency-ac1-csh1.pdf
