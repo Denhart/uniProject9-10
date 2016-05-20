@@ -28,7 +28,7 @@ The minimized monopole design and the tuning schematic can be seen on Figure \re
 \end{figure}
 
 \FloatBarrier
-\section{Ground Clearance Simulation}
+\section{Ground clearance Simulation}
 The ground clearance S11 and efficiency simulation can be seen in Figure \ref{fig:eff_s11_mono_sim_5mm}.
 The simulation sweep is done from \SI{10}{mm} to \SI{3}{mm} ground clearance in \SI{1}{mm} steps and only for the top antenna. Each ground clearance simulation is matched and tuned to get the highest bandwidth possible.
 
@@ -75,8 +75,8 @@ The tuned efficiency for both antennas can be seen in Figure \ref{fig:eff_sol1_6
     Top     & Low  & 882         & 963       & 81 \\
     Side    & Low  & 943         & 1108        & 165 \\
     \hline
-    Top     & High & 1900        & 2570       & 670 \\
-    Side    & High &         & 2671       & 849 \\
+    Top     & High & 1906        & 2570       & 644 \\
+    Side    & High & 1822        & 2671       & 849 \\
     \hline
   \end{tabular}
   \caption{Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
@@ -130,8 +130,8 @@ The tuned efficiency for both antennas can be seen in Figure \ref{fig:eff_sol1_6
 
 \FloatBarrier
 \section{Measurements}
-\fixme{Write about measurements}
-A comparison between the simulated and measured S-parameters and effieiencies can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The component values used in the measurements can be seen in Table \ref{fig:matching_mono_mini_meas}.  
+A comparison between the simulated and measured S-parameters and effieiencies can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The component values used in the measurements can be seen in Table \ref{fig:matching_mono_mini_meas}. From the S-parameter it is seen that both antennas are de-tuned and have poor performance from \SI{2000}{MHz} to \SI{3000}{MHz}. The Maximum bandwidth from the measurements can be seen in Table \ref{tab:bw_mono_mini_meas}. Both antennas covers the bandwidth requirements in the low band but experiences some problems in the high band. The top antenna and the side antenna are \SI{500}{MHz} and \SI{620}{MHz}, respectively. 
+The efficiency is also quite low as a result of the poor coverage of the high band. 
 
 \begin{figure}[htbp]
         \centering
@@ -174,16 +174,21 @@ A comparison between the simulated and measured S-parameters and effieiencies ca
     \hline
     Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
     \hline
-    Top     & Low  & 882         & 963       & 81 \\
-    Side    & Low  & 943         & 1108        & 165 \\
+    Top     & Low  & 920         & 1100       & 180 \\
+    Side    & Low  & 1000        & 1080        & 80 \\
     \hline
-    Top     & High & 1945        & 2589       & 644 \\
-    Side    & High & 1842        & 2671       & 849 \\
+    Top     & High & 1800        & 2020       & 220 \\
+    Side    & High & 1710        & 1810       & 100 \\
     \hline
   \end{tabular}
   \caption{Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
   \label{tab:bw_mono_mini_meas}
 \end{table}
+
+The S-parameter sweep for both the top and the side antenna can be seen in Figure \ref{fig:sparam_mono_mini_meas}. From the S11 and S22 sweeps it is seen that sweeping the capacitors does not improve the high band coverage. However, it is possible to cover the low band quite well but the high band needs some improvements for both antennas.  
+The maximum isolation loss is measured in the low band at \SI{-13}{dB}. 
+
+The efficiency sweep can be seen in Figure \ref{fig:eff_mono_mini_meas}. The top antenna almost covers the entire low band with an efficiency of \SI{50}{\percent} but as expected it experiences poor performance from \SI{2000}{MHz} to \SI{2650}{MHz}. The side antenna covers the low band with an efficiency going from \SI{15}{\percent} to \SI{37}{\percent} and has an efficiency above \SI{50}{\percent} from \SI{1710}{MHz} to \SI{1850}{MHz} where it drops below \SI{13}{\percent}.
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -198,16 +203,11 @@ A comparison between the simulated and measured S-parameters and effieiencies ca
         \caption{$S_{22}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
 ~
+\center
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/5mm/meas/S21.pdf}
         \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\linewidth}
-        \centering
-        \includegraphics{img/tech_sol/monopole/5mm/meas/S21.pdf}
-        \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
     \caption{S-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_mini_meas}
