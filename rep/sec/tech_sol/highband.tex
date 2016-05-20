@@ -67,6 +67,37 @@ The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has bee
     \label{fig:sparam_mono_modi_sim}
 \end{figure}
 
+% Correlation
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+      \includegraphics{img/tech_sol/monopole/highband/sim/corr_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/sim/corr_side.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:corr_mono_modi_sim_free}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/sim/eff_top.pdf}
+        \caption{Sweeping $C_1$ and fixing $C_2$.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics{img/tech_sol/monopole/highband/sim/eff_side.pdf}
+        \caption{Sweeping $C_2$ and fixing $C_1$.}
+    \end{subfigure}
+    \caption{Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \label{fig:eff_mono_modi_sim_free}
+\end{figure}
+
 \FloatBarrier
 \subsection{User Effect Simulations}
 In this section the modified monopole antenna will be simulated in pratice use with an user. The antenna position for each simulation is shown in Figure \ref{fig:position_mono_modi}.
@@ -78,7 +109,7 @@ In this section the modified monopole antenna will be simulated in pratice use w
         \caption{Data mode.}
     \end{subfigure}
     \begin{subfigure}[b]{0.24\linewidth}
-        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/highband/ue/playplay/3d_playmode.PNG}
+        \centering \includegraphics[width=\linewidth,height=4cm,keepaspectratio]{img/tech_sol/monopole/highband/ue/playmode/3d_playmode.PNG}
         \caption{Play mode.}
     \end{subfigure}
     \begin{subfigure}[b]{0.24\linewidth}
