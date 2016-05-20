@@ -22,24 +22,171 @@ Spatial multiplexing can be used in scatter rich channels, where each received s
 The array gain is the result of coherent combining of the wireless signals at the receiver, which results in an increase in the receive SNR. The array gain is improved by the number of antenna elements until a certain saturation point. This gain improves the resistance to noise and thus also the coverage. \cite{Tim2012Practical} 
   
 \subsubsection{Interference Gain}
-By using MIMO, the interference from different users and base-stations can be avoided by exploiting extra spatial degrees of freedom, such as array gain. Furthermore, beam-steering could be implemented such that the signal could be directed towards the designated receiver. Obviously, all of the above can not be used at the same time, however using a combination  allows for improved coverage, capacity, and reliability. \cite{Tim2012Practical}
- 
+By using MIMO, the interference from different users and base-stations can be avoided by exploiting extra spatial degrees of freedom, such as array gain. Furthermore, beam-steering could be implemented such that the signal could be directed towards the designated receiver. Obviously, all of the above can not be used at the same time, however using a combination  allows for improved coverage, capacity, and reliability. \cite{Tim2012Practical} 
 
 \subsection{Channel Capacity}
-The capacity of a channel is the maximal transmission rate for which a reliable communication can be achieved \cite{Tim2012Practical}.
-
-Simple AWGN channel:
 \def\snr{\text{SNR}_{\text{AWGN}}}
 \def\PP{\overline{P}}
 \def\CC{C_{\text{AWGN}}}
+
+The capacity of a channel is the maximal transmission rate for which a reliable communication can be achieved, and if the transmission rate exceeds this the system breaks down \cite{Tim2012Practical}. The channel capacity is one of the primary performance measures to characterize the performance of MIMO systems\cite{Tim2012Practical}. This section will focus on the capacity for time-invariant SISO, SIMO, MISO and MIMO channels. The main assumptions for the time-invariant channel is the following\cite{Tim2012Practical}: 
+\begin{itemize}
+\item The channel is time-invariant.
+\item A codeword spans over an asymptotic long data block, which averages out the noise.
+\item Channel state information is available at both the transmitter and receiver. 
+\end{itemize}
+
+\subsubsection{Time-Invariant SISO Channel}
+For a simple SISO channel, as illustrated on Figure~\ref{fig:sisoModel}, is given by the input-output relation:
 \begin{align*}
-    \trace(R_{xx}) &\leq \PP \qquad \text{Maximum TX rate, $\trace(R_{xx})=\PP$}\\
-    \snr &= \frac{\PP |h|^2}{\sigma_n^2} \\
-    \CC &= \log_2 \left( 1 + \snr \right)
+  y(k) = h x(k) + n(k)
 \end{align*}
 
-\fixme{Søren: Finish this section.}
+Here $h$ describes the channel, which is time \emph{independent}. The signal power is $\PP |h|^2$, which is the power in $h x(k)$ and the noise power of $n(k)$ is $\sigma_n^2$. Thus the SNR is given by the ratio
 
+\begin{align*}
+  \snr = \frac{\PP |h|^2}{\sigma_n^2}
+\end{align*}
+
+This yields a channel capacity of 
+
+\begin{align*}
+      \CC &= \log_2 \left( 1 + \snr \right)
+\end{align*}
+
+It is easily seen that the SNR is an important factor for the AWGN channel capacity.
+
+\begin{figure}[hbp]
+  \centering
+  \includegraphics[scale=1.2]{img/analysis/sisoModel}
+  \caption{The time-invariant SISO channel}
+  \label{fig:sisoModel}
+\end{figure}
+
+
+\subsubsection{Time-Invariant SIMO Channel}
+The channel capacity for a SIMO system, where a symbol $x(k)$ is sent from a single antenna and received at $M_R$ antennas, as shown on Figure~\ref{fig:simoModel}. In a SIMO system, the signal is coherently combined at the receiver, when including this post-processing the system transforms into an equivalent SISO channel. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=1.2]{img/analysis/simoModel}
+  \caption{The time-invariant SIMO channel}
+  \label{fig:simoModel}
+\end{figure}
+
+The system model changes from a scalar equation to a vector notation due to the multiple antennas. The channel coefficients are denoted as $h_j$, $j,...,M_R$ and are known at the transmitter. At a given antenna $j$, the received signal $y_j(k)$ is given by: 
+
+\begin{align*}
+  y_j(k) = h_j x(k) + n_j(k)
+\end{align*}
+The multiple antennas receive multiple distorted copies of the transmitted symbol. Each received signal, has different parts of the signal depending on the channel. To recover the most of the original message, the signal is combined. This combination can be done in multiple ways, matched filtering, maximum ratio combining or equal-gain combining. Matched filtering, requires the most amount of post-processing, since it requires the signals to be aligned in phase, so they can be added constructively and scaled. This maximized the post-processing SNR of the SIMO system. Mathematically the received signal at antenna $j$ is first multiplied with a scalar coefficient $h_j^*$ matched to the channel, this yields: $|h_j|^2 x(k) + h_j^* n_j(k)$. The processed signals are then added up, which results in a processed signal: 
+
+\begin{align*}
+  \tilde{y}(k) = \norm{\mathbf{h}}^2 x(k) + \tilde{n}(k)
+\end{align*}
+The SIMO system becomes equivalent to a scalar AWGN channel, with a potentially larger SNR due to the post-processing. This leads us to a SNR and channel capacity given by: 
+
+\begin{align*}
+&SNR^{TI}_{SIMO} = \frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \\
+&C^{TI}_{SIMO} = \log_2 \left( 1+\frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \right)  
+\end{align*}
+
+\subsubsection{Time-Invariant MISO Channel}
+In the MISO case, the system consists of multiple antennas at the transmitter and a single antenna at the receiver, this is illustrated on Figure~\ref{fig:misoModel}.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=1.2]{img/analysis/misoModel}
+  \caption{The time-invariant MISO channel}
+  \label{fig:misoModel}
+\end{figure}
+Given that the channel is known at the transmitter it is possible to perform pre-processing on the transmitted signals, this transforms the MISO case in to an equivalent SISO channel. The pre-processing consists of scaling each version of the transmitted symbol to insure that the signals are added up constructively at the receiver. The pre-processing must take the channel for each antenna into account, when doing this scaling. 
+
+A signal $x_i(k)$ is sent from the i'th antenna in the array, this signal travels through the channel $h_i$ and this channel is known at the transmitter. The received signal is then given as: 
+\begin{align*}
+  y(k) = \sum_{i=1}^{M_T} h_ix_i(k) + n(k) = \mathbf{h}^\intercal \mathbf{x}(k) + n(k)
+\end{align*}
+where $M_T$ is the number of transmitter antennas, $\mathbf{h} = [h_1 \cdots h_{M_T}$ and $\mathbf{x} = [x_1(k) \cdots x_{M_T}(k)$. 
+
+
+
+The MISO becomes an equivalent SISO channel. The pre-processing that is often used is transmit spatial matched filtering or transmit MRC. Where the transmitted signal is matched to the channel $h_i$ before beings sent from antenna $i$. The weights applied in the transmit MF are the exact same as the receiver MF due to perfect knowledge of the channel. The output of the pre-processing is under the power constraint $\sum_{i=1}^{M_T} E|x_i(k)|^2 \leq \PP$. The signal $x_i$ sent from the antenna is then 
+
+\begin{align*}
+  x_i(k) = \frac{h_i^*}{\norm{\mathbf{h}} \tilde{x}(k)}
+\end{align*}
+
+On the receiving side, the signals are phased aligned and added constructively. It is obvious that more power is allocated to the stronger channels and thus maximizing the SNR. The SNR and channel capacity then becomes 
+
+\begin{align*}
+&SNR^{TI}_{MISO} = \frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \\
+&C^{TI}_{MISO} = \log_2 \left( 1+\frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \right)  
+\end{align*}
+
+Thus it is seen that for time-invariant channels, with perfect channel knowledge for both transmitter and receiver, the capacity for SIMO and MISO systems are the same. This is however not the case for fading channels when the channel state is unknown for the transmitter. This leads to performance degradation in the MISO case. 
+
+\subsubsection{Time-Invariant MIMO Channel}
+When multiple antennas are available at both transmitter and receiver the capacity can be increased by sending multiple symbols per transmission period. This relies on pre- and post-processing which is matched to singular value decomposition of the channel, which is illustrated on Figure~\ref{fig:mimoModel}. This processing extracts independent spatial routes for the communication. MIMO can be interpreted as multiple pairs of independent SISO channels. Where the capacity simply becomes the sum of these independent SISO channels. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=1.2]{img/analysis/mimoModel}
+  \caption{The time-invariant MIMO channel}
+  \label{fig:mimoModel}
+\end{figure}
+The singular value decomposition of the channel matrix is fundamental in understanding the underlying concepts of MIMO systems. The SVD extracts the equivalent independent AWGN channels, gives the maximum number of streams that can be multiplexed and it provides a simple way to compute the capacity. The SVD of the channel matrix $\mathbf{H}$ is: 
+
+\begin{align*}
+  \mathbf{H} = \mathbf{U} \Lambda \mathbf{V}^{\mathsf{H}} 
+\end{align*}
+ 
+Both $\mathbf{U}$ ($M_R \times \ M_R$) and $\mathbf{V}$ ($M_T \times \ M_T$) are unitary matrices, and $\Lambda$ is a  $M_R \times \ M_T$ diagonal matrix with non-negative singular values $\lambda_k$ with $k=1, \cdots, M_{min}$ where $M_{min} = min(M_T,M_R)$. The $\lambda_k$'s are called the eigenmodes of the channel and are often ordered decreasingly for convenience.
+Another important quantity is the channel matrix rank $\mathbf{H}$, which is denoted $r_H$. This is defined as the number of nonzero singular values of $\mathbf{H}$, which determines the maximum number of independent streams that can be multiplexed at the same time. The singular value and channel energy relationship is also useful, this is given as 
+
+\begin{align*}
+  \text{tr}(\mathbf{H} \mathbf{H}^{\mathsf{H}}) = \sum_{i=1}^{M_T} \sum_{j=1}^{M_R} |h_{ji}|^2 = \sum_{k=1}^{r_H} \lambda_i^2
+\end{align*}
+
+Each channel is called an eigenchannel, the entire MIMO channel is equivalent to the set of eigenchannels, each with a different SNR. Looking at the input-output relation:
+
+\begin{align*}
+  \tilde{y} = \Lambda\mathbf{ \tilde{x}} + \mathbf{\tilde{n}}
+\end{align*}
+
+From each input-output relation $\tilde{y}_k = \lambda_k \tilde{x}_k + \tilde{n}_k$ it is obvious that this describes an AWGN channel as seen previously in the SISO case. Since the noise are all independent, each AWGN subchannel are all independent as well. This forms a set of parallel AWGN channels, which leads to the conclusion that the capacity of the MIMO system is the sum of individual channel capacities. Finally it is needed to include the transmit power allocation to fully calculate the channel capacity.
+
+
+The power allocation is done using the water-filling algorithm. For each eigenchannel we define: 
+
+\begin{align*}
+  \gamma_k = \frac{\lambda_k^2}{\sigma_n^2}, \text{where } k = 1, \cdots, r_h
+\end{align*}
+
+The transmitted power of eigenchannel $k$ is given by $P_k$, then $P_k\gamma_k$ can be interpreted as the SNR of the k'th eigenchannel. The capacity of each eigenchannel with transmit power $P_k$ becomes $\log_2 (1 + P_k\gamma_k)$. Now this becomes a maximization problem, in which the SNR or channel caåacity should be maximized, with respect to the power constraint: $\sum_{k=1}^{r_H} P_k \leq \PP$. 
+The channel capacity of the MIMO system is then the sum of the individual capacities with optimized transmit power per eigenchannel: 
+
+
+\begin{equation*}
+\begin{aligned}
+C^{TI}_{MIMO} = 
+& \underset{P_k}{\text{maximize}}
+& & \sum_{k=1}^{r_H} \log_2 (1 + P_k\gamma_k) \\
+& \text{subject to}
+& & \sum_{k=1}^{r_H} P_k \leq \PP
+\end{aligned}
+\end{equation*}
+
+This optimization problem can be solved using the Lagrangian multipliers method, which gives the capacity of the time-invariant MIMO channel as: 
+
+\begin{align*}
+  \sum_{k=1}^{r_H} \log_2 (1 + P^o_k\gamma_k)
+\end{align*}
+where the transmit power is allocated as: 
+\begin{align*}
+  P_k^o = \big(\frac{1}{\gamma_0} - \frac{1}{\gamma_k}\big)^+ 
+\end{align*}
+here $y_0$ is the cut-off value and it is determined using the power constraint: 
+
+\begin{align*}
+  \sum_{k=1}^{r_H} P_k^o = \sum_{k=1}^{r_H} \big(\frac{1}{\gamma_0} - \frac{1}{\gamma_k}\big)^+ = \PP
+\end{align*}
 
 \subsection{Antenna Design in MIMO Applications}
 The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{\text{total}}$. The near-field coupling is a measure of the coupled power towards the second antenna when the first antenna is excited. The coupling is evaluated by the $S_{21}$ parameter and is often referred to as the \emph{isolation}. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. 
