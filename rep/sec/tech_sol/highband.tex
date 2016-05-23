@@ -36,6 +36,23 @@ It has been chosen to elaborate on the minimized monopole antenna design and imp
 
 \fixme{Finish this section, bandwidth table, write about corr and eff.}
 
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|r|r|r|}
+    \hline
+    Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+    \hline
+    Top     & Low  &  677  & 1065  & 388 \\
+    Side    & Low  &  700  & 710  & 10  \\
+    \hline
+    Top     & High &  1183 &  2127  & 944 \\
+    Side    & High & 1765 &  2120 & 355 \\
+    \hline
+  \end{tabular}
+  \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+  \label{tab:bw_mono_modi_fs}
+\end{table}
+
 The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB.
 The correlation sweep results can be seen in Figure \ref{fig:corr_mono_modi_sim_free}. The Efficiency sweep results can be seen in Figure \ref{fig:eff_mono_modi_sim_free}.
 
@@ -128,6 +145,23 @@ In this section the modified monopole antenna will be simulated in pratice use w
 \fixme{S-parameter plot, bandwidth table and documentation for all positions.}
 \FloatBarrier
 \subsubsection{Data Mode}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|r|r|r|}
+    \hline
+    Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+    \hline
+    Top     & Low  &  677  & 1065  & 388 \\
+    Side    & Low  &  700  & 710  & 10  \\
+    \hline
+    Top     & High &  1183 &  2127  & 944 \\
+    Side    & High & 1765 &  2120 & 355 \\
+    \hline
+  \end{tabular}
+  \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+  \label{tab:bw_mono_modi_dm}
+\end{table}
 %S-Parameters
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}.
 
@@ -199,6 +233,24 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_data_mode}.
 
 \FloatBarrier
 \subsubsection{Play Mode}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|r|r|r|}
+    \hline
+    Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+    \hline
+    Top     & Low  &  677  & 1065  & 388 \\
+    Side    & Low  &  700  & 710  & 10  \\
+    \hline
+    Top     & High &  1183 &  2127  & 944 \\
+    Side    & High & 1765 &  2120 & 355 \\
+    \hline
+  \end{tabular}
+  \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+  \label{tab:bw_mono_modi_pm}
+\end{table}
+
 %S-Parameters
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_play_mode}.
 
@@ -269,6 +321,23 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}.
 
 \FloatBarrier
 \subsubsection{Talk Mode}
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|r|r|r|}
+    \hline
+    Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
+    \hline
+    Top     & Low  &  677  & 1065  & 388 \\
+    Side    & Low  &  700  & 710  & 10  \\
+    \hline
+    Top     & High &  1183 &  2127  & 944 \\
+    Side    & High & 1765 &  2120 & 355 \\
+    \hline
+  \end{tabular}
+  \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+  \label{tab:bw_mono_modi_tm}
+\end{table}
+
 %S-Parameters
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_talk_mode}.
 
