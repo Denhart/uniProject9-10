@@ -1,6 +1,6 @@
 \section{Basic Antenna Parameters}
 \label{sec:basicantennaparams}
-This section will give a summery of the fundamental theories and parameters that are used to describe antennas. This should give a basic understanding of antennas and the parameters described in this section are used throughout the report. 
+This section will give a summery of the fundamental theories and parameters that are used to describe antennas. This should give a basic understanding of antennas. The parameters described in this section are used throughout the report. 
 
 \subsection{Antenna Definition}
 \label{subsec:antenna-def}
@@ -12,7 +12,7 @@ An isotropic antenna, can be represented as a point source. The isotropic antenn
 \begin{align}
     S_{\text{iso}} = \frac{P_s}{4\pi r^2}
 \end{align}
-Clearly, it is not possible to construct such an antenna. However, this is used as a reference for quantifying other properties of the antenna. These properties could be the gain or directivity (See Section\ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
+Clearly, it is not possible to construct such an antenna. However, this is used as a reference for quantifying other properties of the antenna. These properties could be the gain or directivity (See Section \ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
 
 \subsection{Radiation Pattern}
 \label{subsec:radiation-p}
@@ -26,11 +26,20 @@ The waves transmitted from the antenna are usually grouped into three regions of
 \item The Far-field
 \end{itemize}
 
-The reactive near-field is defined as the portion of the near-field region immediately surrounding the antenna wherein the reactive field predominates\cite{balanis2012antenna}. The outer boundary for this region is given by $R < 0.62 \sqrt{D^3/\lambda}$ \cite{balanis2012antenna}.
+The reactive near-field is defined as the portion of the near-field region immediately surrounding the antenna wherein the reactive field predominates \cite{balanis2012antenna}. The outer boundary for this region is given by \cite{balanis2012antenna}:
+\begin{align}
+  R < 0.62 \sqrt{D^3/\lambda}
+\end{align}
 
-The radiating near-field is defined as the region between the reactive near-field and the far-field, this field might not exist in the case that the overall antenna dimension is very small compared to the wavelength. The outer boundary for this is defined as $R \geq 2D^2/\lambda$ \cite{balanis2012antenna}.
+The radiating near-field is defined as the region between the reactive near-field and the far-field, this field might not exist in the case that the overall antenna dimension is very small compared to the wavelength. The outer boundary for this is defined as \cite{balanis2012antenna}:
+\begin{align}
+  R \geq 2D^2/\lambda
+\end{align}
 
-The far-field region is defined as the region of the field where the angular field distribution is independent of the distance, that is the radiation pattern does not change shape with distance. The far-field is also dominated by fields where the E- and H-fields are orthogonal and propagates as plane waves. The inner boundary is given as $R = 2D^2/\lambda$ \cite{balanis2012antenna}.
+The far-field region is defined as the region of the field where the angular field distribution is independent of the distance, that is the radiation pattern does not change shape with distance. The far-field is also dominated by fields where the E- and H-fields are orthogonal and propagates as plane waves. The inner boundary is given as \cite{balanis2012antenna}:
+\begin{align}
+  R = 2D^2/\lambda
+\end{align}
 
 These different regions are illustrated on Figure~\ref{fig:field-regions}. 
 
@@ -49,10 +58,10 @@ Directivity is defined as the ratio of the power radiated at a  point with a cer
 \end{align}
 where
 \begin{where}
-  \item[$D$] is the directivity
-  \item[$U$] is the radiation intensity
-  \item[$U_0$] is the radiation intensity of an isotropic source
-  \item[$P_{rad}$] is the total radiated power 
+  \item[$D$] directivity
+  \item[$U$] radiation intensity
+  \item[$U_0$] radiation intensity of an isotropic source
+  \item[$P_{rad}$] total radiated power 
 \end{where}
 It should be noted, that for this equation to be valid, the waves must propagate as plane waves, thus being in the far-field region.
 
@@ -90,7 +99,7 @@ The bandwidth of an antenna defines the usable spectrum of the antenna. The need
 The polarization in a certain direction is simply defined as the polarization of the transmitted wave by the antenna. It describes the time-varying direction at relative magnitude of the E-field vector analogously to the polarization of light. Similar to light, the polarization can be classified into groups such as linear, circular, or elliptical polarization. If two antennas are of different polarization, this will introduce a polarization mismatch loss to the system \cite{balanis2012antenna}.
 
 \subsection{Antenna Efficiency}
-There are a lot of different measures for antenna efficiency depending on which losses are taken into account. The total efficiency takes the losses from the input terminal and within the antenna structure \cite{balanis2012antenna}. This can in general be expressed as \cite{balanis2012antenna}
+There are a lot of different measures for antenna efficiency depending on which losses that are taken into account. The total efficiency takes the losses from the input terminal and within the antenna structure \cite{balanis2012antenna}. This can in general be expressed as \cite{balanis2012antenna}
 \begin{align}
 \label{eq:ant-eff}
   e_0 = e_r e_c e_d 
