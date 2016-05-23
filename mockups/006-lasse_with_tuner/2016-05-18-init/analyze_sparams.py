@@ -17,10 +17,10 @@ aauplot.sparam(f, 20*log10(abs(S21)), "-g", label="S21 meas")
 aauplot.sparam(f, 20*log10(abs(S22)), "-r", label="S22 meas")
 
 # Simulation
-fS11,S11s = loadtxt("sim/S11", skiprows=2).T
-fS21,S21s = loadtxt("sim/S21", skiprows=2).T
-fS12,S12s = loadtxt("sim/S12", skiprows=2).T
-fS22,S22s = loadtxt("sim/S22", skiprows=2).T
+fS11,S11s = loadtxt("sim/s11.txt", skiprows=2).T
+fS21,S21s = loadtxt("sim/s21.txt", skiprows=2).T
+fS12,S12s = loadtxt("sim/s12.txt", skiprows=2).T
+fS22,S22s = loadtxt("sim/s22.txt", skiprows=2).T
 
 aauplot.sparam(fS11,S11s, "--b", label="S11 sim")
 aauplot.sparam(fS21,S21s, "--g", label="S21 sim")
