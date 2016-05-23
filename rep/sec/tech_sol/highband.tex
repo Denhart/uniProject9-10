@@ -149,8 +149,8 @@ In this section the modified monopole antenna will be simulated in pratice use w
 \FloatBarrier
 \subsubsection{Data Mode}
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}. As seen from the sweep, both antennas are able to cover most of the bands. In the low band both antennas are able to cover the entire band at \SI{-4}{dB}. The high band is covered quite well for both antennas with an exception at \SI{1848}{MHz}, where the return loss drops to \SI{-2}{dB}. In the previously user effect simulations   
-it was observed that the user effects caused de-tuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtainable bandwidth can be seen in Table \ref{tab:bw_mono_modi_dm}. Generally the bandwidth is low for both antennas, with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop 
-
+it was observed that the user effects caused de-tuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtainable bandwidth can be seen in Table \ref{tab:bw_mono_modi_dm}. Generally the bandwidth is low for both antennas, with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop. This, however, should not be a problem as the bandwidth is significal higher at \SI{-4}{dB}.
+The highest isolation loss simulated is at \SI{-6}{dB} in the low band with is higher than expected. 
 
 \begin{table}[htbp]
   \centering
@@ -239,26 +239,24 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_data_mode}. Th
 
 \FloatBarrier
 \subsubsection{Play Mode}
-
+%S-Parameters
+The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_play_mode}. The maximum bandwidth can be seen in Table \ref{tab:bw_mono_modi_pm}. Compared to the data mode, the play mode have a slightly higher bandwidth in general but is more de-tuned.   
 \begin{table}[htbp]
   \centering
   \begin{tabular}{|l|l|r|r|r|}
     \hline
     Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
     \hline
-    Top     & Low  &  677  & 1065  & 388 \\
-    Side    & Low  &  700  & 710  & 10  \\
+    Top     & Low  &  876  & 965  & 89 \\
+    Side    & Low  &  804  & 913  & 111 \\
     \hline
-    Top     & High &  1183 &  2127  & 944 \\
-    Side    & High & 1765 &  2120 & 355 \\
+    Top     & High & 2177  & 2536   & 303 \\
+    Side    & High & 2022 &  2325 & 359 \\
     \hline
   \end{tabular}
   \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
   \label{tab:bw_mono_modi_pm}
 \end{table}
-
-%S-Parameters
-The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_play_mode}.
 
 %S-Parameter
   \begin{figure}[htbp]
@@ -331,11 +329,11 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. \f
     \hline
     Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
     \hline
-    Top     & Low  &  677  & 1065  & 388 \\
-    Side    & Low  &  700  & 710  & 10  \\
+    Top     & Low  &  796  & 825  & 39 \\
+    Side    & Low  &  726  & 770  & 44  \\
     \hline
-    Top     & High &  1183 &  2127  & 944 \\
-    Side    & High & 1765 &  2120 & 355 \\
+    Top     & High &  2303 &  2519  & 219 \\
+    Side    & High &  1958 &  2262 & 304 \\
     \hline
   \end{tabular}
   \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
