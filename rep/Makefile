@@ -5,6 +5,7 @@ BIBTEX            = bibtex
 LATEXMK           = latexmk -shell-escape -pdf
 
 MAIN              = master
+MAINKINDLE        = masterkindle
 BIB               = bib/sources.bib
 TEXFILES          = $(wildcard *.tex)\
 		    $(wildcard set/*.tex)\
@@ -45,6 +46,11 @@ force :
 
 $(MAIN).pdf :  $(TEXFILES) $(IMAGES) $(EPSPDFFILES) $(BILAG) $(BIB)
 	$(LATEXMK) $(MAIN)
+
+kindle : $(TEXFILES) $(IMAGES) $(EPSPDFFILES) $(BILAG) $(BIB)
+	cp $(MAIN).tex $(MAINKINDLE).tex
+	perl -i'' -p -e 's/set\/preamble/set\/preamblekindle/' $(MAINKINDLE).tex
+	$(LATEXMK) $(MAINKINDLE)	
 
 clean :
 	rm -f *.aux
