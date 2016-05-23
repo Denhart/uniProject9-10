@@ -84,6 +84,8 @@ The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has bee
 \end{figure}
 
 % Correlation
+The correlation sweep results can be seen in Figure \ref{fig:corr_mono_modi_sim_free}. The high-band correlation shows to be very low in the high band but in the low band, the correlation is above the required 0.5 for most of the band. This is both when sweeping the top and the side tuners.
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -98,6 +100,9 @@ The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has bee
     \caption{Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:corr_mono_modi_sim_free}
 \end{figure}
+
+% Efficiency
+The efficiency sweep results can be seen in Figure \ref{fig:eff_mono_modi_sim_free}. For the top antenna, the low band can almost be covered totally at \SI{-3}{dB} efficiency which is very good. The high band has a notch from \SI{1905}{MHz} to \SI{2089}{MHz} but apart from this the entire high band can be covered at a very acceptable efficiency. The side antenna can be tuned to cover the high end of the low band at an efficiency an efficiency above \SI{-3}{dB} while the lower part does only reach between \SI{-9}{dB} and \SI{-6}{dB}. The high band has a notch from \SI{1825}{MHz} to \SI{2010}{MHz} but has a good efficiency outside this band.
 
 \begin{figure}[htbp]
     \centering
@@ -144,7 +149,7 @@ In this section the modified monopole antenna will be simulated in pratice use w
 \FloatBarrier
 \subsubsection{Data Mode}
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}. As seen from the sweep, both antennas are able to cover most of the bands. In the low band both antennas are able to cover the entire band at \SI{-4}{dB}. The high band is covered quite well for both antennas with an exception at \SI{1848}{MHz}, where the return loss drops to \SI{-2}{dB}. In the previously user effect simulations   
-it was observed that the user effects caused de-tuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtaniable bandwidth can be seen in Table \ref{tab:bw_mono_modi_dm}. Generally the bandwidth is low for both antennas, with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop 
+it was observed that the user effects caused de-tuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtainable bandwidth can be seen in Table \ref{tab:bw_mono_modi_dm}. Generally the bandwidth is low for both antennas, with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop 
 
 
 \begin{table}[htbp]
@@ -163,6 +168,8 @@ it was observed that the user effects caused de-tuning. However, this does not s
   \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
   \label{tab:bw_mono_modi_dm}
 \end{table}
+%S-Parameters
+The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}.
 
 %S-Parameter
 \begin{figure}[htbp]
@@ -194,6 +201,8 @@ it was observed that the user effects caused de-tuning. However, this does not s
 \end{figure}
 
 %Correlation
+The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_mono_modi_data_mode}. It is seen that the correlation is slightly better than in free space but is still quite high in the low band.
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -211,6 +220,8 @@ it was observed that the user effects caused de-tuning. However, this does not s
 
 
 %Efficiency
+The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_data_mode}. The low band efficiency has dropped, for both antennas, to between \SI{-9}{dB} and \SI{-6}{dB}. In the high band, the both antennas generally have an efficiency above \SI{-6}{dB} although both have a notch where the efficiency drops.
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -219,7 +230,7 @@ it was observed that the user effects caused de-tuning. However, this does not s
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
-        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/eff_top.pdf}
+        \includegraphics{img/tech_sol/monopole/highband/ue/datamode/eff_side.pdf}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
     \caption{Monopole antenna in data mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
@@ -249,10 +260,6 @@ it was observed that the user effects caused de-tuning. However, this does not s
 %S-Parameters
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_play_mode}.
 
-%Correlation
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_mono_modi_play_mode}.
-%Efficiency
-The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. 
 %S-Parameter
   \begin{figure}[htbp]
     \begin{subfigure}[b]{0.49\linewidth}
@@ -283,6 +290,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}.
 \end{figure}
 
 % Correlation
+The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_mono_modi_play_mode}. The correlation is still quite high in the low band -- especially when sweeping the top tuner. The high band correlation is generally low.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -291,7 +299,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}.
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
-        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/corr_top.pdf}
+        \includegraphics{img/tech_sol/monopole/highband/ue/playmode/corr_side.pdf}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
     \caption{Monopole antenna in play mode. Correlation between antennas when sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
@@ -299,6 +307,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}.
 \end{figure}
 
 %Efficiency
+The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. \fixme{New graphs\ldots}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -310,7 +319,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}.
         \includegraphics{img/tech_sol/monopole/highband/ue/playmode/eff_side.pdf}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Monopole antenna in play mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \caption{Monopole antenna in play mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively. \fixme{Problem with sweeps?}}
     \label{fig:eff_mono_modi_play_mode}
 \end{figure}
 
@@ -336,10 +345,6 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}.
 %S-Parameters
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_talk_mode}.
 
-%Correlation
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_mono_modi_talk_mode}.
-%Efficiency
-The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}. 
 %S-Parameter
 
 % S-parameters
@@ -372,6 +377,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}.
 \end{figure}
 
 % Correlation
+The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_mono_modi_talk_mode}. The correlation is very poor in this scenario, exceeding 0.5 in the many parts of the low band. The high band is just fine.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -388,6 +394,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}.
 \end{figure}
 
 %Efficiency
+The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}. \fixme{Update graphs\ldots}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -399,7 +406,7 @@ The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}.
         \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/eff_side.pdf}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Monopole antenna in talk mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \caption{Monopole antenna in talk mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively. \fixme{Problem with sweeps.}}
     \label{fig:eff_mono_modi_talk_mode}
 \end{figure}
 
