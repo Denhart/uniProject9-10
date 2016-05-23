@@ -106,10 +106,10 @@ There are a lot of different measures for antenna efficiency depending on which 
 \end{align}
 where
 \begin{where}
-\item[$e_0$] is the total efficiency.
-\item[$e_r$] is the mismatch loss.
-\item[$e_c$] is the conduction efficiency.
-\item[$e_d$] is the dielectric loss.
+\item[$e_0$] total efficiency.
+\item[$e_r$] mismatch loss.
+\item[$e_c$] conduction efficiency.
+\item[$e_d$] dielectric loss.
 \end{where}
 The conduction and dielectric losses are hard to compute, and by measurements they cannot be separated \cite{balanis2012antenna}.
 
@@ -179,8 +179,8 @@ The Friis transmission equation relates the power received with the power transm
 \end{align}
 where
 \begin{where}
-\item[$\lambda$] is the wavelength.
-\item[$d$] is the distance from the transmitter.
+\item[$\lambda$] wavelength.
+\item[$d$] distance from the transmitter.
 \end{where}
 This assumes that the energy spreads out in a sphere and that the only loss is from the distance. It is seen that the power decreases as the square of the range, which is plotted on Figure~\ref{fig:fspl-plot} for a \SI{2.6}{GHz} link.
 
@@ -197,21 +197,21 @@ The Friis Transmission equation in its most basic form can be written as \cite{b
 \end{align}
 where
 \begin{where} 
-\item[$P_r$] is the power received.
-\item[$P_t$] is the power transmitted.
-\item[$G$] is the transmitter and receiver gains.
+\item[$P_r$] power received.
+\item[$P_t$] power transmitted.
+\item[$G$] transmitter and receiver gains.
 \end{where}
 In this case it is assumed that there is no impedance or polarization mismatch. It is also assumed that the two antennas are aligned perfectly. Another large assumption is that the path loss is described by FSPL, which in reality is a very rare case. The next section will describe a few different propagation models.
 
-\section{Basic Propargation Models}
+\section{Basic Propagation Models}
 \label{sec:propmodels}
 This section will describe some simple propagation models and terms, that can be used to establish a rough estimate of the losses from propagation, which can be used in link budgets. The simplest propagation model is the Free space path loss, which is given in Equation~\ref{eq:fspl}.
 
-The free-space path loss is however not very realistic, since it does not take trees, buildings etc. into account\cite{balanis2012antenna}. There are however a myriad of empirical models, which are based on actual measurements. The drawback is however that these empirical models tend not to be general and a given model might not be suited for two different cities. This results in that empirical models often are grouped into three main branches, foliage, terrain and city models\cite{goldsmith2005wireless}. For foliage areas models such as the Weissbergers model and the ITU Vegetation model can be used\cite{goldsmith2005wireless}. For terrain areas, models such as the Egli or Longley-Rice model are used\cite{goldsmith2005wireless}. To model the path loss in cities, the Young, Okumura, Hata or the COST 231 models can be used\cite{goldsmith2005wireless}. It should be noted that some of these models are not usable in upper LTE frequency range, and thus care should be taken when applying these models. 
+The free-space path loss is however not very realistic, since it does not take trees, buildings etc. into account \cite{balanis2012antenna}. There are however a myriad of empirical models, which are based on actual measurements. The drawback is however that these empirical models tend not to be general and a given model might not be suited for two different cities. This results in that empirical models often are grouped into three main branches, foliage, terrain and city models \cite{goldsmith2005wireless}. For foliage areas models such as the Weissbergers model and the ITU Vegetation model can be used \cite{goldsmith2005wireless}. For terrain areas, models such as the Egli or Longley-Rice model are used \cite{goldsmith2005wireless}. To model the path loss in cities, the Young, Okumura, Hata or the COST 231 models can be used \cite{goldsmith2005wireless}. It should be noted that some of these models are not usable in upper LTE frequency range, and thus care should be taken when applying these models. 
 
 
 \subsection{Multipath}
-The multipath effect exists when a wave and/or multiple waves are scattered, such that the receiver experiences multiple copies of the same wave coming from different directions. In areas where there is no ground or other obstacles (free space) the multipath effect does not exist. The simplest multipath case is the two-ray case, where the surface of the earth is included, in this case there will be a single reflection from the earth and thus multiple paths from the transmitter to receiver \cite{}. This scenario is illustrated in Figure~\ref{fig:mul_tworay}.
+The multipath effect exists when a wave and/or multiple waves are scattered, such that the receiver experiences multiple copies of the same wave coming from different directions. In areas where there is no ground or other obstacles (free space) the multipath effect does not exist. The simplest multipath case is the two-ray case, where the surface of the earth is included, in this case there will be a single reflection from the earth and thus multiple paths from the transmitter to receiver \cite{parsons2000mobile}. This scenario is illustrated in Figure~\ref{fig:mul_tworay}.
  
 \begin{figure}[htbp]
     \centering
@@ -249,7 +249,7 @@ By superimposing the path loss with small scale fading and large scale fading, t
 This section will describe some of the city-models, that are often used in estimating the pathloss. 
 
 \subsubsection{Hata Model}
-The Hata model is a mathematical model derived from the graphically Okumura model, which is based on measurements from Tokyo in 1960 in the frequency range \SIrange{200}{1920}{MHz}. The model is divided into three groups: Urban, suburban, and open areas which are defined in dB in Equation~\ref{eqn:hataModelUrban}, Equation~\ref{eqn:hataModelSubUrban}, and Equation~\ref{eqn:hataModelOpen} respectively\cite{Seybold2005introduction}.
+The Hata model is a mathematical model derived from the graphically Okumura model, which is based on measurements from Tokyo in 1960 in the frequency range \SIrange{200}{1920}{MHz}. The model is divided into three groups: Urban, suburban, and open areas which are defined in dB in Equation~\ref{eqn:hataModelUrban}, Equation~\ref{eqn:hataModelSubUrban}, and Equation~\ref{eqn:hataModelOpen} respectively \cite{Seybold2005introduction}.
 \begin{align} 
     \label{eqn:hataModelUrban}
     L_{50} = L_{50}(\text{urban}) = 69.55+26.12 \log(f_c) - 13.28 \log(h_t) -a(h_r) + [44.9-6.55 \log(h_t)] \log(d)
