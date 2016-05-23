@@ -36,25 +36,29 @@ It has been chosen to elaborate on the minimized monopole antenna design and imp
 
 \fixme{Finish this section, bandwidth table, write about corr and eff.}
 
+The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB. The maximum bandwidth for both antennas can be seen in Table \ref{tab:bw_mono_modi_fs}. Both antennas covers the required bandwidth in the low band, but experiences some problems in the high band. The top antenna lacks \SI{393}{MHz} and the side antenna \SI{515}{MHz}. As a side effect of the extra added resonans the bandwidth have dropped. It should however be able to cover both bands  
+
+sideeffect
+The correlation sweep results can be seen in Figure \ref{fig:corr_mono_modi_sim_free}. The Efficiency sweep results can be seen in Figure \ref{fig:eff_mono_modi_sim_free}.
+
+
 \begin{table}[htbp]
   \centering
   \begin{tabular}{|l|l|r|r|r|}
     \hline
     Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
     \hline
-    Top     & Low  &  677  & 1065  & 388 \\
-    Side    & Low  &  700  & 710  & 10  \\
+    Top     & Low  &  938  & 1065  & 127 \\
+    Side    & Low  &  933  & 1031  & 98  \\
     \hline
-    Top     & High &  1183 &  2127  & 944 \\
-    Side    & High & 1765 &  2120 & 355 \\
+    Top     & High &  2291 &  2218  & 327 \\
+    Side    & High & 2128 &  2433 & 205 \\
     \hline
   \end{tabular}
   \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
   \label{tab:bw_mono_modi_fs}
 \end{table}
 
-The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB.
-The correlation sweep results can be seen in Figure \ref{fig:corr_mono_modi_sim_free}. The Efficiency sweep results can be seen in Figure \ref{fig:eff_mono_modi_sim_free}.
 
 % Sweeping S-parameters
 \begin{figure}[htbp]
