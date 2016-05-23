@@ -31,16 +31,10 @@ It has been chosen to elaborate on the minimized monopole antenna design and imp
 \end{figure}
 
 \FloatBarrier
-\subsection{Simulation}
+\subsection{Free Space Simulation}
 \label{sec:highbandsimulations}
-
-\fixme{Finish this section, bandwidth table, write about corr and eff.}
-
-The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB. The maximum bandwidth for both antennas can be seen in Table \ref{tab:bw_mono_modi_fs}. Both antennas covers the required bandwidth in the low band, but experiences some problems in the high band. The top antenna lacks \SI{393}{MHz} and the side antenna \SI{515}{MHz}. As a side effect of the extra added resonans the bandwidth have dropped. It should however be able to cover both bands  
-
-sideeffect
-The correlation sweep results can be seen in Figure \ref{fig:corr_mono_modi_sim_free}. The Efficiency sweep results can be seen in Figure \ref{fig:eff_mono_modi_sim_free}.
-
+The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB. The maximum bandwidth for both antennas can be seen in Table \ref{tab:bw_mono_modi_fs}. Both antennas covers the required bandwidth in the low band, but experiences some problems in the high band. The top antenna lacks \SI{393}{MHz} and the side antenna \SI{515}{MHz}. As a side effect of the extra added resonance the bandwidth have dropped. It should however be able to cover both bands during the sweeps, as the bandwidth on the WiSpry board is expected to get de-tuned.  
+\fixme{Write about isolation loss.}
 
 \begin{table}[htbp]
   \centering
@@ -146,9 +140,12 @@ In this section the modified monopole antenna will be simulated in pratice use w
     \label{fig:position_mono_modi}
 \end{figure}
 
-\fixme{S-parameter plot, bandwidth table and documentation for all positions.}
+\fixme{bandwidth table and documentation for all positions.}
 \FloatBarrier
 \subsubsection{Data Mode}
+The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}. As seen from the sweep, both antennas are able to cover most of the bands. In the low band both antennas are able to cover the entire band at \SI{-4}{dB}. The high band is covered quite well for both antennas with an exception at \SI{1848}{MHz}, where the return loss drops to \SI{-2}{dB}. In the previously user effect simulations   
+it was observed that the user effects caused de-tuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtaniable bandwidth can be seen in Table \ref{tab:bw_mono_modi_dm}. Generally the bandwidth is low for both antennas, with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop 
+
 
 \begin{table}[htbp]
   \centering
@@ -156,23 +153,17 @@ In this section the modified monopole antenna will be simulated in pratice use w
     \hline
     Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
     \hline
-    Top     & Low  &  677  & 1065  & 388 \\
-    Side    & Low  &  700  & 710  & 10  \\
+    Top     & Low  &  826  & 908  & 82 \\
+    Side    & Low  &  712  & 747  & 35  \\
     \hline
-    Top     & High &  1183 &  2127  & 944 \\
-    Side    & High & 1765 &  2120 & 355 \\
+    Top     & High &  2151 &  2471  & 320 \\
+    Side    & High & 1977 &  2269 & 292 \\
     \hline
   \end{tabular}
   \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
   \label{tab:bw_mono_modi_dm}
 \end{table}
-%S-Parameters
-The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}.
 
-%Correlation
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_mono_modi_data_mode}.
-%Efficiency
-The Efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_data_mode}. 
 %S-Parameter
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
