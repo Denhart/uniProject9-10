@@ -422,16 +422,9 @@ The SAR simulation results can be seen in Figure \ref{fig:sar_mono_modi}. As see
 
 \subsubsection{Preliminary Conclusion}
 The free space and the user effect simulations for the modified monopole antenna have been carried out. The free space simulation shows some promising results in the bandwidth and with an efficiency above \SI{-3}{dB} in most of the required bandwidth. As expected the user effect simulations resulted in lower bandwidth and de-tuning of the frequency. The talk mode simulation showed the worst de-tuning and bandwidth coverage compared to the data- and play-mode simulations. However, in the worst case scenario play mode, the antennas are still able to cover the desired bandwidth when tuned. 
+The data- and play-mode are experiences some problems with the isolation loss and some improvements might me necessary the lower the isolation loss.
 
-Generally the correlation is quite high in the low band for all the simulations   
-
-taken into consideration when designing MIMO capacity
-
-\fixme{write conclusion on user effect simulations}
-\begin{itemize}
-\item talk mode worst as expected.
-\end{itemize}
-
+Generally the correlation is quite high in the low band for all the simulations. The talk mode has the highest correlation value at $0.8$ in the low band compared with the other user effects. This should be taken into consideration, as it could cause some MIMO capacity problems in the low band. 
 
 \FloatBarrier
 \subsection{Measurements}
@@ -558,7 +551,9 @@ The measured efficiency is shown in Figure~\ref{fig:final_efficiency}. The top a
 
 From the measurements it is seen that the top antenna is performs well in all bands except the bands from \SI{2550}{MHz} to \SI{2650}{MHz}. The side antenna does not perform quite as good but is piecewise acceptable -- especially in the high bands.
 
-
-
 \subsubsection{Conclusion}
-\fixme{Write conclusion/comparison on the simulation and measurements}
+Both the simulations and the measurements on the modified monopole antenna are now done. Comparing the free space simulation and measurement S-parameters it is clear that the prototype antennas are experiencing some de-tuning in the high band. Both antennas are especially having trouble from \SI{2450}{MHz} to \SI{2650}{MHz}. The modified monopole antenna with the extra arms was designed to create a resonance at a higher frequency, which is also the case especially for the top antenna. Unfortunatly, it was not possible to sweep the extra resonance, which resultet in a frequency gap that both antennas are unable to cover with more than \SI{-2}{dB}. The low band simulation and measurement look almost similar with a slightly lower bandwidth coverage for the measurements and a lower return loss for the top antenna measurement. 
+
+The measured isolation loss  
+
+              
