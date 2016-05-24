@@ -1,28 +1,86 @@
 \section{LTE}
 \label{sec:lte}
 In this part an overview of the allocated LTE frequency bands will be provided together with a general description of the LTE spectrum.
-Furthermore in addition to the allocated LTE bands a more detailed description on the bands covered in this project will be provided.
+Furthermore, in addition to the allocated LTE bands a more detailed description on the bands covered in this project will be provided.
 
-LTE (Long Term Evolution) is an evolution of the UMTS (Universal Mobile Telecommunications System), HSPA (High Speed Packet Access) and HSPA+ (Evolved High Speed Packet Access) 3G communication standards. HSPA and HSPA+ are upgrades to UMTS with the primary goal to improve the data rates on the 3G communication network. The LTE standard is marketed as a 4G network, even though the LTE standard does not meet the requirements set by the 4G standard \cite{radio2015electronics}.
+\subsection{The History of the Mobile Telephone System}
+In this section, an brief overview of the development leading up to 4G and LTE will be given to clarify the need for LTE.
 
-The LTE provides much higher data rates than the 3G HSPA+ standard, using OFDMA (Orthogonal Frequency Division Multiplex) in downlink and SC-FDMA (Single Carrier-Frequency Division Multiple Access) in uplink. These access scheme technologies do also  enable the LTE network to use MIMO (Multiple Input Multiple Output) technologies, which have become a requirement in the mobile phones \cite{radio2015electronics}.
+% 1G: 
+% - AMPS in US = TACS in UK = MCS-L1 in Japan
+% - EU: Different standards for each country [prasad p 5]
+% - US: Same all over USA
+% - Digital control channel with error-correcting codes
+% - Analog voice channels
+\subsubsection{1G}
+The first generation of mobile phone systems were solely used for speech. In Europe, many different systems were developed and deployed \cite{ramjee1998universal} making it impossible to use the same mobile phones for all of Europe. In USA, the government was in charge of the deployment. For this reason, the AMPS (Advanced Mobile Phone System) was deployed all over the country. The same system was used in England under the name TACS and in Japan under the name MCS-L1 \cite{tanenbaum2012computer}. Because of the US governments interaction, the AMPS system became the most deployed of the first generation system.
 
-MIMO technologies improves the throughput even further by having the option to add up multipath signals. A comparison of the UMTS, HSPA, and LTE speeds can be seen in Table~\ref{tab:3g4g_speeds} \cite{radio2015electronics}.
+AMPS, like the other first generation systems, divided geographical areas into cells, each containing a base station, to which the users transmit, and a Mobile Switching Center which connects the base stations and handles the connections to the phone network. Each cell uses a set of frequencies which is different to the neighboring cells to not interfere with each other. The set of frequencies -- the ``channels'' -- are split into different categories: Control channels for managing of the system, paging channels for alerting the users of incoming calls, access channels for setup and channel assignment, and finally data channels for carrying voice \cite{tanenbaum2012computer}. The data channels are analog voice channels while all other channels are digital (FSK) channels with error-correcting code \cite{tanenbaum2012computer}.
 
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    & {\bf \begin{tabular}[c]{@{}c@{}}WCDMA\\ (UMTS)\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}HSPA\\ HSDPA/HSUPA\end{tabular}} 
-    & {\bf HSPA+} & {\bf LTE}     \\ \hline
-    {\bf \begin{tabular}[c]{@{}c@{}}Max downlink speed\\ (bps)\end{tabular}} & 384 k & 14 M & 28 M & 100 M \\ \hline
-    {\bf \begin{tabular}[c]{@{}c@{}}Max uplink speed\\ (bps)\end{tabular}} & 128 k & 5.7 M & 11 M & 50 M \\ \hline
-    {\bf \begin{tabular}[c]{@{}c@{}}Latency\\ round trip time\\ approx\end{tabular}} & 150 ms & 100 ms & 50 ms (max) & ~10 ms \\ \hline
-    {\bf Access methodology} & CDMA & CDMA & CDMA & OFDMA/SC-FDMA \\ \hline
-  \end{tabular}
-  \caption{LTE speed specifications \cite{radio2015electronics}.}
-  \label{tab:3g4g_speeds}
-\end{table}
+The disadvantages of the first generation of mobile systems included the fact that no world-wide standard existed so mobile phones could only be used in the area for which they were designed. Another disadvantage was that the channels were analog and thus unencrypted. This made eavesdropping possible. The second generation tried to address these problem.
+
+% 2G:
+% - Three standards: GSM (EU), D-AMPS (US), and IS-95 (CDMA, Qualcomm)
+% - GSM became dominant worldwide 2G
+\subsubsection{2G}
+In Europe, a lesson had been learned from the first generation system. A single European 2G standard was developed by a telecommunication group -- Groupe Special\'{e} Mobile. In USA, the task of deploying a second generation mobile system was moved from the government to the marketplace. This resulted in several standards being developed. A digital version of AMPS -- D-AMPS -- was developed. It was designed to coexist with AMPS \cite{tanenbaum2012computer}. A second system, developed by Qualcomm, was described in International Standard IS-95 but was not a dominant 2G system. It did, however, make use of CDMA -- Code Division Multiple Access -- which later became the basis for the third generation of mobile systems. Later on, GSM got deployed in the US as well and has now become the de facto world standard for 2G \cite{ramjee1998universal}.
+
+The major difference from the first to the second generation was the change from analog speech to digitally coded speech. This made it possible to encrypt the speech, addressing the eavesdropping issue of the first generation \cite{tanenbaum2012computer}. Apart from this, the mobile phone and the subscription itself was split into two separate parts. The user would now buy a SIM (Subscriber Identity Module) card which can be used in whatever mobile phone the user desired.
+
+GSM uses frequency bands at around \SI{900}{MHz}, \SI{1800}{MHz}, and \SI{1900}{MHz}. Each band is split into smaller bands (channels), each split into eight time-divided slots so that eight separate connections can be active at the same time \cite{tanenbaum2012computer}. The channels are of two groups -- one for uplink and one for downlink. The channels are illustrated in Figure~\ref{fig:gsmsplitup}. 
+
+Using compression, it is possible for GSM to achieve the equivalent of a \SI{64}{kbps} PCM voice signal with little loss in quality \cite{tanenbaum2012computer}. While this may be fine for speech, a higher data rate would be needed to carry data as well. This led to the development of the third generation.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/analysis/gsm}
+    \caption{Illustration of GSM channels \cite{tanenbaum2012computer}.}
+    \label{fig:gsmsplitup}
+\end{figure}
+
+% 3G: 
+\subsubsection{3G}
+The third generation was designed for carrying digital data and speech at higher data rates than previously. Two similar systems were developed in Europe and in USA: UMTS (Universal Mobile Telecommunications System) and CDMA2000, respectively. Europe wanted coexistence with GSM and USA wanted coexistence with IS-95.
+
+The third generation used CDMA as multiple-access scheme. In CDMA, all users communicate the same time, jumping between frequency and time slots in a pre-defined code. The code is shared between transmitter and receiver. Ideally, the codes would be orthogonal so that only one user would communicate on one frequency in one time slot. While this type of synchronization is easily performed in the downlink, it is very difficult in the uplink as the mobile units do not connect directly. Instead, pseudo-random sequences, which can be generated locally, are used as codes. These codes have a low cross-correlation and auto-correlation so that the interference between users is averaged out along the code word \cite{tanenbaum2012computer}.
+
+The transmitted power from the mobile phone in a CDMA system is controlled in a fast loop so that the transmitted power is the inverse of the power received from the base station \cite{tanenbaum2012computer}. This makes the received power from each user equal at the base station, so the interference between users is lowered. 
+
+The CDMA variants used in the third generation of mobile networks makes it possible to assign different data rates to different users. At the same time, these systems can take advantage of periods where a user is not speaking, etc. This will not be described further, but is described in \cite{tanenbaum2012computer}.
+
+The third generation made it possible to obtain a data rate between \SI{144}{kbps} (mobile users) and \SI{2}{Mbps} (indoor users) \cite{tanenbaum2012computer}. HSPA and HSPA+ are evolutions of the UMTS network, enabling higher data rates -- up to \SI{14}{Mbps} and \SI{42}{Mbps}, respectively, pushing the limits of the deployed Wideband CDMA \cite{holma2011lte}. Some of the goals for fourth generation are higher bandwidths and more seamless integration with wired and wireless IP networks \cite{tanenbaum2012computer}. The peak data rate evolution, presented by 3GPP, is illustrated in Figure~\ref{fig:3gppevo}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.8]{img/analysis/3gppevo.pdf}
+    \caption{Peak data rate evolution of 3GPP technologies \cite{holma2011lte}.}
+    \label{fig:3gppevo}
+\end{figure}
+
+% 2.5G, etc is not covered.
+
+% 4G:
+\subsubsection{4G}
+LTE (Long Term Evolution) is an evolution of the UMTS, HSPA (High Speed Packet Access), and HSPA+ (Evolved High Speed Packet Access) 3G communication standards. HSPA and HSPA+ are upgrades to UMTS with the primary goal to improve the data rates on the 3G communication network. The LTE standard is marketed as a 4G network, even though the LTE standard does not meet the requirements set by the 4G standard \cite{radio2015electronics}.
+
+The LTE provides much higher data rates than the 3G HSPA+ standard, using OFDMA (Orthogonal Frequency Division Multiplex) in downlink and SC-FDMA (Single Carrier-Frequency Division Multiple Access) in uplink. These access scheme technologies do also enable the LTE network to use MIMO (Multiple Input Multiple Output) technologies, which have become a requirement in the mobile phones \cite{radio2015electronics}.
+
+MIMO technologies improves the throughput even further by having the option to add up multipath signals -- a further description of MIMO is given in Section~\ref{sec:mimo_in_handsets}. A comparison of the UMTS, HSPA, and LTE speeds can be seen in Figure~\ref{fig:3gppevo}.
+
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{|c|c|c|c|c|}
+%     \hline
+%     & {\bf \begin{tabular}[c]{@{}c@{}}WCDMA\\ (UMTS)\end{tabular}} & {\bf \begin{tabular}[c]{@{}c@{}}HSPA\\ HSDPA/HSUPA\end{tabular}} 
+%     & {\bf HSPA+} & {\bf LTE}     \\ \hline
+%     {\bf \begin{tabular}[c]{@{}c@{}}Max downlink speed\\ (bps)\end{tabular}} & 384 k & 14 M & 28 M & 100 M \\ \hline
+%     {\bf \begin{tabular}[c]{@{}c@{}}Max uplink speed\\ (bps)\end{tabular}} & 128 k & 5.7 M & 11 M & 50 M \\ \hline
+%     {\bf \begin{tabular}[c]{@{}c@{}}Latency\\ round trip time\\ approx\end{tabular}} & 150 ms & 100 ms & 50 ms (max) & ~10 ms \\ \hline
+%     {\bf Access methodology} & CDMA & CDMA & CDMA & OFDMA/SC-FDMA \\ \hline
+%   \end{tabular}
+%   \caption{LTE speed specifications \cite{radio2015electronics}.}
+%   \label{tab:3g4g_speeds}
+% \end{table}
 
 \subsection{LTE Frequency Band Allocation}
 As seen in Table~\ref{tab:ltefreqband}, the available LTE bands for uplink and downlink are allocated in the frequencies from \SIrange{452.5}{3600}{MHz}. The whole spectrum between \SIrange{452.5}{3600}{MHz} is not occupied by the mobile communication systems, as other network systems, such as WIFI, GPS, TV, etc., also have the rights (licenses) to some of the frequency bands within this spectrum.
