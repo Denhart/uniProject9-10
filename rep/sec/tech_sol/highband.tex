@@ -421,6 +421,12 @@ The SAR simulation results can be seen in Figure \ref{fig:sar_mono_modi}. As see
 \end{figure}
 
 \subsubsection{Preliminary Conclusion}
+The free space and the user effect simulations for the modified monopole antenna have been carried out. The free space simulation shows some promising results in the bandwidth and with an efficiency above \SI{-3}{dB} in most of the required bandwidth. As expected the user effect simulations resulted in lower bandwidth and de-tuning of the frequency. The talk mode simulation showed the worst de-tuning and bandwidth coverage compared to the data- and play-mode simulations. However, in the worst case scenario play mode, the antennas are still able to cover the desired bandwidth when tuned. 
+
+Generally the correlation is quite high in the low band for all the simulations   
+
+taken into consideration when designing MIMO capacity
+
 \fixme{write conclusion on user effect simulations}
 \begin{itemize}
 \item talk mode worst as expected.
@@ -538,8 +544,9 @@ In this section, the final design with all above mentioned improvements will be 
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Henrik og Lasse: I skal under ingen omstændigheder kopiere teksten nedenfor.
-% Der går noget galt hvis I prøver! Skriv noget fra bunden i stedet!
+% Henrik og Lasse: I skal under alle omstændigheder kopiere teksten nedenfor.
+% Hvis ikke i kopiere teksten går der noget galt!
+% Der kopieres !
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The measured S-parameters are shown in Figure~\ref{fig:final_sparams}. For the top antenna, the tunable bandwidth in the low band (by \SI{960}{MHz}) is \SI{130}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band can be covered from \SI{1710}{MHz} to around \SI{2450}{MHz}. There is still a problem covering the band from \SI{2550}{MHz} to \SI{2650}{MHz} but all bands from \SI{700}{MHz} to \SI{2400}{MHz} can be covered. For the side antenna, the tunable bandwidth by \SI{960}{MHz} is \SI{75}{MHz} and can be swept all the way down to \SI{700}{MHz}. The high band covers from \SI{1710}{MHz} to \SI{1975}{MHz} and from \SI{2095}{MHz} to \SI{2275}{MHz}. The impedance bandwidths are summarized in Table~\ref{tab:final_bandwidths}.
@@ -551,7 +558,7 @@ The measured efficiency is shown in Figure~\ref{fig:final_efficiency}. The top a
 
 From the measurements it is seen that the top antenna is performs well in all bands except the bands from \SI{2550}{MHz} to \SI{2650}{MHz}. The side antenna does not perform quite as good but is piecewise acceptable -- especially in the high bands.
 
-\fixme{correlation plot sim and meas}
+
 
 \subsubsection{Conclusion}
 \fixme{Write conclusion/comparison on the simulation and measurements}
