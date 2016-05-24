@@ -33,8 +33,8 @@ It has been chosen to elaborate on the minimized monopole antenna design and imp
 \FloatBarrier
 \subsection{Free Space Simulation}
 \label{sec:highbandsimulations}
-The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB. The maximum bandwidth for both antennas can be seen in Table \ref{tab:bw_mono_modi_fs}. Both antennas covers the required bandwidth in the low band, but experiences some problems in the high band. The top antenna lacks \SI{393}{MHz} and the side antenna \SI{515}{MHz}. As a side effect of the extra added resonance the bandwidth have dropped. It should however be able to cover both bands during the sweeps, as the bandwidth on the WiSpry board is expected to get de-tuned.  
-\fixme{Write about isolation loss.}
+The new antenna design presented in Figure~\ref{fig:sparam_5mm_highband} has been simulated. The resulting S-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB. The maximum bandwidth for both antennas can be seen in Table \ref{tab:bw_mono_modi_fs}. Both antennas covers the required bandwidth in the low band, but experiences some problems in the high band. The top antenna lacks \SI{393}{MHz} and the side antenna \SI{515}{MHz}. As a side effect of the extra added resonance the bandwidth have dropped. It should however be able to cover both bands during the sweeps, as the bandwidth on the WiSpry board is expected to get de-tuned.
+The isolation loss is rather high for the free space simulation with a maximum isolation loss of \SI{-6}{dB} in the low band. The isolation loss in the high band is generally low with a isolation loss below \SI{-13}{dB}.
 
 \begin{table}[htbp]
   \centering
@@ -150,7 +150,7 @@ In this section the modified monopole antenna will be simulated in pratice use w
 \subsubsection{Data Mode}
 The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_data_mode}. As seen from the sweep, both antennas are able to cover most of the bands. In the low band both antennas are able to cover the entire band at \SI{-4}{dB}. The high band is covered quite well for both antennas with an exception at \SI{1848}{MHz}, where the return loss drops to \SI{-2}{dB}. In the previously user effect simulations   
 it was observed that the user effects caused de-tuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtainable bandwidth can be seen in Table \ref{tab:bw_mono_modi_dm}. Generally the bandwidth is low for both antennas, with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop. This, however, should not be a problem as the bandwidth is significantly higher at \SI{-4}{dB}.
-The highest isolation loss simulated is at \SI{-6}{dB} in the low band with is higher than expected. 
+The highest isolation loss simulated is at \SI{-6}{dB} in the low band. Generally, the isolation loss is low in the high band but could cause some capacity problems in the low band. 
 
 \begin{table}[htbp]
   \centering
@@ -240,7 +240,10 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_data_mode}. Th
 \FloatBarrier
 \subsubsection{Play Mode}
 %S-Parameters
-The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_play_mode}. The maximum bandwidth can be seen in Table \ref{tab:bw_mono_modi_pm}. Compared to the data mode, the play mode have a slightly higher bandwidth in general but is more de-tuned.   
+The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_play_mode}. The maximum bandwidth can be seen in Table \ref{tab:bw_mono_modi_pm}. Compared to the data mode, the play mode have a slightly higher bandwidth in general but is more de-tuned. Both antennas almost covers the required bandwidth but are having some trouble at \SI{1800}{MHz}, where the return loss drops to \SI{-2}{dB}. The side antenna is unable to cover the low band at \SI{-6}{dB}, but covers the band at \SI{-4}{dB}.
+The isolation loss is slightly lower than the data mode, with a maximum isolation loss of \SI{-7}{dB} in the low band. The high band is below \SI{-14}{dB} and should not cause any problems.
+
+
 \begin{table}[htbp]
   \centering
   \begin{tabular}{|l|l|r|r|r|}
@@ -305,7 +308,8 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
 \end{figure}
 
 %Efficiency
-The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. \fixme{New graphs\ldots}
+The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. For the top antenna both the low band and high band efficiencies have dropped below \SI{-3}{dB}. The efficiency for the side antenna has also dropped in both the low band and high band and is in general \SI{-3}{dB} lower compared to the free space efficiency. As expected both antennas have a drop in efficiency around \SI{1800}{MHz}. 
+\fixme{New graphs\ldots}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -317,12 +321,17 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. \f
         \includegraphics{img/tech_sol/monopole/highband/ue/playmode/eff_side.pdf}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Monopole antenna in play mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively. \fixme{Problem with sweeps?}}
+    \caption{Monopole antenna in play mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:eff_mono_modi_play_mode}
 \end{figure}
 
 \FloatBarrier
 \subsubsection{Talk Mode}
+%S-Parameters
+The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_talk_mode}. The maximum obtainable bandwidth can be seen in Table \ref{tab:bw_mono_modi_tm}. As expected the talk mode has the lowest compared to the other user effect simulations, as in this case the antennas experiences loss from both the head and the hand. Compared to the previous user effect simulations the talk mode also has the highest de-tuning for both antennas. The sweep shows that both antennas are able to cover most of the required bandwidth but experiences some problems in the low band. The top antenna is able to cover the entire low band at \SI{-4}{dB}, but the side antenna has some trouble covering the frequencies around \SI{900}{MHz} to \SI{960}{MHz} where the return loss drops to \SI{-2}{dB}.
+
+As a results of the loss from both the head and the hand the isolation loss is generally low for both antennas. The maximum isolation loss is within the low band at \SI{-13}{dB} which is quite low compared to the data- and play-mode.  
+
 \begin{table}[htbp]
   \centering
   \begin{tabular}{|l|l|r|r|r|}
@@ -339,11 +348,6 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_play_mode}. \f
   \caption{Monopole antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
   \label{tab:bw_mono_modi_tm}
 \end{table}
-
-%S-Parameters
-The S-parameter sweeps can be seen in Figure \ref{fig:sparam_mono_modi_talk_mode}.
-
-%S-Parameter
 
 % S-parameters
 \begin{figure}[htbp]
@@ -392,7 +396,7 @@ The correlation between the top and side antenna can be seen in Figure \ref{fig:
 \end{figure}
 
 %Efficiency
-The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}. For the low band, the efficiency has dropped to less than \SI{-10}{dB} for both antennas. In the high band, the top antenna generally has an efficiency above \SI{-10}{dB} except for a notch at around \SI{1900}{MHz} to \SI{2000}{MHz}. The side antenna has an efficiency above \SI{-12}{dB} in the high band.
+The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}. For the low band, the efficiency has dropped to less than \SI{-10}{dB} for both antennas. In the high band, both antennas generally have an efficiency above \SI{-10}{dB} except for a notch at around \SI{1900}{MHz} to \SI{2000}{MHz}. Compared to the data- and play-mode the talk mode has the lowest efficiency which also should be expected, considering the loss from both the head and the hand.
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -404,7 +408,7 @@ The efficiency sweep can be seen in Figure \ref{fig:eff_mono_modi_talk_mode}. Fo
         \includegraphics{img/tech_sol/monopole/highband/ue/talkmode/eff_side.pdf}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Monopole antenna in talk mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively. \fixme{Problem with sweeps.}}
+    \caption{Monopole antenna in talk mode. Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:eff_mono_modi_talk_mode}
 \end{figure}
 
