@@ -37,7 +37,7 @@
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="46.8828125" x="16.55859375" y="9.140625">Azimuth turn
-≤ 180°?<y:LabelModel>
+&lt; 180°?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -54,7 +54,7 @@
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="42.21484375" x="18.892578125" y="9.140625">Num. probe
-≤ 15?<y:LabelModel>
+&lt; 15?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -71,7 +71,7 @@
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="37.765625" x="21.1171875" y="9.140625">Frequency
-≤ fmax?<y:LabelModel>
+&lt; fmax?<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -87,7 +87,7 @@
           <y:Geometry height="21.15840000000003" width="57.88160000000005" x="656.2544000000001" y="233.24264294399953"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="35.98046875" x="10.950565625000081" y="-0.28017499999998563">Next
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="35.98046875" x="10.950565624999967" y="-0.28017499999998563">Next
 frequency<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -104,7 +104,7 @@ frequency<y:LabelModel>
           <y:Geometry height="21.15840000000003" width="57.88160000000005" x="656.2544000000001" y="292.2172625919993"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="22.21484375" x="17.83337812500008" y="-0.28017499999998563">Next
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="22.21484375" x="17.833378124999967" y="-0.28017499999998563">Next
 probe<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -121,7 +121,7 @@ probe<y:LabelModel>
           <y:Geometry height="21.15840000000003" width="57.88160000000005" x="744.1360000000002" y="292.2172625919993"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="37.765625" x="10.057987499999967" y="-0.28017499999998563">Reset
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="37.765625" x="10.057987500000081" y="-0.28017499999998563">Reset
 Frequency<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -138,7 +138,7 @@ Frequency<y:LabelModel>
           <y:Geometry height="21.15840000000003" width="57.88160000000005" x="656.2544000000001" y="351.19188223999913"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="31.99609375" x="12.942753125000081" y="-0.28017499999998563">Turn in 
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="31.99609375" x="12.942753124999967" y="-0.28017499999998563">Turn in 
 Azimuth<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -189,7 +189,7 @@ probe, azimuth<y:LabelModel>
           <y:Geometry height="21.15840000000003" width="57.88160000000005" x="744.1360000000002" y="351.19188223999913"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="22.21484375" x="17.833378124999967" y="-0.28017499999998563">Reset
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Times New Roman" fontSize="8" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.71875" modelName="custom" textColor="#000000" visible="true" width="22.21484375" x="17.83337812500008" y="-0.28017499999998563">Reset
 probe<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
