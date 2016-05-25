@@ -1,26 +1,26 @@
 \section{Finite Difference Time Domain}
 \label{sec:fdtd}
-This section will describe the finite difference time domain method. This is a method for solving Maxwell equations in time domain. A brief introduction to Marxwell's Equations is given, in order to understand the methodology of FDTD. Then a description of FTDT are given for the 1D, 2D and finally 3D case. 
+This section will describe the finite difference time domain method. This is a method for solving Maxwell equations in time domain. A brief introduction to Marxwell's Equations is given, in order to understand the methodology of FDTD. Then the teqniques and ideas behind FDTD are presenten and used on the 1D scalar wave-equation. Then an introduction to the Yee Algorithm, Yee cell and Yee notation is presenten and applied on the 3D Maxwell curl equation. Lastly the key parameters of FDTD are discussed and related to CST Microwavestudio.
 
 \subsection{Introduction to Maxwell's Equations}
 Maxwell's equations are a set of equations that describe how electric and magnetic fields propagate. The set of equations consists of Gauss' law, Gauss' Magnetism law, Faraday's law and finally Ampere's law. 
 
 \subsubsection{Gauss' Law}
-Gauss' law describes how the electric field behaves around electric charges. Below is Gauss' Law written in point differential-form, the equation states that the divergence of the electric flux density $\bold{D}$ is equal to the volume electric charge density $\rho_V$. This is that the field around a point $\bold{D}$ is equal to electric charge density $\rho_V$. From this it is found that if there exists an electric charge, the divergence of $\bold{D}$ is nonzero, and only zero when there is no charge present. 
+Gauss' law describes how the electric field behaves around electric charges. Below is Gauss' Law written in point differential-form, the equation states that the divergence of the electric flux density $\bold{D}$ is equal to the volume electric charge density $\rho_V$ \cite{taflove2000computional}. This is that the field around a point $\bold{D}$ is equal to electric charge density $\rho_V$. From this it is found that if there exists an electric charge, the divergence of $\bold{D}$ is nonzero, and only zero when there is no charge present. 
 
 \begin{align}
 \nabla \cdot \bold{D} &= \rho_V
 \end{align}
 
 \subsubsection{Gauss' Magnetism Law}
-Gauss' magnetism law, is much like the previous formula, but for magnetic fields. Basically Gauss' law for magnetism states that a magnetic charge does not exist. This is given in the Equation below. 
+Gauss' magnetism law, is much like the previous formula, but for magnetic fields. Basically Gauss' law for magnetism states that a magnetic charge does not exist. This is given in the Equation below \cite{taflove2000computional}. 
 \begin{align}
 \nabla \cdot \bold{B} &=0
 \end{align}
 From this it is clear, that there are no magnetic monopoles, the divergence of $\bold{B}$ or $\bold{H}$ fields is always zero and that magnetic fields always flows in closed loops. 
 
 \subsubsection{Faraday's Law}
-Faraday's law states that the curl of the $\bold{E}$, is equal to the rate of change of a magnetic field. This is very important in the way that electric ways propagate. This is given in the Equation below. 
+Faraday's law states that the curl of the $\bold{E}$, is equal to the rate of change of a magnetic field. This is very important in the way that electric ways propagate. This is given in the Equation below \cite{taflove2000computional}. 
 \begin{align}
 \nabla \times \bold{E} &= - \frac{\partial \bold{B}}{\partial t}
 \end{align}
@@ -28,7 +28,7 @@ Faraday's law states that the curl of the $\bold{E}$, is equal to the rate of ch
 From this equation, it can be seen that a time changing magnetic field gives rise to an E-field circulating around it. Likewise, a circulating E-field causes a time changing magnetic field.   
 
 \subsubsection{Ampere's Law}
-Ampere's law, is much like Faraday's law, but for curling magnetic fields. In simple words the Equation below stats that the curl of a magnetic field $\bold{H}$ is given by the rate of change of a electric field $\bold{D}$ termed displacement current density and the electric current density.
+Ampere's law, is much like Faraday's law, but for curling magnetic fields. In simple words the Equation below stats that the curl of a magnetic field $\bold{H}$ is given by the rate of change of a electric field $\bold{D}$ termed displacement current density and the electric current density\cite{taflove2000computional}.
 
 \begin{align}
 \nabla \times \bold{H} &= \frac{\partial \bold{D}}{\partial t} + \bold{J} 
@@ -38,23 +38,22 @@ This is very much symmetric to Faraday's law, with an additional term. However t
 \subsubsection{Constitutive relations}
 Before doing any mathematical manipulations or calculations, it is necessary to have an idea on how the different terms and variables are connected through physical constants. E.g. how the electric flux density is connected to the electric field, which can lead to simplification of calculations later on.
 
-\paragraph{Electric Flux Density:} The electric flux density $\bold{D}$ is related to the electric field $\bold{E}$ by the permittivity measured in Farads per meter. Permittivity is a fundamental parameter of a given material, which affects the propagation of an electric field. Typically it is denoted by $\epsilon$. The relation is given by: 
+\paragraph{Electric Flux Density:} The electric flux density $\bold{D}$ is related to the electric field $\bold{E}$ by the permittivity measured in Farads per meter. Permittivity is a fundamental parameter of a given material, which affects the propagation of an electric field. Typically it is denoted by $\epsilon$. The relation is given by\cite{taflove2000computional}: 
 
 \begin{align}
   \bold{D} = \epsilon \bold{E}
 \end{align}
 
-\paragraph{Magnetic Flux Density:} The magnetic flux density $\bold{B}$ is related to the magnetic field $\bold{H}$ by the permeability measured in Henries per meter. Permeability is a fundamental parameter of a given material, which affects the propagation of a magnetic field. Typically it is denoted by $\mu$. The relation is given by: 
+\paragraph{Magnetic Flux Density:} The magnetic flux density $\bold{B}$ is related to the magnetic field $\bold{H}$ by the permeability measured in Henries per meter. Permeability is a fundamental parameter of a given material, which affects the propagation of a magnetic field. Typically it is denoted by $\mu$. The relation is given by\cite{taflove2000computional}: 
 
 \begin{align}
   \bold{B} = \mu \bold{H}
 \end{align}
-\paragraph{Electric Current Density:}  The electric current density $\bold{J}$ is related to the electric field $\bold{E}$ by the conductivity measured in Siemens per meter. Permeability is a fundamental parameter of a given material, which affects the current flow in a conductor. Typically it is denoted by $\sigma$. The relation is given by: 
+\paragraph{Electric Current Density:}  The electric current density $\bold{J}$ is related to the electric field $\bold{E}$ by the conductivity measured in Siemens per meter. Permeability is a fundamental parameter of a given material, which affects the current flow in a conductor. Typically it is denoted by $\sigma$. The relation is given by\cite{taflove2000computional}: 
 
 \begin{align}
   \bold{J} = \sigma \bold{E}
 \end{align}
-
 
 \subsection{The 1D Wave Equation}
 The wave equation is one of the most basic partial differential equation, which describes how waves propagate. This section will use the 1-dimension wave to describe the method of FDTD. Furthermore it is assumed that
@@ -88,28 +87,28 @@ which for the 1D case $\frac{\partial}{\partial z} = \frac{\partial}{\partial y}
   \frac{\partial E_y}{\partial t} &= - \frac{1}{\epsilon} \frac{\partial H_z}{\partial x}\\
   \frac{\partial E_z}{\partial t} &= \frac{1}{\epsilon} \frac{\partial H_y}{\partial x}
 \end{align}
-The same steps can be used to get an expression for the H-field. For each direction we can combine the E and H expressions to get the 1D scalar wave equation, e.g. the z-direction: 
+The same steps can be used to get an expression for the H-field. For each direction we can combine the E and H expressions to get the 1D scalar wave equation, e.g. the z-direction\cite{taflove2000computional}: 
 
 \begin{align}
   \frac{\partial^2 E_z}{\partial t^2} = c^2 \frac{\partial^2 E_z}{\partial x^2}
 \end{align}
-Where $c$ is the speed of light. This equation tells us that an electric field moving in the z-direction, will propagate along the x-axis in time, with a speed of $c$. Going back to the general wave-equation 
+Where $c$ is the speed of light. This equation tells us that an electric field moving in the z-direction, will propagate along the x-axis in time, with a speed of $c$. Going back to the general wave-equation\cite{taflove2000computional}
 
 \begin{align}
   \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
 \end{align}
-Since the wave-equation is a second order partial differential equation, it is known to have two linearly independent solutions: 
+Since the wave-equation is a second order partial differential equation, it is known to have two linearly independent solutions\cite{taflove2000computional}: 
 
 \begin{align}
   u(x,t) = F(x+ct) + G(x-ct)
 \end{align}
-Both $F$ and $G$ are known as propagating-wave solutions, where an argument of the form $x+ct$ is a wave moving towards decreasing $x$ and an argument of the form $x-ct$ is a wave moving towards increasing $x$. In order to compute this numerically finite differences are used. Thus the following needs to be approximated using finite-differences 
+Both $F$ and $G$ are known as propagating-wave solutions, where an argument of the form $x+ct$ is a wave moving towards decreasing $x$ and an argument of the form $x-ct$ is a wave moving towards increasing $x$\cite{taflove2000computional}. In order to compute this numerically finite differences are used. Thus the following needs to be approximated using finite-differences 
 
 \begin{align}
   \frac{\partial^2 u(x,t)}{\partial t^2},\frac{\partial^2 u(x,t)}{\partial x^2}
 \end{align}
 
-Taylor series expansion is used to approximate the expression at a point $x_i$ using finite differences: $u(x_i) = u(x_i+\Delta x) + u(x_i - \Delta x)$ which then is used to solve the wave-equation by substituting the two central differences into the 1D wave equation. This gives the solution for the latest time step as
+Taylor series expansion is used to approximate the expression at a point $x_i$ using finite differences: $u(x_i) = u(x_i+\Delta x) + u(x_i - \Delta x)$ which then is used to solve the wave-equation by substituting the two central differences into the 1D wave equation. This gives the solution for the latest time step as\cite{taflove2000computional}
 
 \begin{align*}
   u_i^{n+1} =& \left( \frac{c\Delta t}{\Delta x} \right) \left[ u_{i+1}^n - 2u_i^n + u_{i-1}^n \right] + 2u_i^n -u_i^{n-1} \\
@@ -117,7 +116,7 @@ Taylor series expansion is used to approximate the expression at a point $x_i$ u
 \end{align*}
 
 \subsection{Dispersion}
-When ever discrete numerical methods are used dispersion must be taken into account. Dispersion in this case can be seen as a variation in wavelength. For the wave equation this depends on the chosen time and space steps. 
+When ever discrete numerical methods are used dispersion must be taken into account. Dispersion in this case can be seen as a variation in wavelength. For the wave equation this depends on the chosen time and space steps\cite{taflove2000computional}. 
 
 \begin{itemize}
 \item \textbf{Magic time-step:} $c\Delta t = \Delta x$. No dispersion.
@@ -126,10 +125,10 @@ When ever discrete numerical methods are used dispersion must be taken into acco
 \item \textbf{Difference 2:} $c\Delta t > \Delta x$. Unstable as $\omega$ is complex. Exponential growth.
 \end{itemize}
 
-Generally the magic time-step is only an exact solution in 1D, but it exists for all dimensions but only for one incident angle. It is also seen that finer mesh cells reduces the error term.  
+Generally the magic time-step is only an exact solution in 1D, but it exists for all dimensions but only for one incident angle\cite{taflove2000computional}. It is also seen that finer mesh cells reduces the error term.  
 
 \subsection{The Yee Algorithm}
-The Yee algorithm is a set of finite difference equations for Maxwell's curl equation system derived by Kane Yee. This algorithm solves both E- and H-fields in space and time using coupled curl equations instead of solving for one field at a time using the wave equation. Some of the key features of the Yee Algorithm is
+The Yee algorithm is a set of finite difference equations for Maxwell's curl equation system derived by Kane Yee. This algorithm solves both E- and H-fields in space and time using coupled curl equations instead of solving for one field at a time using the wave equation. Some of the key features of the Yee Algorithm is\cite{taflove2000computional}
 
 \begin{itemize}
 \item Both E- and H-field boundaries can be used
@@ -137,7 +136,7 @@ The Yee algorithm is a set of finite difference equations for Maxwell's curl equ
 \item Electric and magnetic material properties can be modeled easily
 \item Unique field features, e.g. singularities. 
 \end{itemize}
-The Yee algorithm centers the E- and H-fields in 3D, such that every E-field is surrounded by four curling H-fields and every H-field is surrounded by four curling E-fields. This is illustrated on Figure~\ref{fig:fdtd-grid}, each cell referred to as the Yee-cell, a single Yee cell is shown in Figure~\ref{fig:yee-cell}. The arrangement of the electric and magnetic fields implicitly enforce Gauss' Law and Gauss' Magnetic Law, which makes the Yee mesh divergence free with respect to the E- and H-fields.  
+The Yee algorithm centers the E- and H-fields in 3D, such that every E-field is surrounded by four curling H-fields and every H-field is surrounded by four curling E-fields. This is illustrated on Figure~\ref{fig:fdtd-grid}, each cell referred to as the Yee-cell, a single Yee cell is shown in Figure~\ref{fig:yee-cell}. The arrangement of the electric and magnetic fields implicitly enforce Gauss' Law and Gauss' Magnetic Law, which makes the Yee mesh divergence free with respect to the E- and H-fields\cite{taflove2000computional}.  
 
 \begin{figure}
     \centering
@@ -158,7 +157,7 @@ The Yee algorithm centers the E- and H-fields in 3D, such that every E-field is 
     \label{fig:space-yee-algorithm}
 \end{figure}
 
-The Yee algorithm centers its E- and H-fields in time, which is termed the leapfrog method. This time stepping is fully explicit, and thus avoiding problems with simultaneous equations and matrix inversion. This leapfrog method is shown on Figure~\ref{fig:leap_frog} 
+The centering of the E- and H-fields in time, is often termed the leapfrog method. This time stepping is fully explicit, and thus avoiding problems with simultaneous equations and matrix inversion. This leapfrog method is shown on Figure~\ref{fig:leap_frog} 
 
 \begin{figure}[htbp]
     \centering
@@ -175,7 +174,7 @@ To keep an overview Yee, created the following notation which is useful when con
 
 %http://www.ualr.edu/wirelesslab/fdtd/fdtd3.pdf
 \subsubsection{Finite Difference of Maxwell's Equations in 3D}
-For completeness the previous ideas and notation can now be used to derive a numerical approximation of Maxwell's Curl Equations in 3D. The derivations will not be shown here, and only the solution for a single Cartesian component will be given here, due to its complexity. As an example the approximation for $E_x$ is shown below: 
+For completeness the previous ideas and notation can now be used to derive a numerical approximation of Maxwell's Curl Equations in 3D. The derivations will not be shown here, and only the solution for a single Cartesian component will be given here, due to its complexity. As an example the approximation for $E_x$ is shown below\cite{taflove2000computional}: 
 
 \begin{align}
   &E_x |^{n+1/2}_{i,j+1/2,k+1/2} = \big( \frac{1-\frac{\sigma_{i,j+1/2,k+1/2} \Delta t}{2\epsilon_{i,j+1/2,k+1/2}}}{1+\frac{\sigma_{i,j+1/2,k+1/2} \Delta t}{2\epsilon_{i,j+1/2,k+1/2}}} \big) E_x |^{n-1/2}_{i,j+1/2,k+1/2}  + \\ &\big(  \frac{\frac{\Delta t}{\epsilon_{i,j+1/2,k+1/2}}}{1+\frac{\sigma_{i,j+1/2,k+1/2} \Delta t}{2\epsilon_{i,j+1/2,k+1/2}} }    \big) \big( \frac{H_z |^n_{i,j+1,k+1/2} - H_z |^n_{i,j,k+1/2} }{\Delta y} - \frac{H_y |^n_{i,j+1/2,k+1} - H_y |^n_{i,j+1/2,k} }{\Delta z} -J_{source}|^n_{i,j+1/2,k+1/2}  \big)
@@ -186,7 +185,7 @@ As seen the equations quickly become large and hard to handle, however to fully 
 \subsection{Absorbing Boundary Conditions}
 Since many geometries of interest are defined in open regions, e.g. antennas, where the spatial domain is unbounded. Since computers have limited storage, it is needed to find a suitable boundary condition on the outer perimeter of the domain $\Omega$ in order to simulate to infinity. Thus it is needed to find a boundary condition that allows outward propagating numerical wave to exit the outer perimeter of $\Omega$, without spurious reflections from the outgoing waves. 
 
-One way of achieving the absorbing boundary condition is by terminating the outer boundary with an absorbing material, which is analogous to the method used in anechoic chambers. For this perfectly matched layer (PML) is used, which is derived by Berenger. This allows plane waves of arbitrary incidence, polarization and frequency to be matched at the boundary. PML usually gives a back-reflection in the order of $\approx 10^{-6}$--$10^{-8}$.
+One way of achieving the absorbing boundary condition is by terminating the outer boundary with an absorbing material, which is analogous to the method used in anechoic chambers. For this perfectly matched layer (PML) is used, which is derived by Berenger. This allows plane waves of arbitrary incidence, polarization and frequency to be matched at the boundary. PML usually gives a back-reflection in the order of $\approx 10^{-6}$--$10^{-8}$.\cite{taflove2000computional}
 
 \subsection{FDTD Parameters and Relation to CST}
 For all simulations in this report CST microwave studio is being used. The following will try to connect the FDTD theory to the parameters in CST. Even though CST uses Finite Integration Technique (FIT) instead of finite differences. FIT share the structure of FDTD, but using the Maxwell's Equations on integral form. The advantage of FIT is that is uses less memory and it is allows for easier code implementation of some features. Besides this most of the basic parameters are the same. 
