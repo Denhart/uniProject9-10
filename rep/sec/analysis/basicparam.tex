@@ -136,6 +136,36 @@ where
 \item[$\omega$] the radian frequency and $P_{\text{rad}}$ denotes the radiated power.
 \end{where}
 
+\section{Mobile Antenna Limitations}
+As the requirements for mobile antennas gets more and more strict, some trade off's need to be considered when designing an antenna.
+The design constrains when designing antennas is a trade off between size, bandwidth and efficiency, as illustrated in Figure \ref{fig:antenna_tradeoff}. 
+
+The trade off relationship can be expressed as\cite{hilbert2015tradeoff}: 
+\begin{align*}
+  \frac{\Delta f}{f} \propto \frac{(a/ \lambda)^3}{\eta}
+\end{align*}
+
+\begin{where}
+\item [$\lambda$] Wavelength.
+\item [$\eta$] Efficiency.
+\item [$\Delta f / f$] Bandwidth.
+\item [$a^3$] Antenna volume.
+\end{where}
+
+This relationship expresses that it is very hard, if not impossible, to design a small antenna with excellent efficiency performance and a high bandwidth.
+Therefore, when designing mobile antennas that requires high bandwidth and small antenna structures a trade off is needed to ensure that the antenna performs as required\cite{hilbert2015tradeoff}.
+
+In the case of the goal of this project the antenna is desired to have a bandwidth from \SI{690}{MHz} to \SI{960}{MHz} in the low band and from \SI{1710}{MHz} to \SI{2650}{MHz} in the high band. Furthermore it needs to be very small with a ground clearance of \SI{5}{mm} and an efficiency above \SI{50}{\percent} in the entire bandwidth. Due to the constrains on the antenna size, when designed to mobile phones, the bandwidth and efficiency will be limited. This leads to design challenges in exploiting the available and limited volume, within a sphere, the best way possible\cite{balanis2012antenna}.  
+
+As this is very hard to accomplish with a fixed-tuned antenna, a frequency reconfigurable antenna system could be one way of covering a high bandwidth with a small antenna \cite{hilbert2015tradeoff}.  
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{img/analysis/antenna_limitations}
+  \caption{Antenna design trade off's}
+  \label{fig:antenna_tradeoff}
+\end{figure}
+
 \subsection{Electrically Small Antennas}
 The concept and definition of electrically small antennas was introduced by Wheeler in 1947 \cite{wheeler1947}, and is given by:
 \begin{align}
@@ -159,7 +189,6 @@ in order for an antenna to be defined as electrically small. It should also be n
   \caption{Illustration of ESA definition \cite{}}
   \label{fig:ant-esa-def}
 \end{figure}
-
 
 \subsubsection{Fundamental limits of Q}
 L.J.\ Chu quantified the relationship between the minimum Q of an electrically small antenna and the physical size relative to the wavelength \cite{chu1948}. This relationship was later corrected by McLean \cite{mclean1996} to be: 
