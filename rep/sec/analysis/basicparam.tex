@@ -171,14 +171,9 @@ As this is very hard to accomplish with a fixed-tuned antenna, a frequency recon
 As described in the antenna limitation section \ref{subsec:ant_limit}, the size restriction of mobile antennas limits the bandwidth and efficiency.
 These are only a few of the affected parameters considered, when dealing with internal antennas. Going from external to internal antenna designs influences the radiation pattern, matching and impedance bandwidth. The losses and de-tuning caused by the user can also have a higher influence, as the hand of the user, generally, moves closer to the antenna structure compared to the external antenna case\cite{fujimoto2008mobile}. 
 
-The internal antenna design is also deeper affected by the chassis and PCB size\cite{sanchez2008multiband}. An example of the influence of the PCB size can be seen in Figure \ref{fig:antenna_pcb_behavior}      
+The internal antenna design is also deeper affected by the chassis and PCB size\cite{sanchez2008multiband}. An example of the influence of the PCB size on the resonant frequency and the bandwidth, can be seen in Figure \ref{fig:antenna_pcb_behavior}. The example is done with a $\SI{40}{mm} \times l\,\si{mm}$ dual-band patch antenna over a metallic ground plane for the frequencies \SI{}{MHz} in the GSM band and \SI{1975}{MHz} in the DCS band. The exact frequency used in the simulation is the center frequency of each band. 
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[scale=0.4]{img/analysis/pcbsize_freq.pdf}
-  \caption{Ground plane effect on the resonance frequency and the bandwidth\cite{sanchez2008multiband}.}
-  \label{fig:antenna_pcb_behavior}
-\end{figure}
+As seen in the Figure \ref{fig:antenna_pcb_behavior} both the resonant frequency and the bandwidth is greatly affected by the size of the ground plane especially the GSM band at \SI{900}{MHz}. When the ground plane and the antenna both are in resonance state the maximum bandwidth is achieved. In the case of MIMO antenna designs with two antennas, one on the bottom and one of the side of the PCB, the maximum bandwidth is hard to achieve\cite{sanchez2008multiband}. 
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -190,11 +185,12 @@ The internal antenna design is also deeper affected by the chassis and PCB size\
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/analysis/pcbsize_bandwidth.pdf}
-        \caption{Ground plane size effect on the bandwidth.}
+        \caption{Ground plane size effect on the bandwidth at \SI{-6}{dB}.}
     \end{subfigure}
     \caption{Ground plane size effect on the resonance frequency and the bandwidth\cite{sanchez2008multiband}.}
     \label{fig:antenna_pcb_behavior}
 \end{figure}
+
 
 Robustness to the antenna -- Internal
 PCB effects
@@ -204,6 +200,7 @@ user effects:
 ``The PIFA type antenna is more
 easily detuned when the user places a finger near the antenna element as compared with
 a monopole antenna''
+
 results of internal antennas 
 \cite{fujimoto2008mobile}
 
@@ -232,7 +229,8 @@ in order for an antenna to be defined as electrically small. It should also be n
   \label{fig:ant-esa-def}
 \end{figure}
 
-\subsubsection{Fundamental limits of Q}
+\subsubsection{Fundamental Limits of Q}
+\label{sec:fun_lim}
 L.J.\ Chu quantified the relationship between the minimum Q of an electrically small antenna and the physical size relative to the wavelength \cite{chu1948}. This relationship was later corrected by McLean \cite{mclean1996} to be: 
 \begin{align}
   Q_L = \frac{1}{k^3a^3}+ \frac{1}{ka}
