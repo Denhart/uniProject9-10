@@ -137,6 +137,7 @@ where
 \end{where}
 
 \subsection{Mobile Antenna Limitations}
+\label{subsec:ant_limit}
 As the requirements for mobile antennas gets more and more strict, some trade off's need to be considered when designing an antenna.
 The design constrains when designing antennas is a trade off between size, bandwidth and efficiency, as illustrated in Figure \ref{fig:antenna_tradeoff}. 
 
@@ -165,6 +166,30 @@ As this is very hard to accomplish with a fixed-tuned antenna, a frequency recon
   \caption{Antenna design trade off's}
   \label{fig:antenna_tradeoff}
 \end{figure}
+
+\subsection{Internal Antennas}
+As described in the antenna limitation section \ref{subsec:ant_limit}, the size restriction of mobile antennas limits the bandwidth and efficiency.
+These are only a few of the affected parameters considered, when dealing with internal antennas. Going from external to internal antenna designs influences the radiation pattern, matching and impedance bandwidth. The losses and de-tuning caused by the user can also have a higher influence, as the hand of the user, generally, moves closer to the antenna structure compared to the external antenna case\cite{\cite{fujimoto2008mobile}}. 
+
+The internal antenna design is also deeper affected by the chassis and PCB size\cite{sanchez2008multiband}. An example of the influence of the PCB size can be seen in Figure \ref{fig:antenna_pcb_behavior}      
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.4]{img/analysis/antenna_behavior}
+  \caption{Ground plane effect on the resonance frequency and the bandwidth\cite{sanchez2008multiband}.}
+  \label{fig:antenna_pcb_behavior}
+\end{figure}
+
+
+PCB effects
+Case effects
+
+user effects:
+``The PIFA type antenna is more
+easily detuned when the user places a finger near the antenna element as compared with
+a monopole antenna''
+results of internal antennas 
+\cite{fujimoto2008mobile}
 
 \subsection{Electrically Small Antennas}
 The concept and definition of electrically small antennas was introduced by Wheeler in 1947 \cite{wheeler1947}, and is given by:
