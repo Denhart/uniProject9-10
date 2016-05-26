@@ -119,22 +119,64 @@ The radiation efficiency is defined as the conduction-dielectric efficiency $e_r
   e_r = \frac{P_{\text{radiated}}}{P_{\text{input}}} = \frac{R_r}{R_L+Rr}
 \end{align}
 
-\subsection{Antenna Q Factor}
-The antenna Q factor (Quality factor) is often used to get an estimation of the bandwidth of a given antenna. The definition of the Q factor of an antenna is defined in Equation~\ref{eq:antenna-q-factor} below \cite{fundamentalMcLean}: 
-\begin{align}
-  \label{eq:antenna-q-factor}
-      Q =
-    \begin{dcases}
-       \frac{2 \omega W_e}{P_{\text{rad}}} & W_e > W_m  \\
-       \frac{2 \omega W_e}{P_{\text{rad}}} & W_m > W_e 
-    \end{dcases}
-\end{align}
-where 
+\subsection{Antenna $Q$-Factor}
+As it will be described in Section~\ref{sec:elsmallantennas}, the size of an antenna sets the lowest achievable Quality Factor (or $Q$-factor) of an antenna. In this section, the relation between $Q$-factor and antenna bandwidth will be described as well as the impact of having multiple antennas on the $Q$-factor.
+
+The $Q$-factor is a measure of loss in a resonant circuit \cite{pozar2011microwave}. A higher $Q$ means lower loss. In an antenna, it is desired to have loss due to radiation while mismatch loss, conductive loss, and dielectric loss is undesirable. The $Q$ due to radiation should therefore be low to get a high degree of radiation.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/analysis/q_series}
+        \caption{Series.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics{img/analysis/q_shunt}
+        \caption{Parallel.}
+    \end{subfigure}
+    \caption{Series and parallel resonant circuit equivalent of a single-resonance antenna.}
+    \label{fig:qresonanteq}
+\end{figure}
+
+For a single-resonance antenna, a resonant circuit can often be used as an equivalent for the antenna. A series and a parallel equivalent circuit is shown in Figure~\ref{fig:qresonanteq}. A circuit is at resonance when the reactive part, $X_0=0$. For an antenna it is desired to have resonance where $R_0$ is equal to the characteristic impedance of the system (e.g.\ \SI{50}{\ohm}). For a multi-resonance antenna, a resonant circuit equivalent can be used for each resonance, given that the bandwidth of observation is chosen narrow enough (by altering the $\beta$-parameter below) \cite{yaghjian2005impedance}.
+% Resonace = X0 = 0
+% Multi-resonance: Locally, resonant circuits
+
+An investigation of the relation between impedance, bandwidth, and $Q$ of antennas by Yaghjian and Best \cite{yaghjian2005impedance}. They developed the following exact expression for the $Q$-factor:
+\begin{equation}
+    Q(\omega_0) = \left| 
+    \frac{\omega_0}{2R_0(\omega_0)}X_0^{\prime}(\omega_0)
+    -
+    \frac{2\omega_0}{|I_0|^2 R_0(\omega_0)} [W_L(\omega_0) + W_R(\omega_0)]
+    \right|
+\end{equation}
+where
 \begin{where}
-\item[$W_e$] the time-average non-propagating stored electric energy.
-\item[$W_m$] the same as the above just with magnetic energy.
-\item[$\omega$] the radian frequency and $P_{\text{rad}}$ denotes the radiated power.
+\item[$\omega_0$] Radian frequency at which the antenna is tuned.
+\item[$R_0(\omega_0)$] Input resistance at resonance.
+\item[$X^{\prime}_0(\omega_0)$] Derivative of the input reactance with respect to $\omega$, evaluated at $\omega_0$.
+\item[$I_0$] Current fed to the antenna.
+\item[$W_L$] Energy associated with power loss in the antenna, computed from the electric and magnetic fields.
+\item[$W_R$] Energy associated with the power radiated by the antenna, computed from the farfield.
 \end{where}
+In the same paper, an approximate expression is developed for the $Q$-factor based on the input impedance at resonance. Furthermore, an approximation is developed based on the fractional bandwidth, $\text{FBW}_V$:
+\begin{align}
+    Q(\omega_0) 
+    \label{eq:qapprox1}
+    &\approx \frac{\omega_0}{2R_0(\omega_0)} |Z_0^{\prime}(\omega_0)| \\
+    \label{eq:qapprox2}
+    &\approx \frac{2\sqrt{\beta}}{\text{FBW}_V(\omega_0)}, & \sqrt{\beta} = \frac{s-1}{2\sqrt{s}} \leq 1
+\end{align}
+where $s$ is the requirement VSWR at which the bandwidth is determined. The approximation is based on the assumption that $W_L$ and $W_R$ are ohmic losses in the resonance equivalent circuits \cite{yaghjian2005impedance}. Furthermore, the derivatives, $R^{\prime}_0(\omega)$ and $X^{\prime}_0(\omega)$ must not change greatly over the bandwidth of the antenna -- which holds by choosing the bandwidth narrow enough \cite{yaghjian2005impedance}.
+Finally, is is assumed that the antenna is linear (i.e.\ there is a linear relationship from the $\mathbf{B}$ and $\mathbf{D}$ fields to the $\mathbf{H}$ and $\mathbf{E}$ fields), passive (non-gain media), and tuned by only passive circuitry \cite{yaghjian2005impedance}. 
+
+The approximation in Equation~\ref{eq:qapprox1} can be used to compute the $Q$ of an antenna by knowing its input impedance.  
+The approximation in Equation~\ref{eq:qapprox2} is useful for approximating the bandwidth of an antenna based on a $Q$-factor. This $Q$ could be, for example, be computed using the Chu limit (see Section~\ref{sec:fun_lim}) and thus, the highest possible bandwidth of an antenna of a given size could be computed. Alternatively, the formula could be used to approximate the $Q$ of an antenna with a given resonance by rearranging the equation.
+
+
 
 \subsection{Mobile Antenna Limitations}
 \label{subsec:ant_limit}
