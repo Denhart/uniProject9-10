@@ -204,10 +204,21 @@ In the case of the goal of this project the antenna is desired to have a bandwid
 As this is very hard to accomplish with a fixed-tuned antenna, a frequency reconfigurable antenna system could be one way of covering a high bandwidth with a small antenna \cite{hilbert2015tradeoff}.  
 
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[scale=0.4]{img/analysis/antenna_limitations}
-  \caption{Antenna design trade off's}
-  \label{fig:antenna_tradeoff}
+    \centering
+  % \includegraphics[scale=0.4]{img/analysis/antenna_limitations}
+    \begin{tikzpicture}[>=latex, font=\footnotesize]
+        \draw [very thick] (0,0) coordinate(a) -- ++(60:3) coordinate(b) -- ++(-60:3) coordinate(c) -- cycle;
+        \node [left] at (a) {Size};
+        \node [above] at (b) {Bandwidth};
+        \node [right] at (c) {Efficiency};
+
+        \path[fill=black] (30:1) coordinate(p) circle (2pt);
+        \draw[<->] (a) -- (p);
+        \draw[<->] (b) -- (p);
+        \draw[<->] (c) -- (p);
+    \end{tikzpicture}
+    \caption{Antenna design trade-off's.}
+    \label{fig:antenna_tradeoff}
 \end{figure}
 
 \subsection{Internal Antennas}
