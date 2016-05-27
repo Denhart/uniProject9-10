@@ -105,8 +105,6 @@ A signal $x_i(k)$ is sent from the i'th antenna in the array, this signal travel
 \end{align*}
 where $M_T$ is the number of transmitter antennas, $\mathbf{h} = [h_1 \cdots h_{M_T}$ and $\mathbf{x} = [x_1(k) \cdots x_{M_T}(k)$. 
 
-
-
 The MISO becomes an equivalent SISO channel. The pre-processing that is often used is transmit spatial matched filtering or transmit MRC. Where the transmitted signal is matched to the channel $h_i$ before beings sent from antenna $i$. The weights applied in the transmit MF are the exact same as the receiver MF due to perfect knowledge of the channel\cite{Tim2012Practical}. The output of the pre-processing is under the power constraint $\sum_{i=1}^{M_T} E|x_i(k)|^2 \leq \PP$. The signal $x_i$ sent from the antenna is then 
 
 \begin{align*}
@@ -189,7 +187,7 @@ here $y_0$ is the cut-off value and it is determined using the power constraint:
 
 \subsection{Antenna Design in MIMO Applications}
 \label{sec:mimoant}
-The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{\text{total}}$. The near-field coupling is a measure of the coupled power towards the second antenna when the first antenna is excited. The coupling is evaluated by the $S_{21}$ parameter and is often referred to as the \emph{isolation}. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. 
+The three most important factors in MIMO antenna design are: near-field coupling, the envelope correlation $\rho_e$ and total efficiency $\eta_{\text{total}}$. The near-field coupling is a measure of the coupled power towards the second antenna when the first antenna is excited. The coupling is evaluated by the $S_{21}$ parameter and is often referred to as the \emph{isolation}. This isolation affects the efficiency and envelope correlation coefficient~\cite{Tatomirescu2011PortIsolation}. The Envelope correlation coefficient is a measure of how independent the antenna radiation patterns are. So if the two radiation patterns are pointing in two different directions the correlation coefficient is zero, and if the radiation patterns are exactly the same the correlation coefficient will be one. As a rule of thumb, a correlation coefficient of \num{0.5} is assumed to be sufficient, and \num{0.3} is generally seen as good for mimo applications\cite{Tim2012Practical}.
 
 The total efficiency is simply given by Equation~\ref{eq:mimo_total_eff}\cite{Tatomirescu2011PortIsolation}, where $\eta_{\text{rad}}$ is the radiation efficiency, which takes dielectric and conductive losses into account. 
 \begin{align} 
