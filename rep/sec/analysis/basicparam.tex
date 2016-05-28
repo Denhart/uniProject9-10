@@ -259,6 +259,12 @@ The design requirements also includes\cite{fujimoto2008mobile}:
 
 Most of these requirements and factors needs to be considered in the design and choosing of the antenna type. Robustness comes with the fact that it is an internal antenna and therefore is protected by the phone case. Some of the most used antenna types for mobile antennas are the PIFA and the folded monopole antennas. Both designs are suitable for mobile phones, as the antenna size is a $1/4 \lambda$\cite{fujimoto2008mobile}.
 
+As mentioned the PCB has a big influence on the antenna, but the antenna performance is also degraded by other components, such as the display, the camera, the flex-films, the speaker, the microphone etc. When activated, these digital components works at high-speed and will degrade the receiving sensitivity and cause problems to the receiving bands as the components emits RF noise. When the components are deactivated, the components will work as passive lossy loading elements. Close to the antenna, the passive components will cause reduction to the effective antenna volume, de-tuning and ohmic losses. When activated and close to the antenna the components will degrade the receiving sensitivity and cause problems to the receiving bands. 
+
+Because of the large battery size in today's smartphones, the battery can have a significant impact on the antenna performance. If placed closely to the antenna, the battery can introduce an induced current on the antenna and affect the performance. To have as little impact as possible from the battery it should be placed \SIrange{4}{6}{mm} or more from the antenna. 
+
+The display is parallel to the PCB ground plane and is made of lossy dielectric material, which can change the EM near field of the antenna. In most phones the display is large and can have a big influence on the antenna performance, as the display introduces some induced currents on the antenna.\cite{fujimoto2008mobile}   
+
 \subsection{Electrically Small Antennas}
 \label{sec:elsmallantennas}
 The concept and definition of electrically small antennas was introduced by Wheeler in 1947 \cite{wheeler1947}, and is given by:

@@ -73,7 +73,32 @@ Some of the possible reasons for varying results between user are listed below.
 \item Many, possibly minor, parameters such as age, sex, amalgam teeth fillings, glasses, amount of hair, and so forth.
 \end{itemize}
 
-\subsection{SAR}
+\subsection{SAR -- Specific Absorption Rate}
+SAR is a measure of how transmitted RF energy is absorped by the body from the source being measured.\cite{fcc2015sar} 
+
+SAR is defined as\cite{fujimoto2008mobile}:
+\begin{equation*}
+  SAR = \frac{\sigma}{2\rho}|E|^2
+\end{equation*}
+
+\begin{where}
+  [$\sigma$] Conductivvity of the tissue [$S/m$].
+  [$\rho$] Material density [$kg/m^3$].
+  [$E$] Electric field intensity
+\end{where}
+
+The SAR value is averaged over a specific volume and have different requirement for the volume and max SAR dependent on region:
+
+\begin{itemize}
+\item Europe -- Max SAR \SI{2}{W/kg} averaged over \SI{10}{g} of tissue.
+\item US -- Max SAR \SI{1.6}{W/kg} averaged over \SI{1}{g} of tissue.
+\end{itemize}
+
+The SAR requirements and testing is standardized by the Federal Communications Commission (FCC) and is tested at the highest power level in all the frequency bands. Standardized head and body models filled with liquid is used and specific holding positions is tested. Pinpoint measurements are done at specific locations within the head and body models and the highest SAR value is used to verify the requirements.
+
+The SAR value does not tell anything about the general exposure to RF emission but only the highest SAR from that specific phone. Therefore, buying a phone with a low measured SAR value is not equal to low SAR exposure in general. A phone with a high measured SAR value can have a lower averaged SAR exposure than a phone with a low measured SAR value and visa versa. 
+
+
 
 \subsection{Preliminary Conclusion}
 The negative influence of the user effect has been a known issue for quiet some time and is confirmed by the resent studies from 2014 \cite{Samantha2014UserEff}. The results presented for both the S-parameters, the total efficiency, and the radiation efficiency show very varying results dependent on the position of the finger and the antenna placement. However, the noticeable part of the results is that even in the best case, the user still has a significant effect on the performance of the antenna, which needs attention. In the case of the GSM specifications, the body loss is taken as \SI{3}{dB}, which is close to the best case simulation scenario. From the simulation and measurement studies it is seen that a body loss of \SI{10}{dB} is more common, which also implies that the user effect needs more attention, also in terms on the link budget, etc.\ \cite{sanchez2008multiband}.
