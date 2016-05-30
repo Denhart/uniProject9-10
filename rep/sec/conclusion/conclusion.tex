@@ -22,4 +22,12 @@ The envelope correlation has been simulated for all designs. In order to have go
 
 All the measured designs from from the report are summarized in Table~\ref{tab:comparison_reconf_lte} together with the designs discussed in the introduction, Chapter~\ref{cha:intro}. Here, the range of total efficiency for each design is shown for both the low and the high band as well as the dimensions of the designs. 
 
-\fixme{Write about the comparison and finish the conclusion.}
+In the low band, the most of the measurements show comparable efficiencies to the state-of-the-art designs. In the high band, the prototypes on copper clad board with discrete components also show very comparable results. It is clear that the efficiency in the high band is severely lower on the tuner PCB. The small minimum value is due to some part of the high band not being covered while most of the band is covered at above \SI{-3}{dB}.
+
+The top antenna of the modified minimized design, with only \SI{5}{mm} ground clearance, is very much on a par with designs with much more ground clearance (up to \SI{2500}{MHz}) while the side antenna suffers from a few in-band notches. 
+
+Compared to \cite{ilvonen2014multiband}, the area is smaller due to the low ground clearance, while the volume of the antenna is larger as the height is \SI{7}{mm}. A natural next step would be to try to lower the height to make the design even more compact, as done in \cite{ilvonen2014multiband}. Another next step would be to re-design the PCB to see if the high-band performance can be improved. In this case, the RFFE optical interface could be incorporated into the board as well.
+
+A \SI{5}{mm} version of the triangle-feed design may be successful if capacitance is added to the transmission line as with the modified minimized design. The \SI{10}{mm} version appeared to be well-behaved so this design might also be good for LTE if it could be minimized.
+
+The results show that it is possible to design LTE antennas with only \SI{5}{mm} ground clearance while still having an acceptable total efficiency over the range of the tuner.
