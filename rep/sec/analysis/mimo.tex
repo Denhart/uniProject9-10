@@ -1,6 +1,6 @@
 \section{MIMO in Handsets}
 \label{sec:mimo_in_handsets}
-Multiple antennas in both transmitter and receiver in wireless systems, which is better known as MIMO, has become a widespread technology and used in many applications today, due to its increase in performance. Most wireless systems are limited by the channel in which they propagate, due to phenomenons such as multi-path fading. Multi-path happens when the transmitted signal travels through multiple different paths, which influence the time it takes for the signal to reach the receiver, the angle of arrival and even frequency shifts due to doppler. This creates random fluctuation in the received signal level, which affect the performance of wireless communication.  MIMO is an effective way of dealing with the challenges in delivering more throughput and coupe with the multipath effects from buildings. MIMO exploits the multi-path phenomenon, to transmit several different data streams simultaneously, also referred to as spatial multiplexing. This can help in both single user or in multiple user scenarios. For the single user it allows for faster data rates without increasing the transmit power or allocating more frequency resources. In the multiple user scenario the base station can effectively create beams to individual users, while using the same shared frequency, this is also known as Space Division Multiple Access (SDMA). The purpose of this section is to explain what is understood by such a system, how it relates to the antenna design and how it makes a difference. The principal mechanisms and performance metrics are explained. This section will not describe the statistical channel models, but rather focus on the antenna related perspectives. 
+Multiple antennas in both transmitter and receiver in wireless systems, which is better known as MIMO, has become a widespread technology and used in many applications today, due to its increase in performance. Most wireless systems are limited by the channel in which they propagate, due to phenomenons such as multi-path fading. Multi-path happens when the transmitted signal travels through multiple different paths, which influence the time it takes for the signal to reach the receiver, the angle of arrival and even frequency shifts due to doppler. This creates random fluctuation in the received signal level, which affect the performance of wireless communication. MIMO is an effective way of dealing with the challenges in delivering more throughput and coupe with the multipath effects from buildings. MIMO exploits the multi-path phenomenon, to transmit several different data streams simultaneously, also referred to as spatial multiplexing. This can help in both single user or in multiple user scenarios. For the single user it allows for faster data rates without increasing the transmit power or allocating more frequency resources. In the multiple user scenario the base station can effectively create beams to individual users, while using the same shared frequency, this is also known as Space Division Multiple Access (SDMA). The purpose of this section is to explain what is understood by such a system, how it relates to the antenna design and how it makes a difference. The principal mechanisms and performance metrics are explained. This section will not describe the statistical channel models, but rather focus on the antenna related perspectives. 
 
 \begin{figure}[htbp]
   \centering
@@ -43,19 +43,16 @@ For a simple SISO channel, as illustrated on Figure~\ref{fig:sisoModel}, is give
 \end{align*}
 
 Here $h$ describes the channel, which is time \emph{independent}. The signal power is $\PP |h|^2$, which is the power in $h x(k)$ and the noise power of $n(k)$ is $\sigma_n^2$. Thus the SNR is given by the ratio\cite{Tim2012Practical}
-
 \begin{align*}
   \snr = \frac{\PP |h|^2}{\sigma_n^2}
 \end{align*}
 
-This yields a channel capacity of 
-
+This yields a channel capacity of\cite{Tim2012Practical} 
 \begin{align*}
       \CC &= \log_2 \left( 1 + \snr \right)
 \end{align*}
 
 It is easily seen that the SNR is an important factor for the AWGN channel capacity.
-
 \begin{figure}[hbp]
   \centering
   \includegraphics[scale=1.2]{img/analysis/sisoModel}
@@ -73,18 +70,17 @@ The channel capacity for a SIMO system, where a symbol $x(k)$ is sent from a sin
   \label{fig:simoModel}
 \end{figure}
 
-The system model changes from a scalar equation to a vector notation due to the multiple antennas. The channel coefficients are denoted as $h_j$, $j,...,M_R$ and are known at the transmitter. At a given antenna $j$, the received signal $y_j(k)$ is given by: 
-
+The system model changes from a scalar equation to a vector notation due to the multiple antennas. The channel coefficients are denoted as $h_j$, $j,...,M_R$ and are known at the transmitter. At a given antenna $j$, the received signal $y_j(k)$ is given by\cite{Tim2012Practical}: 
 \begin{align*}
   y_j(k) = h_j x(k) + n_j(k)
 \end{align*}
-The multiple antennas receive multiple distorted copies of the transmitted symbol. Each received signal, has different parts of the signal depending on the channel. To recover the most of the original message, the signal is combined. This combination can be done in multiple ways, matched filtering, maximum ratio combining or equal-gain combining. Matched filtering, requires the most amount of post-processing, since it requires the signals to be aligned in phase, so they can be added constructively and scaled. This maximized the post-processing SNR of the SIMO system. Mathematically the received signal at antenna $j$ is first multiplied with a scalar coefficient $h_j^*$ matched to the channel, this yields: $|h_j|^2 x(k) + h_j^* n_j(k)$. The processed signals are then added up, which results in a processed signal\cite{Tim2012Practical}: 
 
+The multiple antennas receive multiple distorted copies of the transmitted symbol. Each received signal, has different parts of the signal depending on the channel. To recover the most of the original message, the signal is combined. This combination can be done in multiple ways, matched filtering, maximum ratio combining or equal-gain combining. Matched filtering, requires the most amount of post-processing, since it requires the signals to be aligned in phase, so they can be added constructively and scaled. This maximized the post-processing SNR of the SIMO system. Mathematically the received signal at antenna $j$ is first multiplied with a scalar coefficient $h_j^*$ matched to the channel, this yields: $|h_j|^2 x(k) + h_j^* n_j(k)$. The processed signals are then added up, which results in a processed signal\cite{Tim2012Practical}: 
 \begin{align*}
   \tilde{y}(k) = \norm{\mathbf{h}}^2 x(k) + \tilde{n}(k)
 \end{align*}
-The SIMO system becomes equivalent to a scalar AWGN channel, with a potentially larger SNR due to the post-processing\cite{Tim2012Practical}. This leads us to a SNR and channel capacity given by: 
 
+The SIMO system becomes equivalent to a scalar AWGN channel, with a potentially larger SNR due to the post-processing\cite{Tim2012Practical}. This leads us to a SNR and channel capacity given by\cite{Tim2012Practical}: 
 \begin{align*}
 &SNR^{TI}_{SIMO} = \frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \\
 &C^{TI}_{SIMO} = \log_2 \left( 1+\frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \right)  
@@ -106,14 +102,12 @@ A signal $x_i(k)$ is sent from the i'th antenna in the array, this signal travel
 \end{align*}
 where $M_T$ is the number of transmitter antennas, $\mathbf{h} = [h_1 \cdots h_{M_T}$ and $\mathbf{x} = [x_1(k) \cdots x_{M_T}(k)$. 
 
-The MISO becomes an equivalent SISO channel. The pre-processing that is often used is transmit spatial matched filtering or transmit MRC. Where the transmitted signal is matched to the channel $h_i$ before beings sent from antenna $i$. The weights applied in the transmit MF are the exact same as the receiver MF due to perfect knowledge of the channel\cite{Tim2012Practical}. The output of the pre-processing is under the power constraint $\sum_{i=1}^{M_T} E|x_i(k)|^2 \leq \PP$. The signal $x_i$ sent from the antenna is then 
-
+The MISO becomes an equivalent SISO channel. The pre-processing that is often used is transmit spatial matched filtering or transmit MRC. Where the transmitted signal is matched to the channel $h_i$ before beings sent from antenna $i$. The weights applied in the transmit MF are the exact same as the receiver MF due to perfect knowledge of the channel\cite{Tim2012Practical}. The output of the pre-processing is under the power constraint $\sum_{i=1}^{M_T} E|x_i(k)|^2 \leq \PP$. The signal $x_i$ sent from the antenna is then\cite{Tim2012Practical}: 
 \begin{align*}
   x_i(k) = \frac{h_i^*}{\norm{\mathbf{h}} \tilde{x}(k)}
 \end{align*}
 
-On the receiving side, the signals are phased aligned and added constructively. It is obvious that more power is allocated to the stronger channels and thus maximizing the SNR. The SNR and channel capacity then becomes 
-
+On the receiving side, the signals are phased aligned and added constructively. It is obvious that more power is allocated to the stronger channels and thus maximizing the SNR. The SNR and channel capacity then becomes\cite{Tim2012Practical}:
 \begin{align*}
 &SNR^{TI}_{MISO} = \frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \\
 &C^{TI}_{MISO} = \log_2 \left( 1+\frac{\PP \norm{\mathbf{h}}^2}{\sigma^2_n} \right)  
@@ -246,7 +240,7 @@ where
     \end{equation*}
 \end{where}
 
-The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams}\cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency. \fixme{Cite here}
+The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams}\cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency\cite{Alain2010MIMO}.
 \begin{align}
 \label{eq:envlop_corr_Sparams}
   \rho_e \approx |\rho_c|^2 = \frac{|S^*_{11}S_{12}+S^*_{21}S_{22}|^2}{(1-|S_{11}|^2-|S_{21}|^2)(1-|S_{22}|^2-|S_{12}|^2)}
@@ -268,7 +262,7 @@ From the Equation~\ref{eq:envlop_corr} it can also be deduced that the spacing, 
 \item[$\cos \zeta$] $= \sin(\phi + \tan^{-1}(l/d)\ \text{sgn}\phi)\sin\phi$   
 \end{where}
 
-In Figure~\ref{fig:mimo-spacing}, two cases of Equation~\ref{eqn:spactial_corr} are shown, one where only the horizontal spacing is considered and another where only the vertical spacing is considered. The angle of arrival is given by Taga\fixme{elaborate on the angle of arrival}, where the mean angle $\overline{\theta}$ is at \SI{70}{\degree} and the standard deviation $\sigma_\theta$ is \SI{20}{\degree}. From the plot it can be seen that the vertical spacing required for a certain correlation is larger than that of the horizontal spacing. This comes from the Taga-model used for the angle of arrival, since its distribution is nonuniform. This can however not be used to argue that the antennas should be spaced horizontally, since smartphones often is operated both horizontally and vertically. 
+In Figure~\ref{fig:mimo-spacing}, two cases of Equation~\ref{eqn:spactial_corr} are shown, one where only the horizontal spacing is considered and another where only the vertical spacing is considered. The AOA (angle of arrival) is given by Taga and assumes that the AOA in azimuth is uniform, and Gaussian in the elevation plane. The mean angle $\overline{\theta}$ is at \SI{70}{\degree} and the standard deviation $\sigma_\theta$ is \SI{20}{\degree}. From the plot it can be seen that the vertical spacing required for a certain correlation is larger than that of the horizontal spacing. This comes from the Taga-model used for the angle of arrival, since its distribution is nonuniform. This can however not be used to argue that the antennas should be spaced horizontally, since smartphones often is operated both horizontally and vertically\cite{Tim2012Practical}. 
 
 It is also possible to make the array in other topologies such as planar, circular or random. This is, however, not very practical for mobile devices given the current usage of low frequencies in telecommunication (\SIrange{500}{2700}{MHz}) as described in Section~\ref{sec:lte}.
 
