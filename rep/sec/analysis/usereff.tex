@@ -1,26 +1,27 @@
 \section{User Effects}
 \label{se:user_effects}
-In this section, the user impact on mobile antenna performance will be described, including both effects of the head, the hand, and the body in general.
+\begin{aautop}
+    In this section, the user's impact on mobile antenna performance will be described, including both effects of the head, the hand, and the body in general.
+\end{aautop}
 
-Antenna parameters such as efficiency, radiation pattern, impedance, etc.\ will be effected by the user, as the body of the user will look like a lossy and large dielectric body from the antennas point of view. 
-The internal antennas that are implemented in every phone today, have a similar performance compared to external stubby antennas, which were used in a numerous older designs. However, this is only if the antennas are measured and compared in free space or next to a phantom head. In practical use, a mobile phone with an internal antenna design will be much more vulnerable to head and hand impacts from the user. 
-The negative performance impact will be there, but will differ from user to user, as things like head and hand size, hand position, whether the user is left or right handed, etc., varies from user to user. This is of course a drawback in switching from external to internal antennas, but the development also comes with a lot of advantages. The internal antenna provides robust design and normally has higher performance in mechanical tests, such as drop tests, wearing tests, etc., as the antenna is placed inside the phone, thus, making physical interaction impossible. 
+Antenna parameters such as efficiency, radiation pattern, impedance, etc.\ will be effected by the user, as the body of the user will look like a lossy and large dielectric body from the antennas point of view \cite{balanis2008modern}.
+The internal antennas that are implemented in most phones today, have a similar performance compared to external stubby antennas, which were used in a numerous older designs. However, this is only if the antennas are measured and compared in free space or next to a phantom head. In practical use, a mobile phone with an internal antenna design will be much more vulnerable to head and hand impacts from the user. 
+The negative performance impact will be there but will differ from user to user as things like head and hand size, hand position, whether the user is left or right handed, etc., varies. This is, of course, a drawback in switching from external to internal antennas but the development also comes with a lot of advantages. The internal antenna provides robust design and normally has higher performance in mechanical tests such as drop tests, wearing tests, etc., as the antenna is placed inside the phone, thus, making physical interaction impossible \cite{balanis2008modern}. 
 To counteract and minimize the user effect problem to the internal antennas, some basic design guidelines can be followed.
 
 \subsection{Design Guidelines}
-An antenna that is placed in the top of the phone, will be more effected by the user in talk mode, as the antenna will be closer to the head. To avoid this, a ground plane can be placed between the user and the head in order to create more isolation. However, placing the antenna on top of the ground plane decreases the bandwidth significantly, which leads to an increase in the antenna size to keep the required bandwidth. This is not a realizable solution in mobile phones, as the size requirement of the antennas are very strict as a result of recent smartphone designs, with bigger screens and smaller cases. A way to solve this problem is to place the antenna in the bottom of the phone, thus lowering the user effect and making it possible to place the antenna without the ground plane as isolation. This solution provides a certain ground clearance, which makes it possible to decrease the volume and thickness of the antenna, thus saving space in the mobile phone. 
+An antenna, that is placed in the top of the phone, will be more effected by the user in talk mode as the antenna will be closer to the head. To avoid this, a ground plane can be placed between the user and the head in order to create more isolation. However, placing the antenna on top of the ground plane decreases the bandwidth significantly, which leads to an increase in the antenna size to keep the required bandwidth. This is not a realizable solution in mobile phones, as the size requirement of the antennas are very strict as a result of recent smartphone designs with bigger screens and smaller cases. A way to solve this problem is to place the antenna in the bottom of the phone, hence lowering the user effect and making it possible to place the antenna without the ground plane as isolation. This solution provides a certain ground clearance, which makes it possible to decrease the volume and thickness of the antenna, saving space in the mobile phone \cite{balanis2008modern}. 
 
-The bottom-placed antenna design was proven to work by Motorola with their Motorola Razor V3 phone, which was the first phone to use the bottom placed antenna. There were some skeptics to this design, as the bottom of the phone would be placed in the middle of the hand in talk mode. However, Motorola proved that theory wrong and therefore many phone manufactures are now using their own bottom placed antennas \cite{Zhijun2011antdesign}. This solution, of course, only applies in talk mode as the head effect is close to zero when the phone is used in data mode. In data mode, the phone is usually held either in vertical mode with one hand or in horizontal mode with two hands. In vertical mode, given the size of today's smartphones, the hand will be placed around the middle of the phone (depending on the individual user), thus, clearing the top and bottom. This indicates that it does not matter whether the antenna is placed in the top or bottom of the phone. In the case of horizontal mode with two hands, the hands covers both the top and the bottom of the phone, so in this case it still makes no difference if the antenna is placed in the bottom or in the top of the phone \cite{Zhijun2011antdesign}.
+The bottom-placed antenna design was proven to work by Motorola with their Motorola Razor V3 phone, which was the first phone to use the bottom placed antenna. There were some skeptics to this design, as the bottom of the phone would be placed in the middle of the hand in talk mode. However, Motorola proved that hypothesis wrong and therefore, many phone manufactures are now using their own bottom placed antennas \cite{Zhijun2011antdesign}. This solution, of course, only applies in talk mode as the head effect is close to zero when the phone is used in data mode. In data mode, the phone is usually held either in vertical mode with one hand (data mode) or in horizontal mode with two hands (play mode). In vertical mode, given the size of today's smartphones, the hand will be placed around the middle of the phone (depending on the individual user), clearing the top and bottom. This indicates that it does not matter whether the antenna is placed in the top or bottom of the phone. In the case of horizontal mode with two hands, the hands covers both the top and the bottom of the phone, so in this case it still makes no difference if the antenna is placed in the bottom or in the top of the phone \cite{Zhijun2011antdesign}.
 
-In talk or data (vertical or horizontal) mode, there will still be some negative user effect on the performance. As long as the head or hand is within the near field of the phone, the impact of the user will be significant and needs some attention. Besides following the simple design guidelines, antenna tuning can be used to optimize the performance when the antenna's resonance frequency is detuned, as a result of the user impact.
+In talk or data (vertical or horizontal) mode, there will still be some negative user effect on the performance. As long as the head or hand is within the near field of the phone, the impact of the user will be significant and needs some attention. Besides following the simple design guidelines, antenna tuning can be used to optimize the performance when the antenna's resonance frequency is detuned as a result of the user impact.
 
 \subsection{Simulation and Measurement Studies}
-A recent study has been carried out in 2014 at Aalborg University on user effects of MIMO LTE performance, which is also the antenna design goal of this project \cite{Samantha2014UserEff}. The study is based on time-domain simulations of the user effects of head and hand phantoms in a free space scenario. The phantom hand used is modified such that the finger can move across the phone's backplane to give more realistic results. The simulations were done in CST Microwave Studio using the time-domain solver using FEM (Finite Element Method). Furthermore, the antenna is placed in different positions to evaluate on the user effect for different antenna positions. The different positions and the results of the simulation study can be seen in Table~\ref{tab:usereff_s11} and Table~\ref{tab:usereff_radeff}. In Table~\ref{tab:usereff_s11}, the S-parameters $S_{11}$ and $S_{22}$ are the reflection coefficient for the antenna at port 1 and 2 respectively and the $S_{21}$ results indicated the correlation or transmission between the two antennas. From the results, it is clearly seen that the antennas is significantly detuned in the presence of a user. In the worst case, the reflection coefficient drops from \SI{-8.2}{dB} to \SI{-0.6}{dB}, which is the case for the side mounted antenna. The bottom mounted antenna is the best case where the reflection coefficient only drops around \SI{-2.5}{dB} which is still a noticeable drop. The transmission between the antennas drops as a result of the mismatch loss due to the user effects. This is an advantage of the user effect in this LTE MIMO system but is clearly not a reliable advantage as the goal is to improve the system and minimize the user effects. Overall, the results are sensitive and dependent on the finger position with the top mounted antennas as the most sensitive as the finger in this case is closest to the antenna.
+A recent study has been carried out in 2014 at Aalborg University on user effects of MIMO LTE performance, which is also the antenna design goal of this project \cite{Samantha2014UserEff}. The study is based on time-domain simulations of the user effects of head and hand phantoms in a free space scenario. The phantom hand used is modified such that the finger can move across the phone's backplane to give more realistic results. The simulations were done in CST Microwave Studio using the time-domain solver using FEM (Finite Element Method). Furthermore, the antenna is placed in different positions to evaluate on the user effect for different antenna positions. The different positions and the results of the simulation study can be seen in Table~\ref{tab:usereff_s11} and Table~\ref{tab:usereff_radeff}. In Table~\ref{tab:usereff_s11}, the $S$-parameters $S_{11}$ and $S_{22}$ are the reflection coefficient for the antenna at port 1 and 2, respectively, and the $S_{21}$ results indicated the isolation between the two antennas. From the results, it is clearly seen that the antennas are significantly detuned in the presence of a user. In the worst case, the reflection coefficient drops from \SI{-8.2}{dB} to \SI{-0.6}{dB}, which is the case for the side mounted antenna. The bottom mounted antenna is the best case where the reflection coefficient only drops around \SI{-2.5}{dB} which is still a noticeable drop. The transmission between the antennas drops as a result of the mismatch loss due to the user effects. This is an advantage of the user effect in this LTE MIMO system but is clearly not a reliable advantage as the goal is to improve the system and minimize the user effects. Overall, the results are sensitive and dependent on the finger position with the top mounted antennas as the most sensitive as the finger in this case is closest to the antenna \cite{Samantha2014UserEff}.
 
+In Table~\ref{tab:usereff_radeff}, the results of the radiation efficiencies and total efficiencies are presented for both the top/side and the bottom/side antennas as for the results of the $S$-parameters. T1 and T2 represents the total efficiencies and R1 and R2 the radiation efficiencies for the main and diversity antenna, respectively. 
 
-In Table~\ref{tab:usereff_radeff}, the results of the radiation efficiencies and total efficiencies are presented for both the top/side and the bottom/side antennas as for the results of the S-parameters. T1 and T2 represents the total efficiencies and R1 and R2 the radiation efficiencies for the main and diversity antenna, respectively. 
-
-The results show close resemblance in comparison with the S-parameters and show that the efficiency is strongly influenced by the user effects. In this case, the strongest user effect of the finger is with the side antenna, as with the S-parameters \cite{Samantha2014UserEff}.
+The results show close resemblance in comparison with the $S$-parameters and show that the efficiency is strongly influenced by the user effects. In this case, the strongest user effect of the finger is with the side antenna, as with the $S$-parameters \cite{Samantha2014UserEff}.
 
 \begin{table}[htbp]
   \centering
@@ -36,11 +37,11 @@ The results show close resemblance in comparison with the S-parameters and show 
     \textbf{P5}   & $-1.5$   & $-1.1$   & $-22.6$  & $-4.8$   & $-2.6$   & $-19.4$           \\ \hline
     \textbf{P6}   & $-4.3$   & $-1.1$   & $-22.5$  & $-5.0$   & $-2.0$   & $-18.5$           \\ \hline
   \end{tabular}
-  \caption{S-parameter of the two MIMO antennas in free space compared to the user effect of the hand in six different finger positions \cite{Samantha2014UserEff}.}
+  \caption{$S$-parameter of the two MIMO antennas in free space compared to the user effect of the hand in six different finger positions \cite{Samantha2014UserEff}.}
   \label{tab:usereff_s11}
 \end{table}
 
-\begin{table}[]
+\begin{table}[htbp]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -58,11 +59,10 @@ The results show close resemblance in comparison with the S-parameters and show 
 \label{tab:usereff_radeff}
 \end{table}
 
-
 In combination with the impact of user effects, a measurement on this topic was carried out at Aalborg University in 2008 \cite{sanchez2008multiband}.
 The measurements were done for 44 different persons, where 6 persons were measured twice to check the ability to repeat measurements of the same person.  
-The simulations and measurements are not fully comparable and in this case many factors such as, environment, test frequency, etc., are very different. From the measurements, the body loss were found to be \SI{3}{dB}. The 6 test persons that were measured twice during the measurements, showed that the user effect were very dependent on the individual user. 
-Some of the possible reasons for varying results between user are listed below. 
+The simulations and measurements are not fully comparable and in this case many factors such as, environment, test frequency, etc., are very different. From the measurements, the body loss was found to be \SI{3}{dB}. The 6 test persons that were measured twice during the measurements, showed that the user effect were very dependent on the individual user. 
+Some of the possible reasons for varying results between user are listed below:
 \begin{itemize}
 \item Position of the hand on the handset.
 \item Distance between the head and the handset.
@@ -74,29 +74,25 @@ Some of the possible reasons for varying results between user are listed below.
 \end{itemize}
 
 \subsection{SAR -- Specific Absorption Rate}
-SAR is a measure of how transmitted RF energy is absorped by the body from the source being measured.\cite{fcc2015sar} 
-
-SAR is defined as\cite{fujimoto2008mobile}:
-\begin{equation*}
-  SAR = \frac{\sigma}{2\rho}|E|^2
-\end{equation*}
-
+SAR is a measure of how transmitted RF energy is absorbed by the body from the source being measured \cite{fcc2015sar}. SAR is defined as \cite{fujimoto2008mobile}
+\begin{equation}
+  \text{SAR} = \frac{\sigma}{2\rho}|E|^2
+\end{equation}
+where
 \begin{where}
-  \item [$\sigma$] Conductivvity of the tissue [$S/m$].
+  \item [$\sigma$] Conductivity of the tissue [$S/m$].
   \item [$\rho$] Material density [$kg/m^3$].
-  \item [$E$] Electric field intensity
+  \item [$E$] Electric field intensity.
 \end{where}
-
-The SAR value is averaged over a specific volume and have different requirement for the volume and max SAR dependent on region:
-
+The SAR value is averaged over a specific volume and have different requirement for the volume and max SAR dependent on region \cite{Zhijun2011antdesign},
 \begin{itemize}
 \item Europe -- Max SAR \SI{2}{W/kg} averaged over \SI{10}{g} of tissue.
 \item US -- Max SAR \SI{1.6}{W/kg} averaged over \SI{1}{g} of tissue.
 \end{itemize}
 
 The SAR requirements and testing is standardized by the Federal Communications Commission (FCC) and is tested at the highest power level in all the frequency bands. Standardized head and body models filled with liquid is used and specific holding positions is tested. Pinpoint measurements are done at specific locations within the head and body models and the highest SAR value is used to verify the requirements.
+The SAR value does not tell anything about the general exposure to RF emission but only the highest SAR from that specific phone. Therefore, buying a phone with a low measured SAR value is not equal to low SAR exposure in general. A phone with a high measured SAR value can have a lower averaged SAR exposure than a phone with a low measured SAR value and vice versa \cite{fcc2015sar}. 
 
-The SAR value does not tell anything about the general exposure to RF emission but only the highest SAR from that specific phone. Therefore, buying a phone with a low measured SAR value is not equal to low SAR exposure in general. A phone with a high measured SAR value can have a lower averaged SAR exposure than a phone with a low measured SAR value and visa versa. 
-
-\subsection{Preliminary Conclusion}
-The negative influence of the user effect has been a known issue for quiet some time and is confirmed by the resent studies from 2014 \cite{Samantha2014UserEff}. The results presented for both the S-parameters, the total efficiency, and the radiation efficiency show very varying results dependent on the position of the finger and the antenna placement. However, the noticeable part of the results is that even in the best case, the user still has a significant effect on the performance of the antenna, which needs attention. In the case of the GSM specifications, the body loss is taken as \SI{3}{dB}, which is close to the best case simulation scenario. From the simulation and measurement studies it is seen that a body loss of \SI{10}{dB} is more common, which also implies that the user effect needs more attention, also in terms on the link budget, etc.\ \cite{sanchez2008multiband}.
+\begin{aautail}
+    The negative influence of the user effect has been a known issue for quiet some time and is confirmed by the resent studies from 2014 \cite{Samantha2014UserEff}. The results presented for both the $S$-parameters, the total efficiency, and the radiation efficiency show very varying results dependent on the position of the finger and the antenna placement. However, the noticeable part of the results is that even in the best case, the user still has a significant effect on the performance of the antenna, which needs attention. In the case of the GSM specifications, the body loss is taken as \SI{3}{dB}, which is close to the best case simulation scenario. From the simulation and measurement studies it is seen that a body loss of \SI{10}{dB} is more common, which also implies that the user effect needs more attention, also in terms on the link budget, etc.\ \cite{sanchez2008multiband}.
+\end{aautail}
