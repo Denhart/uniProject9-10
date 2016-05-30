@@ -31,7 +31,20 @@ In this project, an antenna design for LTE supporting MIMO will be designed. The
 
 %% Overview
 % Report overview
-\fixme{Report overview}
+The first part of the report -- Chapter~\ref{cha:problem_analysis} -- contains a problem analysis. The goal of this chapter is to cover all the theory and background knowledge needed in order to successfully set up requirements and design the final product. Everything from basic antenna parameters to the background of LTE and measurement techniques will be described in this chapter. 
+In Chapter~\ref{cha:reqspec}, all functional and specific requirements for the antenna design will be summarized in the requirement specification. The requirements define the frequency bands of interest as well as measures of bandwidth, etc. 
+Chapter~\ref{cha:testspec} -- the test specification -- describes how the specific requirements from the requirement specification will be tested.
+After the requirements and test procedures have been defined, the product development will begin from Chapter~\ref{cha:nousersim}. Here, three preliminary antenna designs will be developed and simulated in free space. 
+In Chapter~\ref{cha:usereff}, the preliminary designs will be simulated in three different use cases: Data mode, play mode, and talk mode, to observe the effect of a user holding the phone. Here, the Specific Absorption Rate will also be simulated in order to ensure compliance with the requirements for this.
+The preliminary designs will be prototyped and measured in Chapter~\ref{cha:prototypes} with discrete components for the matching network and tuner. The most promising of these designs will later be used on a PCB with two MEMS tuners.
+A smaller design, more suited for practical implementation in a phone, will be developed in Chapter~\ref{cha_intro_5mm}. The antenna will be simulated and measured.
+In Chapter~\ref{cha:pcb}, the most promising design from Chapter~\ref{cha:prototypes} as well as a modified version of the design from Chapter~\ref{cha_intro_5mm} will be moved to a PCB with a MEMS tuner for each antenna. The designs will be modified to fit the new board and a sweep measurement of $S$-parameters and total efficiency will be carried out for each design.
+Finally, in Chapter~\ref{cha:conclusion}, a conclusion will be summing up the results from the report.
+
+In Appendix~\ref{cha:autotest}, automatic testing software developed during the project will be described. Software is developed for automatically sweeping a Vector Network Analyzer (VNA) and the measurements in an anechoic chamber. A circuit for fiber optic communication in the anechoic chamber is developed to automate adjusting of the tuner from outside the chamber.
+Appendix~\ref{cha:postproc} described the Python libraries developed for post processing data from the VNA, the anechoic chamber, and from CST Microwave Studio. The library for plotting the graphs in the report is also documented here.
+Lastly, Chapter~\ref{cha:cstmacro} shows a CST script for automatically sweeping and exporting the total efficiency from CST Microwave Studio.
+
 
 \section{Reading Guidelines}
 Throughout the report, a lot of sweep-plots will be presented with many plots per figure. The color order presented in Figure~\ref{fig:colororder} is used for all sweeps so the first plot is always blue, the next is green, and so forth.
