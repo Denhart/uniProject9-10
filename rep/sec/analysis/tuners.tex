@@ -5,6 +5,8 @@
 % [1] Pozar pp 56--57
 % [2] Ebert p 29
 % [3] Pozar pp 77--78
+% [4] Pozar pp 267-269 (Bode-fano limit)
+
 From transmission line theory, it is known that the voltage and current waves present on a transmission line is composed of an incident and a reflected wave. The voltage and current at any distance, $z$, from the load are \cite{pozar2011microwave}:
 \begin{align}
     V(z) &= V^+e^{-j\beta z} + V^-e^{j\beta z}\\
@@ -192,6 +194,39 @@ where
 \item[$R$] is the resistive part of the component
 \end{where}
 Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also have a small resistive part called the equivalent series resistance (ESR) which causes power to be delivered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
+
+\subsection{Bode-Fano Criterion}
+The Bode-Fano criterion is a relation between the reflection coefficient and the obtainable bandwidth, in fact this criterion provides a theoretical limit to the magnitude of the reflection coefficient over a specific bandwidth using a passive lossless matching network\cite{pozar2011microwave}. The criterion is inherently dependent on the type of load impedance, but for general passive serial or parallel RC or RL loads the criteria can be expressed as\cite{RahulSarpeshkarUltra}: 
+
+\begin{align}
+  \int_0^{\infty} \ln \Big( \frac{1}{|\Gamma (\omega)|} \Big) d\omega \leq \frac{\pi \omega_0}{Q_0}
+\end{align}
+
+\begin{where}
+\item[$\Gamma$] is the frequency dependent reflection coefficient
+\item[$Q_0$] is the Q-factor of the load
+\item[$\omega_0$] is the center frequency
+\end{where}
+
+For the ideal reflection coefficient response, where the reflection coefficient is $|\Gamma|=1$ everywhere but in the required bandwidth $\Delta \omega$, in which the reflection coefficient is given by a maximum accepted value $|\Gamma|=\Gamma_{m}$. This ideal response is illustrated in Figure~\ref{fig:idealReflec}. For this case the Bode-Fano criterion reduces to\cite{AntennaswithNonFosterMatchingNetworks}:
+
+\begin{align}
+  \frac{\Delta \omega}{\omega_0} Q_0 = \frac{\pi}{\ln \big(\frac{1}{\Gamma_m} \big)}
+\end{align}
+This leads to the following conclusions\cite{pozar2011microwave}:
+\begin{itemize}
+\item For a fixed load ($Q_0$ is constant) the bandwidth can only be increased at the cost of a higher reflection coefficient in the passband $\Gamma_m$
+\item Perfect matching in the passband ($\Gamma_m = 0$, can only occur at discrete frequencies when $\Delta \omega = 0$
+\item High-Q circuits are harder to match than low-Q circuits.  
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{img/analysis/ideal_reflecResponse}
+    \caption{An ideal reflection coefficient response\cite{AntennaswithNonFosterMatchingNetworks}}
+    \label{fig:idealReflec}
+\end{figure}
+
 
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
 \subsection{Tuners}
