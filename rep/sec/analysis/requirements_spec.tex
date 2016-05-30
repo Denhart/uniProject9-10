@@ -1,6 +1,10 @@
 \chapter{Requirements Specification}
 \label{cha:reqspec}
 
+\begin{aautop}
+    The requirement specification sums up requirements, definitions, and guidelines for designing the antennas in the following chapters. Not all the requirement are hard requirements but guidelines for the design process.
+\end{aautop}
+
 \section{Functional Requirements}
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|}
@@ -9,7 +13,7 @@
     \hline
     \freq{dualband} & The antenna system must consist of two single-feed dual-band antennas covering the bands described in Requirement~\sreqref{fbands}. \\
     \freq{updownlink} & Each antenna must cover both uplink and downlink at the same time for each required LTE band.\\
-    % \freq{usereffect} & Must be able to re-tune any detuning due to user effects. \\
+    % \freq{usereffect} & Must be able to re-tune any detuning due to user effects. \\ % ???? HAHA
     \freq{matching} & Must have a simple matching network, containing a variable capacitor for tuning inside the specified bands.\\
     \freq{wispry} & Must use a WiSpry WS1040 MEMS variable capacitor chip in the matching network.\\
     \hline
@@ -35,3 +39,7 @@
     \hline
 \end{tabularx}
 
+
+\begin{aautail}
+In this chapter, the functional and specific requirements for the antennas have been listed. The next chapter contains a test specification for the above specific requirements, describing how each requirement will be tested. 
+\end{aautail}
