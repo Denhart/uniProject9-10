@@ -1,11 +1,13 @@
 \subsection{Example LTE Link Budget}
+\begin{aautop}
 In this section, an example link budget is given to show what parts of the link is affected by the antenna design. The link shows the total path loss expected in a link. Using the path loss models from Section~\ref{sec:propmodels}, this path loss can be used to estimate the possible communication distance.
+\end{aautop}
 
 The presented link budget is for typical values and is largely based on \cite{holma2011lte}. The maximum path loss is computed as
 \begin{equation}
     \label{eq:linkbudget}
     \begin{aligned}
-        \text{max path loss} &= \text{power} + \text{gains}\\
+        \text{max path loss} =& \text{power} + \text{gains}\\
         &- \text{SNR requirement} - \text{noise} - \text{losses} - \text{margin}
     \end{aligned}
 \end{equation}
@@ -13,9 +15,9 @@ where all quantities are given in dB.
 
 The values for the link budget are shown in Table~\ref{tab:linkbudget}. The entries dependent on the antenna design are described below.
 
-\paragraph{TX Antenna Gain} The antenna gain is defined as the product of the directivity and the total efficiency of an antenna \cite{balanis2012antenna}. However, for a MIMO system, the multiplexing efficiency is a better metric than total efficiency as it also takes the correlation between antennas into account (see Section~\ref{sec:muxefficiency}). The antenna gains for the link budget are then found by summing the individual directivities and the multiplexing efficiency.
-
-\paragraph{Body Loss} The body loss is caused partially by the user blocking the radiation pattern of the antennas and partially by the user detuning the antennas. The detuning may be helped using a digital tuner to retune the antenna in the presence of a user.
+\paragraph{TX Antenna Gain} The antenna gain is defined as the product of the directivity and the total efficiency of an antenna \cite{balanis2012antenna}. However, for a MIMO system, the multiplexing efficiency is a better metric than total efficiency as it also takes the correlation between antennas into account (see Section~\ref{sec:muxefficiency}). % The antenna gains for the link budget are then found by summing the individual directivities and the multiplexing efficiency.
+	
+\paragraph{Body Loss} The body loss is caused partially by the user absorbing power and partially by the user detuning the antennas. The detuning may be helped using a digital tuner to retune the antenna in the presence of a user.
 
 \def\MARK{$^{\dagger}$\xspace}
 \begin{table}[htbp]

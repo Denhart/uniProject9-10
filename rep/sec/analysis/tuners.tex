@@ -1,29 +1,33 @@
 \section{Matching Circuits and Tuners}
 \label{sec:tuners}
 
+\begin{aautop}
+In this section, the effect of adding a matching circuit to the feed line of an antenna will be described. Different types of digital tuners will also be described as well as equivalent circuit models for a tuner, based on $S$-parameter measurements.
+\end{aautop}
+
 % Transmission line theory (reflection, max power transfer)
 % [1] Pozar pp 56--57
 % [2] Ebert p 29
 % [3] Pozar pp 77--78
 % [4] Pozar pp 267-269 (Bode-fano limit)
 
-From transmission line theory, it is known that the voltage and current waves present on a transmission line is composed of an incident and a reflected wave. The voltage and current at any distance, $z$, from the load are \cite{pozar2011microwave}:
-\begin{align}
+From transmission line theory, it is known that the voltage and current waves present on a transmission line is composed of an incident and a reflected wave. The voltage and current at any distance, $z$, from the load are \cite{pozar2011microwave}
+\begin{align}%%
     V(z) &= V^+e^{-j\beta z} + V^-e^{j\beta z}\\
     I(z) &= \frac{V^+}{Z_0} e^{-j\beta z} - \frac{V^-}{Z_0} e^{j\beta z}
 \end{align}
 where
 \begin{where}
-\item[$V(z)$] Voltage at distance $z$ [\si{V}]
-\item[$I(z)$] Current at distance $z$ [\si{A}]
-\item[$V^+$] Amplitude of the incident wave [\si{V}]
-\item[$V^-$] Amplitude of the reflected wave [\si{V}]
-\item[$Z_0$] Characteristic impedance of the transmission line [\si{\ohm}]
-\item[$z$] Distance from load to the considered point [\si{m}]
-\item[$\beta$] The wave number $=2\pi/\lambda$ [\si{rad\per m}]
+\item[$V(z)$] Voltage at distance $z$ [\si{V}].
+\item[$I(z)$] Current at distance $z$ [\si{A}].
+\item[$V^+$] Amplitude of the incident wave [\si{V}].
+\item[$V^-$] Amplitude of the reflected wave [\si{V}].
+\item[$Z_0$] Characteristic impedance of the transmission line [\si{\ohm}].
+\item[$z$] Distance from load to the considered point [\si{m}].
+\item[$\beta$] The wave number $=2\pi/\lambda$ [\si{rad\per m}].
 \end{where}
 The load impedance is the voltage-to-current ratio where $z=0$,
-\begin{equation}
+\begin{equation}%%
     Z_L = \frac{V(0)}{I(0)} = \frac{V^+ + V^-}{V^+ - V^-}Z_0
 \end{equation}
 Solving this for $V^-$ yields
@@ -48,7 +52,7 @@ Note that $\Gamma$ without parameters indicates $\Gamma(0)$.
     \label{fig:generator_load}
 \end{figure}
 
-To maximize the power transfered from a generator to a load, it is desired to have a reflection coefficient that is zero so that only forward waves are present on the transmission line. Figure~\ref{fig:generator_load} shows an equivalent circuit for this situation. The average power delivered to the load is found as \cite{pozar2011microwave}
+To maximize the power transferred from a generator to a load, it is desired to have a reflection coefficient that is zero so that only forward waves are present on the transmission line. Figure~\ref{fig:generator_load} shows an equivalent circuit for this situation. The average power delivered to the load is found as \cite{pozar2011microwave}
 \begin{equation}
     \label{eq:power1}
     P = \frac{1}{2} \real{V_LI^*} = \frac{1}{2} \real{\frac{|V_L|^2}{Z_L}}
@@ -56,10 +60,10 @@ To maximize the power transfered from a generator to a load, it is desired to ha
 \end{equation}
 where
 \begin{where}
-\item[$P$] Average power delivered to the load
-\item[$V_L$] Voltage drop across the load
-\item[$Z_L$] $R_L+jX_L$ is the load impedance
-\item[$I$] Current through the load
+\item[$P$] Average power delivered to the load.
+\item[$V_L$] Voltage drop across the load.
+\item[$Z_L$] $R_L+jX_L$ is the load impedance.
+\item[$I$] Current through the load.
 \end{where}
 Using basic circuit theory, Equation~\ref{eq:power1} can be expressed in terms of $V_G$ and $Z_G$, making it possible to derive the optimal $Z_G = R_G+jX_G$ for a fixed, complex load. Continuing from Equation~\ref{eq:power1},
 \begin{equation}
@@ -72,9 +76,9 @@ Using basic circuit theory, Equation~\ref{eq:power1} can be expressed in terms o
 \end{equation}
 The values of $R_G$ and $X_G$ that maximize the power delivered to the load, is found by 
 \begin{enumerate}
-\item Taking the partial derivative of $P$ with respect to $R_L$
-\item Taking the partial derivative of $P$ with respect to $X_L$
-\item Setting both of the above solutions equal to zero and solving for $R_G$ and $X_G$ (two equations with two unknowns)
+\item Taking the partial derivative of $P$ with respect to $R_L$.
+\item Taking the partial derivative of $P$ with respect to $X_L$.
+\item Setting both of the above solutions equal to zero and solving for $R_G$ and $X_G$ (two equations with two unknowns).
     \begin{align}
         \dpd{P}{R_L} &= 0 \\
         \dpd{P}{X_L} &= 0
@@ -87,26 +91,28 @@ Doing so, yields the following solution,
         X_{G,\text{max}} &= -X_L
     \end{aligned}
 \end{equation}
-or $Z_{G,\text{max}} = Z^*_L$; the maximum power is transfered to the load when the generator impedance is the complex conjugate of the load impedance. In this situation the generator is said to be \emph{matched} to the load. Generally, the generator and the load would be connected through a transmission line with the characteristic impedance $Z_0$, so the maximum power transfer from generator to load will occur when both generator and load are matched to $Z_0$. 
+or $Z_{G,\text{max}} = Z^*_L$; the maximum power is transferred to the load when the generator impedance is the complex conjugate of the load impedance. In this situation, the generator is said to be \emph{matched} to the load. Generally, the generator and the load would be connected through a transmission line with the characteristic impedance $Z_0$, so the maximum power transfer from generator to load will occur when both generator and load are matched to $Z_0$. 
 
 % Mismatch loss, S11. |S11| = -6 dB  -->  SWR = 3
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/analysis/s_parameter_twoport}
-    \caption{S-parameters of a two-port system.}
+    \caption{$S$-parameters of a two-port system.}
     \label{fig:twoport}
 \end{figure}
 
-The reflection coefficient, $\Gamma$, can more generally be described as an \emph{S-parameter}. The S-parameters describe the ratio between the reflected and incident wave at a given port in a system. Consider a two-port as shown in Figure~\ref{fig:twoport}. Its four S-parameters are defined as follows:
-\begin{align*}
-    &S_{11} = \frac{V_1^-}{V_1^+} \Bigg|_{V_2^+=0} = \Gamma_1
-    &&S_{12} = \frac{V_1^-}{V_2^+} \Bigg|_{V_1^+=0} \\
-    &S_{21} = \frac{V_2^-}{V_1^+} \Bigg|_{V_2^+=0}
-    &&S_{22} = \frac{V_2^-}{V_2^+} \Bigg|_{V_1^+=0} = \Gamma_2
-\end{align*}
-It is seen that $S_{11}$ and $S_{22}$ indicate the reflection due to the incident wave on the same port, when no contribution is made from the opposite port, i.e., these are the reflection coefficients of port 1 and 2, respectively. The parameter $S_{21}$ indicates how much of the incident wave on port 1 is coming out of port 2 when no wave is incident on port 2, i.e., this indicates the \emph{transmission coefficient} from port 1 to port 2. Likewise, $S_{12}$ is the transmission coefficient from port 2 to port 1.
+The reflection coefficient, $\Gamma$, can more generally be described as an \emph{$S$-parameter}. The $S$-parameters describe the ratio between the reflected and incident wave at a given port in a system. Consider a two-port as shown in Figure~\ref{fig:twoport}. Its four $S$-parameters are defined as follows:
+\begin{equation}
+    \begin{aligned}
+        &S_{11} = \frac{V_1^-}{V_1^+} \Bigg|_{V_2^+=0} = \Gamma_1
+        &&S_{12} = \frac{V_1^-}{V_2^+} \Bigg|_{V_1^+=0} \\
+        &S_{21} = \frac{V_2^-}{V_1^+} \Bigg|_{V_2^+=0}
+        &&S_{22} = \frac{V_2^-}{V_2^+} \Bigg|_{V_1^+=0} = \Gamma_2
+    \end{aligned}
+\end{equation}
+It is seen that $S_{11}$ and $S_{22}$ indicate the reflection due to the incident wave on the same port, when no contribution is made from the opposite port, i.e.\ these are the reflection coefficients of port 1 and 2, respectively. The parameter $S_{21}$ indicates how much of the incident wave on port 1 is coming out of port 2 when no wave is incident on port 2, i.e.\ this indicates the \emph{transmission coefficient} from port 1 to port 2. Likewise, $S_{12}$ is the transmission coefficient from port 2 to port 1.
 
-The S-parameters are easily measured using a Vector Network Analyzer (VNA). The advantage of measuring S-parameters over, e.g., Y-parameters is that all ports are matched during the measurement instead of some being shorted, making odd behavior (like oscillations) less likely \cite{Bowick2007}.
+The $S$-parameters are easily measured using a Vector Network Analyzer (VNA). The advantage of measuring $S$-parameters over, e.g., $Y$-parameters is that all ports are matched during the measurement instead of some being shorted, making odd behavior (like oscillations) less likely \cite{Bowick2007}.
 
 % Smith chart visualization
 \begin{figure}[htbp]
@@ -127,14 +133,14 @@ The S-parameters are easily measured using a Vector Network Analyzer (VNA). The 
 \end{figure}
 An important tool when doing matching, and designing antennas, to a certain $Z_0$ is the smith chart. The smith chart is used for plotting complex, normalized impedances and makes it easy to visually analyze the performance of a matched circuit. A smith chart is shown in Figure~\ref{fig:smithchart}.
 
-The smith chart maps the entire right complex half-plane into a circle, having $0+j0$ all the way to the left and $\infty+j0$ all the way to the right. The y-axis (crossing $x=0$) makes up the circumference of the circle. An impedance is plotted by first finding the resistive (real) part of the impedance on the horizontal line and then following the circular grid-lines up or down for positive or negative reactances, respectively. 
-The smith chart shown in Figure~\ref{fig:smithchart} is a normalized smith chart. When matching to $Z_0$, any impedance, $Z$, plotted in the smith chart, must be normalized by $Z_0$:
+The smith chart maps the entire right complex half-plane into a circle, having $0+j0$ all the way to the left and $\infty+j0$ all the way to the right. The $y$-axis (crossing $x=0$) makes up the circumference of the circle. An impedance is plotted by first finding the resistive (real) part of the impedance on the horizontal line and then following the circular grid-lines up or down for positive or negative reactances, respectively. 
+The smith chart shown in Figure~\ref{fig:smithchart} is a normalized smith chart. When matching to $Z_0$, any impedance, $Z$, plotted in the smith chart, must be normalized by $Z_0$,
 \begin{equation}
     Z_n = \frac{Z}{Z_0}
 \end{equation}
 This means that $Z_0$ will always appear at $1+j0$ -- in the center of the smith chart -- and the goal of the matching is to get the impedance of the antenna (or other circuitry) as close to the center as possible for the desired frequency range.
 
-The impedance bandwidth of an antenna is often given as the bandwidth for which the reflection coefficient, $\Gamma$, is below 0.5 (or \SI{-6}{dB}; when denoting the reflection coefficient in (positive) decibels, it is commonly called \emph{return loss}, $\text{RL} = -20\log_{10}|\Gamma|$ \cite{pozar2011microwave}). It may therefore be advantageous to plot this requirement. In the smith chart, this is plotted as a circle around the center and any point within the circle, is within the bandwidth of the circuit. The \SI{-6}{dB} circle is also shown in Figure~\ref{fig:smithchart}. This type of circle is also known as an SWR (Standing Wave Ratio) circle. The connection between the SWR and the reflection coefficient is \cite{pozar2011microwave}
+The impedance bandwidth of an antenna is often given as the bandwidth for which the reflection coefficient, $\Gamma$, is below 0.5 (or \SI{-6}{dB}; when denoting the reflection coefficient in (positive) decibels, it is commonly called \emph{return loss}, $\text{RL} = -20\log_{10}|\Gamma|$ \cite{pozar2011microwave}). It may therefore be advantageous to plot this requirement. In the smith chart, this is plotted as a circle around the center and any point within the circle, is within the bandwidth of the circuit. The \SI{-6}{dB} circle is also shown in Figure~\ref{fig:smithchart}. This type of circle is also known as an VSWR (Voltage Standing Wave Ratio) circle. The connection between the VSWR and the reflection coefficient is \cite{pozar2011microwave}
 \begin{equation}
     \text{SWR} = \frac{1 + |\Gamma|}{1 - |\Gamma|}
 \end{equation}
@@ -182,71 +188,67 @@ The simplest matching network is the L-network which is made from two components
     \label{tab:match_XB}
 \end{table}
 
-\subsection{Q Factor}
-The Q factor describes the ratio between the reactive and the resistive part of a component is \cite{pozar2011microwave}
+\subsection{$Q$-Factor}
+The $Q$-factor describes the ratio between the reactive and the resistive part of a component is \cite{pozar2011microwave}
 \begin{equation}
     \label{fig:compq}
     Q = \frac{X}{R}
 \end{equation}
 where
 \begin{where}
-\item[$X$] is the reactance of the component
-\item[$R$] is the resistive part of the component
+\item[$X$] Reactance of the component.
+\item[$R$] Resistive part of the component.
 \end{where}
-Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also have a small resistive part called the equivalent series resistance (ESR) which causes power to be delivered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} Q factor is desired for capacitors and inductors. The Q factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low Q factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
+Ideal capacitors and inductors are purely reactive and therefore, no power is lost in them (the average power $P = \real{VI*} = |V|^2 / \real{Z}$ only depends on the real part of $Z$ \cite{irwin2011engineering}). However, practical components also have a small resistive part called the equivalent series resistance (ESR) which causes power to be delivered to the component, increasing the power loss. From Equation~\ref{fig:compq}, it is therefore seen that a \emph{large} $Q$-factor is desired for capacitors and inductors. The $Q$-factor of an antenna should, however, not necessarily be large as it is desired to lose power due to radiation, but a low $Q$-factor is not necessarily a good thing either, as the power loss may be caused by resistive loss in the antenna and not radiation.
 
 \subsection{Bode-Fano Criterion}
-The Bode-Fano criterion is a relation between the reflection coefficient and the obtainable bandwidth, in fact this criterion provides a theoretical limit to the magnitude of the reflection coefficient over a specific bandwidth using a passive lossless matching network\cite{pozar2011microwave}. The criterion is inherently dependent on the type of load impedance, but for general passive serial or parallel RC or RL loads the criteria can be expressed as\cite{RahulSarpeshkarUltra}: 
-
+The Bode-Fano criterion is a relation between the reflection coefficient and the obtainable bandwidth. In fact, this criterion provides a theoretical limit to the magnitude of the reflection coefficient over a specific bandwidth using a passive lossless matching network \cite{pozar2011microwave}. The criterion is inherently dependent on the type of load impedance, but for general passive serial or parallel RC or RL loads, the criteria can be expressed as \cite{RahulSarpeshkarUltra}
 \begin{align}
   \int_0^{\infty} \ln \Big( \frac{1}{|\Gamma (\omega)|} \Big) d\omega \leq \frac{\pi \omega_0}{Q_0}
 \end{align}
-
+where
 \begin{where}
-\item[$\Gamma$] is the frequency dependent reflection coefficient
-\item[$Q_0$] is the Q-factor of the load
-\item[$\omega_0$] is the center frequency
+\item[$\Gamma$] Frequency dependent reflection coefficient.
+\item[$Q_0$] $Q$-factor of the load.
+\item[$\omega_0$] Center frequency.
 \end{where}
-
-For the ideal reflection coefficient response, where the reflection coefficient is $|\Gamma|=1$ everywhere but in the required bandwidth $\Delta \omega$, in which the reflection coefficient is given by a maximum accepted value $|\Gamma|=\Gamma_{m}$. This ideal response is illustrated in Figure~\ref{fig:idealReflec}. For this case the Bode-Fano criterion reduces to\cite{AntennaswithNonFosterMatchingNetworks}:
-
+For the ideal reflection coefficient response, the reflection coefficient is $|\Gamma|=1$ everywhere but in the required band $\Delta \omega$. Inside the band, the reflection coefficient is given by a maximum accepted value $|\Gamma|=\Gamma_{m}$. This ideal response is illustrated in Figure~\ref{fig:idealReflec}. For this case, the Bode-Fano criterion reduces to \cite{AntennaswithNonFosterMatchingNetworks}
 \begin{align}
   \frac{\Delta \omega}{\omega_0} Q_0 = \frac{\pi}{\ln \big(\frac{1}{\Gamma_m} \big)}
 \end{align}
-This leads to the following conclusions\cite{pozar2011microwave}:
+This leads to the following conclusions \cite{pozar2011microwave}:
 \begin{itemize}
-\item For a fixed load ($Q_0$ is constant) the bandwidth can only be increased at the cost of a higher reflection coefficient in the passband $\Gamma_m$
-\item Perfect matching in the passband ($\Gamma_m = 0$, can only occur at discrete frequencies when $\Delta \omega = 0$
-\item High-Q circuits are harder to match than low-Q circuits.  
+\item For a fixed load ($Q_0$ is constant) the bandwidth can only be increased at the cost of a higher reflection coefficient in the passband $\Gamma_m$.
+\item Perfect matching in the passband ($\Gamma_m = 0$), can only occur at discrete frequencies when $\Delta \omega = 0$.
+\item High-$Q$ circuits are harder to match than low-$Q$ circuits.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/analysis/ideal_reflecResponse}
-    \caption{An ideal reflection coefficient response\cite{AntennaswithNonFosterMatchingNetworks}}
+    \caption{An ideal reflection coefficient response \cite{AntennaswithNonFosterMatchingNetworks}}
     \label{fig:idealReflec}
 \end{figure}
 
-
 % Tuners: Series capacitor, shunt capacitor, variable inductor?
 \subsection{Tuners}
-From the description above it is seen that the resonance frequency of an antenna can be altered by changing the matching network. By replacing a fixed capacitor with a variable capacitor it is possible to cover a broader total bandwidth by tuning the resonance frequency. As the achievable bandwidth is generally proportional to the size of the antenna (see Section~\ref{sec:basicantennaparams}), it will be possible to cover a large bandwidth using a physically smaller antenna by having a variable matching network. This is desirable for mobile phones where the physical size of the antenna is limited and multiple bands must be covered \cite{gu2014rf}.
+From the description above, it is seen that the resonance frequency of an antenna can be altered by changing the matching network. By replacing a fixed capacitor with a variable capacitor, it is possible to cover a broader total bandwidth by tuning the resonance frequency. As the achievable bandwidth is generally proportional to the size of the antenna (see Section~\ref{sec:basicantennaparams}), it will be possible to cover a large bandwidth using a physically smaller antenna by having a variable matching network. This is desirable for mobile phones where the physical size of the antenna is limited and multiple bands must be covered \cite{gu2014rf}.
 
 \subsubsection{Variable Capacitors}
 Three basic types of variable capacitors will now be described briefly. 
 
-Barium strontium titanate (BST) varactors are voltage controlled components where the bias voltage determines the amount of capacitance provided by the component. The Q factor is dependent on the tuning range, $\eta$. For a tuning range of $\eta = 2$--$4$ at around \SI{3}{GHz}, the Q factor is around 30--65 \cite{gu2014rf}. 
+Barium strontium titanate (BST) varactors are voltage controlled components where the bias voltage determines the amount of capacitance provided by the component. The $Q$-factor is dependent on the tuning range, $\eta$. For a tuning range of $\eta = 2$--$4$ at around \SI{3}{GHz}, the $Q$-factor is around 30--65 \cite{gu2014rf}. 
 
 A downside of the BST varactor is that it is quite nonlinear, having a typical third order intercept point ($\text{IIP}_3$) of around 32--\SI{40}{dBm} \cite{gu2014rf}. Also, an external power supply is necessary to bias the varactor.
 
 Another type of variable capacitor is a SOI/SOS digitally tunable capacitor (SOI $=$ silicon on isolator switches, SOS $=$ silicon on sapphire switches). These consist of metal-isolator-metal (MIM) capacitors which are digitally switched using CMOS SOI or SOS switches as shown in Figure~\ref{fig:sossoiswitch}. 
 
-The Q factor around \SI{2}{GHz} of SOS/SOI digitally tunable capacitors (DTC) is typically 40--50 at minimum capacitance and $\geq$ 15 at maximum capacitance \cite{gu2014rf}. This is generally worse than the BTS varactors. The linearity, however, is generally better than for the BTS varactors with an $\text{IIP}_3$ of around \SI{44}{dBm} \cite{gu2014rf}.
+The $Q$-factor around \SI{2}{GHz} of SOS/SOI digitally tunable capacitors (DTC) is typically 40--50 at minimum capacitance and $\geq$ 15 at maximum capacitance \cite{gu2014rf}. This is generally worse than the BTS varactors. The linearity, however, is generally better than for the BTS varactors with an $\text{IIP}_3$ of around \SI{44}{dBm} \cite{gu2014rf}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/analysis/sossoi_dtc}
-    \caption{Circuit showing the operation of a SOS/SOI digitally tunable capacitor. To the left, the minimum capacitance situation is shown, where only parasitic capacitance from the switches is present. To the right, the maximum capacitance situation is shown where the on-resistance of the switches degrades the Q factor.}
+    \caption{Circuit showing the operation of a SOS/SOI digitally tunable capacitor. To the left, the minimum capacitance situation is shown, where only parasitic capacitance from the switches is present. To the right, the maximum capacitance situation is shown where the on-resistance of the switches degrades the $Q$-factor.}
     \label{fig:sossoiswitch}
 \end{figure}
 
@@ -256,7 +258,7 @@ The last type of capacitor described is a MEMS tunable capacitor, which is the t
 
 A MEMS tunable capacitor consists of several of the cells shown in Figure~\ref{fig:memscap}. By applying a voltage on one or more of the cells, the top plate is pulled toward the bottom electrode, increasing the overall capacitance. 
 
-The Q factor of a MEMS tunable capacitor is much higher than that of the BTS varactor and the SOI/SOS DTS -- typically higher than 200 at minimum capacitance and above 100 at maximum capacitance, at \SI{2}{GHz} \cite{gu2014rf}. The linearity is also better, having an achievable $\text{IIP}_3$ of greater than \SI{68}{dBm} at \SI{2.5}{GHz}. 
+The $Q$-factor of a MEMS tunable capacitor is much higher than that of the BTS varactor and the SOI/SOS DTS -- typically higher than 200 at minimum capacitance and above 100 at maximum capacitance, at \SI{2}{GHz} \cite{gu2014rf}. The linearity is also better, having an achievable $\text{IIP}_3$ of greater than \SI{68}{dBm} at \SI{2.5}{GHz}. 
 
 \begin{figure}[htbp]
     \centering
@@ -268,14 +270,14 @@ The Q factor of a MEMS tunable capacitor is much higher than that of the BTS var
 \subsubsection{Tuner Modeling}
 % [Gu Sec 2.1 and 2.2], [Bowick RF]: S-parameters --> component values
 % Insertion loss, S21 for networks, equivalent series resistance, component Q.
-A tunable capacitor as described above would ideally have a purely imaginary impedance (infinite Q) and a reactance only made up of capacitance. As it happens, the ideal capacitor is impossible to come by in real life. Real capacitors have an equivalent series resistance (ESR) and parasitic capacitance and inductance determined by the physical layout of the component. To use a tunable capacitor in simulation, an equivalent circuit for the capacitor is therefore more accurate than using an ideal capacitor.
+A tunable capacitor as described above would ideally have a purely imaginary impedance (infinite $Q$) and a reactance only made up of capacitance. As it happens, the ideal capacitor is impossible to come by in real life. Real capacitors have an equivalent series resistance (ESR) and parasitic capacitance and inductance determined by the physical layout of the component. To use a tunable capacitor in simulation, an equivalent circuit for the capacitor is therefore more accurate than using an ideal capacitor.
 
 Two types of equivalent networks are common to represent a two-port network:
 \begin{enumerate}
 \item The $\pi$-network, with two shunt impedances and one series impedance in between. This is used for modeling a \emph{series tunable capacitor}.
 \item The T-network, with two series impedances and one shunt impedance in between. This is used for modeling a \emph{shunt tunable capacitor}.
 \end{enumerate}
-The two networks are shown in Table~\ref{tab:sparam_to_circuit}. The values of the components in the networks can be determined by measuring the S-parameters of a tunable capacitor at two frequencies. The two frequencies are necessary to obtain both capacitive and inductive parasitics. For the result to be accurate, the S-parameter measurements must be made very accurate \cite{gu2014rf}. The conversion formulas from S-parameters to component values are likewise shown in Table~\ref{tab:sparam_to_circuit}.
+The two networks are shown in Table~\ref{tab:sparam_to_circuit}. The values of the components in the networks can be determined by measuring the $S$-parameters of a tunable capacitor at two frequencies. The two frequencies are necessary to obtain both capacitive and inductive parasitics. For the result to be accurate, the $S$-parameter measurements must be made very accurate \cite{gu2014rf}. The conversion formulas from $S$-parameters to component values are likewise shown in Table~\ref{tab:sparam_to_circuit}.
 
 \def\TabSpace{\rule{0pt}{4.5ex} \rule[-3ex]{0pt}{0pt}}
 \def\refmistake{$^{\dagger}$}
@@ -338,7 +340,12 @@ The two networks are shown in Table~\ref{tab:sparam_to_circuit}. The values of t
         & \\
         \hline
     \end{tabular}
-    \caption{Formulas for computing the equivalent circuit components from S-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf, pozar2011microwave}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the S-parameter measurement. \refmistake Mistakes in \cite{gu2014rf} have been corrected here.}
+    \caption{Formulas for computing the equivalent circuit components from $S$-parameters measured at two frequencies, $f_{\text{low}}$ and $f_{\text{high}}$ \cite{gu2014rf, pozar2011microwave}. Here $\omega$ with no index indicated the angular frequency of calculation. The resistance values may change depending on the frequency of the $S$-parameter measurement. \refmistake Mistakes in \cite{gu2014rf} have been corrected here.}
     \label{tab:sparam_to_circuit}
 \end{table}
 
+\begin{aautail}
+    Based on the knowledge from this section, it is possible to accurately model a MEMS tunable capacitor from $S$-parameter measurements of it. It is also clear how a matching circuit can be designed, using the smith chart, to maximize the power delivered to the antenna.
+
+\fixme{write tail kattehaler og hundehovder}
+\end{aautail}
