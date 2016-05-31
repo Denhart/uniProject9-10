@@ -1,29 +1,29 @@
 \section{Monopole Antenna}
-The first monopole prototype can be seen in Figure \ref{fig:ant1_proto1_3d}. As seen on the figure both monopole antennas were very fragile. The feed pads were too small and fragile, which caused them to brake off, also as seen on the figure.
+The first monopole prototype can be seen in Figure~\ref{fig:ant1_proto1_3d}. As seen on the figure, both monopole antennas were very fragile. The feed pads were too small and fragile, which caused them to break off, also as seen on the figure.
 
-To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times \SI{2.5}{mm}$ feed pads. The pad size was chosen to match the final tuning PCB for the project, which can be seen in Figure \ref{fig:samanthas_board}. Furthermore a FR4 support was added under the antenna feeds to make it more robust. The new prototype can be seen in Figure \ref{fig:ant1_proto2_3d}.
+To solve the feed pad problem, a new prototype was made with $\SI{10}{mm}\times \SI{2.5}{mm}$ feed pads. The pad size was chosen to match the final tuning PCB for the project, which can be seen in Figure~\ref{fig:samanthas_board}. Furthermore, a FR4 support was added under the antenna feeds to make it more robust. The new prototype can be seen in Figure~\ref{fig:ant1_proto2_3d}.
 
 \begin{figure}[htbp]
   \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[scale=0.2]{img/tech_sol/monopole/prototype_v1/monopole_v1}
-        \caption{Monopole prototype version 1}
+        \caption{Monopole prototype version 1.}
         \label{fig:ant1_proto1_3d}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[scale=0.27]{img/tech_sol/monopole/prototype_v2/monopole_v2}
-        \caption{Monopole prototype version 2}
+        \caption{Monopole prototype version 2.}
         \label{fig:ant1_proto2_3d}
     \end{subfigure}
-    \caption{Monopole prototype comparison of version 1 and 2}
+    \caption{Monopole prototype comparison of version 1 and 2.}
     \label{fig:ant_1_proto_3d}
 \end{figure}
 
 \FloatBarrier
-\subsection{Simulation}
-The second prototype had some small changes of the feed pad and FR4 support, as described above. As a result the matching deviated some in comparison with version 1 matching simulations, which can be seen in Figure \ref{fig:sparam_mono_free_space}. To compensate for the design changes, the component values was changes accordingly. The new component values can be seen in Table \ref{fig:mono_proto_sim_matching}.
+\subsection{Simulation} %%
+The second prototype had some small changes of the feed pad and FR4 support, as described above. As a result, the matching deviated a bit, compared to the first version matching simulations, which can be seen in Figure~\ref{fig:sparam_mono_free_space}. To compensate for the design changes, the component values were changes accordingly. The new component values can be seen in Figure~\ref{fig:mono_proto_sim_matching}.
 
 \begin{figure}[htbp]
         \centering
@@ -45,7 +45,7 @@ The second prototype had some small changes of the feed pad and FR4 support, as 
     \label{fig:mono_proto_sim_matching}
 \end{figure}
 
-The S-parameter sweep of the new design can be seen on Figure \ref{fig:sparam_mono_proto_sim}. In comparison with the S11 and S22 results, the spectrum coverage for the top antenna has been slightly improved. The improvement is significant in the high band, where the top antenna now covers from \SI{1500}{MHz} to \SI{3000}{MHz}, only with a small decrease of \SI{-1}{dB} around \SI{2500}{MHz.}. The side antenna also shows spectrum improvement in the high band, but lacks some coverage of approx \SI{-3}{dB} from \SI{1710}{MHz} to \SI{1800}{MHz}. Generally the low band coverage for both antennas compared with version 1, have decreased but still covers the band.
+The $S$-parameter sweep for the new design can be seen in Figure~\ref{fig:sparam_mono_proto_sim}. Compared to the $S_{11}$ and $S_{22}$ results, the spectrum coverage for the top antenna has been slightly improved. The improvement is significant in the high band, where the top antenna now covers from \SI{1500}{MHz} to \SI{3000}{MHz}, only with a small decrease of \SI{1}{dB} around \SI{2500}{MHz}. The side antenna also shows spectrum improvement in the high band, but lacks some coverage of approx \SI{3}{dB} from \SI{1710}{MHz} to \SI{1800}{MHz}. Generally, the low band coverage for both antennas, compared to the first version, have decreased but still covers the band.
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -75,15 +75,15 @@ The S-parameter sweep of the new design can be seen on Figure \ref{fig:sparam_mo
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
         \label{fig:ant1_proto_sim_s22_s12}
     \end{subfigure}
-    \caption{S-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{$S$-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_proto_sim}
 \end{figure}
 
 \FloatBarrier
-\subsection{Measurements}
-A comparison between the simulated and measured S-parameters can be seen on Figure \ref{fig:mono_proto_sparam_eff}. The simulated and measured results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore some component values were changes going from the simulation environment to the prototype. The prototype component values can be seen in Table \ref{fig:mono_proto_meas_matching}. Measuring the S-parameter and Efficiency sweep it was found, that the highest bandwidth was achieved with the tunable capacitor at \SI{0.3}{pF}. The bandwidth results for the top and side antenna, can be seen in Table \ref{tab:bw_sol1_proto}. From the table it is seen, that both antennas covers the required bandwidth in the low band, but have some troubles in the high band. 
+\subsection{Measurements} %
+A comparison between the simulated and measured $S$-parameters can be seen in Figure~\ref{fig:mono_proto_sparam_eff}. The simulated and measured results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore, some component values were changes, going from the simulation environment to the prototype. The prototype component values can be seen in Figure~\ref{fig:mono_proto_meas_matching}. Measuring the $S$-parameter and efficiency sweeps, it was found that the highest bandwidth was achieved with the tunable capacitor at \SI{0.3}{pF}. The bandwidth results for the top and side antenna can be seen in Table~\ref{tab:bw_sol1_proto}. From the table it is seen, that both antennas cover the required bandwidth in the low band, but have some trouble in the high band. 
 
-The total efficiency measured and simulated with the tunable capacitors at \SI{0.3}{pF} can be seen on Figure \ref{fig:mono_proto_sparam_eff}. Generally the simulation results, shows a higher efficiency as expected. The lowest efficiencies are measured at \SI{2400}{MHz} and from \SI{700}{MHz} to \SI{750}{MHz} with the lowest efficiency at \SI{15}{\percent}. Overall the top antenna shows the best results, but still have some problems in the low band, where the efficiency drops to \SI{25}{\percent}.
+The total efficiency, measured and simulated with the tunable capacitors at \SI{0.3}{pF}, can be seen in Figure~\ref{fig:mono_proto_sparam_eff}. Generally, the simulation results shows a higher efficiency, as expected. The lowest efficiencies are measured at \SI{2400}{MHz} and from \SI{700}{MHz} to \SI{750}{MHz} with the lowest efficiency being \SI{-9}{dB}. Overall, the top antenna shows the best results although it still has some problems in the low band where the efficiency drops to \SI{-6}{dB}.
 
 \begin{figure}[htbp]
         \centering
@@ -116,7 +116,7 @@ The total efficiency measured and simulated with the tunable capacitors at \SI{0
         \includegraphics{img/tech_sol/monopole/prototype_v2/meas_sim_efficiency.pdf}
         \caption{Total efficiency.}
     \end{subfigure}
-    \caption{S-parameters and total efficiency of the monopole antenna prototype with the component values from Figure~\ref{fig:mono_proto_sim_matching}.}
+    \caption{$S$-parameters and total efficiency of the monopole antenna prototype with the component values from Figure~\ref{fig:mono_proto_sim_matching}.}
     \label{fig:mono_proto_sparam_eff}
 \end{figure}
 
@@ -138,10 +138,11 @@ The total efficiency measured and simulated with the tunable capacitors at \SI{0
     \end{table}
 
 %S-parameter sweep
-The S-parameter sweep for both antennas can be seen in Figure \ref{fig:sparam_mono_proto_sim}. The sweep is done accordingly to \ref{cha:prototypes}. From the results it can be seen that sweeping the tunable capacitors, the antennas are capable of covering most of the required bandwidth at \SI{-6}{dB}. However both the top and side antenna experiences some problems in the high band. The top antenna is able to cover the required bandwidth except at \SI{2300}{MHz}, where the magnitude drops to \SI{-3}{dB}. The side antenna experiences a magnitude drop in the high band around \SI{2200}{MHz} and \SI{2450}{MHz}. The side antenna also experiences some bandwidth problems in the low band, which makes it unable to sufficiently cover the band limit at \SI{960}{MHz}. Some of the coverage problems, especially in the high band, is likely to disappear if the sweeps were done with the same component values as used in the simulation.   
+The $S$-parameter sweep for both antennas can be seen in Figure~\ref{fig:sparam_mono_proto_sim}. The sweep is done accordingly to Chapter~\ref{cha:prototypes}. From the results, it is seen that by sweeping the tunable capacitors, the antennas are capable of covering most of the required bandwidth at \SI{6}{dB} return loss. However, both the top and side antenna experience some problems in the high band. The top antenna is able to cover the required bandwidth except at \SI{2300}{MHz}, where the return loss drops to \SI{3}{dB}. The side antenna experiences a return loss drop in the high band around \SI{2200}{MHz} and \SI{2450}{MHz}. The side antenna also experiences some bandwidth problems in the low band, which makes it unable to sufficiently cover the band limit at \SI{960}{MHz}. Some of the coverage problems, especially in the high band, are likely to disappear if the sweeps were done with the same number of component values as used in the simulation.   
 
-The isolation loss results shows the highest isolation loss in the low band, at approximately \SI{800}{MHz} to \SI{900}{MHz} for both the top and side antenna. This results is as expected when compared with the simulation results.
-    \begin{figure}[htbp]
+The isolation loss results show the lowest isolation in the low band, at approximately \SI{800}{MHz} to \SI{900}{MHz} for both the top and side antenna. This result is as expected when compared with the simulation results.
+
+\begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics{img/tech_sol/monopole/prototype_v2/meas_s11_csh1}
@@ -165,14 +166,14 @@ The isolation loss results shows the highest isolation loss in the low band, at 
         \includegraphics{img/tech_sol/monopole/prototype_v2/meas_s21_csh1}
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{S-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{$S$-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_proto_sim_meas}
 \end{figure}
+
 % Efficiency sweep and correlation
+The efficiency sweep can be seen in Figure~\ref{fig:eff_mono_proto_meas}. The sweep is done accordingly to the introduction of Chapter~\ref{cha:prototypes} as with the $S$-parameter sweeps. Looking at the results, it is clear that none of the antennas completely fulfill the efficiency requirements. The top antenna is able to exceed \SI{-3}{dB} efficiency in the high band, at some of the capacitor values. The side antenna shows slightly lower efficiency results compared to the top antenna. The low band efficiency is above \SI{-4}{dB} for both antennas.
 
-The efficiency sweep can be seen on Figure \ref{fig:eff_mono_proto_meas}. The sweep is done accordingly to \ref{cha:prototypes} as with the s-parameter sweeps. Looking at the results it is clearly that none of the antennas fulfill the efficiency requirements. The top antenna is able to exceed \SI{50}{\percent} efficiency in the high band, in some of the sweep modes. The side antenna shows slightly lower efficiency results compared to the top antenna. Overall both antennas decreases to \SI{3}{\percent} and below for the side antenna. This is in the worst case, but could cause some problems as every sweep mode is needed in covering the entire bandwidth. 
-
-The correlation between the top and side antenna, can be seen on Figure \ref{fig:ant1_proto_corr}. The correlation is simulated and measured with the sweeping capacitor at the initial value of \SI{0.3}{pF}, for both the top and side antenna. From the figure it is seen, that the most significant difference in the simulated and measured correlation is in the low band at approximately \SI{830}{MHz} to \SI{960}{MHz}. Within this frequency range the simulated correlation is approximately $0.25$ higher than the measured value.
+The correlation between the top and side antenna can be seen in Figure~\ref{fig:ant1_proto_corr}. The correlation is simulated and measured with the sweeping capacitor at the initial value of \SI{0.3}{pF} for both the top and side antenna. From the figure, it is seen that the most significant difference in the simulated and measured correlation is in the low band at approximately \SI{830}{MHz} to \SI{960}{MHz}. Within this frequency range, the simulated correlation is approximately $0.25$ higher than the measured value.
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
