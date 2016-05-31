@@ -1,7 +1,7 @@
-\section{Inherently Non-resonant Antenna}
-In this section the prototype of the Inherently non-resonant antenna will be described.
+\section{Inherently Non-Resonant Antenna}
+In this section, the prototype of the inherently non-resonant antenna will be described.
 
-The prototype and the used tuning circuit is shown in Figure \ref{fig:ant3techschem_proto}. Both antennas are made on a CNC mill in the AAU metal workshop. This was done in order to have perfectly smooth edges and cut the two-feed design accurately.   
+The prototype and the used tuning circuit is shown in Figure~\ref{fig:ant3techschem_proto}. Both antennas are made on a CNC mill in the AAU metal workshop. This was done in order to have perfectly smooth edges and cut the two-feed design accurately.   
 
 \begin{figure}[htbp]
     \begin{subfigure}[b]{0.49\linewidth}
@@ -17,28 +17,30 @@ The prototype and the used tuning circuit is shown in Figure \ref{fig:ant3techsc
         \caption{Tuning/matching circuit.}
         \label{fig:ant3schematic}
     \end{subfigure}
-    \caption{Picture and tuning circuit for the prototype antenna.  The antennas are built on FR-4 board using \SI{35}{\micro\meter} copper. There is a matching circuit as shown for each of the four feeds.}
+    \caption{Picture and tuning circuit for the prototype antenna. The antennas are built on FR-4 board using \SI{35}{\micro\meter} copper. There is a matching circuit as shown for each of the four feeds.}
     \label{fig:ant3techschem_proto}
 \end{figure}
 
 
-\subsection{Measurements}
-The simulated and measured S-parameter and total efficiency is shown in Figure \ref{fig:nonresonant_proto_sparam_eff}. The results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore, some adjustments were done to the component values, the current values can be seen in Table \ref{fig:ant3schematic_proto}. 
+\subsection{Measurements} %
+The simulated and measured $S$-parameters and total efficiency are shown in Figure~\ref{fig:nonresonant_proto_sparam_eff}. The results are done with the tunable capacitor at \SI{0.3}{pF}. Furthermore, some adjustments were done to the component values. The current values are seen in Table~\ref{fig:ant3schematic_proto}. 
 
-From the S-parameter and the bandwidth table it is seen that both antennas covers the required bandwidth in the lower band. In the high band only the top antenna lacks \SI{80}{MHz}, but this should not be a major problem as the antenna covers the remaining bandwidth at approximately \SI{-3}{dB}. Comparing the simulated and the measured S-parameters, the results looks similar only with some detuning in the high band for both the side and top antenna.
-The efficiency for the top antenna covers is approximately \SI{80}{\percent}, but drops to \SI{21}{\percent} from \SI{2200}{MHz} to \SI{2650}{MHz}. The side antenna covers the entire high band with approximately \SI{70}{\percent} to \SI{90}{\percent} efficiency. The low band efficiency is quite low, compared to the high band, with an efficiency between \SI{4}{\percent} to \SI{42}{\percent}.
+From the $S$-parameters and the bandwidth table, it is seen that both antennas cover the required bandwidth in the lower band. The top antenna lacks \SI{80}{MHz} in the high band, but this should not be a major problem as the antenna covers the remaining bandwidth at approximately \SI{3}{dB} return loss. Comparing the simulated and the measured $S$-parameters, the results looks similar only with some detuning in the high band for both the side and top antenna.
+
+The efficiency for the top antenna is approximately \SI{-1}{dB}, but drops to \SI{-7}{dB} from \SI{2200}{MHz} to \SI{2650}{MHz}. The side antenna covers the entire high band with approximately \SI{-2}{dB} to \SI{-1}{dB} efficiency. The low band efficiency is quite low compared to the high band, with an efficiency between \SI{-13}{dB} to \SI{-4}{dB}.
+
  \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
         \includegraphics{img/tech_sol/nonresonant/prototype/sparams.pdf}
-        \caption{S-parameters.}
+        \caption{$S$-parameters.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
     \includegraphics{img/tech_sol/nonresonant/prototype/eff_comp.pdf}
         \caption{Total efficiency.}
     \end{subfigure}
-    \caption{S-parameters and total efficiency of the nonresonant antenna prototype with the component values from Figure~\ref{fig:ant3schematic_proto}.}
+    \caption{$S$-parameters and total efficiency of the nonresonant antenna prototype with the component values from Table~\ref{fig:ant3schematic_proto}.}
     \label{fig:nonresonant_proto_sparam_eff}
 \end{figure}
 
@@ -73,7 +75,7 @@ The efficiency for the top antenna covers is approximately \SI{80}{\percent}, bu
         \label{fig:ant3schematic_proto}
 \end{table}
 
-The measured and simulated envelope correlation coefficient can be seen in Figure \ref{fig:nonresonant_proto_ecc}. In the high band the simulated and measured correlation is quite similar. However for the low band the simulated and measured results deviates. Comparing the correlation to the isolation loss \ref{fig:nonresonant_proto_sparam_eff} it is clear that correlation should be highest in the low band. The diviation in the low band results could be caused by the measurement placement of the antenna. The antenna should be placed in the same position for every measurement, which can be hard to accomplice, also as mentioned in the triangle feed prototype section \ref{sec:triang_proto}.   
+The measured and simulated envelope correlation coefficient can be seen in Figure~\ref{fig:nonresonant_proto_ecc}. In the high band, the simulated and measured correlation is quite similar. However, for the low band, the simulated and measured results deviate. Comparing the correlation to the isolation loss in Figure~\ref{fig:nonresonant_proto_sparam_eff} it is clear that correlation should be highest in the low band. The deviation in the low band results could be caused by the measurement placement of the antenna. The antenna should be placed in the exact same position for every measurement which can be hard to accomplish, also as mentioned in the triangle-feed prototype section, Section~\ref{sec:triang_proto}.
 
 \begin{figure}[htbp]
     \centering
@@ -84,13 +86,13 @@ The measured and simulated envelope correlation coefficient can be seen in Figur
 
 \FloatBarrier
 % \subsection{Capacitor Sweep}
-The S-parameter sweep can be seen in Figure \ref{fig:nonresonant_proto_sweep_sparams}. The top antenna sweep S11 shows that the antenna is capable of covering the entire low band and most of the high band. In the high band, the antenna have some problems from approximately \SI{2400}{MHz} to \SI{2650}{MHz}, as the return loss drops to approximately \SI{-3}{dB}. The results of the side antenna S22 show that the antenna was unable to be tuned. Many component changes were made and it had no effect on the ability of the antenna to be tuned. 
+The $S$-parameter sweep can be seen in Figure~\ref{fig:nonresonant_proto_sweep_sparams}. The top antenna sweep of $S_{11}$ shows that the antenna is capable of covering the entire low band and most of the high band. In the high band, the antenna has some problems from approximately \SI{2400}{MHz} to \SI{2650}{MHz} as the return loss drops to approximately \SI{3}{dB}. The results of the side antenna $S_{22}$ show that the antenna was unable to be tuned. Many component changes were made, having no effect on the ability to tune the antenna. 
 
-The highest isolation loss measured is \SI{-9}{dB} in the low band. In the high band the isolation loss is generally low with a max value of \SI{-14}{dB}. 
+The lowest measured isolation is \SI{9}{dB} in the low band. In the high band, the isolation is generally high with a maximum value of \SI{14}{dB}. 
 
-The efficiency sweep can be seen in Figure~\ref{fig:nonresonant_proto_sweep_efficiency}. From the results it is seen that the top antenna covers the low band quite well with an efficiency from \SI{70}{\percent} to \SI{95}{\percent}. However, in the high band the top antenna experiences some problems in the higher frequencies. The efficiency is approximately \SI{80}{\percent} from \SI{1710}{MHz} to \SI{2200}{MHz}, but drops to \SI{21}{\percent} from \SI{2200}{MHz} to \SI{2650}{MHz}. Generally, tuning the top antenna results in an overall efficiency drop that is most significant in the higher frequencies.
+The efficiency sweeps are shown in Figure~\ref{fig:nonresonant_proto_sweep_efficiency}. From the results, it is seen that the top antenna covers the low band quite well with an efficiency of approximatly \SI{-2}{dB}. The top antenna, however, experiences some problems in the high end of the high band. The efficiency is approximately \SI{-2}{\percent} from \SI{1710}{MHz} to \SI{2200}{MHz} but drops to \SI{-6}{dB} from \SI{2200}{MHz} to \SI{2650}{MHz}. Generally, tuning the top antenna results in an overall efficiency drop that is most significant in the higher frequencies.
 
-As mentioned earlier, the side antenna was unable to be tuned as the top so only one measurement of the side antenna efficiency were made. The efficiency results for the side antenna is therefore as described above in the comparison of the simulated and measured results.
+As mentioned earlier, the side antenna was unable to be tuned, so only a single measurement of the side antenna efficiency was made. The efficiency results for the side antenna is therefore as described above in the comparison of the simulated and measured results.
 
 \begin{figure}[htbp]
     \centering
@@ -111,7 +113,7 @@ As mentioned earlier, the side antenna was unable to be tuned as the top so only
         \includegraphics{img/tech_sol/nonresonant/prototype/s21_csh1.pdf}
         \caption{$S_{21}$, sweeping the top antenna and fixing the side antenna.}
     \end{subfigure}
-    \caption{Non-resonant antenna. S-parameters for different shunt-capacitor values. The side antenna does not change resonance as desired when the shunt capacitor is changed. Therefore, only the top antenna is swept.}
+    \caption{Non-resonant antenna. $S$-parameters for different shunt-capacitor values. The side antenna does not change resonance as desired when the shunt capacitor is changed. Therefore, only the top antenna is swept.}
     \label{fig:nonresonant_proto_sweep_sparams}
 \end{figure}
 

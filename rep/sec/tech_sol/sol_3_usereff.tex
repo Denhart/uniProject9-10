@@ -29,18 +29,22 @@ In this section, the results from Section~\ref{sec:tech_sol_ant3} will be repeat
 
 \FloatBarrier
 \subsection{Data Mode}
-Figure~\ref{fig:ant3_sparam_data} shows the S-parameters with the tunable capacitors set to their maxima. Such both the top and side antennas have been tuned down to the lowest possible frequency. It is seen that the top antenna covers most of the band from \SI{700}{MHz} to \SI{960}{MHz}, with a reflection coefficient below \SI{-6}{dB}. The side antenna is however very narrow band, and must be tuned in order to cover all the low bands. It is also seen that the side antenna does not cover the entire high band, when tuned down to the lowest. 
+%%
+Figure~\ref{fig:ant3_sparam_data} shows the $S$-parameters with the tunable capacitors set to their maxima. As such, both the top and side antennas have been tuned down to the lowest possible frequency. It is seen that the top antenna covers most of the band from \SI{700}{MHz} to \SI{960}{MHz} with a return loss above \SI{6}{dB}. The side antenna is, however, very narrowband and must be tuned in order to cover all the low bands. It is also seen that the side antenna does not cover the entire high band when tuned down to the lowest capacitor value. 
 
-The S-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:ant3_sparam_sweep_data}. The maximum impedance-bandwidths are summed up in Table~\ref{tab:bw_sol3data}. From this it is again clear that only the top antenna is able to cover the high end of the low band. Both antennas should be able to cover the entire high band at \SI{6}{dB} return loss.
+%%
+The $S$-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:ant3_sparam_sweep_data}. The maximum impedance-bandwidths are summed up in Table~\ref{tab:bw_sol3data}. From this, it is again clear that only the top antenna is able to cover the high end of the low band. Both antennas are able to cover the entire high band at \SI{6}{dB} return loss, except for a drop of \SI{1}{dB} at \SI{2600}{MHz} to \SI{2650}{MHz} for the top antenna.
 
-The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol3_data}. The correlation is, for frequencies above \SI{700}{MHz}, below 0.4 when sweeping the top and side antenna. For the high band the correlation is significantly lower, which is also to be expected. The correlation has dropped a lot from the free-space simulation in Figure~\ref{fig:corr_sol3}.
+%%
+The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol3_data}. The correlation is, for frequencies above \SI{700}{MHz}, below 0.4 when sweeping the top and side antenna. For the high band, the correlation is significantly lower, which is also to be expected. The correlation has dropped a lot from the free-space simulation in Figure~\ref{fig:corr_sol3}.
 
-The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol3data}. It is seen that the efficiency, generally, has decreased from the free space simulation in Chapter~\ref{cha:nousersim}. At  \SI{-3}{dB} efficiency, there is no bandwidth left. At \SI{-6}{dB} all bands are covered. The efficiency in the high band is generally higher than in the low band.
+%%
+The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol3data}. It is seen that the efficiency, generally, has decreased from the free space simulation in Chapter~\ref{cha:nousersim}. At \SI{-3}{dB} efficiency, there is no bandwidth left. At \SI{-6}{dB} all bands are covered. The efficiency in the high band is generally higher than in the low band.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/nonresonant/simulation/data_mode/s_params_cMax.pdf}
-    \caption{The antenna in data mode. S-parameters with both tuning capacitors fixed at \SI{2.9}{pF}.}
+    \caption{The antenna in data mode. $S$-parameters with both tuning capacitors fixed at \SI{2.9}{pF}.}
     \label{fig:ant3_sparam_data}
 \end{figure}
 
@@ -50,11 +54,11 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \hline
         Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
         \hline
-        Top     & Low  & 570         & 2583       & 2013 \\
-        Side    & Low  & 779         & 891        & 112  \\
+        Top     & Low  & 713         & 963       & 250 \\
+        Side    & Low  & 717         & 765        & 48  \\
         \hline
-        Top     & High & 570         & 2583       & 2013 \\
-        Side    & High & 1506        & 2623       & 1117 \\
+        Top     & High & 1635         & 2537       & 902 \\
+        Side    & High & 1430        & 2582       & 1152 \\
         \hline
     \end{tabular}
     \caption{The antenna in data mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}
@@ -85,7 +89,7 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \includegraphics{img/tech_sol/nonresonant/simulation/data_mode/s21_side_sweep.pdf}
         \caption{$S_{21}$, sweeping $s\_C_{h1}$ and fixing $C_{l3}$.}
     \end{subfigure}
-    \caption{The antenna in data mode. Parameter sweep for tuning the shunt capacitor of each antenna, $C_{l3}$ and $s\_C_{h1}$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{The antenna in data mode. $S$-parameter sweep for tuning the shunt capacitor of each antenna, $C_{l3}$ and $s\_C_{h1}$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:ant3_sparam_sweep_data}
 \end{figure}
 
@@ -101,7 +105,7 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \includegraphics{img/tech_sol/nonresonant/simulation/data_mode/sweep_side_corr}
         \caption{Sweeping $s\_C_{h1}$ and fixing $C_{l3}$.}
     \end{subfigure}
-    \caption{The antenna in data mode. Correlation between antennas then sweeping tuning capacitors. Here, $C_{l3}$ and $s\_C_{h1}$ are the tuning capacitor for the top and side antenna, respectively.}
+    \caption{The antenna in data mode. Correlation between antennas when sweeping the tuning capacitors. Here, $C_{l3}$ and $s\_C_{h1}$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:corr_sol3_data}
 \end{figure}
 
@@ -126,19 +130,23 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
 
 \FloatBarrier
 \subsection{Play Mode}
-Figure~\ref{fig:ant3_sparam_play} shows the S-parameters with the tunabale capacitors set to their maxima. Such both the top and side antennas have been tuned down to the lowest possible frequency. It is seen that the top antenna covers most of the band from \SI{700}{MHz} to \SI{960}{MHz}, with a reflection coefficient below \SI{-6}{dB}. The side antenna is however very narrow band, and must be tuned in order to cover all the low bands. It is also seen that the side antenna does not cover the entire high band, when tuned down to the lowest. 
+%%
+Figure~\ref{fig:ant3_sparam_play} shows the $S$-parameters with the tunabale capacitors set to their maxima. As such, both the top and side antennas have been tuned down to the lowest possible frequency. It is seen that the top antenna covers most of the band from \SI{700}{MHz} to \SI{960}{MHz} with a return loss above \SI{4}{dB}. The side antenna is, however, very narrowband, and must be tuned in order to cover all the low bands. It is also seen that the side antenna does not cover the entire high band when tuned down to the lowest. 
 
-The S-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:ant3_sparam_sweep_play}. The maximum impedance-bandwidths are summed up in Table~\ref{tab:bw_sol3data}. From this it is again clear that only the top antenna is able to cover the high end of the low band. Both antennas should be able to cover the entire high band at \SI{6}{dB} return loss.
+%%
+The $S$-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:ant3_sparam_sweep_play}. The maximum impedance bandwidths are summed up in Table~\ref{tab:bw_sol3data}. From this, it is again clear that only the top antenna is able to cover the high end of the low band. Both antennas are be able to cover the entire high band at \SI{4}{dB} return loss.
 
-The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol3_play}. The correlation is, for frequencies above \SI{700}{MHz}, below 0.4 when sweeping the top and side antenna. For the high band the correlation is significantly lower, which is also to be expected. Again the correlation has dropped a lot from the free-space simulation in Figure~\ref{fig:corr_sol3}.
+%%
+The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol3_play}. The correlation is, for frequencies above \SI{700}{MHz}, below 0.4 when sweeping the top and side antenna. For the high band, the correlation is significantly lower. Again, the correlation has dropped a lot from the free-space simulation in Figure~\ref{fig:corr_sol3}.
 
-The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol3play}. It is seen that the efficiency, generally, has decreased from the free space simulation in Chapter~\ref{cha:nousersim} and also lower than the data mode. At \SI{-3}{dB} efficiency, there is no bandwidth left. At \SI{-6}{dB} most of the bands are covered.
+%%
+The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol3play}. It is seen that the efficiency, generally, has decreased from the free space simulation in Chapter~\ref{cha:nousersim} and is also lower than the data mode. At \SI{-3}{dB} efficiency, there is no bandwidth left. At \SI{-6}{dB} most of the bands are covered.
 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/nonresonant/simulation/play_mode/s_params_cMax.pdf}
-    \caption{The antenna in play mode. S-parameters with both tuning capacitors fixed at \SI{2.9}{pF}.}
+    \caption{The antenna in play mode. $S$-parameters with both tuning capacitors fixed at \SI{2.9}{pF}.}
     \label{fig:ant3_sparam_play}
 \end{figure}
 
@@ -148,14 +156,14 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \hline
         Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
         \hline
-        Top     & Low  & 629         & 928        & 299  \\
-        Side    & Low  & 780         & 881        & 101  \\
+        Top     & Low  & 690         & 791        & 101  \\
+        Side    & Low  & 780         & 803        & 23   \\
         \hline
-        Top     & High & 1379        & 2703       & 1324 \\
-        Side    & High & 1388        & 2559       & 1171 \\
+        Top     & High & 1676        & 2579       & 903 \\
+        Side    & High & 1341        & 1919       & 578 \\
         \hline
     \end{tabular}
-    \caption{The antenna in play mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively. The bandwidth for the side antennas high band is ignoring the slight rise above \SI{-6}{dB} in the middle of the high band.}
+    \caption{The antenna in play mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively. The bandwidth for the antennas high band is ignoring the rise above \SI{-6}{dB} in the middle of the band.}
     \label{tab:bw_sol3play}
 \end{table}
 
@@ -199,7 +207,7 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \includegraphics{img/tech_sol/nonresonant/simulation/play_mode/sweep_side_corr}
         \caption{Sweeping $s\_C_{h1}$ and fixing $C_{l3}$.}
     \end{subfigure}
-    \caption{The antenna in play mode. Correlation between antennas then sweeping tuning capacitors. Here, $C_{l3}$ and $s\_C_{h1}$ are the tuning capacitor for the top and side antenna, respectively.}
+    \caption{The antenna in play mode. Correlation between antennas when sweeping tuning the capacitors. Here, $C_{l3}$ and $s\_C_{h1}$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:corr_sol3_play}
 \end{figure}
 
@@ -223,19 +231,22 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
 
 \FloatBarrier
 \subsection{Talk Mode}
-Figure~\ref{fig:ant3_sparam_talk} shows the S-parameters with the tunabale capacitors set to their maxima. Such both the top and side antennas have been tuned down to the lowest possible frequency. It is seen that the top antenna covers most of the band from \SI{700}{MHz} to \SI{960}{MHz}, with a reflection coefficient below \SI{-6}{dB}. The side antenna is however very narrow band, and must be tuned in order to cover all the low bands. It is also seen that the side antenna does not cover the entire high band, when tuned down to the lowest. 
+%%
+Figure~\ref{fig:ant3_sparam_talk} shows the $S$-parameters with the tunabale capacitors set to their maxima. As such, both the top and side antennas have been tuned down to the lowest possible frequency. It is seen that the top antenna covers most of the band from \SI{700}{MHz} to \SI{960}{MHz}, with a return loss above \SI{6}{dB}. The side antenna is, however, very narrowband, and must be tuned in order to cover all the low bands. It is also seen that the side antenna does not cover the entire high band when tuned down to the lowest. 
 
-The S-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:ant3_sparam_sweep_play}. The maximum impedance-bandwidths are summed up in Table~\ref{tab:bw_sol3data}. From this it is again clear that only the top antenna is able to cover the high end of the low band. Both antennas should be able to cover the entire high band at \SI{6}{dB} return loss.
+%%
+The $S$-parameters, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:ant3_sparam_sweep_play}. The maximum impedance-bandwidths are summed up in Table~\ref{tab:bw_sol3data}. From this it is again clear that only the top antenna is able to cover the high end of the low band. Both antennas are able to cover the entire high band at \SI{6}{dB} return loss, except for a small drop of \SI{1}{dB} from \SI{2600}{MHz} to \SI{2650}{MHz}.
 
-The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol3_play}. The correlation is, for frequencies above \SI{700}{MHz}, below 0.7 when sweeping the top and side antenna. For the high band the correlation is significantly lower, which is also to be expected. Again the correlation has dropped a lot from the free-space simulation in Figure~\ref{fig:corr_sol3}.
+%%
+The correlation between the antennas, when sweeping the tunable capacitors, are shown in Figure~\ref{fig:corr_sol3_play}. The correlation is, for frequencies above \SI{700}{MHz}, below 0.7 when sweeping the top and side antenna. For the high band, the correlation is significantly lower. Again, the correlation has dropped a lot from the free-space simulation in Figure~\ref{fig:corr_sol3}.
 
-The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol3talk}. It is seen that the efficiency, generally, has decreased from the free space simulation in Chapter~\ref{cha:nousersim} and also lower than the data mode. At \SI{-3}{dB} efficiency, there is no bandwidth left. At \SI{-9}{dB} most of the bands are covered.
-
+%%
+The efficiencies for each antenna, when sweeping the tuning capacitors, are shown in Figure~\ref{fig:eff_sol3talk}. It is seen that the efficiency, generally, has decreased from the free space simulation in Chapter~\ref{cha:nousersim} and is also lower than the data mode. At \SI{-3}{dB} efficiency, there is no bandwidth left. At \SI{-9}{dB} most of the bands are covered.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/nonresonant/simulation/talk_mode/s_params_cMax.pdf}
-    \caption{The antenna in talk mode. S-parameters with both tuning capacitors fixed at \SI{2.9}{pF}.}
+    \caption{The antenna in talk mode. $S$-parameters with both tuning capacitors fixed at \SI{2.9}{pF}.}
     \label{fig:ant3_sparam_talk}
 \end{figure}
 
@@ -245,11 +256,11 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \hline
         Antenna & Band & Start [MHz] & Stop [MHz] & Bandwidth [MHz] \\
         \hline
-        Top     & Low  & 701         & 2597       & 1896 \\
-        Side    & Low  & 749         & 844        & 95   \\
+        Top     & Low  & 674         & 1055       & 381 \\
+        Side    & Low  & 576         & 617        & 41   \\
         \hline
-        Top     & High & 701         & 2597       & 1896 \\
-        Side    & High & 1439        & 2516       & 1077 \\
+        Top     & High & 1658         & 2243       & 585 \\
+        Side    & High & 1612        & 2784       & 1172 \\
         \hline
     \end{tabular}
     \caption{The antenna in talk mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively. It is, again, seen that both the low and high band are covered at the same time for the top antenna.}
@@ -296,7 +307,7 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
         \includegraphics{img/tech_sol/nonresonant/simulation/talk_mode/sweep_side_corr}
         \caption{Sweeping $s\_C_{h1}$ and fixing $C_{l3}$.}
     \end{subfigure}
-    \caption{The antenna in talk mode. Correlation between antennas then sweeping tuning capacitors. Here, $C_{l3}$ and $s\_C_{h1}$ are the tuning capacitor for the top and side antenna, respectively.}
+    \caption{The antenna in talk mode. Correlation between antennas when sweeping the tuning capacitors. Here, $C_{l3}$ and $s\_C_{h1}$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:corr_sol3_talk}
 \end{figure}
 
@@ -321,8 +332,8 @@ The efficiencies for each antenna, when sweeping the tuning capacitors, are show
 
 \FloatBarrier
 \subsection{SAR}
-
-The result from the SAR simulation is shown in Figure~\ref{fig:ant3_sar_sim}. It is seen, that the maximum is around \SI{1.2}{.}, which is within the maximum of \SI{2}{W\per kg} for the side antenna. A possible way to improve this may be to simulate the phone's screen, which will be located between (part of) the antenna and the head. This may reflect some of the radiated power away from the user, lowering the maximum SAR. However since it already complies with the requirements, this has not been done. 
+%%
+The result from the SAR simulation is shown in Figure~\ref{fig:ant3_sar_sim}. It is seen, that the maximum SAR value is around \SI{1.2}{W\per kg}, which is within the maximum of \SI{2}{W\per kg} for the side antenna. A possible way to improve this may be to simulate the phone with a screen, which will be located between the antenna and the head. This may reflect some of the radiated power away from the user, lowering the maximum SAR. However, since it already complies with the requirements, this has not been done. 
 
 \begin{figure}[htbp]
     \centering
@@ -330,6 +341,3 @@ The result from the SAR simulation is shown in Figure~\ref{fig:ant3_sar_sim}. It
     \caption{SAR simulation of the antenna.}
     \label{fig:ant3_sar_sim}
 \end{figure}
-
-
-
