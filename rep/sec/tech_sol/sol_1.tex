@@ -1,5 +1,6 @@
 \section{Antenna Design 1 -- Monopole}
 \label{sec:techsol1_monopole}
+
 \begin{figure}[htbp]
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
@@ -27,15 +28,15 @@
 \end{figure}
 
 %Single antenna description
-The antenna design for both antennas is shown in Figure \ref{fig:ant1technical}. Both antennas is designed from a basic folded monopole structure with 2 arms, one for the low band and one for the high band. The antennas are almost identical with a few changes as a result of the restrictions on the ground clearance.
-The antennas are designed to take full advantage of the ground clearance requirements in both height, length and width. This is done in order to obtain the highest possible bandwidth in both bands. 
+The antenna design, for both antennas, is shown in Figure~\ref{fig:ant1technical}. Both antennas are designed from a basic folded monopole structure with two arms -- one for the low band and one for the high band. The antennas are almost identical with a few changes as a result of the restrictions on the ground clearance.
+The antennas are designed to take full advantage of the ground clearance requirements in both height, length, and width. This is done in order to obtain the highest possible bandwidth in both bands. 
 
 %MIMO
-Going from the top antenna to the side antenna the ground clearance decreases from \SI{10}{mm} to \SI{7}{mm}. To compensate for the decrease in ground clearance the length of both the low band and high band arms are adjusted to obtain the highest bandwidth within the low band and high band. 
+Going from the top antenna to the side antenna, the ground clearance decreases from \SI{10}{mm} to \SI{7}{mm}. To compensate for the decrease in ground clearance the length of both the low band and high band arms are adjusted. This is done to obtain the highest bandwidth within the low band and high band. 
 
-The surface currents of the top antenna are shown in Figure \ref{fig:ant1_sc}. In the low band the left arm is excited and as the frequency increases the short arm becomes more excited. This illustrated the different operation modes of the two arm folded monopole structure.
+The surface currents of the top antenna are shown in Figure~\ref{fig:ant1_sc}. In the low band, the left arm is excited and, as the frequency increases, the short arm becomes more excited. This illustrates the different operation modes of the two arm folded monopole structure.
 
-The S-parameter for both antennas can be seen on Figure \ref{fig:ant1_sparam}. Both antennas are simulated with the tuning capacitors at \SI{0.3}{pF}. At this state both antennas covers the highest frequencies in the low- and high-band. From the figure it can be seen that both antennas almost covers the entire high band. However some tuning is needed for the side antenna in the lower band.   
+The $S$-parameter for both antennas can be seen in Figure~\ref{fig:ant1_sparam}. Both antennas are simulated with the tuning capacitors at \SI{0.3}{pF}. In this state, both antennas cover the highest frequencies in the low and the high band. From the figure, it can be seen that both antennas almost covers the entire high band. However, some tuning is needed for the side antenna in the lower band.
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.32\linewidth}
@@ -68,17 +69,20 @@ The S-parameter for both antennas can be seen on Figure \ref{fig:ant1_sparam}. B
     \caption{S-parameters with $C_2=\SI{0.3}{pF}$ for both antennas.}
     \label{fig:ant1_sparam}
 \end{figure}
-The tuned $S$-parameters for both antennas can be seen in Figure \ref{fig:sparam_mono_free_space}. The return loss $S_{11}$ and $S_{22}$ shows that both antennas almost covers the desired bandwidth. However from \SI{2500}{MHz} to \SI{2650}{MHz} both antennas are \SI{-1}{dB} to \SI{-3}{dB} lower than required. The side antenna also shows a lower level than desired at \SI{1750}{MHz} and in the low band limits. During the $S$-parameter simulation sweep of one antenna the variable capacitor of the other antenna is set to the initial fixed value of \SI{0.3}{pF}. 
+%%
+The tuned $S$-parameters for both antennas can be seen in Figure~\ref{fig:sparam_mono_free_space}. The return losses, $-S_{11}$ and $-S_{22}$, show that both antennas almost cover the desired bandwidth. However, from \SI{2500}{MHz} to \SI{2650}{MHz}, both antennas are \SI{1}{dB} to \SI{3}{dB} lower than required. The side antenna also shows a lower level than desired at \SI{1750}{MHz} and in the low band limits. During the $S$-parameter simulation sweep of one antenna, the variable capacitor of the other antenna is set to the initial fixed value of \SI{0.3}{pF}. 
 
-The isolation loss $S_{21}$ is shown in Figure \ref{fig:sparam_mono_free_space}. The $S_{21}$ sweep shows a low isolation loss at \SI{-5}{dB} in the low band. The surface current simulations \ref{fig:ant1_sc} shows that the monopole antenna design excites the ground plane, which could cause the low isolation loss. This should be taken into consideration as the isolation loss can have a significant effect on the MIMO performance.      
+%%
+The isolation loss, $S_{21}$, is shown in Figure~\ref{fig:sparam_mono_free_space}. The $S_{21}$ sweep shows a low isolation loss at \SI{5}{dB} in the low band. The surface current simulations, shown in Figure~\ref{fig:ant1_sc}, show that the monopole antenna design excites the ground plane, which could cause the low isolation loss. This should be taken into consideration as the isolation loss can have a significant effect on the MIMO performance.
 
-The channel bandwidth for both antennas are shown in Table. \ref{tab:bw_sol1}. Both antennas fulfills the desired bandwidth in the lower bands, however only the top antenna comply with the bandwidth requirement in the high band. The side antenna lacks \SI{37}{MHz} in the high band.
+%%
+The channel bandwidth for both antennas are shown in Table~\ref{tab:bw_sol1}. Both antennas fulfill the desired bandwidth requirement in the lower bands. However, only the top antenna complies with the bandwidth requirement in the high band where the side antenna lacks \SI{37}{MHz}.
 
-%Correlation
-The correlation between the antennas are shown in Figure \ref{fig:corr_sol1}. The Figure shows the correlation when sweeping the tuning capacitors from \SI{0.3}{pF} to \SI{2.9}{pF}. From the figure it is seen that the correlation exceeds the requirement of \num{0.5} in the low band for both the top and side antenna with a maximum at \SI{700}{MHz}. The surface current at the different operation frequencies \ref{fig:ant1_sc}, shows a strong coupling to the ground plane, which could cause the high correlation in the low band. 
+%Correlation %%
+The correlation, between the antennas, is shown in Figure~\ref{fig:corr_sol1}. The figure shows the correlation when sweeping the tuning capacitors from \SI{0.3}{pF} to \SI{2.9}{pF}. From the figure, it is seen that the correlation exceeds the requirement of \num{0.5} in the low band for both the top and side antenna with a maximum at \SI{700}{MHz}. The surface currents at the different operation frequencies, seen in Figure~\ref{fig:ant1_sc}, show a strong coupling to the ground plane, which could cause the high correlation in the low band.
 
-%Efficiency
-The efficiency for both antennas is shown in Figure \ref{fig:eff_sol1_free}. The efficiency is plotted for each sweep of the tunable capacitors. The efficiency mostly covers the entire spectrum with an efficiency of \SI{-3}{dB} with a drop of \SI{1.5}{dB} around \SI{750}{MHz} for the side antenna. 
+%Efficiency %%
+The efficiency for both antennas is shown in Figure~\ref{fig:eff_sol1_free}. The efficiency is plotted for each sweep of the tunable capacitors. The efficiency mostly covers the desired spectrum at an efficiency of \SI{-3}{dB} with a drop of \SI{1.5}{dB} around \SI{750}{MHz} for the side antenna. 
 
     \begin{table}
         \centering
@@ -122,7 +126,7 @@ The efficiency for both antennas is shown in Figure \ref{fig:eff_sol1_free}. The
         \includegraphics{img/tech_sol/monopole/s21-s22}
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{S-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{$S$-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_free_space}
 \end{figure}
 
@@ -156,7 +160,3 @@ The efficiency for both antennas is shown in Figure \ref{fig:eff_sol1_free}. The
     \caption{Efficiency for each antenna when sweeping the tunable capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:eff_sol1_free}
 \end{figure}
-
-
-
-
