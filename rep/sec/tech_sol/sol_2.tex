@@ -49,12 +49,14 @@ The triangular feed creates two new resonances in the mid-band (around \SI{1800}
     \label{fig:ant2sparams}
 \end{figure}
 
-The S-parameters for both antennas are shown in Figure~\ref{fig:ant2sparams} with the tuning capacitors at their minimum values, \SI{0.3}{pF}. At this position, the highest end of the low band, around \SI{960}{MHz}, is covered. It is seen that the top-antenna (port 1) covers the whole lower band whereas the side-antenna only covers around half of the band and must be tuned to cover the whole band. The high band is almost covered at this capacitor setting for both antennas.
+%%
+The $S$-parameters for both antennas are shown in Figure~\ref{fig:ant2sparams} with the tuning capacitors at their minimum values, \SI{0.3}{pF}. At this position, the highest end of the low band, around \SI{960}{MHz}, is covered. It is seen that the top-antenna (port 1) covers the whole lower band whereas the side-antenna only covers around half of the band and must be tuned to cover the whole band. The high band is almost covered at this capacitor setting for both antennas.
 
-The tuned S-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the whole lower band can be covered by the side antenna ($S_{22}$) and that the whole high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top- and side-antenna respectively. It is noted that all three resonances are moved when $C_2$ is altered.
+%%
+The tuned $S$-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the entire lower band can be covered by the side antenna ($S_{22}$) and that the entire high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top- and side-antenna respectively. It is noted that all three resonances are moved when $C_2$ is altered.
 
-% Sweep description
-It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna resonates. The CCE antenna couples to the chassis an uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.
+% Sweep description %%
+It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna resonates. The CCE antenna couples to the chassis and uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.
 
 This design provides high bandwidth, covering all desired bands for both antennas. However, the isolation between the two antennas is not the best. Additionally, building the antenna on lossy FR-4 may prove to decrease the efficiency bandwidth compared to an antenna with a less lossy isolator.
 
@@ -75,7 +77,7 @@ This design provides high bandwidth, covering all desired bands for both antenna
     \label{tab:bw_sol2}
 \end{table}
 
-% Bandwidth
+% Bandwidth %%
 The bandwidth in the high and low band for each antenna is shown in Table~\ref{tab:bw_sol2}. It is clear that both antennas fulfill the requirements of tunable impedance bandwidth seen in the requirement specification, Section~\ref{cha:reqspec}.
 
 \begin{figure}[htbp]
@@ -119,10 +121,12 @@ The bandwidth in the high and low band for each antenna is shown in Table~\ref{t
         \includegraphics{img/tech_sol/trianglefeed/corr/correlation_Csh2-sweep}
         \caption{Sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{Correlation between antennas then sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
+    \caption{Correlation between the antennas then sweeping tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:corr_sol2}
 \end{figure}
-The correlation between the top an side antennas are shown in Figure~\ref{fig:corr_sol2} when sweeping the tuning capacitors. It is seen that the correlation in the high band is very low while the correlation in the low band is not the best. This may be caused by the fact that both antennas are coupling to the ground plane to radiate. A solution might be to use a different type of antenna for the side than for the top.
+
+%%
+The correlation between the top an side antennas are shown in Figure~\ref{fig:corr_sol2} when sweeping the tuning capacitors. It is seen that the correlation in the high band is very low while the correlation in the low band is not the best. This may be caused by the fact that both antennas are coupling to the ground plane to radiate. A solution might be to use a different type of antenna design for the side.
 
 % Efficiency
 \begin{figure}[htbp]
@@ -141,4 +145,6 @@ The correlation between the top an side antennas are shown in Figure~\ref{fig:co
     \caption{Efficiency for each antenna when sweeping the tuning capacitors. Here, $C_1$ and $C_2$ are the tuning capacitor for the top and side antenna, respectively.}
     \label{fig:eff_sol2}
 \end{figure}
+
+%%
 The total system efficiency (i.e.\ including mismatch loss) is shown for a sweep of capacitance values in Figure~\ref{fig:eff_sol2}. It is seen that, for the lowest capacitance setting, the top antenna has a total efficiency greater than \SI{-3}{dB}. The side antenna has a total efficiency greater than \SI{-3}{dB} in the high band for its low capacitance settings. In the low band, the antenna can be tuned to cover the whole band at a total efficiency above \SI{-4}{dB}.

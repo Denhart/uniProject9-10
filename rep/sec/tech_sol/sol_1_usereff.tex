@@ -1,5 +1,5 @@
 \section{Antenna Design 1 -- Monopole}
-In this section, the antenna from Section~\ref{sec:techsol1_monopole} will be simulated in pratice use with an user. The antenna positions are shown in Figure~\ref{fig:sol1_monoant_positions}.
+In this section, the antenna from Section~\ref{sec:techsol1_monopole} will be simulated in pratice use with a user model. The antenna positions are shown in Figure~\ref{fig:sol1_monoant_positions}.
 
 \begin{figure}[htbp]
     \centering
@@ -25,19 +25,20 @@ In this section, the antenna from Section~\ref{sec:techsol1_monopole} will be si
 
 \FloatBarrier
 \subsection{Data Mode}
-%S-parameter
-The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_data_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1data}. The top antenna covers the required bandwidth in both the low and high band. However, as seen in the Table \ref{tab:bw_sol1data} the side antenna only covers the bandwidth in the high band and the low band needs additional tuning to fulfill the bandwidth requirements. The S-parameter sweeps \ref{fig:sparam_mono_data_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{10}{dB} and \SI{8}{dB} for the top and side antenna respectively.       
 
-%Correlation
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sol1_data}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side antenna is below 0.5 for both the low and high band as desired.
+%S-parameter %%
+The $S$-parameter sweeps for the data mode, can be seen in Figure~\ref{fig:sparam_mono_data_mode}. The highest obtainable bandwidth for both antennas is found from the $S$-parameter sweep and is listed in Table~\ref{tab:bw_sol1data}. The top antenna covers the required bandwidth in both the low and high band. However, as seen in the Table~\ref{tab:bw_sol1data}, the side antenna only covers the bandwidth in the high band and the low band needs additional tuning to fulfill the bandwidth requirements. The $S$-parameter sweeps, Figure~\ref{fig:sparam_mono_data_mode}, also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{10}{dB} and \SI{8}{dB} for the top and side antenna, respectively.       
 
-%Efficiency
-The efficiency in data mode for both antennas, can be seen in Figure \ref{fig:eff_sol1_data}. The efficiency is plotted for each sweep of the tunable capacitors. Comparing the efficiency in data mode with the free space efficiency, the data mode generally decreases over the entire spectrum for both antennas. The different sweep modes of the tunable capacitor shows most significant efficiency drop in the low band with a maximum drop of \SI{-8}{dB} for the top antenna and \SI{-9}{dB} for the side antenna. Both antennas covers the free space requirement of \SI{-3}{dB} efficiency within the frequency band \SI{1710}{MHz} to \SI{2200}{MHz}. 
+%Correlation%%
+The correlation between the top and side antenna can be seen in Figure~\ref{fig:corr_sol1_data}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed at \SI{0.3}{pF}. The correlation for the top and side antenna is below \num{0.5} for both the low and high band as desired.
+
+%Efficiency %%
+The efficiency in data mode for both antennas can be seen in Figure~\ref{fig:eff_sol1_data}. The efficiency is plotted for each value of tunable capacitors. Comparing the efficiency in data mode with the free space efficiency, the data mode generally decreases over the entire spectrum for both antennas. The different sweep modes of the tunable capacitor shows most significant efficiency drop in the low band with a maximum drop of \SI{8}{dB} for the top antenna and \SI{9}{dB} for the side antenna. Both antennas cover the free space requirement of \SI{-3}{dB} efficiency within the frequency band \SI{1710}{MHz} to \SI{2200}{MHz}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/monopole/data_mode/sparam_data.pdf}
-    \caption{Monopole antenna in data mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
+    \caption{Monopole antenna in data mode. $S$-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
     \label{fig:mono_sparam_data}
 \end{figure}
 
@@ -120,21 +121,23 @@ The efficiency in data mode for both antennas, can be seen in Figure \ref{fig:ef
 
 \FloatBarrier
 \subsection{Play Mode}
-%S-parameter
-The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_play_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1play}. The top antenna covers the required bandwidth in the low band but lacks \SI{87}{MHz} in the high band. The side antenna does not fulfill any of the bandwidth requirements and will need additional tuning. The S-parameter sweeps \ref{fig:sparam_mono_play_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{10}{dB} for the top and side antenna respectively.       
+%S-parameter %%
+The $S$-parameter sweeps for the play mode, can be seen on Figure~\ref{fig:sparam_mono_play_mode}. The highest obtainable bandwidth for both antennas is found from the $S$-parameter sweep and is listed in Table~\ref{tab:bw_sol1play}. The top antenna covers the required bandwidth in the low band but lacks \SI{87}{MHz} in the high band. The side antenna does not fulfill any of the bandwidth requirements and will need additional tuning. The $S$-parameter sweeps, Figure~\ref{fig:sparam_mono_play_mode}, also show the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{10}{dB} for the top and side antenna, respectively.       
 
-%Correlation
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sol1_play}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side exceeds the required correlation limit with 0.1 in the low band from \SI{700}{MHz} to \SI{880}{MHz}.
+%Correlation%%
+The correlation between the top and side antenna can be seen in Figure~\ref{fig:corr_sol1_play}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed at \SI{0.3}{pF}. The correlation for the top and side exceeds the required correlation limit with \num{0.1} in the low band from \SI{700}{MHz} to \SI{880}{MHz}.
 
-%Efficiency
-The efficiency in play mode for both antennas, can be seen in Figure \ref{fig:eff_sol1_play}. The efficiency is plotted for each sweep of the tunable capacitors. Comparing the efficiency in play mode with the free space efficiency, the data mode generally decreases over the entire spectrum for both antennas. The different sweep modes of the tunable capacitor shows most significant efficiency drop in the low band. However comparing the individual sweep modes the highest efficiency drop for the top antenna is within the high band at \SI{2500}{MHz} and within the low band  at \SI{960}{MHz}for the side antenna. The top antenna has a maximum drop of \SI{-10}{dB} for the top antenna and for the side antenna the efficiency drop is greater than \SI{-14}{dB}.
-Both antennas has the highest efficiency within the frequency band of \SI{1800}{MHz} to \SI{2200}{MHz} with an efficiency of approx \SI{-5}{dB}. 
+%Efficiency%%
+The efficiency in play mode for both antennas can be seen in Figure~\ref{fig:eff_sol1_play}. The efficiency is plotted for each sweep of the tunable capacitors. Comparing the efficiency in play mode with the free space efficiency, the play mode efficiency generally decreases over the entire spectrum for both antennas. The different sweep modes of the tunable capacitor show most significant efficiency drop in the low band. However, comparing the individual sweep modes, the highest efficiency drop for the top antenna is within the high band at \SI{2500}{MHz} and within the low band at \SI{960}{MHz} for the side antenna. The top antenna has a maximum drop of \SI{10}{dB} for the top antenna and for the side antenna, the efficiency drop is greater than \SI{14}{dB}.
+
+%
+Both antennas have the highest efficiency within the frequency band of \SI{1800}{MHz} to \SI{2200}{MHz} with an efficiency of approx \SI{-5}{dB}. 
 The simulation results are as expected compared to the data mode, as the play mode introduces body losses from two hands. 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/monopole/play_mode/sparams_play.pdf}
-    \caption{Monopole antenna in play mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
+    \caption{Monopole antenna in play mode. $S$-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
     \label{fig:mono_play_sparam_data}
 \end{figure}
 
@@ -151,7 +154,8 @@ The simulation results are as expected compared to the data mode, as the play mo
       Side    & High & 1635 & 2180 & 545 \\
       \hline
     \end{tabular}
-    \caption{Monopole antenna in play mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    \label{tab:bw_sol1play}
+    \caption{Monopole antenna in play mode. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+    \label{tab:bw_sol1play}
   \end{table}
 
   \begin{figure}[htbp]
@@ -178,7 +182,7 @@ The simulation results are as expected compared to the data mode, as the play mo
         \includegraphics{img/tech_sol/monopole/play_mode/s21_s22}
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{S-parameter sweep in play mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{$S$-parameter sweep in play mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_play_mode}
 \end{figure}
 
@@ -216,21 +220,23 @@ The simulation results are as expected compared to the data mode, as the play mo
 
 \FloatBarrier
 \subsection{Talk Mode}
-%S-parameter
-The S-parameter sweeps for the data mode, can be seen on Figure \ref{fig:sparam_mono_talk_mode}. The highest obtainable bandwidth for both antennas is found from the S-parameter sweep and is listed in Table \ref{tab:bw_sol1talk}. The top antenna covers the required bandwidth both in the low band and high band. The side antenna only covers the high band and will need some  additional tuning in the low band. The S-parameter sweeps \ref{fig:sparam_mono_talk_mode} also shows the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band, at \SI{12}{dB} and \SI{8}{dB} both the top and side antenna respectively.
+%S-parameter %%
+The $S$-parameter sweeps for the talk mode, can be seen on Figure~\ref{fig:sparam_mono_talk_mode}. The highest obtainable bandwidth for both antennas is found from the $S$-parameter sweep and is listed in Table~\ref{tab:bw_sol1talk}. The top antenna covers the required bandwidth both in the low band and high band. The side antenna only covers the high band and will need some additional tuning in the low band. The $S$-parameter sweeps, Figure~\ref{fig:sparam_mono_talk_mode}, also show the $S_{21}$ isolation loss. The highest notable isolation loss is within the low band at \SI{12}{dB} and \SI{8}{dB} both the top and side antenna, respectively.
 
-%correlation
-The correlation between the top and side antenna can be seen in Figure \ref{fig:corr_sol1_talk}. The correlation is plotted sweeping the tunable capacitors of each antenna, while the other antenna is fixed with a tunable at \SI{0.3}{pF}. The correlation for the top and side exceeds the required correlation limit with 0.15 in the low band from \SI{700}{MHz} to \SI{750}{MHz}.
+%correlation %%
+The correlation between the top and side antenna can be seen in Figure~\ref{fig:corr_sol1_talk}. The correlation is plotted sweeping the tunable capacitors of each antenna while the other antenna is fixed at \SI{0.3}{pF}. The correlation for the top and side exceeds the required correlation limit with \num{0.15} in the low band from \SI{700}{MHz} to \SI{750}{MHz}.
 
-%Efficiency
-The efficiency in talk mode for both antennas, can be seen in Figure \ref{fig:eff_sol1_talk}. The efficiency is plotted for each sweep of the tunable capacitors. Comparing the efficiency in talk mode with the free space efficiency, the talk mode generally decreases over the entire spectrum for both antennas. The different sweep modes of the tunable capacitor shows most significant efficiency drop in the low band. However comparing the individual sweep modes the highest efficiency drop for the top antenna is within the low band at \SI{960}{MHz} and within the high band at \SI{2500}{MHz} for the side antenna. The top antenna efficiency drops more than \SI{-13}{dB} and the side antenna has a maximum drop of \SI{-12}{dB}.
-Both antennas has the highest efficiency within the frequency band of \SI{1710}{MHz} to \SI{2300}{MHz} with an efficiency of approximately \SI{-8}{dB} for the top antenna and approximately \SI{-6}{dB} for the side antenna. 
-The simulation results are as expected compared to the data mode, as the play mode introduces both head and hand losses.
+%Efficiency %%
+The efficiency in talk mode for both antennas can be seen in Figure~\ref{fig:eff_sol1_talk}. The efficiency is plotted for each value of the tunable capacitors. Comparing the efficiency in talk mode with the free space efficiency, the talk mode efficiency generally decreases over the entire spectrum for both antennas. The different sweep modes of the tunable capacitor show most significant efficiency drop in the low band. However, comparing the individual sweep modes, the highest efficiency drop for the top antenna is within the low band at \SI{960}{MHz} and within the high band at \SI{2500}{MHz} for the side antenna. The top antenna efficiency drops more than \SI{13}{dB} and the side antenna has a maximum drop of \SI{12}{dB}.
+
+%%
+Both antennas have the highest efficiency within the frequency band of \SI{1710}{MHz} to \SI{2300}{MHz} with an efficiency of approximately \SI{-8}{dB} for the top antenna and approximately \SI{-6}{dB} for the side antenna. 
+The simulation results are as expected compared to the data mode, as the talk mode introduces both head and hand losses.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/monopole/talk_mode/sparams_talk.pdf}
-    \caption{Monopole antenna in talk mode. S-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
+    \caption{Monopole antenna in talk mode. $S$-parameters with both tuning capacitors fixed at \SI{0.3}{pF}.}
     \label{fig:mono_talk_sparam_data}
 \end{figure}
 
@@ -276,7 +282,7 @@ The simulation results are as expected compared to the data mode, as the play mo
         \includegraphics{img/tech_sol/monopole/talk_mode/s21_s22}
         \caption{$S_{21}$, sweeping $C_1$ and fixing $C_2$.}
     \end{subfigure}
-    \caption{S-parameter sweep in talk mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{$S$-parameter sweep in talk mode for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_talk_mode}
 \end{figure}
 % Correlation
@@ -311,12 +317,12 @@ The simulation results are as expected compared to the data mode, as the play mo
 \end{figure}
 
 \FloatBarrier
-\subsection{SAR}
-The SAR simulation results for both antennas is shown in Figure \ref{fig:sol1_sar}. As seen from the figure, the SAR value for both antennas is within the requirement of \SI{2}{W\per kg}. The top antenna has a maximum SAR value of \SI{1.4}{W\per kg} at \SI{1800}{MHz} and for the side antenna \SI{1.1}{W\per kg} at \SI{1700}{MHz}. Generally the SAR value for both antennas complies with the requirement and is especially low in the low band.
+\subsection{SAR} %%
+The SAR simulation results for both antennas are shown in Figure~\ref{fig:sol1_sar}. As seen from the figure, the SAR value for both antennas is within the requirement of \SI{2}{W\per kg}. The top antenna has a maximum SAR value of \SI{1.4}{W\per kg} at \SI{1800}{MHz} and the side antenna \SI{1.1}{W\per kg} at \SI{1700}{MHz}. Generally, the SAR values for both antennas comply with the requirement and are especially low in the low band.
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/monopole/sar/Top_antenna.pdf}
-    \caption{SAR simulation of the monopole antenna.\fixme{new sar plot with screen}}
+    \caption{SAR simulation of the monopole antenna.}
     \label{fig:sol1_sar}
 \end{figure}
 
