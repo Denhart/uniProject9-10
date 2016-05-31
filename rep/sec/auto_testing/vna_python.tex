@@ -1,10 +1,9 @@
 \section{VNA Automatic Test}
 \label{sec:vna_python}
-In order to faster do sweep-measurements on the built mockups the VNA measurements have been automated and combined with the optical RFFE adapter. It is possible to control the VNA using GPIB (General Purpose Interface Bus), VISA protocol (Virtual Instrument Software Architecture) and SCPI (Standard Commands for Programmable Instruments). This has been implemented in Python and specifically for a Rohde \& Schwarz ZVB 8 VNA, and is documented in this Appendix. 
+In order to faster do sweep-measurements on the built prototypes, the VNA measurements have been automated and combined with the optical RFFE adapter. It is possible to control the VNA using GPIB (General Purpose Interface Bus), VISA protocol (Virtual Instrument Software Architecture), and SCPI (Standard Commands for Programmable Instruments). This has been implemented in Python and is specifically for a Rohde \& Schwarz ZVB 8 VNA, which is documented in this appendix. The library can be downloaded at \url{http://github.com/16gr1051}.
 
 \subsection{National Instruments GPIB-USB-B Adapter}
-A NI GPIB USB adapter is used for the communication between the PC and the VNA. For this to work in Linux a few modifications are needed. First the ni-gpib kernel module has to be loaded using \verb|modprobe ni_usb_gpib|. Next a firmware update is needed, which has to be loaded every time, to ease pain, a small script has been made that does this step. 
-
+A NI GPIB USB adapter is used for the communication between the PC and the VNA. For this to work in Linux, a few modifications are needed. First, the ni-gpib kernel module has to be loaded using \verb|modprobe ni_usb_gpib|. Next, a firmware update is needed, which has to be loaded every time. To ease pain, a small script has been made that does this step:
 \begin{lstlisting}
 #!/bin/bash
 #Firmware files: http://linux-gpib.sourceforge.net/firmware/
@@ -21,8 +20,7 @@ fi
 \subsection{Python Library}
 The procedure for installing this library is shown in Section~\ref{sec:pythoninstall}.
 
-The Python library is based around Pyvisa, which handles the VISA and SCPI protocol part and the communication with the USB GPIB adapter. The Rohde \& Schwarz ZVB 8 operating manual~\cite{RhodeSmanual} contains a chapter with all SCPI commands used. The library handles the setup of the VNA, which includes the correct frequency range, labels and number of samples. Besides the setup function it also contains a save function, which changes the number of samples, exports the data formatted as a \verb|s2p| file. Below is an example of initializing the VNA and saving a sweep. 
-
+The Python library is based around Pyvisa, which handles the VISA and SCPI protocol part and the communication with the USB GPIB adapter. The Rohde \& Schwarz ZVB 8 operating manual~\cite{RhodeSmanual} contains a chapter with all SCPI commands used. The library handles the setup of the VNA, which includes the correct frequency range, labels, and number of samples. Besides the setup function, it also contains a save function which changes the number of samples and exports the data formatted as a \verb|s2p| file. Below is an example of initializing the VNA and saving a sweep. 
 \begin{lstlisting}
 from vnalib import VNA
 # Connect to VNA and initialize
@@ -32,9 +30,8 @@ myVNA.initSettings()
 myVNA.save("myfile")
 \end{lstlisting}
  
-\subsubsection{Combining with the Optical RFFE adapter}
-To fully automate the sweeping process, the code has been combined with the optical RFFE adapter board. The adapter board, requires a serial command, which is done using the pyserial library. The combined program is then able to sweep through every capacitor value and save a file for every measurement. This program is listed below. 
-
+\subsubsection{Combining with the Optical RFFE Adapter}
+To fully automate the sweeping process, the code has been combined with the optical RFFE adapter board. The adapter board requires a serial command, which is sent using the pyserial library. The combined program is then able to sweep through every capacitor value and save a file for every measurement. This program is listed below. 
 \begin{lstlisting}
 from vnalib import VNA
 import time
@@ -70,8 +67,3 @@ for x in [
     myVNA.save(fname)
     print("Saved file")
 \end{lstlisting}
-
-
-
-
-
