@@ -28,17 +28,18 @@ The waves transmitted from the antenna are usually grouped into three regions of
 \item The Farfield.
 \end{itemize}
 
-The reactive near-field is defined as the portion of the near-field region immediately surrounding the antenna wherein the reactive field predominates \cite{balanis2012antenna}. The outer boundary for this region is given by \cite{balanis2012antenna}:
+The reactive near-field is defined as the portion of the near-field region immediately surrounding the antenna wherein the reactive field predominates \cite{balanis2012antenna}. The outer boundary for this region is given by \cite{balanis2012antenna}
 \begin{align} %%
   R < 0.62 \sqrt{D^3/\lambda}
 \end{align}
+where $D$ is the largest dimension of the antenna. To be valid, $D$ must also be large compared to the wavelength.
 
-The radiating near-field is defined as the region between the reactive near-field and the far-field. This field may not exist in the case that the overall antenna dimension is very small compared to the wavelength. The outer boundary for this is defined as \cite{balanis2012antenna}:
+The radiating near-field is defined as the region between the reactive near-field and the far-field. This field may not exist in the case that the overall antenna dimension is very small compared to the wavelength. The outer boundary for this is defined as \cite{balanis2012antenna}
 \begin{align} %%
   R \leq 2D^2/\lambda
 \end{align}
 
-The far-field region is defined as the region of the field where the angular field distribution is independent of the distance, that is the radiation pattern does not change shape with distance. The far-field is also dominated by fields where the E- and H-fields are orthogonal and propagates as plane waves. The inner boundary is given as \cite{balanis2012antenna}:
+The far-field region is defined as the region of the field where the angular field distribution is independent of the distance, that is the radiation pattern does not change shape with distance. The far-field is also dominated by fields where the E- and H-fields are orthogonal and propagates as plane waves. The inner boundary is given as \cite{balanis2012antenna}
 \begin{align} %%
   R > 2D^2/\lambda
 \end{align}
