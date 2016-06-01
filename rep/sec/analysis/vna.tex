@@ -1,7 +1,7 @@
 \section{Vector Network Analyzer}
 
 \begin{aautop}
-In this section, a description will be given of the vector network analyzer (VNA), which is a very important tool in characterizing antennas.
+In this section, a description will be given of the vector network analyzer, which is a very important tool in characterizing antennas.
 The VNA is able to sweep through a wide frequency range and measure the response of the device under test (DUT). The application for network analyzers is not only antennas. VNAs are used in the characterization for almost every passive RF component such as cables, switches, and attenuators \cite{nationalInstruVNA}. It is also possible to measure the performance of active devices such as amplifiers, tuners, etc. Fundamentally, the VNA measures the incident, reflected, and transmitted waves, which can be used to determine the $S$-parameters \cite{nationalInstruVNA}, Figure~\ref{fig:vnaWaves} illustrates this.
 \end{aautop}
 
@@ -18,6 +18,7 @@ The essential component behind the Network Analyzer is the signal-separation har
 In order to accurately measure the phase and magnitude of the incident and reflected waves, the VNA needs to be properly calibrated. Even though some elements of the VNA are calibrated at manufacturing, not everything can be accounted for. Different cables and connectors can have a large effect on the phase and magnitude and even a difference room temperature can affect the measurements \cite{nationalInstruVNA}. Due to all these variables, it is important to calibrate the VNA before a measurement.
 
 \subsubsection{Sources of Error}
+\label{sec:vnaerrorsource}
 There are generally four inherent sources of error in the VNA. These are often referred to as systematic source of error due to their presence at all time, however they can all be greatly suppressed by calibration \cite{nationalInstruVNA}. These systematic sources of error at listed below: 
 \begin{itemize}
 \item Port match.

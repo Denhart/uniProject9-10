@@ -12,7 +12,6 @@
         \centering
         \includegraphics{img/tech_sol/nonresonant/schematic_tuning}\\[0cm]
         \caption{Tuning/matching circuit.}
-        \label{fig:ant3schematic}
     \end{subfigure}
     \par\bigskip
         \begin{subfigure}[b]{\linewidth}
@@ -27,7 +26,6 @@
             \hline
         \end{tabular}
         \caption{Component values}
-        \label{fig:ant3schematic}
     \end{subfigure}
     \caption{Technical drawing and tuning circuit for the antenna.  The antennas are built on FR-4 board using \SI{35}{\micro\meter} copper. There is a matching circuit as shown for each of the two feeds.}
     \label{fig:ant3techschem}
@@ -37,7 +35,7 @@
 %Intro to design + references. 
 This design is an inherently non-resonant capacitive coupling element antenna based on the one shown in \cite{valkonen2013inherently}. The antenna presented in \cite{valkonen2013inherently} does not have any tuning capabilities, nor is it designed for MIMO operation. The antenna is shown in Figure~\ref{fig:ant3techschem}, as seen the antenna is , which enhances the bandwidth and efficiency. The antenna has two feeds, but only a single signal port is used. The signal is split into two branches at the matching network, one for the low-band and one for the high-band. The novel matching network is also based on \cite{valkonen2013inherently}.
 
-As seen on Figure~\ref{fig:ant3techschem} the matching network is quite complex, this is usually the case for non-resonant CCE antennas, since the antenna structure is simplified greatly compared to other multi-resonant antennas, eg, \cite{Tatomirescu2014AT}, \cite{Zhekov2015} and \cite{Zhang2013Diag}.
+As seen on Figure~\ref{fig:ant3techschem} the matching network is quite complex, this is usually the case for non-resonant CCE antennas, since the antenna structure is simplified greatly compared to other multi-resonant antennas, e.g.\ \cite{Tatomirescu2014AT}, \cite{Zhekov2015} and \cite{Zhang2013Diag}.
 
 % What makes it radiate at 900, 1800, and 2400?
 The low-band element consists of a non-resonant CCE, where the resonance is dependent on the matching circuit. For this design, the matching is \emph{mostly} performed by $L_{l1}$, $L_{l2}$, $L_{l3}$, $L_{l4}$ and $C_{l4}$. The higher-band is matched by $C_{h1}$, $L_{h2}$, $C_{h3}$ and $C_{h4}$, furthermore there is a natural resonance at \SI{2700}{MHz}, at the trapezoidal feed (Port 2), which extends the frequency of operation. It should also be noted that the low- and high-band are dependent on every part of the matching network, even though the components a denoted high (h) and low (l). 
