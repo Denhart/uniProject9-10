@@ -1,4 +1,4 @@
-\section{Modified Minimized Design}
+\section{Modified Minimized Antenna}
 From the $S$-parameter measurements of both the triangle-feed antenna and the minimized monopole antenna, it is clear that both antennas are experiencing problems in the high band when going from the simulation to the WiSpry PCB.
 
 It has been chosen to elaborate on the minimized monopole antenna design and improve the high band. In order to do so, a second set of arms has been added to the antennas as shown in Figure~\ref{fig:sparam_5mm_highband}. As previous experience has shown that the simplified simulations will detune in practice, the matching components in Figure~\ref{fig:sparam_5mm_highband} have been chosen to resonate slightly higher than desired. 
@@ -31,11 +31,11 @@ It has been chosen to elaborate on the minimized monopole antenna design and imp
 \end{figure}
 
 \FloatBarrier
-\subsection{Free Space Simulation}
+\subsection{Free-Space Simulation}
 \label{sec:highbandsimulations}
 The new antenna design, presented in Figure~\ref{fig:sparam_5mm_highband}, has been simulated. The resulting $S$-parameter sweep can be seen in Figure~\ref{fig:sparam_mono_modi_sim}. The low band of both antennas can be covered by sweeping the tuning capacitor. The high band resonates higher than desired but is likely to detune when the antennas are added to the PCB. The maximum bandwidth for both antennas can be seen in Table~\ref{tab:bw_mono_modi_fs}. Both antennas cover the required bandwidth in the low band, but experiences some problems in the high band. The top antenna lacks \SI{393}{MHz} and the side antenna \SI{515}{MHz}. As a side effect of the extra added resonance, the bandwidth has dropped. It should, however, be able to cover both bands during the sweeps, as the bandwidth on the WiSpry board is expected to get detuned.
 
-The isolation is rather low for the free space simulation with a minimum isolation loss of \SI{6}{dB} in the low band. The isolation in the high band is generally high with a isolation above \SI{13}{dB}.
+The isolation is rather low for the free-space simulation with a minimum isolation of \SI{6}{dB} in the low band. The isolation in the high band is generally high with a isolation above \SI{13}{dB}.
 
 \begin{table}[htbp]
   \centering
@@ -50,11 +50,11 @@ The isolation is rather low for the free space simulation with a minimum isolati
     Side    & High & 2128 &  2433 & 205 \\
     \hline
   \end{tabular}
-  \caption{Modified monopole antenna in free space. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
+  \caption{Modified monopole antenna in free-space. Maximum bandwidth obtained in the low and high band for the top and the side antenna, respectively.}    
   \label{tab:bw_mono_modi_fs}
 \end{table}
 
-% Sweeping S-parameters
+% Sweeping $S$-parameters
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
         \centering
@@ -79,7 +79,7 @@ The isolation is rather low for the free space simulation with a minimum isolati
         \includegraphics{img/tech_sol/monopole/highband/sim/s22_s21.pdf}
         \caption{$S_{21}$, sweeping $C_2$ and fixing $C_1$.}
     \end{subfigure}
-    \caption{$S$-parameter sweep in free space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
+    \caption{$S$-parameter sweep in free-space for tuning the shunt capacitor of each antenna, $C_1$ and $C_2$ for port 1 and 2, respectively. Port 1 is the top antenna and port 2 is the side antenna.}
     \label{fig:sparam_mono_modi_sim}
 \end{figure}
 
@@ -148,7 +148,7 @@ In this section, the modified monopole antenna will be simulated in practice use
 \FloatBarrier
 \subsubsection{Data Mode}
 The $S$-parameter sweeps can be seen in Figure~\ref{fig:sparam_mono_modi_data_mode}. As seen from the sweep, both antennas are able to cover most of the bands. In the low band both antennas are able to cover the entire band at a \SI{4}{dB} return loss. The high band is covered quite well for both antennas with an exception at \SI{1848}{MHz} where the return loss drops to \SI{2}{dB}. In the previous user effect simulations, it was observed that user effects caused detuning. However, this does not seem to be the case with this antenna when simulated in data mode. The maximum obtainable bandwidth can be seen in Table~\ref{tab:bw_mono_modi_dm}. Generally, the bandwidth is low for both antennas with only the top antenna fulfilling the low band bandwidth requirement. The results are as expected, as the user causes the return loss to drop. This, however, should not be a problem as the bandwidth is significantly higher at \SI{4}{dB} return loss.
-The lowest isolation loss simulated is at \SI{6}{dB} in the low band. Generally, the isolation loss is high in the high band but could cause some capacity problems in the low band. 
+The lowest isolation simulated is at \SI{6}{dB} in the low band. Generally, the isolation is high in the high band but could cause some capacity problems in the low band. 
 
 \begin{table}[htbp]
   \centering
@@ -199,7 +199,7 @@ The $S$-parameter sweeps can be seen in Figure~\ref{fig:sparam_mono_modi_data_mo
 \end{figure}
 
 %Correlation
-The correlation between the top and side antenna can be seen in Figure~\ref{fig:corr_mono_modi_data_mode}. It is seen that the correlation is slightly better than in free space but is still quite high in the low band.
+The correlation between the top and side antenna can be seen in Figure~\ref{fig:corr_mono_modi_data_mode}. It is seen that the correlation is slightly better than in free-space but is still quite high in the low band.
 
 \begin{figure}[htbp]
     \centering
@@ -239,7 +239,7 @@ The efficiency sweep can be seen in Figure~\ref{fig:eff_mono_modi_data_mode}. Th
 \subsubsection{Play Mode}
 %S-Parameters
 The $S$-parameter sweeps can be seen in Figure~\ref{fig:sparam_mono_modi_play_mode}. The maximum bandwidth can be seen in Table~\ref{tab:bw_mono_modi_pm}. Compared to the data mode, the play mode has a slightly higher bandwidth in general but is more detuned. Both antennas almost cover the required bandwidth but are having some trouble at \SI{1800}{MHz} where the return loss drops to \SI{2}{dB}. The side antenna is unable to cover the low band at \SI{6}{dB} return loss, but covers the band at \SI{4}{dB}.
-The isolation loss is slightly higher than the data mode, with a minimum isolation loss of \SI{7}{dB} in the low band. In the high band, the isolation is above \SI{14}{dB} and should not cause any problems.
+The isolation is slightly higher than the data mode, with a minimum isolation of \SI{7}{dB} in the low band. In the high band, the isolation is above \SI{14}{dB} and should not cause any problems.
 
 
 \begin{table}[htbp]
@@ -306,7 +306,7 @@ The correlation between the top and side antenna can be seen in Figure~\ref{fig:
 \end{figure}
 
 %Efficiency
-The efficiency sweep can be seen in Figure~\ref{fig:eff_mono_modi_play_mode}. For the top antenna, both the low band and high band efficiencies have dropped below \SI{-3}{dB}. The efficiency for the side antenna has also dropped in both the low band and high band and is, in general, \SI{3}{dB} lower compared to the free space efficiency. As expected, both antennas have a drop in efficiency around \SI{1800}{MHz}. 
+The efficiency sweep can be seen in Figure~\ref{fig:eff_mono_modi_play_mode}. For the top antenna, both the low band and high band efficiencies have dropped below \SI{-3}{dB}. The efficiency for the side antenna has also dropped in both the low band and high band and is, in general, \SI{3}{dB} lower compared to the free-space efficiency. As expected, both antennas have a drop in efficiency around \SI{1800}{MHz}. 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -327,7 +327,7 @@ The efficiency sweep can be seen in Figure~\ref{fig:eff_mono_modi_play_mode}. Fo
 %S-Parameters
 The $S$-parameter sweeps can be seen in Figure~\ref{fig:sparam_mono_modi_talk_mode}. The maximum obtainable bandwidth can be seen in Table~\ref{tab:bw_mono_modi_tm}. The talk mode has the lowest bandwidth compared to the other user effect simulations. This is expected, as the talk mode experiences loss from both the head and the hand. Compared to the previous user effect simulations, the talk mode also has the highest detuning for both antennas. The sweep shows that both antennas are able to cover most of the required bandwidth but experiences some problems in the low band. The top antenna is able to cover the entire low band at \SI{4}{dB} return loss, but the side antenna has some trouble covering the frequencies around \SI{900}{MHz} to \SI{960}{MHz} where the return loss drops to \SI{2}{dB}.
 
-As a results of the loss from both the head and the hand, the isolation loss is generally high for both antennas. The minimum isolation loss is within the low band at \SI{13}{dB} which is quite high compared to the data and play mode.  
+As a results of the loss from both the head and the hand, the isolation is generally high for both antennas. The minimum isolation is within the low band at \SI{13}{dB} which is quite high compared to the data and play mode.  
 
 \begin{table}[htbp]
   \centering
@@ -420,8 +420,8 @@ The SAR simulation results can be seen in Figure~\ref{fig:sar_mono_modi}. As see
 \end{figure}
 
 \subsubsection{Preliminary Conclusion}
-The free space and the user effect simulations for the modified monopole antenna have been carried out. The free space simulation shows some promising results in the bandwidth and with an efficiency above \SI{-3}{dB} in most of the required bandwidth. As expected, the user effect simulations resulted in lower bandwidth and detuning of the frequency. The talk mode simulation shows the worst detuning and bandwidth coverage compared to the data and play mode simulations. However, in the worst case scenario, talk mode, the antennas are still able to cover the desired bandwidth when tuned. 
-The data and play mode experiences some problems with the isolation loss and some improvements might be necessary to increase the isolation loss.
+The free-space and the user effect simulations for the modified monopole antenna have been carried out. The free-space simulation shows some promising results in the bandwidth and with an efficiency above \SI{-3}{dB} in most of the required bandwidth. As expected, the user effect simulations resulted in lower bandwidth and detuning of the frequency. The talk mode simulation shows the worst detuning and bandwidth coverage compared to the data and play mode simulations. However, in the worst case scenario, talk mode, the antennas are still able to cover the desired bandwidth when tuned. 
+The data and play mode experiences some problems with the isolation loss and some improvements might be necessary to increase the isolation.
 
 Generally, the correlation is quite high in the low band for all the simulations. The talk mode has the highest correlation value at 0.8 in the low band compared with the other user effects. This should be taken into consideration, as it could cause some MIMO capacity problems in the low band. 
 
@@ -478,7 +478,7 @@ In this section, the final design with all above mentioned improvements will be 
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/monopole/highband/meas/final_tuner/lassedouble.pdf}
-    \caption{Final antenna design with capacitors added to the transmission line to improve high-band performance.}
+    \caption{Final antenna design with capacitors added to the transmission line to improve high band performance.}
     \label{fig:final_lassedouble}
 \end{figure}
 
@@ -552,9 +552,9 @@ The measured efficiency is shown in Figure~\ref{fig:final_efficiency}. The top a
 From the measurements it is seen that the top antenna is performing well in all bands except the bands from \SI{2550}{MHz} to \SI{2650}{MHz}. The side antenna does not perform quite as good but is piecewise acceptable -- especially in the high bands.
 
 \subsubsection{Conclusion}
-Both the simulations and the measurements on the modified monopole antenna are now done. Comparing the free space simulation and measurement $S$-parameters, it is clear that the prototype antennas are experiencing some detuning in the high band. Both antennas are especially having trouble from \SI{2450}{MHz} to \SI{2650}{MHz}. The modified monopole antenna, with the extra arms, was designed to create a resonance at a higher frequency. Unfortunately, it was not possible to sweep the extra resonance, which resulted in a frequency gap that both antennas are unable to cover with more than \SI{2}{dB} return loss. The low band simulation and measurement looks similar with a slightly lower bandwidth coverage for the measurements and a lower return loss for the top antenna measurement. 
+Both the simulations and the measurements on the modified monopole antenna are now done. Comparing the free-space simulation and measurement $S$-parameters, it is clear that the prototype antennas are experiencing some detuning in the high band. Both antennas are especially having trouble from \SI{2450}{MHz} to \SI{2650}{MHz}. The modified monopole antenna, with the extra arms, was designed to create a resonance at a higher frequency. Unfortunately, it was not possible to sweep the extra resonance, which resulted in a frequency gap that both antennas are unable to cover with more than \SI{2}{dB} return loss. The low band simulation and measurement looks similar with a slightly lower bandwidth coverage for the measurements and a lower return loss for the top antenna measurement. 
 
-The measured isolation loss is generally higher than the simulated. The measured low band isolation loss is \SI{6}{dB} higher than the simulated for both antennas. In the high band, it is the opposite case, where the simulation is higher than the measured, especially for the top antennas. However, this should not be a problem as the measured isolation loss is above \SI{12}{dB} in the required bandwidth.
+The measured isolation is generally higher than the simulated. The measured low band isolation is \SI{6}{dB} higher than the simulated for both antennas. In the high band, it is the opposite case, where the simulation is higher than the measured, especially for the top antennas. However, this should not be a problem as the measured isolation is above \SI{12}{dB} in the required bandwidth.
 
 The measured efficiency is, as expected, generally lower than the simulated efficiency. As predicted, the most significant efficiency drop is in the high band, which is caused by the detuning. The measured low band also experiences a drop of \SI{2}{dB} and \SI{3}{dB} for the top and side antenna, respectively, when compared with the simulation.
 

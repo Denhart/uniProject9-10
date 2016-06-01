@@ -4,11 +4,11 @@
     This section will describe some simple propagation models and terms that can be used to establish the maximum obtainable communication range given the maximum path loss computed in a link budget. 
 \end{aautop}
 
-The simplest propagation model is the free space path loss, which is given in Equation~\ref{eq:fspl}.
+The simplest propagation model is the free-space path loss, which is given in Equation~\ref{eq:fspl}.
 The free-space path loss is, however, rarely appropriate, since it does not take trees, buildings, etc.\ into account \cite{balanis2012antenna}. There are, however, a myriad of empirical models which are based on actual measurements. The drawback is that these empirical models tend not to be general and a given model might not be suited for two different cities. This results in that empirical models often are grouped into three main branches: Foliage, terrain, and city models \cite{goldsmith2005wireless}. For foliage areas models such as the Weissbergers model and the ITU Vegetation model can be used \cite{goldsmith2005wireless}. For terrain areas, models such as the Egli or Longley-Rice model are used \cite{goldsmith2005wireless}. To model the path loss in cities, the Young, Okumura, Hata, or the COST 231 models can be used \cite{goldsmith2005wireless}. It should be noted that some of these models are not usable in upper LTE frequency range, and thus care should be taken when applying these models. 
 
 \subsection{Multipath}
-The multipath effect exists when a wave and/or multiple waves are scattered, such that the receiver experiences multiple copies of the same wave coming from different directions. In areas where there is no ground or other obstacles (free space) the multipath effect does not exist. The simplest multipath case is the two-ray case, where the surface of the earth is included, in this case there will be a single reflection from the earth and thus multiple paths from the transmitter to the receiver \cite{parsons2000mobile}. This scenario is illustrated in Figure~\ref{fig:mul_tworay}.
+The multipath effect exists when a wave and/or multiple waves are scattered, such that the receiver experiences multiple copies of the same wave coming from different directions. In areas where there is no ground or other obstacles (free-space) the multipath effect does not exist. The simplest multipath case is the two-ray case, where the surface of the earth is included, in this case there will be a single reflection from the earth and thus multiple paths from the transmitter to the receiver \cite{parsons2000mobile}. This scenario is illustrated in Figure~\ref{fig:mul_tworay}.
 
 \begin{figure}[htbp]
     \centering
@@ -33,7 +33,7 @@ The multipath effect will be greatest in urban environments, where several build
 \subsection{Fading}
 The signal strength in a wireless channel is constantly fluctuating. These variations are represented by fading. The variations can be caused by scattering, reflections, blockage etc. Based on the type of variation, the fading is grouped in \emph{small scale fading} and \emph{large scale fading}. Large scale fading is typically caused by large objects, such as hills and buildings, where small scale fading occurs over small travel distances due to constructive or destructive adding of the multipath waves \cite{parsons2000mobile}.
 
-By superimposing the path loss with small scale fading and large scale fading, the combined model, which represents the total propagation and path loss, is obtained. This is illustrated in Figure \ref{fig:mul_combined}. 
+By superimposing the path loss with small scale fading and large scale fading, the combined model, which represents the total propagation and path loss, is obtained. This is illustrated in Figure~\ref{fig:mul_combined}. 
 
 \begin{figure}[htbp]
     \centering
