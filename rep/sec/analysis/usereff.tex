@@ -1,7 +1,7 @@
 \section{User Effects}
 \label{se:user_effects}
 \begin{aautop}
-    In this section, the user's impact on mobile antenna performance will be described, including both effects of the head, the hand, and the body in general.
+    In this section, the user's impact on mobile antenna performance will be described, including both effects of both the head and the hands. The user introduces a loss which can be used in the link budget to obtain an estimate of the total loss in a system.
 \end{aautop}
 
 Antenna parameters such as efficiency, radiation pattern, impedance, etc.\ will be effected by the user, as the body of the user will look like a lossy and large dielectric body from the antennas point of view \cite{balanis2008modern}.
@@ -94,5 +94,7 @@ The SAR requirements and testing is standardized by the Federal Communications C
 The SAR value does not tell anything about the general exposure to RF emission but only the highest SAR from that specific phone. Therefore, buying a phone with a low measured SAR value is not equal to low SAR exposure in general. A phone with a high measured SAR value can have a lower averaged SAR exposure than a phone with a low measured SAR value and vice versa \cite{fcc2015sar}. 
 
 \begin{aautail}
-    The negative influence of the user effect has been a known issue for quiet some time and is confirmed by the resent studies from 2014 \cite{Samantha2014UserEff}. The results presented for both the $S$-parameters, the total efficiency, and the radiation efficiency show very varying results dependent on the position of the finger and the antenna placement. However, the noticeable part of the results is that even in the best case, the user still has a significant effect on the performance of the antenna, which needs attention. In the case of the GSM specifications, the body loss is taken as \SI{3}{dB}, which is close to the best case simulation scenario. From the simulation and measurement studies it is seen that a body loss of \SI{10}{dB} is more common, which also implies that the user effect needs more attention, also in terms on the link budget, etc.\ \cite{sanchez2008multiband}.
+    The negative influence of the user effect has been a known issue for quiet some time and is confirmed by the resent studies from 2014 \cite{Samantha2014UserEff}. The results presented for both the $S$-parameters, the total efficiency, and the radiation efficiency show very varying results dependent on the position of the finger and the antenna placement. However, the noticeable part of the results is that even in the best case, the user still has a significant effect on the performance of the antenna, which needs attention. In the case of the GSM specifications, the body loss is taken as \SI{3}{dB}, which is close to the best case simulation scenario. From the simulation and measurement studies it is seen that a body loss of \SI{10}{dB} is more common, which also implies that the user effect needs more attention when used in a link budget.
+
+    In the next section, the effect of MIMO in an LTE system will be described.
 \end{aautail}
