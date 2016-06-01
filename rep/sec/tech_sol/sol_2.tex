@@ -31,9 +31,9 @@
 The antenna is shown in Figure~\ref{fig:ant2techschem}. The two antennas each consist of a triangle-feed printed on FR-4 and the main element following the edge of this FR-4 block.
 
 % What makes it radiate at 900, 1800, and 2400?
-The low-band element consists of a CCE (Capacitively Coupled Element) antenna which is inherently non-resonant \cite{valkonen2013inherently,ilvonen2014design}. The resonance of this type of antenna is dependent on the matching circuit. For this design, the matching is performed by $C_1$ and $L_1$ to resonate at \SI{960}{MHz} and $C_2$ is used to tune the resonance frequency down to \SI{700}{MHz}.
+The low band element consists of a CCE (Capacitively Coupled Element) antenna which is inherently non-resonant \cite{valkonen2013inherently,ilvonen2014design}. The resonance of this type of antenna is dependent on the matching circuit. For this design, the matching is performed by $C_1$ and $L_1$ to resonate at \SI{960}{MHz} and $C_2$ is used to tune the resonance frequency down to \SI{700}{MHz}.
 
-The triangular feed creates two new resonances in the mid-band (around \SI{1800}{MHz}) and the high-band (around \SI{2400}{MHz}). Looking at the top-antenna, the right-hand side from the feed line resonates at around \SI{1800}{MHz} and the left-hand side resonates at around \SI{2400}{MHz}. By determining the $x$-position of the triangle-feed, these two resonances can either be separated or joined, making it possible to cover all the required high LTE bands. The surface currents, illustrating how the structure resonates after matching, is shown in Figure~\ref{fig:ant2surfaces}.
+The triangular feed creates two new resonances in the mid band (around \SI{1800}{MHz}) and the high band (around \SI{2400}{MHz}). Looking at the top antenna, the right-hand side from the feed line resonates at around \SI{1800}{MHz} and the left-hand side resonates at around \SI{2400}{MHz}. By determining the $x$-position of the triangle-feed, these two resonances can either be separated or joined, making it possible to cover all the required high LTE bands. The surface currents, illustrating how the structure resonates after matching, is shown in Figure~\ref{fig:ant2surfaces}.
 
 \begin{figure}[htbp]
     \centering
@@ -45,15 +45,15 @@ The triangular feed creates two new resonances in the mid-band (around \SI{1800}
 \begin{figure}[htbp]
     \centering
     \includegraphics{img/tech_sol/trianglefeed/sparams}
-    \caption{S-parameters with $C_2=\SI{0.3}{pF}$ for both antennas.}
+    \caption{$S$-parameters with $C_2=\SI{0.3}{pF}$ for both antennas.}
     \label{fig:ant2sparams}
 \end{figure}
 
 %%
-The $S$-parameters for both antennas are shown in Figure~\ref{fig:ant2sparams} with the tuning capacitors at their minimum values, \SI{0.3}{pF}. At this position, the highest end of the low band, around \SI{960}{MHz}, is covered. It is seen that the top-antenna (port 1) covers the whole lower band whereas the side-antenna only covers around half of the band and must be tuned to cover the whole band. The high band is almost covered at this capacitor setting for both antennas.
+The $S$-parameters for both antennas are shown in Figure~\ref{fig:ant2sparams} with the tuning capacitors at their minimum values, \SI{0.3}{pF}. At this position, the highest end of the low band, around \SI{960}{MHz}, is covered. It is seen that the top antenna (port 1) covers the whole lower band whereas the side antenna only covers around half of the band and must be tuned to cover the whole band. The high band is almost covered at this capacitor setting for both antennas.
 
 %%
-The tuned $S$-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the entire lower band can be covered by the side antenna ($S_{22}$) and that the entire high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top- and side-antenna respectively. It is noted that all three resonances are moved when $C_2$ is altered.
+The tuned $S$-parameters are shown in Figure~\ref{fig:ant2sweeps}. Here is seen that the entire lower band can be covered by the side antenna ($S_{22}$) and that the entire high band is covered at $C_2 = \SI{0.7}{pF}$ to \SI{0.9}{pF} for the top and side antenna respectively. It is noted that all three resonances are moved when $C_2$ is altered.
 
 % Sweep description %%
 It is seen that the isolation at low frequencies is only around \SI{5}{dB}. This may cause problems when using the antennas for MIMO operation. The bad isolation may be caused by the way the CCE antenna resonates. The CCE antenna couples to the chassis and uses this as a resonator \cite{ilvonen2014design}. This may cause high correlation when both antennas couple to the chassis.

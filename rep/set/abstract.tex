@@ -1,18 +1,30 @@
+% Intro
 \noindent
-The internal antennas of today's smartphones is placed along the edge of the phone due to limited space and strict size requirements. As a result the antennas are in very close proximity to the user. This results in detuning of the antenna and power absorption by the user. As the demand for higher data rates and bandwidth keeps increasing it is desirable to counteract the detuning \cite{hilbert2015tradeoff}.     
+The internal antennas of today's smartphones are often placed along the edge of the phone due to limited space and strict size requirements. As a result, the antennas are in very close proximity to the user. This results in detuning of the antenna and power absorption by the user. As the demand for higher data rates and bandwidth keeps increasing, it is desirable to counteract the detuning \cite{hilbert2015tradeoff}.    
+
+\vspace{0.5em}
+\noindent
 This project will investigate the development of digitally tunable LTE antennas, with minimized ground clearance, supporting MIMO.
-The solution proposes the use of a digitally controllable tuner in the
-matching network.
+The solution proposes the use of a digitally controllable MEMS tuner in the matching network.
 
-To investigate the tunable performance and the user effect interaction, three prototype designs have been simulated and measured. Three user effect cases have been simulated for each prototype and generally, the antennas shows detuning, as an effect of the user interaction. 
-The prototype results have been compared and the best performing antenna design has been tested on the WiSpry PCB with a WS1040 tuner for each antenna.
-A ground clearance simulation has been carried out and an antenna design with \SI{5}{mm} ground clearance has been measured on the WiSpry PCB.  
 
-Moving the antenna designs from the prototype PCB to the WiSpry PCB introduced some high band coverage problems. The antenna and the transmission line have been modified to counteract the high band problems.  
+% Three designs
+\vspace{0.5em}
+\noindent
+To investigate the tunable performance and the user effect interaction, three prototype designs have been simulated and measured. Three user effect cases have been simulated for each prototype and generally, the antennas shows detuning as an effect of the user interaction. 
+The prototype results have been compared and the best performing antenna design has been moved to and measured on a PCB with a WiSpry WS1040 digital tuner for each antenna.
 
-A MIMO tunable antenna solution have been presented with a minimized ground clearance of \SI{5}{mm}. The results show promising and comparable performance with state-of-the-art antenna designs with much higher ground clearance.    
+% Ground clearance
+\vspace{0.5em}
+\noindent
+A ground clearance invesigation has been carried out and it was found, that a decent bandwidth can be obtained with only \SI{5}{mm} of ground clearance. This lead to a new antenna design with \SI{5}{mm} ground clearance, which has been measured on the tuner PCB.
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "../master"
-%%% End:
+% PCB problems
+\vspace{0.5em}
+\noindent
+Moving the two antenna designs from the prototype PCB to the tuner PCB introduces some high band coverage problems. The antenna and the transmission line have been modified to counteract these problems.  
+
+% Conclusion
+\vspace{0.5em}
+\noindent
+A MIMO tunable antenna solution has been presented with a minimized ground clearance of \SI{5}{mm}. The results show promising and comparable performance with state-of-the-art antenna designs with much higher ground clearance.

@@ -236,12 +236,12 @@ where
     \end{equation*}
 \end{where}
 
-The envelope correlation coefficient can also be estimated by the S-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams} \cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency \cite{Alain2010MIMO}.
+The envelope correlation coefficient can also be estimated by the $S$-parameters, as given in Equation~\ref{eq:envlop_corr_Sparams} \cite{Alain2010MIMO}. However, the use of this is often discouraged since it assumes very high radiation efficiency \cite{Alain2010MIMO}.
 \begin{align} %%
 \label{eq:envlop_corr_Sparams}
   \rho_e \approx |\rho_c|^2 = \frac{|S^*_{11}S_{12}+S^*_{21}S_{22}|^2}{(1-|S_{11}|^2-|S_{21}|^2)(1-|S_{22}|^2-|S_{12}|^2)}
 \end{align}
-Thus, when designing antenna for the purpose of MIMO, the antennas need to be designed in a way such that the elements receives de-correlated signals. This can be done in different ways, such as changing the angular patterns, changing the polarization of the elements, or spatially separating the antennas, which are the most used methods. However, there are also other techniques such as decoupling networks, parasitic elements, active antenna cancellation, eigenmodes, and balanced currents. 
+Thus, when designing antenna for the purpose of MIMO, the antennas need to be designed in a way such that the elements receives decorrelated signals. This can be done in different ways, such as changing the angular patterns, changing the polarization of the elements, or spatially separating the antennas, which are the most used methods. However, there are also other techniques such as decoupling networks, parasitic elements, active antenna cancellation, eigenmodes, and balanced currents. 
 
 
 \subsubsection{Spatial Correlation}
@@ -265,14 +265,14 @@ It is also possible to make the array in other topologies such as planar, circul
 \begin{figure}[htbp]
   \centering
   \includegraphics[scale=1.2]{img/analysis/mimoSpacing}
-  \caption{Spacing versus wavelength for the horizontal and vertical case\cite{Tim2012Practical}}
+  \caption{Spacing versus wavelength for the horizontal and vertical case \cite{Tim2012Practical}}
   \label{fig:mimo-spacing}
 \end{figure}
 
 \subsubsection{Polarization and Radiation Patterns}
 In addition to the spatial separation to decorrelate antennas, polarization and different radiation patterns can also be used to decorrelate elements. This is very often used in small mobile devices where the physical size limits the spacing between elements.  
 
-In theory, using a perfectly polarized dipole and loop antenna, it would be possible to create totally decorrelated elements because they have opposite polarization. This is hard to implement in practice, but it is possible to lower the correlation of to elements by having a difference in polarization. However, using different polarization to get a lower correlation requires a suitable XPR in the channel. The XPR should be around \SI{6}{dB} or lower\cite{Tim2012Practical}. 
+In theory, using a perfectly polarized dipole and loop antenna, it would be possible to create totally decorrelated elements because they have opposite polarization. This is hard to implement in practice, but it is possible to lower the correlation of to elements by having a difference in polarization. However, using different polarization to get a lower correlation requires a suitable XPR in the channel. The XPR should be around \SI{6}{dB} or lower \cite{Tim2012Practical}. 
 
 \subsubsection{Multiplexing Efficiency}
 \label{sec:muxefficiency}

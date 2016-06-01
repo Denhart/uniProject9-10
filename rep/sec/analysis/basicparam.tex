@@ -14,7 +14,7 @@ An isotropic antenna, can be represented as a point source. The isotropic antenn
 \begin{align} %% 
     S_{\text{iso}} = \frac{P_s}{4\pi r^2}
 \end{align}
-Clearly, it is not possible to construct such an antenna. However, this is used as a reference for quantifying other properties of an antenna. These properties could be the gain or directivity (see Section \ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
+Clearly, it is not possible to construct such an antenna. However, this is used as a reference for quantifying other properties of an antenna. These properties could be the gain or directivity (see Section~\ref{subsec:dir_gain}), and the unit would then be in \si{dBi} rather than \si{dB}.
 
 \subsection{Radiation Pattern}
 \label{subsec:radiation-p}
@@ -183,7 +183,7 @@ The approximation in Equation~\ref{eq:qapprox2} is useful for approximating the 
 \subsection{Mobile Antenna Limitations}
 \label{subsec:ant_limit}
 As the requirements for mobile antennas get more and more strict, some trade off's need to be considered when designing an antenna.
-The design constrains when designing antennas is a trade off between size, bandwidth, and efficiency, as illustrated in Figure \ref{fig:antenna_tradeoff}. 
+The design constrains when designing antennas is a trade off between size, bandwidth, and efficiency, as illustrated in Figure~\ref{fig:antenna_tradeoff}. 
 The trade off relationship can be expressed as \cite{hilbert2015tradeoff}
 \begin{align} %%
   \frac{\Delta f}{f} \propto \frac{(a/ \lambda)^3}{\eta}
@@ -226,7 +226,7 @@ These are only a few of the affected parameters considered when dealing with int
 
 The internal antenna design is also deeper affected by the chassis and PCB size \cite{sanchez2008multiband}. An example of the influence of the PCB size on the resonant frequency and the bandwidth can be seen in Figure~\ref{fig:antenna_pcb_behavior}. The example is done with a $\SI{40}{mm} \times l\,\si{mm}$ dual-band patch antenna over a metallic ground plane for the frequencies \SI{900}{MHz} in the GSM band and \SI{1975}{MHz} in the DCS band. The exact frequencies used in the simulation is the center frequency of each band. 
 
-As seen in the Figure \ref{fig:antenna_pcb_behavior}, both the resonant frequency and the bandwidth is greatly affected by the size of the ground plane -- especially the GSM band at \SI{900}{MHz}. When the ground plane and the antenna both are in resonance state, the maximum bandwidth is achieved. In the case of MIMO antenna designs with two antennas, one on the bottom and one of the side of the PCB, the maximum bandwidth is hard to achieve with two identical antenna designs \cite{sanchez2008multiband}. 
+As seen in the Figure~\ref{fig:antenna_pcb_behavior}, both the resonant frequency and the bandwidth is greatly affected by the size of the ground plane -- especially the GSM band at \SI{900}{MHz}. When the ground plane and the antenna both are in resonance state, the maximum bandwidth is achieved. In the case of MIMO antenna designs with two antennas, one on the bottom and one of the side of the PCB, the maximum bandwidth is hard to achieve with two identical antenna designs \cite{sanchez2008multiband}. 
 
 \begin{figure}[htbp]
    \begin{subfigure}[b]{0.49\linewidth}
@@ -240,7 +240,7 @@ As seen in the Figure \ref{fig:antenna_pcb_behavior}, both the resonant frequenc
         \includegraphics{img/analysis/pcbsize_bandwidth.pdf}
         \caption{Ground plane size effect on the bandwidth at \SI{-6}{dB}.}
     \end{subfigure}
-    \caption{Ground plane size effect on the resonance frequency and the bandwidth\cite{sanchez2008multiband}.}
+    \caption{Ground plane size effect on the resonance frequency and the bandwidth \cite{sanchez2008multiband}.}
     \label{fig:antenna_pcb_behavior}
 \end{figure}
 
@@ -286,7 +286,7 @@ in order for an antenna to be defined as electrically small. It should also be n
   \label{fig:ant-esa-def}
 \end{figure}
 
-\subsubsection{Fundamental Limits of Q}
+\subsubsection{Fundamental Limits of $Q$}
 \label{sec:fun_lim}
 L.\ J.\ Chu quantified the relationship between the minimum $Q$ of an electrically small antenna and the physical size relative to the wavelength \cite{chu1948}. This relationship was later corrected by McLean \cite{mclean1996} to be
 \begin{align} %%
@@ -310,7 +310,7 @@ This assumes that the energy spreads out in a sphere and that the only loss is f
 \begin{figure}[htbp]
   \centering
   \includegraphics{img/analysis/distancePathloss}
-  \caption{Free space path loss in dB for a \SI{2.6}{GHz} link.}
+  \caption{free-space path loss in dB for a \SI{2.6}{GHz} link.}
   \label{fig:fspl-plot}
 \end{figure}
 
