@@ -129,17 +129,17 @@ The Yee algorithm centers the E- and H-fields in 3D, such that every E-field is 
     \begin{subfigure}[b]{0.49\textwidth}
       \centering
         \includegraphics[scale=0.3]{img/analysis/fdtd_mesh}
-        \caption{A Yee FDTD grid}
+        \caption{A Yee FDTD grid.}
         \label{fig:fdtd-grid}
     \end{subfigure}
     ~
     \begin{subfigure}[b]{0.49\textwidth}
       \centering
         \includegraphics[scale=0.7]{img/analysis/yee_3d}
-        \caption{A single Yee cell}
+        \caption{A single Yee cell.}
         \label{fig:yee-cell}
     \end{subfigure}
-    \caption{Spatial interpetation of the Yee Algorithm}
+    \caption{Spatial interpretation of the Yee Algorithm.}
     \label{fig:space-yee-algorithm}
 \end{figure}
 
@@ -165,7 +165,7 @@ For completeness the previous ideas and notation can now be used to derive a num
   &\left(  \frac{\frac{\Delta t}{\epsilon_{i,j+1/2,k+1/2}}}{1+\frac{\sigma_{i,j+1/2,k+1/2} \Delta t}{2\epsilon_{i,j+1/2,k+1/2}} }    \right) \left( \frac{H_z |^n_{i,j+1,k+1/2} - H_z |^n_{i,j,k+1/2} }{\Delta y} - \frac{H_y |^n_{i,j+1/2,k+1} - H_y |^n_{i,j+1/2,k} }{\Delta z} -J_{source}|^n_{i,j+1/2,k+1/2}  \right)
 \end{align}
 
-As seen, the equations quickly become large and hard to handle. However, to fully extend this to 3D, this would have to be done for all the the Cartesian coordinates for both E- and H-fields. 
+As seen, the equations quickly become large and hard to handle. However, to fully extend this to 3D, this would have to be done for all the Cartesian coordinates for both E- and H-fields. 
 
 \subsection{Absorbing Boundary Conditions}
 Many geometries of interest are defined in open regions, e.g.\ antennas, where the spatial domain is unbounded. Since computers have limited storage, it is needed to find a suitable boundary condition on the outer perimeter of the domain $\Omega$ in order to simulate to infinity. Thus, it is needed to find a boundary condition that allows outward propagating numerical wave to exit the outer perimeter of $\Omega$ without spurious reflections from the outgoing waves. 
