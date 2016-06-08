@@ -1,0 +1,43 @@
+% vim:nowrap
+
+\def\MARK{$^{\dagger}$\xspace}
+\begin{table*}[htbp]
+    \centering
+    \footnotesize
+    \begin{tabularx}{\linewidth}{p{31mm}Xk{13mm}k{17mm}k{13mm}k{20mm}k{17mm}k{17mm}}
+        \toprule
+        &&&&&& \multicolumn{2}{c}{$\eta_{\text{tot}}$ of main antenna} \\\cline{7-8}
+        Antenna & Note & Tuner type & Antenna volume (\si{mm\cubed}) & Antenna area (\si{mm\squared}) & Total dimensions (\si{mm\cubed}) & Low band (\si{\%}) & High band (\si{\%})  \\
+        \midrule
+        Mod.\ minimized top               & Double-monopole             & MEMS     & 2117.5 & 302.5 & $130\times62\times7$     & 43--65 & 4--72\MARK    \\
+        Mod.\ minimized side              & Double-monopole             & MEMS     & 2065   & 295   & $130\times62\times7$     & 10--37 & 7--73\MARK    \\
+        \midrule
+        \cite{ilvonen2014multiband} main     & Planar ProtoM               & MEMS     & 1170   & 900   & $120\times60\times1.5$   & 30--57 & 44–78         \\
+        \cite{ilvonen2014multiband} aux      & Planar ProtoM               & MEMS     & 1170   & 900   & $120\times60\times1.5$   & 29--57 & 43--78        \\
+        \cite{ilvonen2014multiband} main     & ProtoM                      & MEMS     & 3900   & 900   & $120\times60\times5$     & 49--72 & 56--88        \\
+        \cite{ilvonen2014multiband} aux      & ProtoM                      & MEMS     & 3900   & 900   & $120\times60\times5$     & 48--72 & 55--88        \\
+        \cite{morris2014tunable}             & Monopole                    & MEMS     & 1500   & ?     & ?                        & 28--60 & 45--97        \\
+        \cite{xia2015compact}                & IFA                         & CMOS     & 1620   & 270   & $110\times45\times6$     & 54--65 & 70--?         \\
+        \cite{tatomirescu2015alternative} RX & Monopoles, not tuned        & MEMS     & 300    & 300   & $120\times55\times1$     & 50--?  & --            \\
+        \cite{tatomirescu2015alternative} TX & Folded IFA, tuned           & MEMS     & 640    & 160   & $120\times55\times?$     & 32--59 & --            \\
+        \cite{trinh2016reconfigurable}       & Monopole                    & CMOS     & 2400   & 400   & $130\times70\times6.8$   & 40--63 & 20--85        \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Comparison of reconfigurable LTE antenna designs (measured free-space parameters). The total efficiencies the maximum obtainable bandwidth in-band for all measured capacitor values. \MARK{}Not all of the bands are covered -- this is the very-worst case measured in the specified band although most of the band may be covered.}
+    \label{tab:comparison_reconf_lte}
+\end{table*}
+
+% morris2014tunable Tunable Antennas for Mobile Devices: Achieving High Performance in Compelling Form Factors 
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6848618
+% - No size given
+% 
+% A Compact Multi-band Tunable LTE Antenna for Mobile Applications
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7304964
+% - Low sample size
+% 
+% Alternative Duplexing for LTE FDD using the Theory of Characteristic Modes
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7228959
+% - Low sample size, only low band
+% 
+% Reconfigurable Antenna for Future Spectrum Reallocations in 5G Communications
+% http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7347359

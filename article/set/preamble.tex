@@ -1,0 +1,167 @@
+%\usepackage{multicol}
+%\usepackage{fullpage}
+%   Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+% \usepackage[final]{pdfpages}
+% \usepackage[section]{placeins}
+\usepackage[per-mode = symbol,detect-all=true]{siunitx}
+\usepackage[draft,silent,nomargin,inline]{fixme}
+% \usepackage[compact,noindentafter]{titlesec}
+% \usepackage[font={sf,md,up}]{subfig}
+% \usepackage[font={sf}]{caption}
+% \usepackage[scaled=0.83]{helvet}
+ \usepackage{mathptmx}
+% \usepackage{courier}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\usepackage{float}
+\usepackage{graphicx}
+%\usepackage{caption}
+\usepackage[labelsep=period]{caption}
+\usepackage[font=small,skip=0pt]{caption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{aurical}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{commath}
+\usepackage{pgfplots}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{hyperref}
+% \usepackage{longtable}
+% \usepackage{textcomp}
+% \usepackage{pdflscape}
+% \usepackage{float}
+% \usepackage{lastpage}
+% \usepackage{xspace}
+% \usepackage{wasysym}
+% \usepackage{pageslts}
+% \usepackage{setspace}
+\usepackage{matlab-prettifier}
+%   Package setup
+\usetikzlibrary{shapes,arrows,positioning,patterns,decorations.markings,decorations.pathmorphing}
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=img/tikz/]
+\tikzset{
+    >=latex,
+    font=\scriptsize,
+}
+\pgfplotsset{
+    compat=newest,
+    every axis plot/.append style = {
+        very thick,
+    },
+    every axis legend/.append style={
+        font={\scriptsize},
+    },
+    every axis/.append style={
+        legend style={draw=none},
+        legend cell align=left,
+        axis x line=bottom,
+        axis y line=left,
+        scaled ticks=false,
+        xticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+        yticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+        width=16cm,
+        height=5cm,
+        axis line style=-latex,
+        tick scale binop=\times,
+        /pgf/number format/.cd,
+        set thousands separator={ },
+        set decimal separator={,},
+    },
+    every axis x label/.style={
+        at={(ticklabel* cs:1.00)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(ticklabel* cs:1.00)},
+        anchor=south,
+    },
+}
+\hypersetup{
+    pdfpagelabels=true,
+    plainpages=false,
+    pdfsubject={},
+    bookmarksdepth=3,
+    bookmarksnumbered=true,
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    pdfstartview=FitH
+}
+\usepackage{memhfixc}
+\urlstyle{sf}
+\sisetup{
+    output-decimal-marker = {.},
+    output-exponent-marker=\textsc{e},
+    % round-mode=places,
+    output-complex-root=j,
+    % unit-color=blue,
+    % scientific-notation = engineering
+}
+\DeclareSIUnit[number-unit-product = \,]{\permil}{\textperthousand}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+%   Page Setup
+
+%   Header and Items
+
+\graphicspath{{./img/}}
+
+%   Packages (must be loaded last)
+% \usepackage{csvsimple}
+\usepackage[american]{circuitikz}
+% \usepackage{showlabels,rotating}
+% \renewcommand{\showlabelsetlabel}[1]%
+% {\begin{turn}{80}\showlabelfont\tiny #1\end{turn}}
+
+% COOL LOOKING FONT!!!
+% \usepackage{pdfrender}
+% \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
+
+
+\newcommand{\fakeimage}[3]{\begin{tikzpicture}\node[minimum width=#1, minimum height=#2,draw]{#3};\end{tikzpicture}}
+
+\usepackage{amsmath,esint}
+
+\newcommand*\VF[1]{\mathbf{#1}}
+%\newcommand*\dif{\mathop{}\!\mathrm{d}}
+\usepackage{lipsum}
+\usepackage{subfloat}
+\usepackage{multicol}
+\usepackage{mathtools, cuted}
+\usepackage{mathrsfs}
+\usepackage{xspace}
+\newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
+
+\addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
+\addto\captionsenglish{\renewcommand{\tablename}{Tab.}}
+
+ \DeclareCaptionSubType*{figure}
+
+%\renewcommand\thesubfigure{\thefigure(\alph{subfigure})}
+%\usepackage[subrefformat=parens,labelformat=parens]{subfig}
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+\setlength{\textfloatsep}{3pt}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{k}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
