@@ -7,7 +7,7 @@ files_top  = sort(glob("efficiency/top_*.txt"))
 files_side = sort(glob("efficiency/side_*.txt"))
 
 paperplot.figure(figsize=(3.5, 3.5))
-f_min = array([])
+f_max = array([])
 
 # Top
 subplot(211)
@@ -17,7 +17,7 @@ for i in range(len(files_top)):
     f = m[0]
     eff = m[1]
     if (i == 0):
-        f_min = f
+        f_max = f
         eff_top_max = eff
         paperplot.efficiency(f/1e6, eff, '-k',  label="$\eta_0[0]$")
     else:
@@ -31,7 +31,7 @@ for i in range(len(files_side)):
     f = m[0]
     eff = m[1]
     if (i == 0):
-        f_min = f
+        f_max = f
         eff_side_max = eff
         paperplot.efficiency(f/1e6, eff, '-k',  label="$\eta_0[0]$")
     else:
@@ -39,13 +39,13 @@ for i in range(len(files_side)):
 
 subplot(211)
 title("Top antenna", fontsize=8)
-paperplot.efficiency(f_min/1e6, eff_top_max, color=[0.6,0.6,0.6], linestyle='-',
+paperplot.efficiency(f_max/1e6, eff_top_max, color=[0.6,0.6,0.6], linestyle='-',
         label="$\max(\eta_0)$")
 paperplot.end_efficiency(loc=8, ncol=2, handlelength=1)
 
 subplot(212)
 title("Side antenna", fontsize=8)
-paperplot.efficiency(f_min/1e6, eff_side_max, color=[0.6,0.6,0.6], linestyle='-',
+paperplot.efficiency(f_max/1e6, eff_side_max, color=[0.6,0.6,0.6], linestyle='-',
         label="$\max(\eta_0)$")
 paperplot.end_efficiency(loc=8, ncol=2, handlelength=1)
 
