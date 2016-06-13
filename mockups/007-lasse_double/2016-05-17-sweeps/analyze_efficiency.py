@@ -44,6 +44,7 @@ for i in range(len(lb)):
     f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
     eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
+    savetxt("efficiency/top_%03d.txt" %(i), transpose([f,eff]))
     aauplot.efficiency(f,eff)
 
 aauplot.end_efficiency(loc=4);
@@ -66,6 +67,7 @@ for i in range(len(lb)):
     f = hstack((satimo.ma(f_L,avg),satimo.ma(f_H,avg)))
     eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
+    savetxt("efficiency/side_%03d.txt" %(i), transpose([f,eff]))
     aauplot.efficiency(f,eff)
 
 aauplot.end_efficiency(loc=4);
