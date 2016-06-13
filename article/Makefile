@@ -2,6 +2,7 @@ all : pdf
 
 LATEX             = pdflatex -shell-escape
 BIBTEX            = bibtex
+LATEXMK           = latexmk -pdf -shell-escape
 
 MAIN              = master
 BIB               = bib/sources.bib
@@ -30,17 +31,11 @@ local :
 	$(LATEX) masterlocal.tex
 
 force : 
-	$(LATEX) $(MAIN).tex
-	$(BIBTEX) $(MAIN).aux
-	$(LATEX) $(MAIN).tex
-	$(LATEX) $(MAIN).tex
+	$(LATEXMK) $(MAIN).tex
 
 $(MAIN).pdf :  $(TEXFILES) $(IMAGES)\
 	$(EPSPDFFILES) $(BILAG) $(BIB)
-	$(LATEX) $(MAIN).tex
-	$(BIBTEX) $(MAIN).aux
-	$(LATEX) $(MAIN).tex
-	$(LATEX) $(MAIN).tex
+	$(LATEXMK) $(MAIN).tex
 
 clean :
 	rm -f *.aux
