@@ -6,19 +6,20 @@
 
 The fourth generation mobile technology, the Long Term Evolution (LTE),  supports Multiple Input Multiple Output (MIMO) as a means of improving data rates. MIMO takes advantage of the scattering environment in which the phones are used to make parallel streaming of data, through different physical routes, possible.
 
-
 % Correlation
 To enable MIMO, a minimum of two antennas must be present in the mobile handset. To gain the most from MIMO, the correlation between the farfield patterns of the two antennas must be as low as possible. Correlation can be decreased by placing the antennas far apart with respect to a wavelength. However, at the low frequency bands of LTE -- around \SI{700}{MHz} -- the free-space wavelength is around \SI{428}{mm} which is far larger than a mobile phone. Therefore, increasing the distance is not the answer, and the antennas must instead be designed to have their farfield patterns pointing in different directions, have different polarizations, etc.
-
-% Size constraint
 
 % User effects + Size constraint
 Apart from the antennas being decorrelated, the total efficiency of each antenna must be high to increase performance. As modern smart-phones are very screen-oriented, having the screen take up most of the from of the phone, only little room is left for antennas near the edge of the phone. In practice, when a user is holding the phone, the total efficiency drops. This is both due to power absorption and the user detuning the resonance of the antenna, increasing the mismatch loss \cite{Samantha2014UserEff}. Some absorption loss can be beneficial in decorrelating the two MIMO antenna patterns \cite{Samantha2014UserEff} while the mismatch loss is undesirable.
 
-% Tunable
-
+% Tunable matching circuit + MEMS
+Mobile phone antennas can be designed to have their resonances dependent on their matching circuits. By having the matching circuit contain an adjustable component, the mismatch loss caused by the user can be counteracted through digital tuning. Several types of digitally tunable capacitors exist, including CMOS switched capacitor arrays and BST varactors \cite{gu2014rf}. However, greater linearity and higher $Q$ can be obtained by using micro-electromechanical systems (MEMS) tuners \cite{gu2014rf}. Additionally, having the resonances tunable, the antenna can be made to have a smaller bandwidth which can then be tuned to cover the desired frequency bands. This makes it possible to make the antennas physically smaller due to the well-known trade-off between size, bandwidth, and efficiency \cite{hilbert2015tradeoff}.
 
 %% State of the art
+Previous antenna designers have dealt with developing tunable antennas for LTE supporting MIMO. Using MEMS tunable capacitors, \cite{ilvonen2014multiband} managed to design a quite efficient design with two antennas. The ground clearance for this design is \SI{15}{mm} and may be closing in on the size constraints for practical implementation in a phone. In \cite{morris2014tunable}, a single antenna was designed using a MEMS tuner. While being small and rather efficient, this design only consisted of a single antenna and does, for this reason, not support MIMO for LTE. In \cite{xia2015compact}, a CMOS tuner was used and a very compact and efficient design has been developed while still only for a single antenna. A MEMS tuner was used for tuning the side antenna in \cite{tatomirescu2015alternative} while the top antenna was fixed and showed good results. This design, however, did only cover the low bands below \SI{960}{MHz}. Finally, in \cite{trinh2016reconfigurable}, a design for reaching towards 5G was designed. Showing very good results, the design only consisted of a single antenna.
+
+In this paper, a dual resonance antenna design for LTE supporting MIMO, with only \SI{5}{mm} ground clearance will be presented. The antennas are designed to cover all frequency-division-duplexing LTE bands from \SI{700}{MHz} to \SI{960}{MHz} and from \SI{1710}{MHz} to \SI{2650}{MHz}.
 
 %% Overview
-In this project,
+In Section~\ref{sec:antennadesign}, the antenna design will be presented. Free-space and user effects simulations will be presented in Section~\ref{sec:simulations} and free-space measurements will be shown in Section~\ref{sec:measurements}. Finally, Section~\ref{sec:conclusion} will sum up the findings from the paper in the conclusion.
+
