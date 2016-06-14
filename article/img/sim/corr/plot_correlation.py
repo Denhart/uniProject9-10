@@ -3,8 +3,8 @@ from matplotlib.pyplot import *
 import paperplot
 from glob import glob
 
-files_top  = sort(glob("top/C_*"))
-files_side = sort(glob("side/s_C_*"))
+files_top  = sort(glob("top/C1*"))
+files_side = sort(glob("side/run*"))
 
 paperplot.figure(figsize=(3.5, 3.5))
 f_max = array([])
