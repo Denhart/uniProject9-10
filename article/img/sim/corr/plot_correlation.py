@@ -19,7 +19,7 @@ for i in range(len(files_top)):
     if (i == 0):
         f_max = f
         eff_top_max = eff
-        paperplot.correlation(f/1e6, eff, '-k',  label="$\mathrm{ECC}$")
+        paperplot.correlation(f/1e6, eff, '-k',  label="$\mathrm{ECC}[0]$")
     else:
         eff_top_max = maximum(eff_top_max, eff)
 
@@ -33,7 +33,7 @@ for i in range(len(files_side)):
     if (i == 0):
         f_max = f
         eff_side_max = eff
-        paperplot.correlation(f/1e6, eff, '-k',  label="$\mathrm{ECC}$")
+        paperplot.correlation(f/1e6, eff, '-k',  label="$\mathrm{ECC}[0]$")
     else:
         eff_side_max = maximum(eff_side_max, eff)
 
