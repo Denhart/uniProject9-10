@@ -1,2 +1,14 @@
 \section{Antenna Design}
 \label{sec:antennadesign}
+%Eventuelt noget om antenna placering i forhold til correlation
+The geometry of the proposed antenna system is shown in Fig.~\ref{fig:antdesign}. The system consist of two dual-arm non-resonant antennas. For the prototype  is used. The ground plane is chosen to be \SI{60}{mm} $\times$ \SI{120}{mm} which is consistent with current smartphones. For the PCB itself a \SI{1.6}{mm} thick FR4 subsrate is used with a relative permittivity of \SI{4.4}{F/m}  and a conductivity of \SI{0.02}{S/m}. The antennas have the dimensions $7 \times 60.5 \times 5\:  \si{mm^3} \approx 2.2\:  \si{cm^3} $ 
+ and $7 \times 59 \times 5\:  \si{mm^3} \approx 2.1\:  \si{cm^3}$  for the top and side antenna respectively. These volumes are including the \SI{5}{mm} ground clearence used. The off-ground approach is used to increase bandwidth and efficiency at the lower frequency bands. Both antennas are fed through a matching circuit, consisting of three lumped elements. The matching is done with a capacitor in series and a shunt inductor, aditionally a tunable MEMS  shunt capacitor is added to enable frequency reconfigurability. The MEMS tunable capacitor used is a Wispry WS1040, which has four independent tunable capacitor-banks, which can be combined to acheive different capacity ranges. Two of the banks are used for the top antenna, allowing a capacity range of \SIrange{0.6}{6}{pF} and for the side antenna all four banks are used, which allows for a range of \SIrange{1.2}{12}{pF}.
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics{img/3d_drawing}
+  \end{center}
+  \caption{Geometry of the MIMO antenna system.}
+  \label{fig:antdesign}
+\end{figure}
+
