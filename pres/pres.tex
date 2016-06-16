@@ -1,0 +1,47 @@
+\documentclass[t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage[per-mode = symbol,detect-all=true]{siunitx}
+\sisetup{
+    output-decimal-marker = {.},
+    output-exponent-marker=\textsc{e}, 
+    % round-mode=places,
+    output-complex-root=j, 
+    % unit-color=blue,
+    % scientific-notation = engineering
+}
+\DeclareSIUnit[number-unit-product = \,]{\permil}{\textperthousand}
+\usetheme{noergaard}
+\newcommand{\hi}[1]{{\textcolor{themecolor}{\bfseries{#1}}}}
+
+\title{\hi{Tunable Antennas for Handsets Supporting MIMO}}
+\author{
+    \hi{Group 851}\\
+    Lasse Thomsen\\
+    Søren B.\ Nørgaard\\
+    Henrik A.\ Vesterager\\[1em]
+    Wireless Communication Systems\\
+    Dept.\ of Electronic Systems, Aalborg University
+}
+\date{June 24, 2016}
+
+\begin{document}
+{%
+    \setbeamertemplate{headline}{}
+    \frame{\titlepage}
+}
+
+% \begin{frame}
+%     \frametitle{Overview}
+%     \tableofcontents
+% \end{frame}
+
+\input{sec/exampleslide}
+\input{sec/lasse}
+\input{sec/soren}
+\input{sec/henrik}
+\end{document}

@@ -1,0 +1,50 @@
+% By Søren B. Nørgaard, 2015.
+% Inspired by my friend Martin Bjeldbak Madsen's beamer theme, bjeldbak 2014,
+% found here: http://martinbmadsen.dk/
+
+\mode<presentation>
+
+\RequirePackage[scaled=0.81]{helvet}
+
+\useoutertheme[subsection=false,shadow]{miniframes}
+\useinnertheme{default}
+
+\setbeamertemplate{footline}
+{%
+    \ifnum\c@framenumber=1
+    \else
+        \begin{beamercolorbox}[right,dp=2ex,rightskip=2ex]{page number}
+          \insertframenumber/\inserttotalframenumber
+        \end{beamercolorbox}
+    \fi%
+    \begin{beamercolorbox}[colsep=1.25pt]{lower separation line foot}
+    \end{beamercolorbox}
+}
+
+\setbeamerfont{frametitle}{size=\bf\large}
+\setbeamerfont{section in head/foot}{size=\scriptsize}
+\setbeamerfont{block title}{size=\bf\normalsize}
+
+\setbeamersize{text margin left=1em,text margin right=1em} 
+
+\setbeamertemplate{itemize/enumerate body begin}{\setlength{\leftmargini}{12pt}\setlength{\leftmarginii}{12pt}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{lower separation line head}{} 
+
+
+\setbeamercovered{transparent}
+
+\definecolor{themecolor}{HTML}{333333}
+\setbeamercolor{normal text}{fg=black,bg=white} 
+\setbeamercolor{alerted text}{fg=red} 
+\setbeamercolor{example text}{fg=black} 
+\setbeamercolor{structure}{fg=black} 
+\setbeamercolor{itemize item}{fg=themecolor}
+\setbeamercolor{itemize subitem}{fg=themecolor}
+\setbeamercolor{block title}{use=structure,fg=themecolor,bg=white}
+\setbeamercolor{block body}{use=structure,fg=black,bg=white}
+ 
+\setbeamercolor{palette tertiary}{fg=white,bg=themecolor} 
+\setbeamercolor{palette quaternary}{fg=black,bg=black!10} 
+
+\mode<all>
