@@ -60,8 +60,6 @@ C = [ g("1-fs/corrside/Csh*"), g("2-data/corrside/Csh*"), g("3-play/corrside/Csh
 plotextreme(C, "min", "correlation")
 savecrop("corrside.pdf")
 
-exit()
-
 # Efficiency
 E = [ g("1-fs/efftop/*.txt"), g("2-data/efftop/*.txt"), g("3-play/efftop/*.txt"), g("4-talk/efftop/*.txt") ]
 plotextreme(E, "max", "efficiency")
