@@ -5,7 +5,7 @@ from os import system
 import presplot
 import re
 
-c = ['b', 'g', 'r', 'c']
+c = ['b', 'g', 'r', 'c', 'm']
 # fs = (4.5, 1.1)
 fs = (2.4, 1.55)
 
@@ -80,26 +80,43 @@ def savecrop(f):
 # savecrop("corrside.pdf")
 
 
+# 001 ##########################################################################
 # S11
-S = [ g("minimized_monopole/sim/s11top/S1*"), g("minimized_monopole/meas/stop/*.s2p"), g("triangle_feed/meas/stop/*.s2p") ]
+S = [ g("minimized_monopole/sim/s11top/S1*"), g("minimized_monopole/meas/stop/*.s2p"), g("triangle_feed/meas/stop/*.s2p")]
 plotextreme(S, "min", "sparam")
-savecrop("s11top.pdf")
-
+savecrop("001_s11top.pdf")
 
 # S22
 S = [ g("minimized_monopole/sim/s22side/S2*"), g("minimized_monopole/meas/sside/*.s2p"), g("triangle_feed/meas/sside/*.s2p") ]
 plotextreme(S, "min", "sparam")
-savecrop("s11side.pdf")
-
+savecrop("001_s11side.pdf")
 
 # Efficiency
 E = [ g("minimized_monopole/sim/efftop/*.txt"),  g("minimized_monopole/meas/efftop/*.txt"), g("triangle_feed/meas/efftop/*.txt") ]
 plotextreme(E, "max", "efficiency")
-savecrop("efftop.pdf")
+savecrop("001_efftop.pdf")
 
 E = [ g("minimized_monopole/sim/effside/*.txt"),  g("minimized_monopole/meas/effside/*.txt"), g("triangle_feed/meas/effside/*.txt") ]
 plotextreme(E, "max", "efficiency")
-savecrop("effside.pdf")
+savecrop("001_effside.pdf")
+
+# 002 ##########################################################################
+# S11
+S = [ g("modified_monopole/sim/s11top/S1*"), g("modified_monopole/meas/stop/*.s2p")]
+plotextreme(S, "min", "sparam", nfiles=2)
+savecrop("002_s11top.pdf")
+
+S = [ g("modified_monopole/sim/s22side/S2*"), g("modified_monopole/meas/sside/*.s2p")]
+plotextreme(S, "min", "sparam", nfiles=2)
+savecrop("002_s22side.pdf")
+
+E = [ g("modified_monopole/sim/efftop/*.txt"), g("modified_monopole/meas/efftop/*.txt") ]
+plotextreme(E, "max", "efficiency", nfiles=2)
+savecrop("002_efftop.pdf")
+
+E = [ g("modified_monopole/sim/effside/*.txt"), g("modified_monopole/meas/effside/*.txt") ]
+plotextreme(E, "max", "efficiency", nfiles=2)
+savecrop("002_effside.pdf")
 
 show()
 # exit()
