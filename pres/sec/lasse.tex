@@ -1,17 +1,28 @@
-\section{Lasse}
+\section{Tuner PCB}
+\begin{frame}
+  \frametitle{Outline}
+      \begin{itemize}
+      \item Ground Clearance simulation.
+      \item Tuner PCB with MEMS tuner.
+        \begin{itemize}
+        \item Triangle-Feed antenna.
+        \item Modified monopole antenna.
+        \end{itemize}
+      \item Conclusion
+      \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Ground Clearance}
   \begin{columns}[onlytextwidth,t]
     \column{0.49\linewidth}
-    \begin{block}{Minimized Design}
       \begin{itemize}
       \item Minimized and simplified monopole design.
       \item \SI{10}{mm} to \SI{5}{mm} ground clearance simulation
       \end{itemize}
-    \end{block}
     \column{0.49\linewidth}
     \begin{center}
-      \includegraphics[scale=0.7]{img/Lasse/3d_drawing.pdf}
+      \includegraphics[scale=0.7]{img/Lasse/3d_drawing_mini.pdf}
     \end{center}
     Technical Drawing
   \end{columns}
@@ -19,23 +30,22 @@
 
 \begin{frame}
   \frametitle{Ground Clearance}
-    \begin{block}{Minimized Monopole Results.}
+    \begin{center}
+      \includegraphics[scale=0.7]{img/Lasse/s11_5mm.pdf}
+\includegraphics[scale=0.7]{img/Lasse/eff_5mm.pdf}
+    \end{center}
       \begin{itemize}
-      \item Simulation results.
-      \item Measurement results.
+      \item Significant bandwidth and efficiency drop from \SI{5}{mm} to \SI{4}{mm}.
       \end{itemize}
-    \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Tuner PCB}
     \begin{columns}[onlytextwidth,t]
         \column{0.49\linewidth}
-        \begin{block}{Minimized Design}
           \begin{itemize}
           \item PCB with MEMS tuner.
           \end{itemize}
-        \end{block}
         \column{0.49\linewidth}
         \begin{center}
             \includegraphics[scale=0.33]{img/Lasse/samanthas_board.pdf}
@@ -45,31 +55,31 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Prototypes -- 1}
-  \begin{block}{Antenna designs}
-      \begin{itemize}
-      \item Triangle-Feed Antenna measurements.
-      \item Modified monopole Antenna free space sim and measurements.
-      \item Modified monopole Antenna user effect simulations.
-      \item Problems with detuning in the high frequencies.
-      \end{itemize}
-  \end{block}
+  \frametitle{Tuner PCB Results}
+  \begin{itemize}
+  \item Problems with detuning in the high frequencies.
+  \end{itemize}
+  \begin{center}
+    \includegraphics[scale=0.33]{img/Lasse/tuner_pcb/001_s11top.pdf}
+    \includegraphics[scale=0.33]{img/Lasse/tuner_pcb/001_s11side.pdf} \\
+    \includegraphics[scale=0.33]{img/Lasse/tuner_pcb/001.pdf}
+    \includegraphics[scale=0.33]{img/Lasse/tuner_pcb/.pdf}
+  \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Tuner PCB}
+    \frametitle{Tuner PCB -- Modified Design}
     \begin{columns}[onlytextwidth,t]
         \column{0.49\linewidth}
-        \begin{block}{Modified Design}
           \begin{itemize}
           \item Adding of a higher resonant to counteract the detuning.
           \item Two arms added in the available space. 
           \item Ground clearance \SI{2.5}{mm}.
           \end{itemize}
-        \end{block}
         \column{0.49\linewidth}
         \begin{center}
-            \includegraphics[scale=0.33]{img/Lasse/lassedouble.pdf}
+            \includegraphics[scale=0.33, angle =90]{img/Lasse/lassedouble.pdf}
+            \includegraphics[scale=0.53]{img/Lasse/3d_drawing_modi.pdf}
         \end{center}
         Tuner PCB with the modified monopole.
     \end{columns}
@@ -82,21 +92,20 @@
       \item Results of the added resonant.
       \item Simulation results.
       \item Measurement results.
+      \item Shunt capacitor on transmission lines.
       \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
   \frametitle{Conclusion}
-    \begin{block}{Conclusion}
       \begin{itemize}
       \item Three preliminary designs.
       \item Two designs on the tuner PCB.
       \item Modified \SI{2.5}{mm} ground clearance design.
-    \item Promising results comparable with state-of-the-art designs.
+    \item Promising prototype results comparable with state-of-the-art designs.
     \item Problems with the resonance in the higher frequencies.
     \item MIMO support in the high band -- high correlation in the low band.
       \end{itemize}
-    \end{block}
 \end{frame}
 
