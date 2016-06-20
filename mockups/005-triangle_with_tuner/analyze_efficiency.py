@@ -1,6 +1,7 @@
 from numpy import *
 from matplotlib.pyplot import *
 from glob import glob
+from os.path import basename
 import aauplot
 import satimo
 
@@ -45,6 +46,7 @@ for i in range(len(lb)):
     eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
     aauplot.efficiency(f,eff)
+    savetxt("efficiency/%s.txt" % basename(lb[i]), transpose((f,eff)))
 
 aauplot.end_efficiency(loc=4);
 savefig("efficiency_top.pdf")
@@ -67,6 +69,7 @@ for i in range(len(lb)):
     eff = hstack((satimo.ma(eff_L,avg), satimo.ma(eff_H,avg)))
 
     aauplot.efficiency(f,eff)
+    savetxt("efficiency/%s.txt" % basename(lb[i]), transpose((f,eff)))
 
 aauplot.end_efficiency(loc=4);
 savefig("efficiency_side.pdf")

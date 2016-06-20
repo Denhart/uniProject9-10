@@ -71,8 +71,8 @@ def end_sparam(**kwargs):
     # for x in [700, 960, 1710, 2650]:
     #     plt.axvline(x, color='k', linestyle='--')
     #     plt.text(x, 0.7, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
-    plt.axvspan(700, 960, color=[0.9,0.9,0.9])
-    plt.axvspan(1710, 2650, color=[0.9,0.9,0.9])
+    plt.axvspan(700, 960, color=[0.8,0.8,0.8])
+    plt.axvspan(1710, 2650, color=[0.8,0.8,0.8])
 
     plt.grid(True)
     plt.legend(**kwargs)
@@ -121,8 +121,8 @@ def end_efficiency(**kwargs):
     # for x in [700, 960, 1710, 2650]:
     #     plt.axvline(x, color='k', linestyle='--')
     #     plt.text(x, 0.3, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
-    plt.axvspan(700, 960, color=[0.9,0.9,0.9])
-    plt.axvspan(1710, 2650, color=[0.9,0.9,0.9])
+    plt.axvspan(700, 960, color=[0.8,0.8,0.8])
+    plt.axvspan(1710, 2650, color=[0.8,0.8,0.8])
 
     ax1 = plt.gca()
 
@@ -170,8 +170,8 @@ def end_correlation(loc=1, fontsize=8):
     # for x in [700, 960, 1710, 2650]:
     #     plt.axvline(x, color='k', linestyle='--')
     #     plt.text(x, 1.02, x, ha='center', va='bottom', bbox=dict(fc='white', ec='none', pad=0))
-    plt.axvspan(700, 960, color=[0.9,0.9,0.9])
-    plt.axvspan(1710, 2650, color=[0.9,0.9,0.9])
+    plt.axvspan(700, 960, color=[0.8,0.8,0.8])
+    plt.axvspan(1710, 2650, color=[0.8,0.8,0.8])
 
     plt.tight_layout(rect=(0,0,1,0.97))
 
