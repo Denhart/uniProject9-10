@@ -89,7 +89,7 @@ savecrop("001_s11top.pdf")
 # S22
 S = [ g("minimized_monopole/sim/s22side/S2*"), g("minimized_monopole/meas/sside/*.s2p"), g("triangle_feed/meas/sside/*.s2p") ]
 plotextreme(S, "min", "sparam")
-savecrop("001_s11side.pdf")
+savecrop("001_s22side.pdf")
 
 # Efficiency
 E = [ g("minimized_monopole/sim/efftop/*.txt"),  g("minimized_monopole/meas/efftop/*.txt"), g("triangle_feed/meas/efftop/*.txt") ]
@@ -102,21 +102,26 @@ savecrop("001_effside.pdf")
 
 # 002 ##########################################################################
 # S11
-S = [ g("modified_monopole/sim/s11top/S1*"), g("modified_monopole/meas/stop/*.s2p")]
+S = [ g("modified_monopole/withcap/sim/s11top/S1*"), g("modified_monopole/withcap/meas/stop/*.s2p")]
 plotextreme(S, "min", "sparam", nfiles=2)
 savecrop("002_s11top.pdf")
 
-S = [ g("modified_monopole/sim/s22side/S2*"), g("modified_monopole/meas/sside/*.s2p")]
+S = [ g("modified_monopole/withcap/sim/s22side/S2*"), g("modified_monopole/withcap/meas/sside/*.s2p")]
 plotextreme(S, "min", "sparam", nfiles=2)
 savecrop("002_s22side.pdf")
 
-E = [ g("modified_monopole/sim/efftop/*.txt"), g("modified_monopole/meas/efftop/*.txt") ]
+E = [ g("modified_monopole/withcap/sim/efftop/*.txt"), g("modified_monopole/withcap/meas/efftop/*.txt") ]
 plotextreme(E, "max", "efficiency", nfiles=2)
 savecrop("002_efftop.pdf")
 
-E = [ g("modified_monopole/sim/effside/*.txt"), g("modified_monopole/meas/effside/*.txt") ]
+E = [ g("modified_monopole/withcap/sim/effside/*.txt"), g("modified_monopole/withcap/meas/effside/*.txt") ]
 plotextreme(E, "max", "efficiency", nfiles=2)
 savecrop("002_effside.pdf")
+
+# 003 ##########################################################################
+S = [ g("modified_monopole/withoutcap/meas/stop/*.s2p"), g("modified_monopole/withcap/meas/stop/*.s2p") ]
+plotextreme(S, "min", "sparam", nfiles=2)
+savecrop("003_s11top.pdf")
 
 show()
 # exit()
