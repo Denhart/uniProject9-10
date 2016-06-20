@@ -26,6 +26,14 @@
 \definecolor{yy}{rgb}{0.75, 0.75, 0.0}
 \definecolor{kk}{rgb}{0.0, 0.0, 0.0}
 
+\newcounter{funcreqcnt}
+\newcounter{specreqcnt}
+\newcommand{\freq}[1]{ \refstepcounter{funcreqcnt}\label{#1} F\arabic{funcreqcnt} }
+\newcommand{\sreq}[1]{ \refstepcounter{specreqcnt}\label{#1} S\arabic{specreqcnt} }
+\newcommand{\freqref}[1]{F\ref{#1}}
+\newcommand{\sreqref}[1]{S\ref{#1}}
+
+
 \title{\hi{Tunable Antennas for Handsets Supporting MIMO}}
 \author{
     \hi{Group 951/1051}\\
