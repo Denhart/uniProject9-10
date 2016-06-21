@@ -1,10 +1,15 @@
 \section{Tuner PCB}
+
+\def\legendfooter{\scriptsize{\textcolor{bb}{Monopole Sim}, \textcolor{gg}{Monopole Meas}, \textcolor{rr}{Triangle-Feed Meas}, Frequency in MHz.}}
+\def\emptyline{\textcolor{white}{Empty}}
+
 \begin{frame}
   \frametitle{Outline}
       \begin{itemize}
       \item Ground Clearance simulation.
       \item Tuner PCB with MEMS tuner.
         \begin{itemize}
+        \item Minimized monopole antenna.
         \item Triangle-Feed antenna.
         \item Modified monopole antenna.
         \end{itemize}
@@ -56,6 +61,7 @@
     \includegraphics{img/Lasse/tuner_pcb/001_s22side.pdf}
     \includegraphics{img/Lasse/tuner_pcb/001_effside.pdf}
   \end{center}
+\legendfooter
 \end{frame}
 
 \begin{frame}[fragile]
@@ -87,22 +93,25 @@
       \begin{itemize}
       \item Shunt capacitor on transmission lines.
       \end{itemize}
+\legendfooter
 \end{frame}
+\def\legendfooter{\scriptsize{\textcolor{bb}{Monopole without cap}, \textcolor{gg}{Monopole with cap}, Frequency in MHz.}}
+\def\emptyline{\textcolor{white}{Empty}}
 
 \begin{frame}
   \frametitle{Tuner PCB}
   \begin{itemize}
   \item With and without transmission line shunt capacitor.
+  \item Straight forward ``finger sweep''.
   \end{itemize}
 \begin{center}
-    \includegraphics{img/Lasse/tuner_pcb/002_s11top.pdf}
-    \includegraphics{img/Lasse/tuner_pcb/002_efftop.pdf} \\
-    \includegraphics{img/Lasse/tuner_pcb/002_s22side.pdf}
-    \includegraphics{img/Lasse/tuner_pcb/002_effside.pdf}
+    \includegraphics[scale=1.4]{img/Lasse/tuner_pcb/003_s11top.pdf}
 \end{center}
-      \begin{itemize}
-      \item Shunt capacitor on transmission lines.
-      \end{itemize}
+\begin{itemize}
+\item Increase in bandwidth in the high band.
+\item Most significant for S11 but is also the case for S22 
+\end{itemize}
+\legendfooter
 \end{frame}
 
 \section{Conclusion}
