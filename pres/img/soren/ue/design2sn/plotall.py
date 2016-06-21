@@ -52,42 +52,62 @@ def savecrop(f):
     savefig(f)
     system("pdfcrop %s %s"%(f,f))
 
-C = [ g("1-fs/corrtop/Csh*"), g("2-data/corrtop/Csh*"), g("3-play/corrtop/run*"), g("4-talk/corrtop/run*") ]
-plotextreme(C, "min", "correlation")
-savecrop("corrtop.pdf")
+if 0:
+    C = [ g("1-fs/corrtop/Csh*"), g("2-data/corrtop/Csh*"), g("3-play/corrtop/run*"), g("4-talk/corrtop/run*") ]
+    plotextreme(C, "min", "correlation")
+    savecrop("corrtop.pdf")
 
-C = [ g("1-fs/corrside/Csh*"), g("2-data/corrside/Csh*"), g("3-play/corrside/Csh*"), g("4-talk/corrside/run*") ]
-plotextreme(C, "min", "correlation")
-savecrop("corrside.pdf")
+    C = [ g("1-fs/corrside/Csh*"), g("2-data/corrside/Csh*"), g("3-play/corrside/Csh*"), g("4-talk/corrside/run*") ]
+    plotextreme(C, "min", "correlation")
+    savecrop("corrside.pdf")
 
-# Efficiency
-E = [ g("1-fs/efftop/*.txt"), g("2-data/efftop/*.txt"), g("3-play/efftop/*.txt"), g("4-talk/efftop/*.txt") ]
-plotextreme(E, "max", "efficiency")
-savecrop("efftop.pdf")
+    # Efficiency
+    E = [ g("1-fs/efftop/*.txt"), g("2-data/efftop/*.txt"), g("3-play/efftop/*.txt"), g("4-talk/efftop/*.txt") ]
+    plotextreme(E, "max", "efficiency")
+    savecrop("efftop.pdf")
 
-E = [ g("1-fs/effside/*.txt"), g("2-data/effside/*.txt"), g("3-play/effside/*.txt"), g("4-talk/effside/*.txt") ]
-plotextreme(E, "max", "efficiency")
-savecrop("effside.pdf")
+    E = [ g("1-fs/effside/*.txt"), g("2-data/effside/*.txt"), g("3-play/effside/*.txt"), g("4-talk/effside/*.txt") ]
+    plotextreme(E, "max", "efficiency")
+    savecrop("effside.pdf")
 
 
-# S11
-S = [ g("1-fs/s11top/Csh*"), g("2-data/s11top/S1*"), g("3-play/s11top/S1*"), g("4-talk/s11top/S1*") ]
-plotextreme(S, "min", "sparam")
-savecrop("s11top.pdf")
+    # S11
+    S = [ g("1-fs/s11top/Csh*"), g("2-data/s11top/S1*"), g("3-play/s11top/S1*"), g("4-talk/s11top/S1*") ]
+    plotextreme(S, "min", "sparam")
+    savecrop("s11top.pdf")
 
-# S22
-S = [ g("1-fs/s22side/Csh*"), g("2-data/s22side/S2*"), g("3-play/s22side/S2*"), g("4-talk/s22side/S2*") ]
-plotextreme(S, "min", "sparam")
-savecrop("s22side.pdf")
+    # S22
+    S = [ g("1-fs/s22side/Csh*"), g("2-data/s22side/S2*"), g("3-play/s22side/S2*"), g("4-talk/s22side/S2*") ]
+    plotextreme(S, "min", "sparam")
+    savecrop("s22side.pdf")
 
-# S21 top
-S = [ g("1-fs/s21top/Csh*"), g("2-data/s21top/S2*"), g("3-play/s21top/S2*"), g("4-talk/s21top/S2*") ]
-plotextreme(S, "min", "sparam")
-savecrop("s21top.pdf")
+    # S21 top
+    S = [ g("1-fs/s21top/Csh*"), g("2-data/s21top/S2*"), g("3-play/s21top/S2*"), g("4-talk/s21top/S2*") ]
+    plotextreme(S, "min", "sparam")
+    savecrop("s21top.pdf")
 
-# S21 side
-S = [ g("1-fs/s21side/Csh*"), g("2-data/s21side/S2*"), g("3-play/s21side/S2*"), g("4-talk/s21side/S2*") ]
-plotextreme(S, "min", "sparam")
-savecrop("s21side.pdf")
+    # S21 side
+    S = [ g("1-fs/s21side/Csh*"), g("2-data/s21side/S2*"), g("3-play/s21side/S2*"), g("4-talk/s21side/S2*") ]
+    plotextreme(S, "min", "sparam")
+    savecrop("s21side.pdf")
+
+
+# Example plot
+S = g("1-fs/s11top/Csh*")
+presplot.figure(figsize=(2.25,1.1))
+fmin = array([])
+smin = array([])
+for i in range(len(S)):
+    m = loadtxt(S[i], skiprows=2).T
+    presplot.sparam(m[0], m[1], linewidth=0.1)
+    if (i == 0):
+        fmin = m[0]
+        smin = m[1]
+    else:
+        smin = minimum(smin, m[1])
+
+presplot.sparam(fmin, smin, "-k", linewidth=1.5)
+presplot.end_sparam()
+savecrop("example.pdf")
 
 # show()
