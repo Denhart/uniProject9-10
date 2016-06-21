@@ -1,21 +1,6 @@
-\section{Tuner PCB}
-
-\def\legendfooter{\scriptsize{\textcolor{bb}{Monopole Sim}, \textcolor{gg}{Monopole Meas}, \textcolor{rr}{Triangle-Feed Meas}, Frequency in MHz.}}
+\section{Ground Clearance}
+\def\legendfooter{\scriptsize{Upper: Top antenna. Lower: Side antenna. \textcolor{bb}{Monopole Sim}, \textcolor{gg}{Monopole Meas}, \textcolor{rr}{Triangle-Feed Meas}, Frequency in MHz.}}
 \def\emptyline{\textcolor{white}{Empty}}
-
-\begin{frame}
-  \frametitle{Outline}
-      \begin{itemize}
-      \item Ground Clearance simulation.
-      \item Tuner PCB with MEMS tuner.
-        \begin{itemize}
-        \item Minimized monopole antenna.
-        \item Triangle-Feed antenna.
-        \item Modified monopole antenna.
-        \end{itemize}
-      \item Conclusion
-      \end{itemize}
-\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Ground Clearance}
@@ -23,7 +8,8 @@
     \column{0.49\linewidth}
       \begin{itemize}
       \item Minimized and simplified monopole design.
-      \item \SI{10}{mm} to \SI{5}{mm} ground clearance simulation
+      \item \SI{10}{mm} to \SI{5}{mm} ground clearance simulation.
+      \item Done while measuring the Triangle-Feed antenna.
       \end{itemize}
     \column{0.49\linewidth}
     \begin{center}
@@ -48,6 +34,9 @@
 \begin{center}
             \includegraphics[scale=0.5]{img/Lasse/samanthas_board.pdf}
 \end{center}
+\begin{itemize}
+\item Use previously made Tuner PCB -- save time.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -81,6 +70,8 @@
         Tuner PCB with the modified monopole.
     \end{columns}
 \end{frame}
+\def\legendfooter{\scriptsize{Upper: Top antenna. Lower: Side antenna. \textcolor{bb}{Monopole Sim}, \textcolor{gg}{Monopole Meas}, Frequency in MHz.}}
+\def\emptyline{\textcolor{white}{Empty}}
 
 \begin{frame}
   \frametitle{Modified Monopole Results.}
@@ -95,7 +86,7 @@
       \end{itemize}
 \legendfooter
 \end{frame}
-\def\legendfooter{\scriptsize{\textcolor{bb}{Monopole without cap}, \textcolor{gg}{Monopole with cap}, Frequency in MHz.}}
+\def\legendfooter{\scriptsize{Upper: Top antenna. Lower: Side antenna. \textcolor{bb}{Monopole without cap}, \textcolor{gg}{Monopole with cap}, Frequency in MHz.}}
 \def\emptyline{\textcolor{white}{Empty}}
 
 \begin{frame}
@@ -124,6 +115,16 @@
     \item Promising prototype results comparable with state-of-the-art designs.
     \item Problems with the resonance in the higher frequencies.
     \item MIMO support in the high band -- high correlation in the low band.
+      \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Future Work}
+      \begin{itemize}
+      \item Simulation of Tuner PCB.
+      \item New Tuner PCB.
+      \item Modified monopole not necessary. 
+      \item Different \SI{5}{mm} antenna designs.
       \end{itemize}
 \end{frame}
 
