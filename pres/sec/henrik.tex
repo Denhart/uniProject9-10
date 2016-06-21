@@ -4,11 +4,11 @@
     \frametitle{Introduction -- Motivation}
     \begin{block}{Tunable Antennas}
       \begin{itemize}
-      \item Even though smartphones has begun to grow in physical size, less space is allocated for the antennas.
-      \item LTE standard requiresterminals to operate in a wide range of frequencies (650-2700)
+      \item Even though smartphones has begun to grow in physical size, less space is allocated for the antennas due to screen, etc..
+      \item LTE standard requires terminals to operate in a wide range of frequencies (650-2700)
       \item MIMO is a large part of LTE, which increases the number of antennas on the device 
       \item Able to make smaller antennas that can cover more bands.
-      \item Approched in a very pratical manner with theory in mind. 
+      \item Approached in a very practical manner with theory in mind. 
       \item Simple simulations and then actual prototypes.
       \end{itemize}
     \end{block}
@@ -38,7 +38,7 @@
           \item LTE
           \item Basic Antenna Theory
           \item Matching circuits \& Tuners
-          \item Propagations Models
+          \item Propagation Models
           \end{itemize}
     \end{block}
         \column{0.49\linewidth}
@@ -78,6 +78,8 @@
     % \freq{usereffect} & Must be able to re-tune any detuning due to user effects. \\ % ???? HAHA
     \freq{matching} & Must have a simple matching network, containing a variable capacitor for tuning inside the specified bands.\\
     \freq{wispry} & Must use a WiSpry WS1040 MEMS variable capacitor chip in the matching network.\\
+    \freq{wispryboard} & Must use the matching network on the \textbf{given board}.\\
+
     \hline
 \end{tabularx}
 
@@ -91,17 +93,18 @@
     \hline
     ID & Specification & Requirement \\
     \hline
-    \sreq{fbands} & Frequency bands\slash tunable range & \num{700}--\SI{960}{MHz}, \num{1710}--\SI{2170}{MHz}, \num{2300}--\SI{2400}{MHz}, \num{2550}--\SI{2650}{MHz} \\
+    \sreq{fbands} & \textbf{Frequency bands\slash tunable range} & \num{700}--\SI{960}{MHz}, \num{1710}--\SI{2170}{MHz}, \num{2300}--\SI{2400}{MHz}, \num{2550}--\SI{2650}{MHz} \\
     \sreq{bandwidthlow} & Minimum tunable bandwidth (\num{700}--\SI{960}{MHz}) & \SI{80}{MHz} (band 8) \\
     \sreq{bandwidthhigh} & Minimum tunable bandwidth (\num{1710}--\SI{2650}{MHz}) & \SI{720}{MHz} (band 15) \\
-    \sreq{physdim} & Physical dimensions & External: $70\times140\times7$\,\si{mm\cubed}, PCB: $55\times120\times1.6$\,\si{mm\cubed} (FR-4)\\
+    \sreq{physdim} & \textbf{Physical dimensions} & External: $70\times140\times7$\,\si{mm\cubed}, PCB: $55\times120\times1.6$\,\si{mm\cubed} (FR-4)\\
     \sreq{copper} & Ground plane copper thickness & \SI{0.035}{mm} \\
     \sreq{retloss} & In-band return loss (impedance bandwidth) & $\text{RL} > \SI{6}{dB}$\\
     \sreq{correlation} & In-band correlation between antenna elements (correlation bandwidth) & $\rho_e < 0.5$\\
     \sreq{efficiency} & In-band total efficiency in free-space (efficiency bandwidth)  & $>\SI{50}{\%}$ \\
     \sreq{sar} & Maximum SAR & \SI{2}{W\per kg} averaged over \SI{10}{g} of tissue\\
-    \sreq{tunable} & Tunable capacitor range (WS1040)& \SI{0.3}{pF} to \SI{2.9}{pF} in steps of \SI{0.2}{pF} (\SI{0.1}{pF} minimum)  \\
+    \sreq{tunable} & \textbf{Tunable capacitor range (WS1040)}& \SI{0.3}{pF} to \SI{2.9}{pF} in steps of \SI{0.2}{pF} (\SI{0.1}{pF} minimum)  \\
     \sreq{ltepower} & Reference power level  & \SI{23}{dBm} (\SI{0.2}{W})\\
+
     \hline
 \end{tabularx}
 
@@ -132,6 +135,16 @@
 
   \end{center}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Technical Solution -- Matching Network}
+    \begin{block}{Matching networks for the three designs}
+  \begin{center} 
+    \includegraphics[width=\textwidth]{img/henrik/schematic_tuning}%
+  \end{center}
+\end{block}
+\end{frame}
+
 
 %\section{Free-space simulations}
 
